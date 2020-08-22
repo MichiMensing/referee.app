@@ -1,119 +1,120 @@
-# Hand Signals
+# Handzeichen
 
 ## Guidelines
 
-1. If 1 or 2 points are credited when a goal is scored (Rules [9](#9), [14:4](#14:4), [Clarification No. 1](#1.-awarding-of-points)), then the court referee must indicate this by displaying 1 or 2 fingers. When 2 points are awarded, the goal referee
-does a full vertical arm swing additionally.
-2. Hand Signal [12](#12---suspension): The referee indicates the rule violation and points
-to the offending player.
-A bent arm, grabbed at the wrist by the other arm, indicates a
-suspension.
-3. The referee uses a red card to indicate an “immediate”
-disqualification.
-4. Disqualifications must be clearly confirmed by a red card being held
-in the air by the scorekeeper.
-5. When a free throw or throw-in is called, the referees must show
-immediately the direction for the throw that is to follow (Hand Signal
-[7](#7---throw-in-–-direction) or [9](#9---free-throw-–-direction)).
+1. Werden für einen Treffer 1 oder 2 Punkte gewertet (Regeln [9](#9), [14:4](#14:4), [Erläuterung No. 1](#1.-wertung-der-punkte)), ist dies vom Feldschiedsrichter mit 1 oder 2 Fingern deutlich
+anzuzeigen. Bei der Wertung von 2 Punkten führt der
+Torschiedsrichter zusätzlich einen senkrechten Armkreis aus.
+2. Handzeichen [12](#12---hinausstellung): Der Schiedsrichter zeigt den Regelverstoß an und
+deutet auf den fehlbaren Spieler.
 
-   Thereafter, as applicable, the appropriate obligatory Hand Signal(s)
-should be given to indicate any personal punishment (Hand Signals
-[12](#12---suspension)-[13](#13---disqualification)).
+   Ein abgewinkelter Arm mit dem gefassten Handgelenk bedeutet eine
+Hinausstellung.
+3. Eine „direkte“ Disqualifikation wird vom Schiedsrichter mit einer roten
+Karte angezeigt.
+4. Disqualifikationen sind vom Sekretär durch deutliches Hochhalten
+einer roten Karte zu bestätigen.
+5. Bei Freiwurf- oder Einwurf-Entscheidungen müssen die
+Schiedsrichter sofort die Richtung des folgenden Wurfs anzeigen (Handzeichen
+[7](#7---einwurf-–-richtung) or [9](#9---freiwurf-–-richtung)).
+
+   Danach sollte(n) situationsgemäß das (die) entsprechende(n),
+zwingend vorgeschriebene(n) Handzeichen gegeben werden, um
+jede persönliche Strafe anzuzeigen (Handzeichens
+[12](#12---hinausstellung)-[13](#13---disqualifikation)).
  
-   If it seems that it would also be useful to explain the reason for a free
-throw or 6-metre throw decision, then the applicable one of Hand
-Signals [1-6](#1---advantage) could be given for the sake of information.
-6. Hand Signals [11](#11.1---gaining-1-point), [14](#14---time-out) and [15](#15---permission-for-two-persons-(who-are-entitled-to-participate)-to-enter-the-court-during-time-out) are mandatory in those situations where
-they apply.
-7. Hand Signals [8](#8---goalkeeper-throw), [10](#10---keep-the-distance-of-1-meter) and [16](#16---forewarning-signal-for-passive-play) are used as deemed necessary by the
-referees.
+   Wenn es auch nützlich zu sein scheint, den Grund für eine Freiwurfoder 6-Meter-Wurf-Entscheidung zu erklären, könnte das
+entsprechende der Handzeichen [1-6](#1---vorteil-spielen) informationshalber gegeben werden.
+6. Die Handzeichen [11](#11.1---punktgewinn-–-1-punkt), [14](#14---time-out) und [15](#15---erlaubnis-für-zwei-teilnahmeberechtigte-personen-zum-betreten-der-spielfläche-bei-time-out)-to-enter-the-court-during-time-out) sind in den Situationen, in denen sie
+Geltung haben, zwingend vorgeschrieben.
+7. Die Handzeichen [8](#8---abwurf), [10](#10---nichtbeachten-des-1-meterabstandes) und [16](#16---warnzeichen-für-passives-spiel) sind dann zu geben, wenn sie von den
+Schiedsrichtern als erforderlich erachtet werden.
 
-**List of the hand signals:**
+**Liste der Handzeichen:**
 
-1. [Advantage](#1---advantage)
-2. [Double dribble](#2---double-dribble)
-3. [Travelling or holding the ball more than three seconds](#3---travelling-or-holding-the-ball-more-than-three-seconds)
-4. [Restraining, holding or pushing](#4---restraining,-holding-or-pushing)
-5. [Hitting](#5---hitting)
-6. [Offensive foul](#6---offensive-foul)
-7. [Throw-in – direction](#7---throw-in-–-direction)
-8. [Goalkeeper throw](#8---goalkeeper-throw)
-9. [Free throw – direction](#9---free-throw-–-direction)
-10. [Keep the distance of 1 meter](#10---keep-the-distance-of-1-meter)
-11. [Gaining Points](#11.1---gaining-1-point)
-    1. [Gaining 1 point](#11.1---gaining-1-point)
-    2. [Gaining 2 points](#11.2---gaining-2-points)
-12. [Suspension](#12---suspension)
-13. [Disqualification](#13---disqualification)
+1. [Vorteil, spielen](#1---vorteil-spielen)
+2. [Fang-, Prell- oder Tippfehler](#2---fang--prell--oder-tippfehler)
+3. [Schritt- oder Zeitfehler](#3---schritt--oder-zeitfehler)
+4. [Umklammern, Festhalten oder Stoßen](#4---umklammern-festhalten-oder-stoßen)
+5. [Schlagen](#5---schlagen)
+6. [Stürmerfoul](#6---stürmerfoul)
+7. [Einwurf – Richtung](#7---einwurf-–-richtung)
+8. [Abwurf](#8---abwurf)
+9. [Freiwurf – Richtung](#9---freiwurf-–-richtung)
+10. [Nichtbeachten des 1-MeterAbstandes](#10---nichtbeachten-des-1-meterabstandes)
+11. [Punktgewinn](#11.1---punktgewinn-–-1-punkt)
+    1. [Punktgewinn – 1 Punkt](#11.1---punktgewinn-–-1-punkt)
+    2. [Punktgewinn – 2 Punkte](#11.2---punktgewinn-–-2-punkte)
+12. [Hinausstellung](#12---hinausstellung)
+13. [Disqualifikation (rote Karte)](#13---disqualifikation)
 14. [Time-out](#14---time-out)
-15. [Permission for two persons (who are entitled to participate)
-    to enter the court during time-out](#15---permission-for-two-persons-(who-are-entitled-to-participate)-to-enter-the-court-during-time-out)
-16. [Forewarning signal for passive play](#16---forewarning-signal-for-passive-play)
+15. [Erlaubnis für zwei teilnahmeberechtigte Personen zum Betreten der Spielfläche bei Time-out](#15---erlaubnis-für-zwei-teilnahmeberechtigte-personen-zum-betreten-der-spielfläche-bei-time-out)
+16. [Warnzeichen für passives Spiel](#16---warnzeichen-für-passives-spiel)
 
-## 1 - Advantage
+## 1 - Vorteil, spielen
 
-![Entering the goal area](../diagrams/signal1.png)
+![Vorteil, spielen](../diagrams/signal1.png)
 
-## 2 - Double dribble
+## 2 - Fang-, Prell- oder Tippfehler
 
-![Double dribble](../diagrams/signal2.png)
+![Fang-, Prell- oder Tippfehler](../diagrams/signal2.png)
 
-## 3 - Travelling or holding the ball more than three seconds
+## 3 - Schritt- oder Zeitfehler
 
-![Travelling or holding the ball more than three seconds](../diagrams/signal3.png)
+![Schritt- oder Zeitfehler](../diagrams/signal3.png)
 
-## 4 - Restraining, holding or pushing
+## 4 - Umklammern, Festhalten oder Stoßen
 
-![Restraining, holding or pushing](../diagrams/signal4.png)
+![Umklammern, Festhalten oder Stoßen](../diagrams/signal4.png)
 
-## 5 - Hitting
+## 5 - Schlagen
 
-![Hitting](../diagrams/signal5.png)
+![Schlagen](../diagrams/signal5.png)
 
-## 6 - Offensive foul
+## 6 - Stürmerfoul
 
-![Offensive foul](../diagrams/signal6.png)
+![Stürmerfoul](../diagrams/signal6.png)
 
-## 7 - Throw-in – direction
+## 7 - Einwurf – Richtung
 
-![Throw-in – direction](../diagrams/signal7.png)
+![Einwurf – Richtung](../diagrams/signal7.png)
 
-## 8 - Goalkeeper throw
+## 8 - Abwurf
 
-![Goalkeeper throw](../diagrams/signal8.png)
+![Abwurf](../diagrams/signal8.png)
 
-## 9 - Free throw – direction
+## 9 - Freiwurf – Richtung
 
-![Free throw – direction](../diagrams/signal9.png)
+![Freiwurf – Richtung](../diagrams/signal9.png)
 
-## 10 - Keep the distance of 1 meter
+## 10 - Nichtbeachten des 1-MeterAbstandes
 
-![Keep the distance of 3 meters](../diagrams/signal10.png)
+![Nichtbeachten des 1-MeterAbstandes](../diagrams/signal10.png)
 
-## 11.1 - Gaining 1 Point
+## 11.1 - Punktgewinn – 1 Punkt
 
-![Gaining 1 Point](../diagrams/signal111.png)
+![Punktgewinn – 1 Punkt](../diagrams/signal111.png)
 
-## 11.2 - Gaining 2 Points
+## 11.2 - Punktgewinn – 2 Punkte
 
-![Gaining 2 Points](../diagrams/signal112.png)
+![Punktgewinn – 2 Punkte](../diagrams/signal112.png)
 
-## 12 - Suspension
+## 12 - Hinausstellung
 
-![Suspension](../diagrams/signal12.png)
+![Hinausstellung](../diagrams/signal12.png)
 
-## 13 - Disqualification
+## 13 - Disqualifikation (rote Karte)
 
-![Disqualification](../diagrams/signal13.png)
+![Disqualifikation (rote Karte)](../diagrams/signal13.png)
 
 ## 14 - Time-out
 
 ![Time-out](../diagrams/signal14.png)
 
-## 15 - Permission for two persons (who are entitled to participate) to enter the court during time-out
+## 15 - Erlaubnis für zwei teilnahmeberechtigte Personen zum Betreten der Spielfläche bei Time-out
 
-![Permission for two persons (who are entitled to participate) to enter the court during time-out](../diagrams/signal15.png)
+![Erlaubnis für zwei teilnahmeberechtigte Personen zum Betreten der Spielfläche bei Time-out](../diagrams/signal15.png)
 
-## 16 - Forewarning signal for passive play
+## 16 - Warnzeichen für passives Spiel
 
-![Forewarning signal for passive play](../diagrams/signal16.png)
+![Warnzeichen für passives Spiel](../diagrams/signal16.png)

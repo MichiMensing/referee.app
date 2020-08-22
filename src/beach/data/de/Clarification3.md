@@ -1,26 +1,31 @@
-## 3. Free-throw execution after the final signal (Rule [2:10-12](#2:10))
+## 3. Freiwurf-Ausführung nach dem Schlusssignal (Regel [2:10-12](#2:10))
 
-In many cases, the team that has the opportunity to execute a free throw
-after the playing time has expired is not really interested in trying to score a
-goal either because the outcome of the game is already clear or because
-the position for the free throw is too far away from the goal of the
-opponents. Although technically the rules require that the free throw should
-be executed, the referees should show good judgment and consider the
-free throw taken if a player who is in the approximately correct position
-simply lets the ball drop or hands it to the referees.
+In vielen Fällen ist die Mannschaft, die Gelegenheit zur Ausführung eines
+Freiwurfs nach Ablauf der Spielzeit hat, nicht wirklich daran interessiert, ein
+Tor zu erzielen, entweder weil das Spielergebnis bereits klar ist oder weil
+die Position des Freiwurfs zu weit vom gegnerischen Tor entfernt ist.
+Obwohl die Regeln vorschreiben, dass der Freiwurf ausgeführt werden
+sollte, sollten die Schiedsrichter ein angemessenes Urteil fällen und den
+Freiwurf als ausgeführt betrachten, wenn ein Spieler, der sich annähernd in
+korrekter Position befindet, den Ball einfach fallen lässt oder diesen den
+Schiedsrichtern aushändigt.
 
-In those cases where it is clear that the team wants to try to score a goal,
-the referees must try to find a balance between allowing this opportunity
-(even though it is a very small one) and ensuring that the situation does not
-deteriorate into a time-consuming and frustrating “theatre”. This means that
-the referees should get the players from both teams into correct positions
-firmly and quickly, so that the free throw can be executed without delay.
-The players of the executing team must be admonished and monitored so
-that only one player holds the ball. If players want to leave the court to be
-substituted, they must do so at their own risk. The referees have no
-obligation to wait for their execution signal until the substitutes are in their
-correct positions.
+In den Fällen, in denen deutlich ist, dass die Mannschaft einen Torwurf
+erzielen möchte, müssen die Schiedsrichter versuchen, ein Gleichgewicht
+zwischen der Gewährung dieser Gelegenheit (selbst wenn es nur eine sehr
+geringe ist) und der Sicherstellung finden, dass die Situation nicht zu einem
+zeitaufwendigen und frustrierenden „Theater" verkommt. Dies bedeutet,
+dass die Schiedsrichter die Spieler von beiden Mannschaften geordnet und
+schnell in die korrekten Positionen bringen sollten, damit der Freiwurf
+unverzüglich ausgeführt werden kann. Die Spieler der werfenden
+Mannschaft müssen angewiesen und überwacht werden, dass nur ein
+Spieler den Ball hält. Wenn Spieler die Spielfläche zur Auswechslung
+verlassen wollen, müssen sie dies auf eigene Gefahr tun. Die
+Schiedsrichter sind nicht verpflichtet, bis zur korrekten Aufstellung der
+eingewechselten Spieler mit dem Anpfiff zu warten.
 
-The referees must also be very alert to punishable violations by both teams.
-Persistent encroachment by the defenders must be punished (Rules [15:7](#15:7), [16:1c](#16:1), [16:2f](#16:2)). Moreover, the attacking players often violate the rules during
-the execution. It is very important not to allow any goals scored illegally.
+Die Schiedsrichter müssen zudem sehr wachsam für zu ahndende
+Verstöße seitens beider Mannschaften sein. Wiederholte Regelwidrigkeiten
+durch die Abwehrspieler müssen geahndet werden (Regeln [15:7](#15:7), [16:1c](#16:1), [16:2f](#16:2)). Überdies verstoßen die Angriffsspieler häufig während der
+Ausführung gegen die Regeln. Es ist äußerst wichtig, keine unzulässig
+erzielten Tore zu gewähren.

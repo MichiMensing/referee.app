@@ -1,3 +1,5 @@
-## 2. Special Circumstances
+## 2. Besondere Umstände
 
-When external circumstances (wind, position of the sun, etc.) so require, the referees may decide to use only one of the goals for the “Shoot-out”.
+Wenn äußere Umstände (Wind, Sonnenstand usw.) es erforderlich
+machen, können die Schiedsrichter entscheiden, das „Shootout” lediglich
+auf ein Tor zu spielen.

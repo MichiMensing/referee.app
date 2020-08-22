@@ -1,100 +1,102 @@
-# Athlete Uniform Regulations
+# Bestimmungen zur Spielkleidung
 
-Athletes’ uniforms and accessories contribute to helping athletes increase
-their performance as well as remain coherent with the sportive and
-attractive image of the sport.
+Spielkleidung und Accessoires tragen gleichermaßen zur
+Leistungssteigerung der Athleten wie zur Wahrung des sportlichen und
+attraktiven Images des Sports bei.
 
-This part of the rules provides all the details concerning uniform and
-accessory specifications with regards to colour, style, quantity, fabric and
-brandings, which all teams and organizers are expected to utilize.
+Dieser Abschnitt der Spielregeln liefert alle Details in Hinblick auf Farbe,
+Stil, Menge, Stoff und Marken von Spielkleidung und Accessoires, die von
+allen Mannschaften und Organisatoren verwendet werden müssen.
 
-The Competition Management (CM) must check each participating team’s
-athletic uniforms during the Technical Meeting (TM) and during the event.
-All men’s and women’s athletic uniforms must correspond to the standards
-indicated hereunder. According to the Olympic Charter, religious, political
-and racial messages are strictly forbidden on athletic uniforms.
+Während der Technischen Sitzung und während des Wettkampfes muss
+die Wettkampfleitung (WL) die Spielkleidung aller teilnehmenden
+Mannschaften prüfen. Die Spielkleidung aller Männer- und
+Frauenmannschaften muss die nachfolgenden Bestimmungen erfüllen.
+Gemäß der Olympischen Charta sind religiös, politisch oder rassistisch
+motivierte Botschaften auf der Spielkleidung strengstens untersagt. 
 
-### Men’s tank top / Women’s top style
-The style of the tank tops / tops must be in accordance with the graphs
-shown. The men’s tank tops must be sleeveless and close fitting, and
-respect the space for the required brandings. The women’s tops (a midriff
-design) must be close fitting as well, with deep cutaway armholes on the
-back, always respecting the space for the required brandings. T-shirts that
-are worn under the team’s official tank top are not allowed.
+### Tank-Tops der Männer / Tops der Frauen 
+Die Tank-Tops und Tops müssen den Abbildungen entsprechen. Die TankTops der Männer müssen ärmellos und eng geschnitten sein, unter
+Berücksichtigung der vorgesehenen Werbeflächen. Die Tops der Frauen
+(bauchfrei) müssen ebenfalls eng geschnitten sein, mit einem weit nach
+innen laufenden Armloch auf dem Rücken unter Berücksichtigung der
+vorgesehenen Werbeflächen. Das Tragen von T-Shirts unter den TankTops für die Mannschaftsoffiziellen ist nicht erlaubt. 
 
-#### Color
-Tank tops / tops will be of bright and light colours (i.e. red, blue, yellow,
-green, orange and white) in the attempt to reflect the colours usually
-used and worn on the beach.
+#### Farbe
+Die Tank-Tops/Tops sind in hellen Farben (rot, blau, gelb, grün,
+orange und weiß) zu halten; damit sind am Strand übliche Farben
+gewählt. 
 
-#### Brandings
-- Promoter’s / sponsor logos:
+#### Werbung
+- Logos der Promoter und Sponsoren:
 
-   The promoter’s/sponsor logos can be printed on the front and back
-of the men’s tank tops and on the front and back of the women’s
-tops.
-- Manufacturer’s logo:
+   Die Logos der Promoter und Sponsoren können auf der Vorder- und
+Rückseite der Tank-Tops der Männer und der Tops der Frauen
+platziert werden. 
+- Herstellerlogos:
 
-   The manufacturer’s logo is printed on the front of the tank tops / tops
-and must not exceed 20 cm2.
+   Das Logo des Herstellers wird auf der Vorderseite der Tank-Tops/Tops
+platziert und ist höchstens 20 cm2
+groß.
 
-#### Athlete’s number
-The athlete’s number (of approx. 12x10 centimetres for the men’s tank
-tops and 8x6 centimetres for the women’s tops) must be placed on the
-front and back of the men’s tank tops and the women’s tops. This
-information must be printed in a contrasting colour to that of the tank
-top / top (i.e. light on a dark tank top/top, dark on a light tank top / top).
+#### Spielernummer
+Die Spielernummern (ca. 12 cm x 10 cm auf den Tank-Tops der
+Männer und 8 cm x 6 cm auf den Tops der Frauen) müssen auf der
+Vorder- und Rückseite platziert werden. Die Farbe der Spielernummer
+muss sich von der Farbe des Tank-Tops/Tops deutlich abheben (z.B.
+helle Nummer auf dunklem Tank-Top/Top; dunkle Nummer auf hellem
+Tank-Top/Top).
 
-### Men’s shorts / Women’s bikini bottoms style
-Team members must wear identical shorts/bikini bottoms. Male athletes
-must wear shorts as per the enclosed graph. The players’ shorts, if not too
-baggy, can be longer but **must remain 10 centimetres above the
-kneecap**. Female athletes must wear bikini bottoms that are in accordance
-with the enclosed graph, with a close fit and cut on an upward angle toward
-the top of the leg. The side width must be **of a maximum of 10
-centimetres**.
+### Männer-Shorts/Bikinihosen der Frauen
+Die Mitglieder einer Mannschaft tragen die gleichen Shorts/Bikinihosen. Die
+Männer-Shorts müssen der angehängten Abbildung entsprechen. Die
+Shorts, sofern sie nicht zu lässig geschnitten sind, können länger sein, aber
+**nicht länger als 10 cm über dem Knie**. Spielerinnen müssen Bikinihosen
+tragen, die der angehängten Abbildung entsprechen. Sie müssen
+körperbetont geschnitten sein, mit einem hohen Beinausschnitt. Die
+Seitenbreite darf **höchstens 10 cm betragen**.
 
-Teams are authorized to have sponsor logos (including manufacturer) on
-their shorts/bottoms (or one-piece bathing suits), located in any position and
-of any size.
+Die Mannschaften dürfen unabhängig von Stelle oder Größe
+Sponsorenlogos (oder Herstellerlogos) auf ihren Shorts / Bikinihosen (oder
+auf ihrem Badeanzug) tragen.
 
-There is no limitation in the number of the sponsors to be displayed on the
-shorts/briefs. Athletes are required to print their name and nickname on
-their shorts/bottoms.
+Die Anzahl der erlaubten Sponsoren auf den Shorts ist nicht begrenzt. Die
+Shorts/Bikinihosen haben die Namen/Spitznamen der Spieler zu tragen.
 
-The respective team officials must submit their own team’s uniforms (tank
-tops / tops, shorts/bottoms or one-piece bathing suits) for approval during
-the pre-competition TM.
+Die jeweiligen Mannschaftsoffiziellen müssen ihre eigene Kleidung (TankTops/Tops, Shorts/Bikinihosen oder Badeanzug) während der Technischen
+Sitzung vor Wettkampfbeginn zur Genehmigung vorlegen.
 
-T-shirts that are worn under the team’s official tank top are not allowed.
+Die Mannschaftsoffiziellen dürfen unter den Tank-Tops keine T-Shirts
+tragen.
 
-Furthermore, any thermo-trousers must be in the same colour of the
-respective part of the uniform.
+Des Weiteren muss die Farbe von Thermohosen mit der Farbe des
+entsprechenden Teils der Ausrüstung übereinstimmen. 
 
-### Cold temperature
-During severe weather conditions, players will be allowed to use
-uniforms composed of tight shirt, long tight pants (down to the ankle
-and not to the knees). These must be consistent in style and colour
-following the same marketing rules as for the players’ shorts and briefs,
-regardless of size and position. The CM will be ultimately responsible
-to allow players to wear such a special uniform whenever will be
-required, after having consulted with the official medical staff.
+### Bei kalter Witterung
+Bei extremen Witterungsbedingungen dürfen die Spieler enge Shirts
+und lange enge Hosen (nicht bis zum Knie sondern bis zum Knöchel)
+tragen. Bezüglich Schnitt und Farbe müssen diese ebenfalls die für
+Shorts/Bikinihosen geltenden Marketing-Bestimmungen erfüllen,
+unabhängig von Größe und Position. Die Wettkampfleitung ist
+letztendlich und nach Rücksprache mit der medizinischen Abteilung für
+die Genehmigung dieser besonderen Spielkleidung verantwortlich.
 
-The cold weather uniform shall be composed of a tight shirt with long
-or short sleeve and/or long tight pants. This uniform must be tight to
-the body and consistent in style, length and colour for all athletes within
-the same team.
+Die Spielkleidung bei kalter Witterung besteht aus einem engen Shirt
+mit langen oder kurzen Ärmeln und/oder langen engen Hosen. Die
+Kleidung muss körperbetont und für eine Mannschaft einheitlich in Stil,
+Länge und Farbe sein.
 
-For the cold weather tank tops / tops, sponsor logos are allowed on the
-cold weather gear for both men and women. For cold weather pants,
-sponsor logos are allowed both for men (wearing their shorts on top)
-and women (not wearing their briefs on top), according to the general
-ruling, as stated above.
+Sponsorenlogos auf der Spielkleidung der Männer und Frauen bei
+kalter Witterung sind erlaubt. Gemäß den oben genannten
+Bestimmungen sind Sponsorenlogos auf den bei kalter Witterung
+getragenen langen Hosen erlaubt (dabei können die Männer-Shorts
+über der Hose getragen werden). Spielerinnen allerdings dürfen ihre
+Bikinihose nicht über der langen Hose tragen.
 
-### Men's Uniform
+### Spielkleidung der Männer
 
-![Men's Uniform](../diagrams/menUniform.png)
+![Spielkleidung der Männer](../diagrams/menUniform.png)
 
-### Women's Uniform
+### Spielkleidung der Frauen
 
-![Women's Uniform](../diagrams/womenUniform.png)
+![Spielkleidung der Frauen](../diagrams/womenUniform.png)

@@ -1,37 +1,41 @@
-## 8. Interruption by the timekeeper (Rule [18:1](#18:1))
+## 8. Unterbrechung durch den Zeitnehmer (Regel [18:1](#18:1))
 
-If a timekeeper interrupts the game due to a faulty substitution or illegal
-entry under Rules [4:4](#4:4), [4:6](#4:6), [4:13](#4:13), [4:14](#4:14) the game is restarted with a free
-throw for the opponents, normally at the place of the infringement. If,
-however, the ball was at a more favourable position for the opponents at
-the time of the interruption, then the free throw should be taken from that
-place (see Rule [13:8](#13:8), 3rd and 4th paragraphs).
+Wenn ein Zeitnehmer das Spiel wegen eines Wechselfehlers oder
+regelwidrigen Eintretens gemäß Regel [4:4](#4:4), [4:6](#4:6), [4:13](#4:13), [4:14](#4:14)  unterbricht, wird
+das Spiel mit einem Freiwurf für die gegnerische Mannschaft wieder
+aufgenommen, normalerweise an der Stelle des Verstoßes. Befand sich der
+Ball zum Zeitpunkt der Unterbrechung jedoch an einer günstigeren Position
+für die gegnerische Mannschaft, sollte der Freiwurf an dieser Stelle
+ausgeführt werden (siehe Regel [13:8](#13:8), Absatz 3 und 4).
 
-In the case of such infringements, the timekeeper shall interrupt the game
-immediately, without regard to the general “advantage rules” in Rules [13:2](#13:2)
-and [14:2](#14:2). If a clear scoring chance is destroyed because of such an
-interruption, when it is caused by an infringement on the part of the
-defending team, then a 6-metre throw shall be awarded in accordance with
-Rule [14:1a](#14:1).
+Im Falle solcher Verstöße muss der Zeitnehmer das Spiel umgehend
+unterbrechen, ohne die allgemeinen „Vorteilsregeln" gemäß Regeln [13:2](#13:2)
+und [14:2](#14:2) zu berücksichtigen. Wenn wegen einer solchen Unterbrechung
+aufgrund eines Verstoßes seitens der abwehrenden Mannschaft eine klare
+Torgelegenheit vereitelt wird, muss gemäß 
+Regel [14:1a](#14:1) auf 6-Meter-Wurf
+entschieden werden.
 
-In the event of other types of infringements that need to be reported to the
-referees, the timekeeper should generally wait until the next interruption of
-the game.
+Im Falle anderer Arten von Verstößen, die den Schiedsrichtern zu melden
+sind, sollte der Zeitnehmer im Allgemeinen bis zur nächsten
+Spielunterbrechung warten.
 
-If the timekeeper nevertheless interrupts the game, such an intervention
-cannot lead to a loss of possession. The game will be restarted with a free
-throw for the team which had possession at the time of the interruption. If,
-however, the interruption was caused by an infringement on the part of the
-defending team, and the referees judge that the premature interruption
-destroyed a clear chance of scoring for the opponents, then a 6-metre
-throw shall be awarded in analogy with Rule [14:1b](#14:1). As a general principle,
-infringements observed and reported by the timekeeper/scorekeeper
-(except as mentioned under Rules [4:4](#4:4), [4:6](#4:6), [4:13](#4:13), [4:14](#4:14)) do not lead to
-personal punishments.
+Wenn der Zeitnehmer dennoch das Spiel unterbricht, kann ein solcher
+Eingriff nicht zum Verlust des Ballbesitzes führen. Das Spiel wird mit einem
+Freiwurf für die Mannschaft wiederaufgenommen, die zum Zeitpunkt der
+Unterbrechung in Ballbesitz war. Wenn aber die Unterbrechung durch einen
+Verstoß seitens der abwehrenden Mannschaft verursacht wurde und die
+Schiedsrichter der Meinung sind, dass die verfrühte Unterbrechung eine
+klare Torgelegenheit für die angreifende Mannschaft vereitelt hat, muss
+gemäß Regel [14:1b](#14:1) auf 6-Meter-Wurf entschieden werden. Grundsätzlich
+führen vom Zeitnehmer/ Sekretär beobachtete und gemeldete Verstöße
+(ausgenommen Regeln [4:4](#4:4), [4:6](#4:6), [4:13](#4:13), [4:14](#4:14)) nicht zu persönlichen Strafen.
 
-The provision for awarding a 6-metre throw in accordance with Rule [14:1a](#14:1),
-as indicated in the second paragraph above, applies also if a referee or
-technical delegate (from the IHF or a Continental/National Federation)
-interrupts the game for an infringement leading to a verbal warning or a
-punishment against a player or an official of the defending team, at a
-moment when the team in possession has a clear chance of scoring.
+Die Bestimmung für eine 6-Meter-Entscheidung laut Regel [14:1a](#14:1),
+wie im 2. Absatz weiter oben bereits erklärt wird, trifft auch zu, wenn ein
+Schiedsrichter oder Technischer Delegierter (von der IHF oder einem
+kontinentalen bzw. nationalen Verband) das Spiel wegen einer
+Regelwidrigkeit, die zu einer Ermahnung oder Strafe gegen einen Spieler
+oder Offiziellen der abwehrenden Mannschaft führt, in dem Moment
+unterbricht, wenn die angreifende Mannschaft eine klare Torgelegenheit
+hat.

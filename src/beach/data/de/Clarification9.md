@@ -1,9 +1,10 @@
-## 9. Shoot-out and fast break
+## 9. Shootout und schneller Gegenstoß
 
-If during a Shoot-out or fast break the defending goalkeeper or player
-obstructs the running path of the attacking player, causing a physical
-contact, both a 6-metre throw and a suspension or a disqualification shall
-be awarded.
+Verstellt der verteidigende Torwart oder Spieler den Laufweg des
+angreifenden Spielers bei einem Shootout oder einem schnellen
+Gegenstoß, und kommt es zu einem Kontakt zwischen diesen beiden
+Spielern, ist auf 6-Meter-Wurf und Hinausstellung oder Disqualifikation zu
+entscheiden.
 
-The defending goalkeeper or player always bears the responsibility of this
-kind of action.
+Der verteidigende Torwart oder Spieler trägt die Verantwortung für diese
+Aktion.

@@ -42,7 +42,7 @@ const English = () => {
 
   const text = `
     ${foreword}
-    <h1 id="rules-of-the-game">${t("rules.rules")}</h1>
+    <h1 id="spielregeln">${t("rules.rules")}</h1>
     ${rule1}
     ${rule2}
     ${rule3}
@@ -62,7 +62,7 @@ const English = () => {
     ${rule17}
     ${rule18}
     ${handSignals}
-    <h1 id="clarifications-to-the-rules-of-the-game">${t("rules.clarifications")}</h1>
+    <h1 id="erläuterungen-zu-den-spielregeln">${t("rules.clarifications")}</h1>
     ${clarification1}
     ${clarification2}
     ${clarification3}

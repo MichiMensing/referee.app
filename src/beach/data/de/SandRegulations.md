@@ -1,49 +1,55 @@
-# Sand Quality and Lighting Regulations
+# Bestimmungen zur Beschaffenheit des Sandes und Beleuchtung
 
-## Sand quality requirements in Beach Handball
+## Bestimmung zur Beschaffenheit des Sandes im Beach Handball
 
-Sand selection is probably the most important factor in court construction.
-The sand should be sifted to an acceptable size and has to be not too
-coarse, free of stones and dangerous particles. It should not be too fine to
-cause dust and stick to the skin.
+Die Auswahl des Sandes ist wahrscheinlich der wichtigste Faktor bei der
+Konstruktion einer Spielfläche. Der Sand sollte entsprechend gesiebt,
+demnach nicht zu grobkörnig, und frei von Steinen und anderen
+gefährlichen Partikeln sein. Er sollte allerdings auch nicht zu fein sein, dass
+er aufgewirbelt wird und auf der Haut kleben bleibt.
 
-Any sand that is used should incorporate the following specifications:
-- Washed: The sand should be double washed and free of silt and
-clay in order to prevent compaction.
-- Particle size: The size of the sand particles should be between 0.5
-and 1 millimetre to allow for proper drainage and maximum safety.
-- Particle shape: A sub angular shape will resist compaction and
-assist the drainage.
-- Color: Tan coloured sand absorbs less heat with minimal glare.
-- Source: A granite-based sand (non-calcareous - no calcium or
-limestone) remains stable under all weather conditions and is
-unaffected by acid rain.
+Der eingesetzte Sand muss folgende Bedingungen erfüllen:
+- Waschen: Der Sand muss 2-fach gewaschen werden, damit er frei
+von Schlamm und Lehm ist, um auf diese Weise ein Verkleben zu
+vermeiden.
+- Korngröße: Die Sandkörner sollten zwischen 0,5 mm und 1 mm groß
+sein, um eine gute Filterung und maximale Sicherheit zu
+gewährleisten.
+- Kornform: Eine kantige Form beugt Verklebung vor und unterstützt
+die Filterung.
+- Farbe: Bräunlicher Sand absorbiert weniger Hitze bei minimaler
+Reflektion.
+- Ursprung: Granitsand (kalkfrei – ohne Kalzium oder Kalkstein) bleibt
+bei allen Witterungsbedingungen stabil und ist auch bei saurem
+Regen geeignet.
 
-For high-quality Beach Handball sand the following formula should be followed:
+Für hochqualitativen Beach Handball sollten folgende Daten beachtet
+werden:
 
-|Name | Particle diameter | Specifications (% retention in sieves)|
+|Name | Korndurchmesser | Vorgabe (% Siebrückstand)|
 |----|------------------|-------------|
-|Fine gravel |2.0mm |0%|
-|Very coarse sand |1.0mm - 2.0mm |0% - 6%|
-|Coarse sand |0.5mm - 1.0mm |min. 80%|
-|Medium sand |0.25mm - 0.5mm |max. 92%|
-|Fine sand |0.15mm - 0.25mm |7% - 18%|
-|Very fine sand |0.05mm - 0.15mm |not greater than 2.0%|
-|Silt and clay |below 0.05mm |not greater than 0.15%|
+|Feinkies |2.0mm |0%|
+|Sehr grober Sand |1.0mm - 2.0mm |0% - 6%|
+|Grobsand |0.5mm - 1.0mm |min. 80%|
+|Mittelsand |0.25mm - 0.5mm |max. 92%|
+|Feinsand |0.15mm - 0.25mm |7% - 18%|
+|Sehr feiner Sand  |0.05mm - 0.15mm |nicht mehr als 2.0%|
+|Schlammkorn |unter 0.05mm |nicht mehr als 0.15%|
 
-## Lighting requirements in Beach Handball
-If play is to take place at night, the court area should be illuminated to allow
-players, officials and those watching both at the grounds and at home on
-television to see the action clearly. This means the levels of brightness,
-contrast and glare must be correctly designed over the entire playing area.
-Lighting levels depend also on the size of the venue.
+## Bestimmung zur Beleuchtung im Beach Handball
+Bei in der Nacht stattfindenden Spielen sollte die Spielfläche beleuchtet
+sein, damit Spieler, Offizielle und Zuschauer vor Ort und vor den TVBildschirmen das Spiel deutlich verfolgen können. Somit müssen Helligkeit,
+Kontrast und Blendlicht über das gesamte Spielfeld sorgfältig geplant
+werden. Die Beleuchtung ist auch von der Größe des Austragungsortes
+abhängig.
 
-In case of international night competition, artificial lighting of 1 000 to 1 500
-lux (minimum) measured at 1 metre above the playing surface must be
-available. Artificial light may also be operating during daytime - upon
-television request - in order to reduce the impact of the shadow. 
+Bei internationalen Flutlichtveranstaltungen muss eine Beleuchtung von
+mindestens 1 000 bis 1 500 Lux verfügbar sein, die in einem Meter über der
+Spielfläche gemessen wird. Die Beleuchtung kann auf Anfrage des
+Fernsehens auch tagsüber eingesetzt werden, um Schatteneffekten
+entgegen zu wirken.
 
-Indicative minimum lighting (lux) levels:
+Richtwerte für die Mindestbeleuchtung (Lux):
 Training: 120 lux
-Local competition: up to 400 lux
-International competition: 1 000 to 1 500 lux
+Regionale Wettkämpfe: bis zu 400 lux
+Internationale Wettkämpfe: 1 000 bis 1 500 lux

@@ -1,17 +1,21 @@
 # Vorwort
 
-These Rules of the Game will take effect on 8 July 2014.
+Diese Spielregeln treten mit Wirkung vom 8. Juli 2014 in Kraft.
 
-For the sake of simplicity, this rule book generally uses the male form of words with respect to female and male players, officials, referees and other persons.
+Um eine sprachliche Vereinfachung zu erreichen, wird in diesem Regelwerk
+generell für weibliche und männliche Spieler, Offizielle, Schiedsrichter und
+andere Personen die männliche Form benutzt.
 
-However, the rules apply equally to both female and male participants, except Rule 3 (size of the ball).
+Die Regeln sind mit Ausnahme von Regel 3 (Ballgröße) für weibliche und
+männliche Teilnehmer gleichermaßen anwendbar. 
 
-**The Philosophy of Beach Handball is based on the principles of “Fair Play”. Every decision has to be taken in accordance with these principles.**
+**Die Philosophie von Beach Handball basiert auf dem Grundsatz des „Fairplay“, der bei jeder Entscheidung zu berücksichtigen ist. ***
 
-Fair Play means:
-- Respect the health, integrity and body of the players.
-- Respect the spirit and philosophy of the game.
-- Respect the flow of the game, but never tolerate an advantage taken by violating the rules.
-- Promote the spirit of true sportsmanship and pursue the cultural and athletic mission of the event.
+Fair-Play bedeutet:
+- Achte die Gesundheit, Würde und den Körper der Spieler.
+- Achte den Spielgeist und die Spielphilosophie.
+- Achte den Spielfluss aber toleriere niemals einen durch eine Regelwidrigkeit erzielten Vorteil.
+- Zeige wahren Sportgeist und handle im Sinne des kulturellen und sportlichen Ziels der Veranstaltung.
 
-According to the Philosophy of Beach Handball (attractiveness of the game – two teams playing as much as possible in full strength), any infringements awarded during play shall be against players as individuals and not team fouls.
+Im Einklang mit der Philosophie von Beach Handball (beide Mannschaften sollten, wenn möglich, vollzählig spielen, damit ein attraktives Spiel zustande kommt) wird bei Regelverstößen der einzelne Spieler bestraft; es
+gibt keine Mannschaftsfouls.

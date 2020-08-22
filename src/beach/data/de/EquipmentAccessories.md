@@ -1,74 +1,74 @@
-# Regulations on Protective Equipment and Accessories
+# Ausrüstungsreglement
 
-Edition: July 2017
+Ausgabe: Juli 2017
 
-Source: https://www.ihf.info/sites/default/files/2019-07/0_Regulations%20on%20Protective%20Equipment%20and%20Accessories_GB.pdf
+Quelle: https://www.ihf.info/sites/default/files/2019-07/0_Regulations%20on%20Protective%20Equipment%20and%20Accessories_GB.pdf
 
-## 1. Head/face protection
+## 1. Kopf- und Gesichtsschutz
 
-![Head/face protection](../diagrams/equipment1.png)
+![Kopf- und Gesichtsschutz](../diagrams/equipment1.png)
 
-## 2. Headbands
+## 2. Stirnbänder
 
-![Headbands](../diagrams/equipment2.png)
+![Stirnbänder](../diagrams/equipment2.png)
 
-## 3. Glasses and goggles
+## 3. Schutzbrillen
 
-![Glasses and goggles](../diagrams/equipment3.png)
+![Schutzbrillen](../diagrams/equipment3.png)
 
-## 4. Tooth protection
+## 4. Mundschutz
 
-![Tooth protection](../diagrams/equipment4.png)
+![Mundschutz](../diagrams/equipment4.png)
 
-## 5. Shoulder protection and compression sleeves
+## 5. Schulterschutz und Kompressionsbandagen
 
-![Shoulder protection and compression sleeves](../diagrams/equipment5.png)
+![Schulterschutz und Kompressionsbandagen](../diagrams/equipment5.png)
 
-## 6. Elbow protection
+## 6. Ellbogenschutz
 
-![Elbow protection](../diagrams/equipment6.png)
+![Ellbogenschutz](../diagrams/equipment6.png)
 
-## 7. Knee protection
+## 7. Knieschutz
 
-![Knee protection](../diagrams/equipment7.png)
+![Knieschutz](../diagrams/equipment7.png)
 
-## 8. Compression calf supports
+## 8. Kompressionsstutzen
 
-![Compression calf supports](../diagrams/equipment8.png)
+![Kompressionsstutzen](../diagrams/equipment8.png)
 
-## 9. Ankle joint protection
+## 9. Sprunggelenkschutz
 
-![Ankle joint protection](../diagrams/equipment9.png)
+![Sprunggelenkschutz](../diagrams/equipment9.png)
 
-## 10. Clothes
+## 10. Kleidung
 
-***Summary:***
+***Zusammenfassung:***
 
-- Long leg wear is not allowed (with the exception of the goalkeeper).
+- Lange Hosen sind nicht erlaubt (Ausnahme: Torwart).
 
-- Four pieces (undershorts + knee protector + compression calf supports + socks) are allowed. These must be four separate pieces.
+- Die Kombination aus Unterziehhose, Knieschützer, Kompressionsstutzen und Socken ist nur erlaubt, wenn es sich dabei um vier separate Teile handelt.
 
-- Compression and long sleeves must match the dominant colour of the shirt.
+- Die Farbe von Kompressionsbandagen und langärmligen Unterziehhemden muss der Hauptfarbe des Trikots entsprechen.
 
-- Undershorts must match the dominant colour of the shorts.
+- Die Farbe von Unterziehhosen muss der Hauptfarbe der Hose entsprechen.
 
-- Compression calf supports must match the colour of the socks.
+- Die Farbe von Kompressionsstutzen muss der Farbe der Socken entsprechen.
 
-- Ankle protectors must match the colour of the socks.
+- Die Farbe von Sprunggelenkprotektoren muss der Farbe der Socken entsprechen.
 
-- Elbow and knee protectors may be of any colour(s).
+- Ellbogen- und Knieschützer sind in beliebigen Farben erlaubt.
 
-![Clothes Part 1](../diagrams/equipment10a.png)
+![Kleidung Teil 1](../diagrams/equipment10a.png)
 
-![Clothes Part 2](../diagrams/equipment10b.png)
+![Kleidung Teil 2](../diagrams/equipment10b.png)
 
-![Clothes Part 3](../diagrams/equipment10c.png)
+![Kleidung Teil 3](../diagrams/equipment10c.png)
 
-## 11. Accessories
+## 11. Besondere Ausrüstungsgegenstände
 
-![Accessories Part 1](../diagrams/equipment11a.png)
+![Besondere Ausrüstungsgegenstände Teil 1](../diagrams/equipment11a.png)
 
-![Accessories Part 2](../diagrams/equipment11b.png)
+![Besondere Ausrüstungsgegenstände Teil 2](../diagrams/equipment11b.png)
 
 
 

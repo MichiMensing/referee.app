@@ -1,17 +1,26 @@
-## 1. Awarding of Points (Rule [9](#9))
+## 1. Wertung der Punkte (Regel [9](#9:1))
 
-**Also in the following scoring situation two points are awarded.**
-A goal scored in “in-flight” (Rule [9:2](#9:2)).
+**Die folgende Torsituation wird auch mit zwei Punkten gewertet.**
+Ein im „Flug“ erzieltes Tor (Regel [9:2](#9:2)).
 
-Two points are awarded only if the player who is in-flight controls the ball and shots on goal while in the air (“slap” the ball or just “push” the ball into the goal is worth of a one-point goal).
+Zwei Punkte werden nur vergeben, wenn der Spieler den Ball im Flug
+kontrolliert auf das Tor wirft (den Ball ins Tor „schlagen“ oder „schieben“
+wird als „1-Punkt“-Tor gewertet).
 
-***Comment:***
-Both the spirit of the game of Beach Handball and its specific philosophy have to be respected.
+***Kommentar:***
+Der Geist des Beach-Handball-Spiels und seine besondere Philosophie
+müssen stets berücksichtigt werden.
 
-There has to be space for "creative or spectacular goals", which will be awarded 2 points.
+Für „kreative und/oder spektakuläre Tore“, welche mit 2 Punkten gewertet
+werden, muss es stets Platz geben.
 
-A goal is spectacular if it is of high technical standard and it is evidently not a "1-point goal", which is based on fundamental technical skills.
+Ein Tor ist spektakulär, wenn es einen hohen technischen Standard
+aufweist und deutlich kein „1-Punkt“ Tor ist. („Ein-Punkt“-Tore basieren auf
+fundamentalen technischen Anforderungen.)
 
-A remarkable and dramatic final action may lead to a creative goal.
+Eine bemerkenswerte und dramatische Final-Aktion kann zu einem
+kreativen Tor führen.
 
-Remark: If such goals clearly aim at "ridiculing" the opposing players, it shall be considered as unsportsmanlike conduct and shall never lead to a "2-point goal" (Fair Play).
+Bemerkung: Wenn solche Tore den Gegner lächerlich machen sollen, ist
+dies als unsportliches Verhalten zu werten, und diese Tore dürfen nie mit 2
+Punkten bewertet werden (Fair Play).

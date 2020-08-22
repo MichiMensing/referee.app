@@ -19,9 +19,9 @@
       "rules": "Spielregeln",
       "rule": {
         "rule1": "Die Spielfläche",
-        "rule2": "Spielzeit, Schlusssignal, Time-out",
+        "rule2": "Spielbeginn, Spielzeit, Schlusssignal, Time-out und Team-Time-out",
         "rule3": "Der Ball",
-        "rule4": "Mannschaft, Auswechselung, Ausrüstung",
+        "rule4": "Mannschaft, Auswechslung, Ausrüstung",
         "rule5": "Der Torwart",
         "rule6": "Der Torraum",
         "rule7": "Spielen des Balles, passives Spiel",
@@ -42,10 +42,10 @@
       "sar": "Auswechselraum-Reglement",
       "athlete-uniform-regulations": "Bestimmungen zur Spielkleidung",
       "sand-quality-and-lighting-regulations": "Bestimmungen zur Beschaffenheit des Sandes und Beleuchtung",
-      "glossary": "Wörterliste",
+      "glossary": "Glossar",
       "equipment-accessories": "Ausrüstungsreglement",
-      "edition": "Ausgabe: 8 July 2014",
-      "source": "Quelle: https://www.german-beach-open.com/app/download/7047512/IHF+Spielregeln+Beach+Handball_DE.pdf"
+      "edition": "Ausgabe: 8. Juli 2014",
+      "source": "Quelle: https://www.ihf.info/sites/default/files/2019-05/0_09%20-%20Spielregeln%20Beach%20Handball_ALL.pdf"
     },
     "rulestest": {
       "question": "Frage",

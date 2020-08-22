@@ -1,17 +1,8 @@
-## 6. Seriously unsportsmanlike conduct (Rules [8:6](#8:6), [16:6e](#16:6))
+## 6. Grob unsportliches Verhalten (Regeln [8:6](#8:6), [16:6e](#16:6))
 
-Examples of seriously unsportsmanlike conduct are:
-- a) Insulting behaviour (through speech, facial expressions, gestures or
-body contact) directed at another person (referee, timekeeper/
-scorekeeper, delegate, team official, player, spectator etc.);
-- b) Throwing or pushing the ball away after a decision by the referees if
-the ball goes so far that the action cannot be seen as just
-unsportsmanlike conduct;
-- c) If the goalkeeper demonstrates such a passive attitude when a 6-metre
-throw has been awarded to the opponent that the referee must assume
-that he is not trying to stop the shot;
-- d) Taking revenge after having been fouled (hitting back in a reflex
-action);
-- e) Deliberately throwing the ball at an opponent during a stoppage in the
-game unless it is done in such a way that it must be regarded as an
-assault.
+Grob unsportliches Verhalten kann beispielsweise sein:
+- a) Beleidigungen (durch Sprache, Gestik, Mimik oder Körperkontakt) gegenüber einer anderen Person (Schiedsrichter, Zeitnehmer/ Sekretär, Delegierter, Offizieller, Spieler, Zuschauer etc.);
+- b) Wegwerfen oder -stoßen des Balls nach einer Schiedsrichterentscheidung, wenn der Ball so weit fliegt, dass die Handlung nicht mehr als einfaches unsportliches Verhalten angesehen werden kann;
+- c) Derart passive Haltung des Torwarts bei einer 6-m-Ausführung durch den Gegenspieler, dass der Schiedsrichter annehmen muss, dass der Torwart nicht versucht, den 6-m-Wurf abzuwehren;
+- d) Revanche nehmen nach einem erlittenen Foul (im Reflex zurückschlagen);
+- e) Den Ball während einer Spielunterbrechung bewusst auf einen Gegenspieler werfen, wenn dieses nicht als Tätlichkeit zu bewerten ist.

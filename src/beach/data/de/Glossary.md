@@ -1,19 +1,19 @@
-# Glossary of Terms
+# Glossar
 
-| Term | Definition |
+| Wort | Definition |
 |-------|-----------|
-|**Advantage (Rule of)**| A clause in the Rules of the Game that gives the referees the discretion to allow play to continue even after a foul has been committed if stopping play would unfairly punish the fouled team.|
-|**Counter-attack** | A return attack.|
-|**Creative(shot, action)** | Characterized by originality and expressiveness; imaginative.|
-|**Fair Play**| Conformance to the rules, spirit and etiquette of sport; the ethos of sport. |
-|**Golden Goal** | Rule that allows the team that scores the first goal to be declared the winner. |
-|**In-flight** | Flying through the air. |
-|**Own goal** | Player scores a goal registered against his own team.|
-|**Shoot-out** | A means of resolving a tie, in which an equal number of players from each side alternately take shots on the goal defended by the goalkeeper. |
-|**Travelling** | Violation of the rules that occurs when a player takes too many steps without dribbling the ball.|
-|**Turnover** | Occurs when a team gives possession to the opposing team by losing the ball by any means (pass intercepted, missed shot, infraction of the rules). |
-|**Fast break** |A team attempt to move the ball up court and into scoring position as quickly as possible, so that the defence is outnumbered and does not have time to set up. |
-|**Fumbling** | Occurs when a player, who has possession of the ball, drops or mishandles the ball that is in play.|
-|**Spectacular (goal)**| Of the nature of a spectacle; impressive or sensational; thrilling in effect; a lavishly produced performance (a spectacular goal is awarded 2 pts.).|
-|**Spin shot**| A shot taken with full turn of the body in the air.|
-|**Stealing, Interception** |Taking the ball away from an opponent who is in possession of the ball or intercepting a pass.|
+|**Vorteil (Vorteilsregel)**| Eine Bestimmung in den Spielregeln, gemäß welcher der Schiedsrichter das Spiel nach seinem Ermessen nach einer Regelwidrigkeit weiterlaufen lassen kann, wenn eine Spielunterbrechung die gefoulte Mannschaft ungerecht bestrafen würde.|
+|**Gegenstoß** | Gegenangriff|
+|**Kreativer Wurf (kurze, kreative Aktion)** | Durch Originalität und Ausdruckskraft gekennzeichnet; einfallsreich.|
+|**Fairplay**| Beachtung von Regeln, Geist und Etikette des Sports; Ethos des Sports. |
+|**Golden Goal** | Regel, die diejenige Mannschaft, die das erste Tor wirft, zum Sieger erklärt. |
+|**Im Flug** | Durch die Luft fliegend. |
+|**Eigentor** | Ein gegen die eigene Mannschaft erzieltes Tor.|
+|**Shoot-out** | Herbeiführung einer Entscheidung bei Gleichstand, bei dem die gleiche Anzahl an Spielern auf jeder Seite im Wechsel auf das Tor wirft, wobei der Torhüter überwunden werden muss.|
+|**Schrittfehler** | Regelverstoß bei mehr als drei Schritten, ohne den Ball zu prellen.|
+|**Ballbesitzwechsel** | Gegnerische Mannschaft ist in Ballbesitz, nachdem der Ball verloren wurde (abgefangener Pass, verworfener Ball, Regelverstoß). |
+|**Schneller Gegenstoß** |Versuch einer Mannschaft, den Ball so schnell wie möglich zum gegnerischen Tor zu bringen und eine gute Torwurfposition zu erlangen, sodass die Abwehr in Unterzahl ist und keine Zeit hat, sich zu ordnen. |
+|**Fumbeln** |Der ballführende Spieler lässt den Ball fallen oder kann ihn nicht kontrollieren.|
+|**Spektakuläres Tor**| Spektakel; beeindruckend oder sensationell; begeisternd; aufwendig (ein spektakuläres Tor wird mit zwei Punkten gewertet).|
+|**Dreher**| Wurf mit einer 360°-Drehung in der Luft.|
+|**Ballabnahme, Abfangen** |Dem ballbesitzenden Gegner den Ball abnehmen oder einen Pass abfangen.|
