@@ -14,9 +14,12 @@ describe("mapRuleToAnchor", () => {
     const en = texts.map((text) => mapRuleToAnchor(text, "en"));
     const de = texts.map((text) => mapRuleToAnchor(text, "de"));
     const es = texts.map((text) => mapRuleToAnchor(text, "es"));
+    const fr = texts.map((text) => mapRuleToAnchor(text, "fr"));
 
     expect(en).toMatchSnapshot();
     expect(de).toMatchSnapshot();
     expect(es).toMatchSnapshot();
+    expect(fr).toMatchSnapshot();
+
   });
 });
