@@ -142,8 +142,8 @@ export default function mapRuleToAnchor(rule: string, language: string) {
         return "#gestoformas";
       case "de":
         return "#handzeichen";
-        case "fr":
-          return "#gestes-des-arbitres";
+      case "fr":
+        return "#gestes-des-arbitres";
       default:
         return "#hand-signals";
     }

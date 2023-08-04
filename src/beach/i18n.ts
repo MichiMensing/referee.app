@@ -15,7 +15,7 @@ const i18n = {
     de,
     fr,
   },
-  whitelist: ["en", "es", "de","fr"],
+  whitelist: ["en", "es", "de", "fr"],
 };
 
 export default i18n;
