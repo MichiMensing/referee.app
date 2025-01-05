@@ -20,6 +20,5 @@ describe("mapRuleToAnchor", () => {
     expect(de).toMatchSnapshot();
     expect(es).toMatchSnapshot();
     expect(fr).toMatchSnapshot();
-
   });
 });
