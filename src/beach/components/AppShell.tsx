@@ -18,6 +18,7 @@ import us from "../../img/us.svg";
 import es from "../../img/es.svg";
 import de from "../../img/de.svg";
 import fr from "../../img/fr.svg";
+import { Helmet } from "react-helmet-async";
 
 const HandballRules = loadable(() => import("./HandballRules"), {
   fallback: <Loading />,
@@ -36,7 +37,7 @@ const Stats = loadable(() => import("../../core/components/stats/Stats"), {
 });
 
 const AppShell: FunctionComponent = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { updateConfig } = useAnalytics();
 
   useEffect(() => updateConfig({
@@ -46,6 +47,7 @@ const AppShell: FunctionComponent = () => {
 
   return (
     <div id="page-wrapper">
+      <Helmet htmlAttributes={{lang: i18n.language}} />
       <Menu logo={Logo} link="https://usabeachtour.online/" />
       <div id="page-body">
         <Tracking />

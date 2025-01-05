@@ -35,7 +35,7 @@ function fromDecision(key: string, decision: Decision) {
   localStorage.setItem(key, `${decision}`);
 }
 
-const PrivacyProvider: FunctionComponent<Props> = ({ trackingId, children }) => {
+const PrivacyProvider: FunctionComponent<Props> = ({ trackingId = "", children = null}) => {
   const PrivacyContext = getPrivacyContext();
   const [allowTracking, setAllowTracking] = useState<Decision|undefined>(toDecision(TRACKING_KEY));
   const [allowReporting, setAllowReporting] = useState<Decision|undefined>(
@@ -63,11 +63,6 @@ const PrivacyProvider: FunctionComponent<Props> = ({ trackingId, children }) => 
 
     setTrackingCodeLoaded(true);
   }, [allowTracking, trackingCodeLoaded]);
-
-  PrivacyProvider.defaultProps = {
-    trackingId: "",
-    children: null,
-  };
 
   useEffect(() => {
     if (!allowReporting) {
