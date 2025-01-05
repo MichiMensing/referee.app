@@ -57,7 +57,8 @@
     "stats": {
       "overall": "Overall",
       "asked": "answered",
-      "correct": "correct"
+      "correct": "correct",
+      "reset": "Reset"
     },
     "privacy": {
       "accept": "Accept",

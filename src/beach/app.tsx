@@ -3,7 +3,7 @@ import "core-js/features/promise";
 import "core-js/features/object/assign";
 import "core-js/features/array/includes";
 import "whatwg-fetch";
-import React from "react";
+import React, {StrictMode} from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import LanguageDetector from "i18next-browser-languagedetector";
@@ -12,6 +12,8 @@ import i18next from "i18next";
 import AppShell from "./components/AppShell";
 import i18n from "./i18n";
 import PrivacyProvider from "../core/context/PrivacyProvider";
+import { HelmetProvider } from "react-helmet-async";
+import ReactDOM from "react-dom/client";
 
 if (process.env.NODE_ENV === "production") {
   if ("serviceWorker" in navigator) {
@@ -24,17 +26,18 @@ i18next
   .use(initReactI18next)
   .init(i18n);
 
-const rootElement = document.getElementById("app");
-const root = createRoot(rootElement!);
+const rootElement = ReactDOM.createRoot(document.getElementById("app") as HTMLElement);
 
-const app = (
-  <BrowserRouter basename="/referee-quiz/">
-    <PrivacyProvider
-      trackingId={process.env.GA_TRACKING_ID}
-    >
-      <AppShell />
-    </PrivacyProvider>
-  </BrowserRouter>
+rootElement.render(
+  <StrictMode>
+    <BrowserRouter basename="/referee-quiz/">
+      <PrivacyProvider
+        trackingId={process.env.GA_TRACKING_ID}
+      >
+        <HelmetProvider>
+          <AppShell />
+        </HelmetProvider>
+      </PrivacyProvider>
+    </BrowserRouter>
+  </StrictMode>
 );
-
-root.render(app);

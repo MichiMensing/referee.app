@@ -9,10 +9,10 @@ export interface ItemProps {
 }
 
 const Item: FunctionComponent<ItemProps> = ({
-  selected,
+  selected = false,
   children,
-  onClick,
-  className,
+  onClick = () => null,
+  className = "",
   code,
 }) => (
   <li
@@ -26,11 +26,5 @@ const Item: FunctionComponent<ItemProps> = ({
     {children}
   </li>
 );
-
-Item.defaultProps = {
-  className: "",
-  onClick: () => null,
-  selected: false,
-};
 
 export default Item;

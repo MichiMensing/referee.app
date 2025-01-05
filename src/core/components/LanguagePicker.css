@@ -28,7 +28,7 @@
   }
 
   @media (max-width: 48rem) {
-    width: 4.25rem;
+    width: 4.7rem;
   }
 }
 
@@ -51,12 +51,11 @@
   display: flex;
   font-size: 1.5rem;
   width: 1rem;
-  margin: 0 0.5rem;
+  margin: 0.25rem 0.5rem;
   color: var(--menu-color-active);
 
   & svg {
     display: block;
-    height: 1.875rem;
   }
 }
 

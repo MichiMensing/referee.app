@@ -12,9 +12,9 @@ interface Props {
 
 const CheckBox: FunctionComponent<Props> = ({
   checked,
-  onChange,
-  labelledBy,
-  readOnly,
+  onChange = () => null,
+  labelledBy ="",
+  readOnly = false,
 }) => {
   const handleKeyDown = (event: KeyboardEvent) => {
     if (event.code === "Space" && onChange) {
@@ -41,12 +41,6 @@ const CheckBox: FunctionComponent<Props> = ({
       <FontAwesomeIcon className="checkmark" icon={faCheck} />
     </div>
   );
-};
-
-CheckBox.defaultProps = {
-  onChange: () => null,
-  labelledBy: "",
-  readOnly: false,
 };
 
 export default CheckBox;

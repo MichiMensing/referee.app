@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 import React, {
-  FunctionComponent, ReactNode, useEffect, useRef, useState,
+  FunctionComponent, ReactNode, useCallback, useEffect, useRef, useState,
 } from "react";
 import { useTranslation } from "react-i18next";
 import { Routes } from "react-router-dom";
@@ -59,6 +59,12 @@ const TestDataProvider: FunctionComponent<TestDataProviderProps> = ({ children, 
     return result;
   };
 
+  const resetStats = useCallback(async () => {
+    await manager.current!.reset();
+    setAsked(manager.current.asked);
+    setCorrect(manager.current.correct);
+  }, []);
+
   const TestDataContext = getTestDataContext();
   return (
     <TestDataContext.Consumer>
@@ -68,6 +74,7 @@ const TestDataProvider: FunctionComponent<TestDataProviderProps> = ({ children, 
         data: {},
         checked: [],
         reveal: false,
+        resetStats,
       }) => {
         context = {
           ...context,
@@ -79,6 +86,7 @@ const TestDataProvider: FunctionComponent<TestDataProviderProps> = ({ children, 
           checked,
           reveal,
           data: manager.current.data,
+          resetStats,
         };
 
         let content;

@@ -22,6 +22,48 @@ markdownRenderer.heading = function (text, level, raw, slugger)
   return `<h${level} id="${escapedText}">${text}</h${level}>`;
 };
 
+const plugins = [
+  new EnvironmentPlugin({
+    SENTRY_DSN: '',
+    SENTRY_ENV: '',
+    GA_TRACKING_ID: ''
+  }),
+  new HtmlWebpackPlugin({
+    template: "beach/index.html",
+  }),
+  new CopyPlugin({
+    patterns: [
+      {
+        from: "data/questions/*",
+        context: path.resolve(__dirname, 'src', 'beach'),
+      },
+      {
+        from: "beach/static/*",
+        to: "static"
+      },
+      {
+        from: "beach/favicon.ico",
+      },
+    ]
+  }),
+  new LoadablePlugin(),
+  /* new BundleAnalyzerPlugin({
+    analyzerMode: "static",
+    generateStatsFile: true,
+  }) */
+];
+
+if (process.env.NODE_ENV !== 'dev') {
+  plugins.push(
+    new GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true,
+      cacheId: "handball",
+      exclude: ["CNAME"],
+      offlineGoogleAnalytics: true,
+    }));
+}
+
 const config = {
   context: appPath,
   entry: './beach/app.tsx',
@@ -89,43 +131,7 @@ const config = {
       chunks: "all",
     },
   },
-  plugins: [
-    new EnvironmentPlugin({
-      SENTRY_DSN: '',
-      SENTRY_ENV: '',
-      GA_TRACKING_ID: ''
-    }),
-    new HtmlWebpackPlugin({
-      template: "beach/index.html",
-    }),
-    new CopyPlugin({
-      patterns: [
-        {
-          from: "data/questions/*",
-          context: path.resolve(__dirname, 'src', 'beach'),
-        },
-        {
-          from: "beach/static/*",
-          to: "static"
-        },
-        {
-          from: "beach/favicon.ico",
-        },
-      ]
-    }),
-    new GenerateSW({
-      clientsClaim: true,
-      skipWaiting: true,
-      cacheId: "handball",
-      exclude: ["CNAME"],
-      offlineGoogleAnalytics: true,
-    }),
-    new LoadablePlugin(),
-    /* new BundleAnalyzerPlugin({
-      analyzerMode: "static",
-      generateStatsFile: true,
-    }) */
-  ],
+  plugins: plugins,
   devServer: {
     historyApiFallback: {
       index: '/referee-quiz/index.html',

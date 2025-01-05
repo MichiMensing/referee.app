@@ -57,7 +57,8 @@
     "stats": {
       "overall": "Total",
       "asked": "respondió",
-      "correct": "correcta"
+      "correct": "correcta",
+      "reset": "Reiniciar"
     },
     "privacy": {
       "accept": "Aceptar",
