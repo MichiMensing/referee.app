@@ -12,6 +12,7 @@ export interface TestDataContextValue {
   checked: string[];
   data: { [id: string]: Question };
   reveal: boolean;
+  resetStats: () => Promise<void>;
 }
 
 let TestDataContext: React.Context<TestDataContextValue>;
@@ -24,6 +25,7 @@ export function getTestDataContext() {
       data: {},
       checked: [],
       reveal: false,
+      resetStats: async () => {},
     });
   }
   return TestDataContext;
