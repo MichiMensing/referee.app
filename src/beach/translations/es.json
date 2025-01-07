@@ -10,6 +10,7 @@
     "Reset": "Reiniciar",
     "menu": {
       "test": "Prueba de Reglas",
+      "quizzes": "Catálogo de cuestionarios",
       "rules": "Reglas de Juego",
       "stats": "Estadística",
       "about": "información"
@@ -63,6 +64,11 @@
     "privacy": {
       "accept": "Aceptar",
       "decline": "Declinar"
+    },
+    "quizzes": {
+      "questions": "Preguntas",
+      "rules": "Reglas",
+      "reset": "Reiniciar"
     }
   }
 }

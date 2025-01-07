@@ -10,6 +10,7 @@
     "Reset": "Remettre",
     "menu": {
       "test": "Test d'arbitre",
+      "quizzes": "Catalogue de quiz",
       "rules": "Règles du jeu",
       "stats": "Statistiques",
       "about": "Information"
@@ -63,6 +64,11 @@
     "privacy": {
       "accept": "J'accepte",
       "decline": "Je décline"
+    },
+    "quizzes": {
+      "questions": "Questions",
+      "rules": "Règles",
+      "reset": "Remettre"
     }
   }
 }

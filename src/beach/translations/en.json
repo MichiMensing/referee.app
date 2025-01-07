@@ -10,6 +10,7 @@
     "Reset": "Reset",
     "menu": {
       "test": "Referee Test",
+      "quizzes": "Quiz Catalog",
       "rules": "Rules of the Game",
       "stats": "Statistics",
       "about": "About"
@@ -63,6 +64,11 @@
     "privacy": {
       "accept": "Accept",
       "decline": "Decline"
+    },
+    "quizzes": {
+      "questions": "Questions",
+      "rules": "Rules",
+      "reset": "Reset"
     }
   }
 }

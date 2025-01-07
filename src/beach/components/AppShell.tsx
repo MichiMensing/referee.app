@@ -19,6 +19,7 @@ import es from "../../img/es.svg";
 import de from "../../img/de.svg";
 import fr from "../../img/fr.svg";
 import { Helmet } from "react-helmet-async";
+import QuizCatalog from "../../core/components/quizzes/QuizCatalog";
 
 const HandballRules = loadable(() => import("./HandballRules"), {
   fallback: <Loading />,
@@ -74,6 +75,7 @@ const AppShell: FunctionComponent = () => {
         </header>
         <TestDataProvider answerData={answerData}>
           <Route path="/" element={<BeachRulesTest />} />
+          <Route path="/quizzes" element={<QuizCatalog />} />
           <Route path="/rules" element={<HandballRules />} />
           <Route path="/stats" element={<Stats />} />
           <Route path="/about" element={<About />} />

@@ -10,6 +10,7 @@
     "Reset": "Zurücksetzen",
     "menu": {
       "test": "Regelfragentest",
+      "quizzes": "Quiz Katalog",
       "rules": "Spielregeln",
       "stats": "Statistik",
       "about": "Informationen"
@@ -63,6 +64,11 @@
     "privacy": {
       "accept": "Akzeptieren",
       "decline": "Ablehnen"
+    },
+    "quizzes": {
+      "questions": "Fragen",
+      "rules": "Regeln",
+      "reset": "Zurücksetzen"
     }
   }
 }
