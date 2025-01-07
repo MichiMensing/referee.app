@@ -1,0 +1,15 @@
+@import "../shared.css";
+
+.rct-node-icon {
+  color: var(--usabt-blue-dark) !important;
+}
+
+#question-catalog-tree {
+  border: 1px solid var(--grey3);
+  max-height: 25rem;
+  overflow-y: scroll;
+}
+
+#question-catalog-tree.hidden {
+  display: none;
+}

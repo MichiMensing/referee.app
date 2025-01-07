@@ -68,7 +68,22 @@
     "quizzes": {
       "questions": "Fragen",
       "rules": "Regeln",
-      "reset": "Zurücksetzen"
+      "reset": "Zurücksetzen",
+      "settings": {
+        "title": "Quizeinstellungen",
+        "delete": "Löschen",
+        "name": "Name",
+        "max-question": "Maximale Anzahl Fragen",
+        "time-limit": "Zeitlimit",
+        "instant-feedback": "Sofortiges Feedback",
+        "questions": "Fragen",
+        "all": "Alle",
+        "all-questions": "Alle Fragen",
+        "none": "Kein Limit",
+        "min": "Min",
+        "hour": "Std",
+        "past-runs": "Vergangene Versuche"
+      }
     }
   }
 }

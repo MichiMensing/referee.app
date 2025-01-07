@@ -4,7 +4,6 @@ import "core-js/features/object/assign";
 import "core-js/features/array/includes";
 import "whatwg-fetch";
 import React, {StrictMode} from "react";
-import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import LanguageDetector from "i18next-browser-languagedetector";
 import { initReactI18next } from "react-i18next";

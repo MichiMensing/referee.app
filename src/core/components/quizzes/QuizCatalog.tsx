@@ -2,6 +2,7 @@ import React, { FunctionComponent} from "react";
 import "./QuizCatalog.css";
 import Quiz from "./Quiz";
 import { t } from "i18next";
+import QuizSettings from "./QuizSettings";
 
 const quizzes = [(
   <Quiz
@@ -32,6 +33,12 @@ const QuizCatalog: FunctionComponent = () => {
       </div>
     </div>
   );
+
+  // return (
+  //   <div id="quizzes">
+  //     <QuizSettings />
+  //   </div>
+  // )
 };
 
 export default QuizCatalog;
