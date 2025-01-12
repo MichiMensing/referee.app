@@ -19,8 +19,8 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
-    "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/free-regular-svg-icons": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@loadable/component": "^5.15.3",
     "@loadable/server": "^5.16.1",
@@ -39,6 +39,7 @@
     "react-router-dom": "^6.14.2",
     "regenerator-runtime": "^0.14.1",
     "ts-invariant": "^0.10.3",
+    "uuid": "^11.0.5",
     "whatwg-fetch": "^3.6.17"
   },
   "devDependencies": {
