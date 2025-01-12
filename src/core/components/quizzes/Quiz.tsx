@@ -4,6 +4,7 @@ import Question from "../../model/Question";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHashtag, faSection } from "@fortawesome/free-solid-svg-icons";
 import { t } from "i18next";
+import { Link } from "react-router-dom";
 
 interface Props {
   id: string;
@@ -18,7 +19,7 @@ const Quiz: FunctionComponent<Props> = ({
 }) => {
 
   return (
-    <div id="quiz-box" key={id}>
+    <Link id="quiz-box" to={`/quizzes/${id}`} key={`quiz-${id}`}>
       <div id="quiz-details">
         <div id="quiz-details-header">{name}</div>
         <div id="quiz-details-footer">
@@ -38,7 +39,7 @@ const Quiz: FunctionComponent<Props> = ({
         <div className="quiz-result-absolute">28 / 30</div>
         <div className="quiz-result-percentage">(93.3%)</div>
       </div>
-    </div>
+    </Link>
   );
 };
 

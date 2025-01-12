@@ -6,6 +6,8 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 1rem;
+  color: var(--black);
+  text-decoration: none;
 
   & .quiz-result-absolute {
     margin-bottom: 0.5rem;
@@ -19,6 +21,7 @@
     flex-direction: column;
     justify-content: center;
   }
+
 }
 
 #quiz-details {

@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Route } from "react-router";
+import { Navigate, Route } from "react-router";
 import loadable from "@loadable/component";
 import Menu from "../../core/components/Menu";
 import Loading from "../../core/components/Loading";
@@ -20,6 +20,7 @@ import de from "../../img/de.svg";
 import fr from "../../img/fr.svg";
 import { Helmet } from "react-helmet-async";
 import QuizCatalog from "../../core/components/quizzes/QuizCatalog";
+import QuizSettings from "../../core/components/quizzes/QuizSettings";
 
 const HandballRules = loadable(() => import("./HandballRules"), {
   fallback: <Loading />,
@@ -76,6 +77,7 @@ const AppShell: FunctionComponent = () => {
         <TestDataProvider answerData={answerData}>
           <Route path="/" element={<BeachRulesTest />} />
           <Route path="/quizzes" element={<QuizCatalog />} />
+          <Route path="/quizzes/:quizId" element={<QuizSettings />} />
           <Route path="/rules" element={<HandballRules />} />
           <Route path="/stats" element={<Stats />} />
           <Route path="/about" element={<About />} />
