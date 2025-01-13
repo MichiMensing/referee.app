@@ -1,13 +1,17 @@
-import React, { Children, FunctionComponent, useMemo, useState } from "react";
+import React, {
+  Children, FunctionComponent, useMemo, useState,
+} from "react";
 import "./QuestionCatalogTree.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown, faChevronRight, faMinusSquare, faPlusSquare, faQuestion, faSection } from "@fortawesome/free-solid-svg-icons";
+import {
+  faChevronDown, faChevronRight, faMinusSquare, faPlusSquare, faQuestion, faSection,
+} from "@fortawesome/free-solid-svg-icons";
 import { faCheckSquare, faSquare } from "@fortawesome/free-regular-svg-icons";
-import CheckboxTree from 'react-checkbox-tree';
-import 'react-checkbox-tree/lib/react-checkbox-tree.css';
+import CheckboxTree from "react-checkbox-tree";
+import "react-checkbox-tree/lib/react-checkbox-tree.css";
+import { useTranslation } from "react-i18next";
 import { useRulesTestData } from "../../context/TestDataContext";
 import Question from "../../model/Question";
-import { useTranslation } from "react-i18next";
 
 type OrderedData = {
   [rule: string]: {
@@ -20,7 +24,6 @@ interface Props {
 }
 
 const QuestionCatalogTree: FunctionComponent<Props> = ({ showCatalog = true }) => {
-
   const { data } = useRulesTestData();
   const { t, i18n: { language } } = useTranslation();
   const [rerender, setRerender] = useState(0);
@@ -41,29 +44,26 @@ const QuestionCatalogTree: FunctionComponent<Props> = ({ showCatalog = true }) =
   }, {}), [data, rerender]);
 
   const questionCatalog = [{
-    value: 'all',
-    label: t(`quizzes.settings.all-questions`),
-    children: Object.keys(orderedData).map((key) => {
-      return {
-        value: key,
-        label: `Rule ${key}: ${t(`rules.rule.rule${key}`)}`,
-        children: orderedData[key].questions.map((question) => ({
-          value: question.id,
-          label: `${question.id}: ${question.question[language]}`
-        }))
-      }
-    })
+    value: "all",
+    label: t("quizzes.settings.all-questions"),
+    children: Object.keys(orderedData).map((key) => ({
+      value: key,
+      label: `Rule ${key}: ${t(`rules.rule.rule${key}`)}`,
+      children: orderedData[key].questions.map((question) => ({
+        value: question.id,
+        label: `${question.id}: ${question.question[language]}`,
+      })),
+    })),
   }];
 
   const [checked, setChecked] = useState<string[]>([]);
   const [expanded, setExpanded] = useState<string[]>([]);
 
   const updateCheckedState = (node: any) => {
-
     const updatedValues: string[] = getValues(node);
 
-    function getValues(nodeElement: any): Array<string> {
-      var result: string[] = [];
+    function getValues(nodeElement: any): string[] {
+      let result: string[] = [];
       if (nodeElement.children) {
         nodeElement.children.forEach((v: any) => {
           result = [...result, ...getValues(v)];
@@ -77,14 +77,12 @@ const QuestionCatalogTree: FunctionComponent<Props> = ({ showCatalog = true }) =
     if (node.checked) {
       setChecked([...checked, ...updatedValues]);
     } else {
-      const filteredChecks = checked.filter((check) => {
-        return !updatedValues.includes(check);
-      });
+      const filteredChecks = checked.filter((check) => !updatedValues.includes(check));
       setChecked(filteredChecks);
     }
   };
 
-  const className = showCatalog ? 'display' : 'hidden';
+  const className = showCatalog ? "display" : "hidden";
 
   return (
     <div id="question-catalog-tree" className={className}>
@@ -108,7 +106,7 @@ const QuestionCatalogTree: FunctionComponent<Props> = ({ showCatalog = true }) =
           collapseAll: <FontAwesomeIcon className="rct-icon rct-icon-collapse-all" icon={faMinusSquare} />,
           parentClose: <FontAwesomeIcon className="rct-icon rct-icon-parent-close" icon={faSection} />,
           parentOpen: <FontAwesomeIcon className="rct-icon rct-icon-parent-open" icon={faSection} />,
-          leaf: <FontAwesomeIcon className="rct-icon rct-icon-leaf-close" icon={faQuestion} />
+          leaf: <FontAwesomeIcon className="rct-icon rct-icon-leaf-close" icon={faQuestion} />,
         }}
       />
     </div>

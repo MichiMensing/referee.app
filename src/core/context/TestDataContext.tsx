@@ -2,10 +2,12 @@ import React from "react";
 import invariant from "ts-invariant";
 import Question from "../model/Question";
 import { ITestResponse } from "../model";
+import Quiz from "../model/Quiz";
 
 export interface TestDataContextValue {
   checkAnswers?: (options: string[]) => Promise<ITestResponse>;
   nextQuestion?: () => void;
+  addQuiz?: (quiz: Quiz) => Promise<void>;
   question?: Question;
   asked: number;
   correct: number;
@@ -13,6 +15,7 @@ export interface TestDataContextValue {
   data: { [id: string]: Question };
   reveal: boolean;
   resetStats: () => Promise<void>;
+  quizzes: Quiz[];
 }
 
 let TestDataContext: React.Context<TestDataContextValue>;
@@ -25,7 +28,8 @@ export function getTestDataContext() {
       data: {},
       checked: [],
       reveal: false,
-      resetStats: async () => {},
+      resetStats: async () => { },
+      quizzes: [],
     });
   }
   return TestDataContext;

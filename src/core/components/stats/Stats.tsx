@@ -17,7 +17,9 @@ type OrderedData = {
 };
 
 const Stats: FunctionComponent = () => {
-  const { asked, correct, data, resetStats } = useRulesTestData();
+  const {
+    asked, correct, data, resetStats,
+  } = useRulesTestData();
   const { t } = useTranslation();
   const [rerender, setRerender] = useState(0);
 
@@ -44,7 +46,7 @@ const Stats: FunctionComponent = () => {
   const handleReset = async () => {
     await resetStats();
     setRerender(rerender + 1);
-  }
+  };
 
   const rules = Object.keys(orderedData).map((id: string) => {
     const ruleData = orderedData[id];

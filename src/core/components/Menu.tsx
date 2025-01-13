@@ -26,7 +26,7 @@ const Logo: FunctionComponent<LogoProps> = ({ logo }) => {
   );
 };
 
-const Menu: FunctionComponent<MenuProps> = ({ logo, link = ""}) => {
+const Menu: FunctionComponent<MenuProps> = ({ logo, link = "" }) => {
   const [open, setOpen] = useState(false);
   const { t } = useTranslation();
 

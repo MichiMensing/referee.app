@@ -1,28 +1,31 @@
-import React, { FunctionComponent, useState} from "react";
+import React, { FunctionComponent, useState } from "react";
 import "./QuizSettings.css";
-import CheckBox from "../CheckBox";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft, faFloppyDisk, faPen, faPlay, IconDefinition } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowLeft, faFloppyDisk, faPen, faPlay, IconDefinition,
+} from "@fortawesome/free-solid-svg-icons";
 import { t } from "i18next";
-import QuestionCatalogTree from "./QuestionCatalogTree";
 import { useNavigate, useParams } from "react-router";
+import QuestionCatalogTree from "./QuestionCatalogTree";
+import CheckBox from "../CheckBox";
 import QuizRun from "./QuizRun";
 
 const runs = [(
   <QuizRun
     timestamp="January 15, 2025 3:40 PM"
     correct={28}
-    total={30}/>
-  ),
-  (
+    total={30}
+  />
+),
+(
   <QuizRun
     timestamp="December 16, 2024 3:40 PM"
     correct={11}
-    total={30}/>
-  )];
+    total={30}
+  />
+)];
 
 const QuizSettings: FunctionComponent = () => {
-
   const { quizId } = useParams();
   const [showQuizCatalog, setShowQuizCatalog] = useState<boolean>(false);
   const [editIcon, setEditIcon] = useState<IconDefinition>(faPen);
@@ -47,25 +50,37 @@ const QuizSettings: FunctionComponent = () => {
       <div id="quiz-settings-list">
         <div className="setting">
           <label>{t("quizzes.settings.name")}</label>
-          <input></input>
+          <input />
         </div>
         <div className="setting">
           <label>{t("quizzes.settings.max-question")}</label>
-          <input className="number-input" type="number"></input>
+          <input className="number-input" type="number" />
         </div>
         <div className="setting">
           <label>{t("quizzes.settings.time-limit")}</label>
           <select name="time-limit" id="time-limit">
             <option value="none">{t("quizzes.settings.none")}</option>
-            <option value="15">15 {t("quizzes.settings.min")}</option>
-            <option value="30">30 {t("quizzes.settings.min")}</option>
-            <option value="45">45 {t("quizzes.settings.min")}</option>
-            <option value="60">1 {t("quizzes.settings.hour")}</option>
+            <option value="15">
+              15
+              {t("quizzes.settings.min")}
+            </option>
+            <option value="30">
+              30
+              {t("quizzes.settings.min")}
+            </option>
+            <option value="45">
+              45
+              {t("quizzes.settings.min")}
+            </option>
+            <option value="60">
+              1
+              {t("quizzes.settings.hour")}
+            </option>
           </select>
         </div>
         <div className="setting setting-inline">
           <label>{t("quizzes.settings.instant-feedback")}</label>
-          <CheckBox checked={false}></CheckBox>
+          <CheckBox checked={false} />
         </div>
         <div id="quiz-settings-questions" className="setting">
           <label>{t("quizzes.settings.questions")}</label>

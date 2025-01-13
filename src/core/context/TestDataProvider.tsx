@@ -9,6 +9,7 @@ import Loading from "../components/Loading";
 import TestDataManager from "../model/TestDataManager";
 import Question from "../model/Question";
 import { IAnswer } from "../model";
+import Quiz from "../model/Quiz";
 
 interface TestDataProviderProps {
   children: ReactNode;
@@ -24,6 +25,7 @@ const TestDataProvider: FunctionComponent<TestDataProviderProps> = ({ children, 
   const [reveal, setReveal] = useState(false);
   const manager = useRef<TestDataManager>(new TestDataManager(answerData));
   const { i18n: { language } } = useTranslation();
+  const [quizzes, setQuizzes] = useState<Quiz[]>([]);
 
   // Load questions
   useEffect(() => {
@@ -34,6 +36,7 @@ const TestDataProvider: FunctionComponent<TestDataProviderProps> = ({ children, 
         setQuestion(await manager.current.initialize(language));
         setAsked(manager.current.asked);
         setCorrect(manager.current.correct);
+        setQuizzes(manager.current.quizzes);
       } finally {
         setLoading(false);
       }
@@ -59,6 +62,11 @@ const TestDataProvider: FunctionComponent<TestDataProviderProps> = ({ children, 
     return result;
   };
 
+  const addQuiz = async (quiz: Quiz) => {
+    await manager.current.addQuiz(quiz);
+    setQuizzes(manager.current.quizzes);
+  };
+
   const resetStats = useCallback(async () => {
     await manager.current!.reset();
     setAsked(manager.current.asked);
@@ -75,11 +83,13 @@ const TestDataProvider: FunctionComponent<TestDataProviderProps> = ({ children, 
         checked: [],
         reveal: false,
         resetStats,
+        quizzes: [],
       }) => {
         context = {
           ...context,
           checkAnswers,
           nextQuestion,
+          addQuiz,
           question,
           asked,
           correct,
@@ -87,6 +97,7 @@ const TestDataProvider: FunctionComponent<TestDataProviderProps> = ({ children, 
           reveal,
           data: manager.current.data,
           resetStats,
+          quizzes,
         };
 
         let content;

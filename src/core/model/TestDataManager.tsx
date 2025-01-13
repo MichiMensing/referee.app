@@ -1,9 +1,10 @@
 /* eslint-disable no-underscore-dangle */
 import { IDBPDatabase, openDB } from "idb";
 import {
-  IAnswer, IQuestion, ITestData, RefereeDB,
+  IAnswer, IQuestion, IQuizData, ITestData, RefereeDB,
 } from "./index";
 import Question from "./Question";
+import Quiz from "./Quiz";
 
 export default class TestDataManager {
   private db: IDBPDatabase<RefereeDB> | null = null;
@@ -25,6 +26,8 @@ export default class TestDataManager {
   private _wrong = 0;
 
   private _answerData: IAnswer[] = [];
+
+  private _quizzes: Quiz[] = [];
 
   constructor(answerData: IAnswer[]) {
     this._answerData = answerData;
@@ -58,10 +61,13 @@ export default class TestDataManager {
     const ua = window.navigator.userAgent;
     const isIE = /MSIE|Trident/.test(ua);
     if (!isIE) {
-      db = await openDB<RefereeDB>("referee", 1, {
+      db = await openDB<RefereeDB>("referee", 2, {
         async upgrade(currentDB, oldVersion) {
           if (oldVersion < 1) {
             currentDB.createObjectStore("questions");
+          }
+          if (oldVersion < 2) {
+            currentDB.createObjectStore("quizzes");
           }
         },
       });
@@ -71,51 +77,8 @@ export default class TestDataManager {
     this.todo = [...ids];
 
     if (db) {
-      const tx = db.transaction("questions", "readwrite");
-
-      const currentDate = new Date();
-
-      let cursor = await tx.store.openCursor();
-
-      while (cursor) {
-        mappedTestData[cursor.key] = cursor.value;
-
-        const testData = cursor.value;
-
-        this._asked += testData.asked;
-        this._correct += testData.correct;
-        this._wrong += testData.wrong;
-
-        if (testData.lastAsked) {
-          let remove = false;
-          const diffTime = Math.abs(+testData.lastAsked - +currentDate);
-          const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-
-          // remove if needed
-          if (
-            (testData.box === 2 && diffDays < 1)
-            || (testData.box === 3 && diffDays < 3)
-            || (testData.box === 4 && diffDays < 7)
-            || (testData.box === 5 && diffDays < 30)
-          ) {
-            remove = true;
-          }
-
-          if (remove) {
-            // eslint-disable-next-line no-loop-func
-            const index = this.todo.findIndex((val) => val === cursor?.key);
-            if (index > -1) {
-              this.todo.splice(index, 1);
-            }
-          }
-        }
-
-        // eslint-disable-next-line no-await-in-loop
-        cursor = await cursor.continue();
-      }
-
-      await tx.done;
-
+      await this.loadQuestionsFromDatabase(db, mappedTestData);
+      await this.loadQuizzesFromDatabase(db);
       this.db = db;
     }
 
@@ -148,6 +111,10 @@ export default class TestDataManager {
 
   get data(): { [p: string]: Question } {
     return this._data;
+  }
+
+  get quizzes(): Quiz[] {
+    return this._quizzes;
   }
 
   public async checkAnswer(answers: string[]) {
@@ -198,6 +165,83 @@ export default class TestDataManager {
         await question.reset(this.db!);
       }));
     }
+  }
+
+  public async addQuiz(quiz: Quiz) {
+    this._quizzes.push(quiz);
+    if (this.db) {
+      await quiz.persist(this.db);
+    }
+  }
+
+  private async loadQuestionsFromDatabase(
+    db: IDBPDatabase<RefereeDB>,
+    mappedTestData: { [id: string]: ITestData },
+  ): Promise<void> {
+    const tx = db.transaction("questions", "readwrite");
+
+    const currentDate = new Date();
+
+    let cursor = await tx.store.openCursor();
+
+    while (cursor) {
+      mappedTestData[cursor.key] = cursor.value;
+
+      const testData = cursor.value;
+
+      this._asked += testData.asked;
+      this._correct += testData.correct;
+      this._wrong += testData.wrong;
+
+      if (testData.lastAsked) {
+        let remove = false;
+        const diffTime = Math.abs(+testData.lastAsked - +currentDate);
+        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+        // remove if needed
+        if (
+          (testData.box === 2 && diffDays < 1)
+          || (testData.box === 3 && diffDays < 3)
+          || (testData.box === 4 && diffDays < 7)
+          || (testData.box === 5 && diffDays < 30)
+        ) {
+          remove = true;
+        }
+
+        if (remove) {
+          // eslint-disable-next-line no-loop-func
+          const index = this.todo.findIndex((val) => val === cursor?.key);
+          if (index > -1) {
+            this.todo.splice(index, 1);
+          }
+        }
+      }
+
+      // eslint-disable-next-line no-await-in-loop
+      cursor = await cursor.continue();
+    }
+
+    await tx.done;
+  }
+
+  private async loadQuizzesFromDatabase(db: IDBPDatabase<RefereeDB>): Promise<void> {
+    const tx = db.transaction("quizzes", "readwrite");
+
+    let cursor = await tx.store.openCursor();
+
+    const quizzes = [];
+    while (cursor) {
+      const quizData = cursor.value;
+
+      const quiz = new Quiz(quizData.name, quizData.settings, quizData.questions, cursor.key);
+      quizzes.push(quiz);
+
+      // eslint-disable-next-line no-await-in-loop
+      cursor = await cursor.continue();
+    }
+
+    this._quizzes = quizzes;
+    await tx.done;
   }
 
   private async switchLanguage(language: string) {

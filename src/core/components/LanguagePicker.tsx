@@ -52,7 +52,7 @@ const LanguagePicker: FunctionComponent<Props> = ({ children }) => {
   };
 
   let content = null;
-  const currentLanguage = i18n.language || 'en';
+  const currentLanguage = i18n.language || "en";
   const items = React.Children.map(children, (item: ReactElement<ItemProps>) => {
     const isSelected = item.props.code === currentLanguage;
     if (isSelected) {

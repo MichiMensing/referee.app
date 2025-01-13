@@ -21,10 +21,14 @@
         "default": "array-simple"
       }
     ],
+    "react/require-default-props": 0,
     "@typescript-eslint/camelcase": 0,
-    "@typescript-eslint/indent": [
+    "indent": [
       "error",
       2
+    ],
+    "no-param-reassign": [
+      "error", { "props": false }
     ],
     "no-shadow": "off",
     "@typescript-eslint/no-shadow": "error",

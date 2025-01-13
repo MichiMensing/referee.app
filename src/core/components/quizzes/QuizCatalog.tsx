@@ -1,22 +1,21 @@
 import React, { FunctionComponent, useId, useState } from "react";
 import "./QuizCatalog.css";
-import Quiz from "./Quiz";
 import { t } from "i18next";
-import { v4 as uuidv4 } from 'uuid';
-
+import Quiz from "./Quiz";
+import QuizModel from "../../model/Quiz";
+import { useRulesTestData } from "../../context/TestDataContext";
 
 const QuizCatalog: FunctionComponent = () => {
-  const [quizzes, setQuizzes] = useState([{
-    id: uuidv4(),
-    name: "My Quiz"
-  }]);
+  const { quizzes, addQuiz } = useRulesTestData();
+  const [quizList, setQuizList] = useState<QuizModel[]>(quizzes);
 
-  function handleCreateNew(): void {
-    setQuizzes([...quizzes, {
-      id: uuidv4(),
-      name: "My Quiz"
-    }]);
-  }
+  const handleCreateNew = async () => {
+    const newQuiz = new QuizModel("New Quiz");
+    if (addQuiz) {
+      await addQuiz(newQuiz);
+    }
+    setQuizList([...quizList]);
+  };
 
   return (
     <div id="quizzes">
@@ -25,7 +24,7 @@ const QuizCatalog: FunctionComponent = () => {
         <button>{t("quizzes.reset")}</button>
       </div>
       <div id="quizzes-list">
-        {quizzes.map(quiz => (
+        {quizList.map((quiz) => (
           <Quiz
             key={quiz.id}
             id={quiz.id}
@@ -34,7 +33,7 @@ const QuizCatalog: FunctionComponent = () => {
         ))}
       </div>
       <div id="quizzes-create">
-        <button className="floating" onClick={handleCreateNew}>{"New Quiz"}</button>
+        <button className="floating" onClick={handleCreateNew}>New Quiz</button>
       </div>
     </div>
   );

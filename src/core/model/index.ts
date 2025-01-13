@@ -27,6 +27,25 @@ export interface ITestResponse {
   answeredCorrect?: boolean;
 }
 
+export interface IQuizSettings {
+  maxQuestions: number | null;
+  timelimit: number | null;
+  instantFeedback: boolean;
+}
+
+export interface IRunData {
+  correct: number;
+  total: number;
+  timestamp: Date;
+}
+
+export interface IQuizData {
+  name: string;
+  questions?: string[];
+  runs?: IRunData[];
+  settings?: IQuizSettings;
+}
+
 export interface RefereeDB extends DBSchema {
   questions: {
     key: string;
@@ -35,4 +54,11 @@ export interface RefereeDB extends DBSchema {
       pick: [number, Date];
     };
   };
+  quizzes: {
+    key: string;
+    value: IQuizData;
+    indexes: {
+      pick: [number, Date];
+    };
+  }
 }
