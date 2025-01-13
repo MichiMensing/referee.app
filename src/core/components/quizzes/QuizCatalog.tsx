@@ -24,7 +24,10 @@ const QuizCatalog: FunctionComponent = () => {
     <div id="quizzes">
       <div id="quizzes-catalog-header">
         <h2>{t("menu.quizzes")}</h2>
-        <button>{t("quizzes.reset")}</button>
+        <div className="quizzes-button-group">
+          <button className="highlight" onClick={handleCreateNew}>{t("quizzes.new")}</button>
+          <button>{t("quizzes.reset")}</button>
+        </div>
       </div>
       <div id="quizzes-list">
         {quizList.map((quiz) => (
@@ -33,9 +36,6 @@ const QuizCatalog: FunctionComponent = () => {
             quiz={quiz}
           />
         ))}
-      </div>
-      <div id="quizzes-create">
-        <button className="floating" onClick={handleCreateNew}>New Quiz</button>
       </div>
     </div>
   );

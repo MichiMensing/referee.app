@@ -69,6 +69,8 @@
       "questions": "Questions",
       "rules": "Rules",
       "reset": "Reset",
+      "new": "New Quiz",
+      "start": "Start Quiz",
       "settings": {
         "title": "Quiz Settings",
         "delete": "Delete",

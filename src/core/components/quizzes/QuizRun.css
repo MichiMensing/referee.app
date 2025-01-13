@@ -17,6 +17,7 @@
     width: 15%;
     display: inline-flex;
     flex-wrap: wrap;
+    justify-content: center;
   }
 
   & .quiz-result-absolute {
@@ -52,7 +53,7 @@
 }
 
 .quiz-settings-runs-title {
-  font-size: 1rem;
+  font-size: 0.8rem;
   padding: 0.5rem;
   color: var(--header-color);
   margin: 0;
@@ -61,8 +62,18 @@
 
 
 @media (max-width: 48rem) {
-  #quiz-settings-run {
-    bottom: 5rem;
-    right: 1rem;
+
+  .quiz-settings-run .timestamp {
+    width: 80%;
+  }
+
+  .quiz-settings-run #quiz-results {
+    width: 20%;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .quiz-settings-run .quiz-result-absolute {
+    margin-right: 0;
   }
 }

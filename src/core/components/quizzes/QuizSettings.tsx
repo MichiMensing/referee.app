@@ -1,8 +1,8 @@
-import React, { ChangeEvent, FunctionComponent, useMemo, useState } from "react";
+import React, { FunctionComponent, useState } from "react";
 import "./QuizSettings.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faArrowLeft, faFloppyDisk, faPen, faPlay, IconDefinition,
+  faArrowLeft, faFloppyDisk, faPen, IconDefinition,
 } from "@fortawesome/free-solid-svg-icons";
 import { t } from "i18next";
 import { useNavigate, useParams } from "react-router";
@@ -11,13 +11,6 @@ import CheckBox from "../CheckBox";
 import QuizRun from "./QuizRun";
 import { useRulesTestData } from "../../context/TestDataContext";
 import Quiz from "../../model/Quiz";
-import Question from "../../model/Question";
-
-type OrderedData = {
-  [rule: string]: {
-    questions: Question[];
-  };
-};
 
 const runs = [(
   <QuizRun
@@ -36,7 +29,7 @@ const runs = [(
 
 const QuizSettings: FunctionComponent = () => {
   const { quizId } = useParams();
-  const { quizzes, data } = useRulesTestData();
+  const { quizzes } = useRulesTestData();
   const navigate = useNavigate();
 
   const currentQuiz = quizzes.find((q, i) => {
@@ -56,23 +49,7 @@ const QuizSettings: FunctionComponent = () => {
   const [timeLimit, setTimeLimit] = useState<number>(quiz.timeLimit);
   const [maxQuestions, setMaxQuestions] = useState<number>(quiz.maxQuestions);
   const [name, setName] = useState<string>(quiz.name);
-  const [questions, setQuestions] = useState<string[]>(quiz.questions);
-  const [rerender, setRerender] = useState(0);
-
-  const orderedData = useMemo(() => Object.values(data).reduce<OrderedData>((prev, question) => {
-    const { rule } = question;
-    if (!prev[question.rule]) {
-      prev[rule] = {
-        questions: [],
-      };
-    }
-
-    prev[rule] = {
-      questions: [...prev[rule].questions, question],
-    };
-
-    return prev;
-  }, {}), [data, rerender]);
+  const [_, setQuestions] = useState<string[]>(quiz.questions);
 
   function toggleQuestionCatalog(): void {
     setShowQuizCatalog(!showQuizCatalog);
@@ -123,7 +100,10 @@ const QuizSettings: FunctionComponent = () => {
       <div id="quizzes-catalog-header">
         <button className="back-button" onClick={handleBackButtonClick}><FontAwesomeIcon icon={faArrowLeft} size="lg" /></button>
         <h2>{t("quizzes.settings.title")}</h2>
-        <button>{t("quizzes.settings.delete")}</button>
+        <div className="quizzes-button-group">
+          <button className="highlight">{t("quizzes.start")}</button>
+          <button>{t("quizzes.settings.delete")}</button>
+        </div>
       </div>
       <div id="quiz-settings-list">
         <div className="setting">
@@ -170,9 +150,6 @@ const QuizSettings: FunctionComponent = () => {
       </div>
       <div id="quiz-settings-runs">
         {runs}
-      </div>
-      <div id="quiz-settings-run">
-        <button className="floating"><FontAwesomeIcon icon={faPlay} size="lg" /></button>
       </div>
     </div>
   );

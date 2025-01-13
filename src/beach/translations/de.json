@@ -69,6 +69,8 @@
       "questions": "Fragen",
       "rules": "Regeln",
       "reset": "Zurücksetzen",
+      "new": "Neues Quiz",
+      "start": "Starte Quiz",
       "settings": {
         "title": "Quizeinstellungen",
         "delete": "Löschen",

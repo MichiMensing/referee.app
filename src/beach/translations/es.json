@@ -69,8 +69,10 @@
       "questions": "Preguntas",
       "rules": "Reglas",
       "reset": "Reiniciar",
+      "new": "Nuevo Cuestionario",
+      "start": "Iniciar Cuestionario",
       "settings": {
-        "title": "Configuración del cuestionario",
+        "title": "Configuración de cuestionario",
         "delete": "Eliminar",
         "name": "Nombre",
         "max-question": "N.° máximo de preguntas",
