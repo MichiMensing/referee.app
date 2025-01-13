@@ -66,7 +66,7 @@ const Stats: FunctionComponent = () => {
       <div id="stats-overall">
         <div id="stats-overall-header">
           <h2>{t("stats.overall")}</h2>
-          <button onClick={handleReset}>{t("stats.reset")}</button>
+          <button type="button" onClick={handleReset}>{t("stats.reset")}</button>
         </div>
         <div id="stats-asked">
           <FontAwesomeIcon icon={faQuestion} size="lg" />

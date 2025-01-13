@@ -32,18 +32,19 @@ const QuizSettings: FunctionComponent = () => {
   const { quizzes } = useRulesTestData();
   const navigate = useNavigate();
 
-  const currentQuiz = quizzes.find((q, i) => {
-    return q.id === quizId;
-  })
+  const currentQuiz = quizzes.find((q, _) => q.id === quizId);
 
   if (!currentQuiz) {
     navigate(-1);
-    return;
+    return null;
   }
 
   const [quiz, setQuiz] = useState<Quiz>(currentQuiz);
 
-  const [instantFeedbackChecked, setInstantFeedbackChecked] = useState<boolean>(quiz.instantFeedback);
+  const [
+    instantFeedbackChecked,
+    setInstantFeedbackChecked,
+  ] = useState<boolean>(quiz.instantFeedback);
   const [showQuizCatalog, setShowQuizCatalog] = useState<boolean>(false);
   const [editIcon, setEditIcon] = useState<IconDefinition>(faPen);
   const [timeLimit, setTimeLimit] = useState<number>(quiz.timeLimit);
@@ -51,71 +52,77 @@ const QuizSettings: FunctionComponent = () => {
   const [name, setName] = useState<string>(quiz.name);
   const [_, setQuestions] = useState<string[]>(quiz.questions);
 
-  function toggleQuestionCatalog(): void {
+  const toggleQuestionCatalog = () => {
     setShowQuizCatalog(!showQuizCatalog);
     setEditIcon(!showQuizCatalog ? faFloppyDisk : faPen);
-  }
+  };
 
-  function handleBackButtonClick(): void {
+  const handleBackButtonClick = () => {
     setQuiz(quiz);
     navigate(-1);
-  }
+  };
 
-  function handleNameChange(event: React.FormEvent<HTMLInputElement>): void {
+  const handleNameChange = (event: React.FormEvent<HTMLInputElement>) => {
     quiz.setName(event.currentTarget.value);
     setQuiz(quiz);
     setName(quiz.name);
-  }
+  };
 
-  function handleMaxQuestionChange(event: React.FormEvent<HTMLInputElement>): void {
+  const handleMaxQuestionChange = (event: React.FormEvent<HTMLInputElement>) => {
     quiz.setMaxQuestions(+event.currentTarget.value);
     setQuiz(quiz);
     setMaxQuestions(quiz.maxQuestions);
-  }
+  };
 
-  function handleInstantFeedbackChange(): void {
+  const handleInstantFeedbackChange = () => {
     quiz.setInstantFeedback(!quiz.instantFeedback);
     setQuiz(quiz);
     setInstantFeedbackChecked(!instantFeedbackChecked);
-  }
+  };
 
-  function handleTimeLimitChange(event: {
+  const handleTimeLimitChange = (event: {
     target: {
       value: string;
     }
-  }): void {
+  }) => {
     quiz.setTimeLimit(+event.target.value);
     setQuiz(quiz);
     setTimeLimit(quiz.timeLimit);
-  }
+  };
 
-  function handleQuestionChange(questions: string[]) {
+  const handleQuestionChange = (questions: string[]) => {
     quiz.setQuestions(questions);
     setQuiz(quiz);
     setQuestions(quiz.questions);
-  }
+  };
 
   return (
     <div id="quiz-settings">
       <div id="quizzes-catalog-header">
-        <button className="back-button" onClick={handleBackButtonClick}><FontAwesomeIcon icon={faArrowLeft} size="lg" /></button>
+        <button
+          type="button"
+          className="back-button"
+          onClick={handleBackButtonClick}
+        >
+          <FontAwesomeIcon icon={faArrowLeft} size="lg" />
+        </button>
         <h2>{t("quizzes.settings.title")}</h2>
         <div className="quizzes-button-group">
-          <button className="highlight">{t("quizzes.start")}</button>
-          <button>{t("quizzes.settings.delete")}</button>
+          <button type="button" className="highlight">{t("quizzes.start")}</button>
+          <button type="button">{t("quizzes.settings.delete")}</button>
         </div>
       </div>
       <div id="quiz-settings-list">
         <div className="setting">
-          <label>{t("quizzes.settings.name")}</label>
+          <div className="label">{t("quizzes.settings.name")}</div>
           <input value={name} onChange={handleNameChange} />
         </div>
         <div className="setting">
-          <label>{t("quizzes.settings.max-question")}</label>
+          <div className="label">{t("quizzes.settings.max-question")}</div>
           <input className="number-input" type="number" value={maxQuestions} onChange={handleMaxQuestionChange} min={0} />
         </div>
         <div className="setting">
-          <label>{t("quizzes.settings.time-limit")}</label>
+          <div className="label">{t("quizzes.settings.time-limit")}</div>
           <select name="time-limit" id="time-limit" value={timeLimit} onChange={handleTimeLimitChange}>
             <option value="0" label="none">{t("quizzes.settings.none")}</option>
             <option value="15">
@@ -133,17 +140,21 @@ const QuizSettings: FunctionComponent = () => {
           </select>
         </div>
         <div className="setting setting-inline">
-          <label>{t("quizzes.settings.instant-feedback")}</label>
+          <div className="label">{t("quizzes.settings.instant-feedback")}</div>
           <CheckBox checked={quiz.instantFeedback} onChange={handleInstantFeedbackChange} />
         </div>
         <div id="quiz-settings-questions" className="setting">
-          <label>{t("quizzes.settings.questions")}</label>
-          <label>{quiz.getQuestionSummary()}</label>
-          <button className="icon" onClick={() => toggleQuestionCatalog()}>
+          <div className="label">{t("quizzes.settings.questions")}</div>
+          <div className="label">{quiz.getQuestionSummary()}</div>
+          <button type="button" className="icon" onClick={toggleQuestionCatalog}>
             <FontAwesomeIcon icon={editIcon} size="sm" />
           </button>
         </div>
-        <QuestionCatalogTree showCatalog={showQuizCatalog} quiz={quiz} onChange={handleQuestionChange} />
+        <QuestionCatalogTree
+          showCatalog={showQuizCatalog}
+          quiz={quiz}
+          onChange={handleQuestionChange}
+        />
       </div>
       <div className="quiz-settings-runs-header">
         <h2 className="quiz-settings-runs-title">{t("quizzes.settings.past-runs")}</h2>

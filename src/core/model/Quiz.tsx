@@ -1,10 +1,10 @@
 /* eslint-disable no-underscore-dangle */
 import { IDBPDatabase } from "idb";
 import { v4 as uuidv4 } from "uuid";
+import { t } from "i18next";
 import {
   IQuizSettings, IRunData, RefereeDB,
 } from "./index";
-import { t } from "i18next";
 
 export default class Quiz {
   private _id: string;
@@ -75,11 +75,11 @@ export default class Quiz {
   public getQuestionSummary(): string {
     const rules = this._questions.reduce((result: Map<string, number>, questionId: string) => {
       const matchRule = questionId.match(/^([0-9]+)\.([0-9]+)/) || [];
-      var numberOfQuestions = result.get(matchRule[1]) || 0;
-      result.set(matchRule[1], ++numberOfQuestions);
+      const numberOfQuestions = result.get(matchRule[1]) || 0;
+      result.set(matchRule[1], numberOfQuestions + 1);
       return result;
-    }, new Map<string, number>);
-    return rules.size > 0 ? Array.from(rules,([rule, amount]) => `${t(`rules.rule.rule${rule}`)} (${amount})`).join(", ") : t("quizzes.settings.all");
+    }, new Map<string, number>());
+    return rules.size > 0 ? Array.from(rules, ([rule, amount]) => `${t(`rules.rule.rule${rule}`)} (${amount})`).join(", ") : t("quizzes.settings.all");
   }
 
   public async persist(db: IDBPDatabase<RefereeDB>) {
@@ -96,11 +96,11 @@ export default class Quiz {
     await this.persist(db);
   }
 
-  private getDefaultSettings(): IQuizSettings{
+  private getDefaultSettings(): IQuizSettings {
     return {
-      "maxQuestions": 0,
-      "instantFeedback": true,
-      "timeLimit": 0,
+      maxQuestions: 0,
+      instantFeedback: true,
+      timeLimit: 0,
     };
   }
 }

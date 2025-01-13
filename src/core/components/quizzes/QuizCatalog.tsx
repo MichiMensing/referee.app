@@ -1,10 +1,10 @@
-import React, { FunctionComponent, useId, useState } from "react";
+import React, { FunctionComponent, useState } from "react";
 import "./QuizCatalog.css";
 import { t } from "i18next";
+import { useNavigate } from "react-router";
 import Quiz from "./Quiz";
 import QuizModel from "../../model/Quiz";
 import { useRulesTestData } from "../../context/TestDataContext";
-import { useNavigate } from "react-router";
 
 const QuizCatalog: FunctionComponent = () => {
   const { quizzes, addQuiz } = useRulesTestData();
@@ -25,8 +25,14 @@ const QuizCatalog: FunctionComponent = () => {
       <div id="quizzes-catalog-header">
         <h2>{t("menu.quizzes")}</h2>
         <div className="quizzes-button-group">
-          <button className="highlight" onClick={handleCreateNew}>{t("quizzes.new")}</button>
-          <button>{t("quizzes.reset")}</button>
+          <button
+            className="highlight"
+            type="button"
+            onClick={handleCreateNew}
+          >
+            {t("quizzes.new")}
+          </button>
+          <button type="button">{t("quizzes.reset")}</button>
         </div>
       </div>
       <div id="quizzes-list">

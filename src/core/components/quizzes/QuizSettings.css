@@ -28,12 +28,13 @@
     margin-bottom: 0.25rem;
   }
 
-  & label:first-child::after {
+  & .label:first-child::after {
     content: ":";
   }
 
-  & label {
+  & .label {
     margin-right: 1rem;
+    display: inline;
   }
 
   & .number-input {

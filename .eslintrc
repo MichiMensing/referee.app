@@ -28,11 +28,25 @@
       2
     ],
     "no-param-reassign": [
-      "error", { "props": false }
+      "error",
+      {
+        "props": false
+      }
     ],
     "no-shadow": "off",
     "@typescript-eslint/no-shadow": "error",
-    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "args": "all",
+        "argsIgnorePattern": "^_",
+        "caughtErrors": "all",
+        "caughtErrorsIgnorePattern": "^_",
+        "destructuredArrayIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "ignoreRestSiblings": true
+      }
+    ],
     "no-unused-vars": "off",
     "@typescript-eslint/interface-name-prefix": 0,
     "@typescript-eslint/no-empty-interface": [
@@ -43,6 +57,8 @@
     ],
     "@typescript-eslint/explicit-function-return-type": 0,
     "import/prefer-default-export": 0,
+    "@typescript-eslint/no-require-imports": 0,
+    "class-methods-use-this": 0,
     "import/extensions": [
       "error",
       "ignorePackages",

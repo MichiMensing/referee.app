@@ -4,7 +4,8 @@ import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faArrowAltCircleRight, faBookOpen, faChartArea, faClipboardQuestion, faGaugeHigh, faInfoCircle, faTasks,
+  faArrowAltCircleRight, faBookOpen, faChartArea,
+  faClipboardQuestion, faInfoCircle, faTasks,
 } from "@fortawesome/free-solid-svg-icons";
 import "./Menu.css";
 

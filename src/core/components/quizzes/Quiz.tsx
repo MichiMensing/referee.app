@@ -11,11 +11,12 @@ interface Props {
 }
 
 const Quiz: FunctionComponent<Props> = ({
-  quiz
+  quiz,
 }) => {
   const timeLimit = quiz.settings.timeLimit || 0;
-  const amountQuestions = quiz.settings.maxQuestions > 0 && quiz.questions.length > 0 ?
-    Math.min(quiz.settings.maxQuestions, quiz.questions.length) : Math.max(quiz.settings.maxQuestions, quiz.questions.length);
+  const amountQuestions = quiz.settings.maxQuestions > 0 && quiz.questions.length > 0
+    ? Math.min(quiz.settings.maxQuestions, quiz.questions.length)
+    : Math.max(quiz.settings.maxQuestions, quiz.questions.length);
 
   return (
     <Link id="quiz-box" to={`/quizzes/${quiz.id}`} key={`quiz-${quiz.id}`}>
@@ -30,14 +31,15 @@ const Quiz: FunctionComponent<Props> = ({
           <div className="quiz-setting">
             <div className="icon"><FontAwesomeIcon icon={faSection} size="lg" /></div>
             <div className="title">{t("quizzes.rules")}</div>
-            <label className="value" >{quiz.getQuestionSummary()}</label>
+            <div className="value">{quiz.getQuestionSummary()}</div>
           </div>
           {timeLimit > 0 && (
             <div className="quiz-setting">
               <div className="icon"><FontAwesomeIcon icon={faStopwatch} size="lg" /></div>
               <div className="title">{t("quizzes.settings.time-limit")}</div>
               <div className="value">{timeLimit}</div>
-            </div>)}
+            </div>
+          )}
         </div>
       </div>
       <div id="quiz-results" className="good">

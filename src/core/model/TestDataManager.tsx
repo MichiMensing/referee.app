@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 import { IDBPDatabase, openDB } from "idb";
 import {
-  IAnswer, IQuestion, IQuizData, ITestData, RefereeDB,
+  IAnswer, IQuestion, ITestData, RefereeDB,
 } from "./index";
 import Question from "./Question";
 import Quiz from "./Quiz";

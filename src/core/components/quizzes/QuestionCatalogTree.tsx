@@ -20,16 +20,22 @@ type OrderedData = {
   };
 };
 
+type NodeElement = {
+  value: string;
+  children?: NodeElement[];
+  checked?: boolean;
+}
+
 interface Props {
   showCatalog?: boolean;
   quiz: Quiz;
   onChange?: (questions: string[]) => void;
 }
 
-const QuestionCatalogTree: FunctionComponent<Props> = ({ showCatalog = true, quiz, onChange}) => {
+const QuestionCatalogTree: FunctionComponent<Props> = ({ showCatalog = true, quiz, onChange }) => {
   const { data } = useRulesTestData();
   const { t, i18n: { language } } = useTranslation();
-  const [rerender, setRerender] = useState(0);
+  const [rerender, _] = useState(0);
 
   const orderedData = useMemo(() => Object.values(data).reduce<OrderedData>((prev, question) => {
     const { rule } = question;
@@ -62,13 +68,11 @@ const QuestionCatalogTree: FunctionComponent<Props> = ({ showCatalog = true, qui
   const [checked, setChecked] = useState<string[]>(quiz.questions);
   const [expanded, setExpanded] = useState<string[]>([]);
 
-  const updateCheckedState = (node: any) => {
-    const updatedValues: string[] = getValues(node);
-
-    function getValues(nodeElement: any): string[] {
+  const updateCheckedState = (node: NodeElement) => {
+    function getValues(nodeElement: NodeElement): string[] {
       let result: string[] = [];
       if (nodeElement.children) {
-        nodeElement.children.forEach((v: any) => {
+        nodeElement.children.forEach((v: NodeElement) => {
           result = [...result, ...getValues(v)];
         });
       } else {
@@ -77,7 +81,9 @@ const QuestionCatalogTree: FunctionComponent<Props> = ({ showCatalog = true, qui
       return result;
     }
 
-    var updateChecks;
+    const updatedValues: string[] = getValues(node);
+
+    let updateChecks;
     if (node.checked) {
       updateChecks = [...checked, ...updatedValues];
       setChecked(updateChecks);
@@ -101,10 +107,10 @@ const QuestionCatalogTree: FunctionComponent<Props> = ({ showCatalog = true, qui
         expanded={expanded}
         checkModel="all"
         showExpandAll
-        onCheck={(_, node) => {
+        onCheck={(_x, node) => {
           updateCheckedState(node);
         }}
-        onExpand={(expanded) => setExpanded(expanded)}
+        onExpand={(expandedList) => setExpanded(expandedList)}
         icons={{
           check: <FontAwesomeIcon className="rct-icon rct-icon-check" icon={faCheckSquare} />,
           uncheck: <FontAwesomeIcon className="rct-icon rct-icon-uncheck" icon={faSquare} />,
