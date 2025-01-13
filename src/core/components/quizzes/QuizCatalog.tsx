@@ -4,10 +4,12 @@ import { t } from "i18next";
 import Quiz from "./Quiz";
 import QuizModel from "../../model/Quiz";
 import { useRulesTestData } from "../../context/TestDataContext";
+import { useNavigate } from "react-router";
 
 const QuizCatalog: FunctionComponent = () => {
   const { quizzes, addQuiz } = useRulesTestData();
   const [quizList, setQuizList] = useState<QuizModel[]>(quizzes);
+  const navigate = useNavigate();
 
   const handleCreateNew = async () => {
     const newQuiz = new QuizModel("New Quiz");
@@ -15,6 +17,7 @@ const QuizCatalog: FunctionComponent = () => {
       await addQuiz(newQuiz);
     }
     setQuizList([...quizList]);
+    navigate(`/quizzes/${newQuiz.id}`);
   };
 
   return (
@@ -27,8 +30,7 @@ const QuizCatalog: FunctionComponent = () => {
         {quizList.map((quiz) => (
           <Quiz
             key={quiz.id}
-            id={quiz.id}
-            name={quiz.name}
+            quiz={quiz}
           />
         ))}
       </div>

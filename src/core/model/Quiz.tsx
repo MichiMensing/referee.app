@@ -14,12 +14,12 @@ export default class Quiz {
 
   private _runs: IRunData[] = [];
 
-  private _settings: IQuizSettings | undefined;
+  private _settings: IQuizSettings;
 
   constructor(name: string, settings?: IQuizSettings, questions?: string[], id?: string) {
     this._id = id || uuidv4();
     this._name = name;
-    this._settings = settings;
+    this._settings = settings || this.getDefaultSettings();
     this._questions = questions || [];
   }
 
@@ -35,8 +35,36 @@ export default class Quiz {
     return this._questions;
   }
 
-  get settings(): IQuizSettings | undefined {
+  get settings(): IQuizSettings {
     return this._settings;
+  }
+
+  get instantFeedback(): boolean {
+    return !!this._settings?.instantFeedback;
+  }
+
+  get maxQuestions(): number {
+    return this._settings?.maxQuestions || 0;
+  }
+
+  get timeLimit(): number {
+    return this._settings.timeLimit || 0;
+  }
+
+  public setInstantFeedback(checked: boolean) {
+    this._settings.instantFeedback = checked;
+  }
+
+  public setMaxQuestions(limit: number) {
+    this._settings.maxQuestions = limit;
+  }
+
+  public setTimeLimit(timeLimit: number) {
+    this._settings.timeLimit = timeLimit;
+  }
+
+  public setName(name: string) {
+    this._name = name;
   }
 
   public async persist(db: IDBPDatabase<RefereeDB>) {
@@ -51,5 +79,13 @@ export default class Quiz {
   public async reset(db: IDBPDatabase<RefereeDB>) {
     this._runs = [];
     await this.persist(db);
+  }
+
+  private getDefaultSettings(): IQuizSettings{
+    return {
+      "maxQuestions": 0,
+      "instantFeedback": true,
+      "timeLimit": 0,
+    };
   }
 }

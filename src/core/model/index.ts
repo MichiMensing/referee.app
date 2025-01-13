@@ -28,8 +28,8 @@ export interface ITestResponse {
 }
 
 export interface IQuizSettings {
-  maxQuestions: number | null;
-  timelimit: number | null;
+  maxQuestions: number;
+  timeLimit: number;
   instantFeedback: boolean;
 }
 
