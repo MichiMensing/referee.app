@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FunctionComponent, useState } from "react";
+import React, { ChangeEvent, FunctionComponent, useMemo, useState } from "react";
 import "./QuizSettings.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,6 +11,13 @@ import CheckBox from "../CheckBox";
 import QuizRun from "./QuizRun";
 import { useRulesTestData } from "../../context/TestDataContext";
 import Quiz from "../../model/Quiz";
+import Question from "../../model/Question";
+
+type OrderedData = {
+  [rule: string]: {
+    questions: Question[];
+  };
+};
 
 const runs = [(
   <QuizRun
@@ -29,7 +36,7 @@ const runs = [(
 
 const QuizSettings: FunctionComponent = () => {
   const { quizId } = useParams();
-  const { quizzes } = useRulesTestData();
+  const { quizzes, data } = useRulesTestData();
   const navigate = useNavigate();
 
   const currentQuiz = quizzes.find((q, i) => {
@@ -49,6 +56,23 @@ const QuizSettings: FunctionComponent = () => {
   const [timeLimit, setTimeLimit] = useState<number>(quiz.timeLimit);
   const [maxQuestions, setMaxQuestions] = useState<number>(quiz.maxQuestions);
   const [name, setName] = useState<string>(quiz.name);
+  const [questions, setQuestions] = useState<string[]>(quiz.questions);
+  const [rerender, setRerender] = useState(0);
+
+  const orderedData = useMemo(() => Object.values(data).reduce<OrderedData>((prev, question) => {
+    const { rule } = question;
+    if (!prev[question.rule]) {
+      prev[rule] = {
+        questions: [],
+      };
+    }
+
+    prev[rule] = {
+      questions: [...prev[rule].questions, question],
+    };
+
+    return prev;
+  }, {}), [data, rerender]);
 
   function toggleQuestionCatalog(): void {
     setShowQuizCatalog(!showQuizCatalog);
@@ -88,6 +112,12 @@ const QuizSettings: FunctionComponent = () => {
     setTimeLimit(quiz.timeLimit);
   }
 
+  function handleQuestionChange(questions: string[]) {
+    quiz.setQuestions(questions);
+    setQuiz(quiz);
+    setQuestions(quiz.questions);
+  }
+
   return (
     <div id="quiz-settings">
       <div id="quizzes-catalog-header">
@@ -98,7 +128,7 @@ const QuizSettings: FunctionComponent = () => {
       <div id="quiz-settings-list">
         <div className="setting">
           <label>{t("quizzes.settings.name")}</label>
-          <input value={name} onChange={handleNameChange}/>
+          <input value={name} onChange={handleNameChange} />
         </div>
         <div className="setting">
           <label>{t("quizzes.settings.max-question")}</label>
@@ -128,12 +158,12 @@ const QuizSettings: FunctionComponent = () => {
         </div>
         <div id="quiz-settings-questions" className="setting">
           <label>{t("quizzes.settings.questions")}</label>
-          <label>{t("quizzes.settings.all")}</label>
+          <label>{quiz.getQuestionSummary()}</label>
           <button className="icon" onClick={() => toggleQuestionCatalog()}>
             <FontAwesomeIcon icon={editIcon} size="sm" />
           </button>
         </div>
-        <QuestionCatalogTree showCatalog={showQuizCatalog} />
+        <QuestionCatalogTree showCatalog={showQuizCatalog} quiz={quiz} onChange={handleQuestionChange} />
       </div>
       <div className="quiz-settings-runs-header">
         <h2 className="quiz-settings-runs-title">{t("quizzes.settings.past-runs")}</h2>

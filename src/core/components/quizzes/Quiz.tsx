@@ -30,7 +30,7 @@ const Quiz: FunctionComponent<Props> = ({
           <div className="quiz-setting">
             <div className="icon"><FontAwesomeIcon icon={faSection} size="lg" /></div>
             <div className="title">{t("quizzes.rules")}</div>
-            <div className="value">{t("rules.rule.rule1")}</div>
+            <label className="value" >{quiz.getQuestionSummary()}</label>
           </div>
           {timeLimit > 0 && (
             <div className="quiz-setting">

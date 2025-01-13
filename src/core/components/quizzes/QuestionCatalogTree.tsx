@@ -1,5 +1,5 @@
 import React, {
-  Children, FunctionComponent, useMemo, useState,
+  FunctionComponent, useMemo, useState,
 } from "react";
 import "./QuestionCatalogTree.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,6 +12,7 @@ import "react-checkbox-tree/lib/react-checkbox-tree.css";
 import { useTranslation } from "react-i18next";
 import { useRulesTestData } from "../../context/TestDataContext";
 import Question from "../../model/Question";
+import Quiz from "../../model/Quiz";
 
 type OrderedData = {
   [rule: string]: {
@@ -21,9 +22,11 @@ type OrderedData = {
 
 interface Props {
   showCatalog?: boolean;
+  quiz: Quiz;
+  onChange?: (questions: string[]) => void;
 }
 
-const QuestionCatalogTree: FunctionComponent<Props> = ({ showCatalog = true }) => {
+const QuestionCatalogTree: FunctionComponent<Props> = ({ showCatalog = true, quiz, onChange}) => {
   const { data } = useRulesTestData();
   const { t, i18n: { language } } = useTranslation();
   const [rerender, setRerender] = useState(0);
@@ -56,7 +59,7 @@ const QuestionCatalogTree: FunctionComponent<Props> = ({ showCatalog = true }) =
     })),
   }];
 
-  const [checked, setChecked] = useState<string[]>([]);
+  const [checked, setChecked] = useState<string[]>(quiz.questions);
   const [expanded, setExpanded] = useState<string[]>([]);
 
   const updateCheckedState = (node: any) => {
@@ -74,11 +77,17 @@ const QuestionCatalogTree: FunctionComponent<Props> = ({ showCatalog = true }) =
       return result;
     }
 
+    var updateChecks;
     if (node.checked) {
-      setChecked([...checked, ...updatedValues]);
+      updateChecks = [...checked, ...updatedValues];
+      setChecked(updateChecks);
     } else {
-      const filteredChecks = checked.filter((check) => !updatedValues.includes(check));
-      setChecked(filteredChecks);
+      updateChecks = checked.filter((check) => !updatedValues.includes(check));
+      setChecked(updateChecks);
+    }
+
+    if (onChange) {
+      onChange(updateChecks);
     }
   };
 

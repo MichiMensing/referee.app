@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import {
   IQuizSettings, IRunData, RefereeDB,
 } from "./index";
+import { t } from "i18next";
 
 export default class Quiz {
   private _id: string;
@@ -65,6 +66,20 @@ export default class Quiz {
 
   public setName(name: string) {
     this._name = name;
+  }
+
+  public setQuestions(questions: string[]) {
+    this._questions = questions;
+  }
+
+  public getQuestionSummary(): string {
+    const rules = this._questions.reduce((result: Map<string, number>, questionId: string) => {
+      const matchRule = questionId.match(/^([0-9]+)\.([0-9]+)/) || [];
+      var numberOfQuestions = result.get(matchRule[1]) || 0;
+      result.set(matchRule[1], ++numberOfQuestions);
+      return result;
+    }, new Map<string, number>);
+    return rules.size > 0 ? Array.from(rules,([rule, amount]) => `${t(`rules.rule.rule${rule}`)} (${amount})`).join(", ") : t("quizzes.settings.all");
   }
 
   public async persist(db: IDBPDatabase<RefereeDB>) {
