@@ -2,7 +2,7 @@ import React, { FunctionComponent, useState } from "react";
 import "./QuizSettings.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faArrowLeft, faFloppyDisk, faPen, IconDefinition,
+  faArrowLeft, faFloppyDisk, faPen, faPlay, faTrash, IconDefinition,
 } from "@fortawesome/free-solid-svg-icons";
 import { t } from "i18next";
 import { useNavigate, useParams } from "react-router";
@@ -11,6 +11,7 @@ import CheckBox from "../CheckBox";
 import QuizRun from "./QuizRun";
 import { useRulesTestData } from "../../context/TestDataContext";
 import Quiz from "../../model/Quiz";
+import IconToggleButton from "../IconToggleButton";
 
 const runs = [(
   <QuizRun
@@ -108,8 +109,15 @@ const QuizSettings: FunctionComponent = () => {
         </button>
         <h2>{t("quizzes.settings.title")}</h2>
         <div className="quizzes-button-group">
-          <button type="button" className="highlight">{t("quizzes.start")}</button>
-          <button type="button">{t("quizzes.settings.delete")}</button>
+          <IconToggleButton
+            label={t("quizzes.start")}
+            highlight
+            icon={faPlay}
+          />
+          <IconToggleButton
+            label={t("quizzes.settings.delete")}
+            icon={faTrash}
+          />
         </div>
       </div>
       <div id="quiz-settings-list">
