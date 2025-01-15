@@ -26,7 +26,9 @@ const Quiz: FunctionComponent<Props> = ({
           <div className="quiz-setting">
             <div className="icon"><FontAwesomeIcon icon={faHashtag} size="lg" /></div>
             <div className="title">{t("quizzes.questions")}</div>
-            <div className="value">{amountQuestions}</div>
+            <div className="value">
+              {amountQuestions === 0 && t("quizzes.settings.unlimited")}
+              {amountQuestions > 0 && amountQuestions}</div>
           </div>
           <div className="quiz-setting">
             <div className="icon"><FontAwesomeIcon icon={faSection} size="lg" /></div>

@@ -71,6 +71,7 @@
       "reset": "Zurücksetzen",
       "new": "Neues Quiz",
       "start": "Starte Quiz",
+      "empty": "Klicke \"Neues Quiz\" um ein Quiz zum Katalog hinzuzufügen",
       "settings": {
         "title": "Quizeinstellungen",
         "delete": "Löschen",
@@ -84,7 +85,8 @@
         "none": "Kein Limit",
         "min": "Min",
         "hour": "Std",
-        "past-runs": "Vergangene Versuche"
+        "past-runs": "Vergangene Versuche",
+        "unlimited": "Unbegrenzt"
       }
     }
   }

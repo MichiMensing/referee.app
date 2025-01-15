@@ -40,12 +40,16 @@ const QuizCatalog: FunctionComponent = () => {
         </div>
       </div>
       <div id="quizzes-list">
-        {quizList.map((quiz) => (
+        { quizList.length > 0 &&
+          quizList.map((quiz) => (
           <Quiz
             key={quiz.id}
             quiz={quiz}
           />
         ))}
+        { quizList.length === 0 &&
+          (<div className="quizzes-list-empty">{t("quizzes.empty")}</div>
+        )}
       </div>
     </div>
   );

@@ -71,6 +71,7 @@
       "reset": "Remettre",
       "new": "Nouveau Quiz",
       "start": "Démarrer le Quiz",
+      "empty": "Veuillez cliquer sur \"Nouveau Quiz\" pour ajouter un quiz au catalogue",
       "settings": {
         "title": "Paramètres du quiz",
         "delete": "Supprimer",
@@ -84,7 +85,8 @@
         "none": "Aucune limite",
         "min": "Min",
         "hour": "Heure",
-        "past-runs": "Exécutions passées"
+        "past-runs": "Exécutions passées",
+        "unlimited": "Illimitée"
       }
     }
   }

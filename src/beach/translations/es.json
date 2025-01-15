@@ -71,6 +71,7 @@
       "reset": "Reiniciar",
       "new": "Nuevo Cuestionario",
       "start": "Iniciar Cuestionario",
+      "empty": "Haga clic en \"Nuevo Cuestionario\" para agregar una prueba al catálogo",
       "settings": {
         "title": "Configuración de cuestionario",
         "delete": "Eliminar",
@@ -84,7 +85,8 @@
         "none": "Sin límite",
         "min": "Min",
         "hour": "Hora",
-        "past-runs": "Ejecuciones pasadas"
+        "past-runs": "Ejecuciones pasadas",
+        "unlimited": "Ilimitada"
       }
     }
   }

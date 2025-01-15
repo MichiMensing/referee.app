@@ -71,6 +71,7 @@
       "reset": "Reset",
       "new": "New Quiz",
       "start": "Start Quiz",
+      "empty": "Please click \"New Quiz\" to add a quiz to the catalog",
       "settings": {
         "title": "Quiz Settings",
         "delete": "Delete",
@@ -84,7 +85,8 @@
         "none": "No Limit",
         "min": "Min",
         "hour": "Hour",
-        "past-runs": "Past Runs"
+        "past-runs": "Past Runs",
+        "unlimited": "Unlimited"
       }
     }
   }
