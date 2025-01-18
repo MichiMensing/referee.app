@@ -34,6 +34,7 @@ export interface IQuizSettings {
 }
 
 export interface IRunData {
+  quizId: string;
   correct: number;
   total: number;
   timestamp: Date;
@@ -60,5 +61,12 @@ export interface RefereeDB extends DBSchema {
     indexes: {
       pick: [number, Date];
     };
+  };
+  quizRuns: {
+    key: string;
+    value: IRunData;
+    indexes: {
+      pick: [number, Date];
+    }
   }
 }

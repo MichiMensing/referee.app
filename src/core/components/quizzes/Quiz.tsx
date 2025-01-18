@@ -18,6 +18,21 @@ const Quiz: FunctionComponent<Props> = ({
     ? Math.min(quiz.settings.maxQuestions, quiz.questions.length)
     : Math.max(quiz.settings.maxQuestions, quiz.questions.length);
 
+  const latestRun = quiz.getLatestRun();
+  const percentage = (latestRun.correct / latestRun.total) * 100;
+  const successRate = latestRun.total !== 0 ? (percentage).toFixed(1) : 0.0;
+
+  let classification;
+  if (latestRun.total === 0) {
+    classification = "empty";
+  } else if (percentage >= 80) {
+    classification = "good";
+  } else if (percentage >= 50) {
+    classification = "ok";
+  } else {
+    classification = "bad";
+  }
+
   return (
     <Link id="quiz-box" to={`/quizzes/${quiz.id}`} key={`quiz-${quiz.id}`}>
       <div id="quiz-details">
@@ -44,9 +59,9 @@ const Quiz: FunctionComponent<Props> = ({
           )}
         </div>
       </div>
-      <div id="quiz-results" className="good">
-        <div className="quiz-result-absolute">28 / 30</div>
-        <div className="quiz-result-percentage">(93.3%)</div>
+      <div id="quiz-results" className={classification}>
+        <div className="quiz-result-absolute">{`${latestRun.correct} / ${latestRun.total}`}</div>
+        <div className="quiz-result-percentage">{`(${successRate}%)`}</div>
       </div>
     </Link>
   );

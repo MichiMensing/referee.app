@@ -12,25 +12,26 @@ import QuizRun from "./QuizRun";
 import { useRulesTestData } from "../../context/TestDataContext";
 import Quiz from "../../model/Quiz";
 import IconToggleButton from "../IconToggleButton";
+import { IRunData } from "../../model";
 
-const runs = [(
-  <QuizRun
-    timestamp="January 15, 2025 3:40 PM"
-    correct={28}
-    total={30}
-  />
-),
-(
-  <QuizRun
-    timestamp="December 16, 2024 3:40 PM"
-    correct={11}
-    total={30}
-  />
-)];
+// const runs = [(
+//   <QuizRun
+//     timestamp="January 15, 2025 3:40 PM"
+//     correct={28}
+//     total={30}
+//   />
+// ),
+// (
+//   <QuizRun
+//     timestamp="December 16, 2024 3:40 PM"
+//     correct={11}
+//     total={30}
+//   />
+// )];
 
 const QuizSettings: FunctionComponent = () => {
   const { quizId } = useParams();
-  const { quizzes } = useRulesTestData();
+  const { quizzes, saveQuiz } = useRulesTestData();
   const navigate = useNavigate();
 
   const currentQuiz = quizzes.find((q, _) => q.id === quizId);
@@ -52,6 +53,7 @@ const QuizSettings: FunctionComponent = () => {
   const [maxQuestions, setMaxQuestions] = useState<number>(quiz.maxQuestions);
   const [name, setName] = useState<string>(quiz.name);
   const [_, setQuestions] = useState<string[]>(quiz.questions);
+  const [runs, setRuns] = useState<IRunData[]>(quiz.runs);
 
   const toggleQuestionCatalog = () => {
     setShowQuizCatalog(!showQuizCatalog);
@@ -60,6 +62,7 @@ const QuizSettings: FunctionComponent = () => {
 
   const handleBackButtonClick = () => {
     setQuiz(quiz);
+    if (saveQuiz) saveQuiz(quiz);
     navigate(-1);
   };
 
@@ -97,6 +100,17 @@ const QuizSettings: FunctionComponent = () => {
     setQuestions(quiz.questions);
   };
 
+  const handleStartQuiz = async () => {
+    quiz.addRun({
+      quizId: currentQuiz.id,
+      correct: 5,
+      total: 30,
+      timestamp: new Date()
+    });
+    setQuiz(quiz);
+    setRuns(quiz.runs);
+  };
+
   return (
     <div id="quiz-settings">
       <div id="quizzes-catalog-header">
@@ -111,6 +125,7 @@ const QuizSettings: FunctionComponent = () => {
         <div className="quizzes-button-group">
           <IconToggleButton
             label={t("quizzes.start")}
+            onChange={handleStartQuiz}
             highlight
             icon={faPlay}
           />
@@ -168,7 +183,22 @@ const QuizSettings: FunctionComponent = () => {
         <h2 className="quiz-settings-runs-title">{t("quizzes.settings.past-runs")}</h2>
       </div>
       <div id="quiz-settings-runs">
-        {runs}
+        {runs.length > 0 && runs.map((run) => (
+          <QuizRun key={`quiz-run-${run.timestamp}`}
+            timestamp={`${run.timestamp.toLocaleDateString(undefined, {
+              year: "numeric",
+              month: "long",
+              day: "numeric"
+            })} - ${run.timestamp.toLocaleTimeString(undefined, { hour12: false })}`}
+            correct={run.correct}
+            total={run.total}
+          />
+        ))}
+        {runs.length === 0 && (
+          <div className="quiz-settings-run-empty">
+            {t("quizzes.settings.no-runs")}
+          </div>
+        )}
       </div>
     </div>
   );

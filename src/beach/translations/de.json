@@ -86,7 +86,8 @@
         "min": "Min",
         "hour": "Std",
         "past-runs": "Vergangene Versuche",
-        "unlimited": "Unbegrenzt"
+        "unlimited": "Unbegrenzt",
+        "no-runs": "Keine vorherigen Versuche"
       }
     }
   }

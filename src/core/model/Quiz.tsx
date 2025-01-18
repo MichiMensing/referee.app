@@ -52,6 +52,10 @@ export default class Quiz {
     return this._settings.timeLimit || 0;
   }
 
+  get runs(): IRunData[] {
+    return this._runs;
+  }
+
   public setInstantFeedback(checked: boolean) {
     this._settings.instantFeedback = checked;
   }
@@ -72,6 +76,20 @@ export default class Quiz {
     this._questions = questions;
   }
 
+  public setRuns(runs: IRunData[]) {
+    this._runs = runs;
+  }
+
+  public addRun(run: IRunData) {
+    this._runs.push(run);
+  }
+
+  public getLatestRun(): IRunData {
+    return this._runs.reduce((max, current) => {
+      return current.timestamp > max.timestamp ? current : max
+    });
+  }
+
   public getQuestionSummary(): string {
     const rules = this._questions.reduce((result: Map<string, number>, questionId: string) => {
       const matchRule = questionId.match(/^([0-9]+)\.([0-9]+)/) || [];
@@ -89,6 +107,15 @@ export default class Quiz {
       runs: this._runs,
       settings: this._settings,
     }, this._id);
+
+    await Promise.all(this._runs.map((run) => {
+      return db.put("quizRuns", {
+        quizId: run.quizId,
+        correct: run.correct,
+        total: run.total,
+        timestamp: run.timestamp
+      }, this._id);
+    }));
   }
 
   public async reset(db: IDBPDatabase<RefereeDB>) {

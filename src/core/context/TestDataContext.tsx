@@ -8,6 +8,7 @@ export interface TestDataContextValue {
   checkAnswers?: (options: string[]) => Promise<ITestResponse>;
   nextQuestion?: () => void;
   addQuiz?: (quiz: Quiz) => Promise<void>;
+  saveQuiz?: (quiz: Quiz) => Promise<void>;
   question?: Question;
   asked: number;
   correct: number;

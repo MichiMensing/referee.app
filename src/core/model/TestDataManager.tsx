@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 import { IDBPDatabase, openDB } from "idb";
 import {
-  IAnswer, IQuestion, ITestData, RefereeDB,
+  IAnswer, IQuestion, IRunData, ITestData, RefereeDB,
 } from "./index";
 import Question from "./Question";
 import Quiz from "./Quiz";
@@ -61,13 +61,16 @@ export default class TestDataManager {
     const ua = window.navigator.userAgent;
     const isIE = /MSIE|Trident/.test(ua);
     if (!isIE) {
-      db = await openDB<RefereeDB>("referee", 2, {
+      db = await openDB<RefereeDB>("referee", 3, {
         async upgrade(currentDB, oldVersion) {
           if (oldVersion < 1) {
             currentDB.createObjectStore("questions");
           }
           if (oldVersion < 2) {
             currentDB.createObjectStore("quizzes");
+          }
+          if (oldVersion < 3) {
+            currentDB.createObjectStore("quizRuns");
           }
         },
       });
@@ -174,6 +177,12 @@ export default class TestDataManager {
     }
   }
 
+  public async saveQuiz(quiz: Quiz) {
+    if (this.db) {
+      await quiz.persist(this.db);
+    }
+  }
+
   private async loadQuestionsFromDatabase(
     db: IDBPDatabase<RefereeDB>,
     mappedTestData: { [id: string]: ITestData },
@@ -242,6 +251,35 @@ export default class TestDataManager {
 
     this._quizzes = quizzes;
     await tx.done;
+
+    await this.loadQuizRunsFromDatabase(db);
+  }
+
+  private async loadQuizRunsFromDatabase(db: IDBPDatabase<RefereeDB>): Promise<void> {
+    if (this._quizzes.length === 0) return;
+
+    const tx = db.transaction("quizRuns", "readwrite");
+
+    let cursor = await tx.store.openCursor();
+
+    const runMap: Map<string, IRunData[]> = new Map();
+    while (cursor) {
+      const quizRunData = cursor.value;
+
+      const runs : IRunData[] = runMap.get(cursor.key) || [];
+      runs.push(quizRunData);
+      runMap.set(cursor.key, runs);
+
+      // eslint-disable-next-line no-await-in-loop
+      cursor = await cursor.continue();
+    }
+
+    this._quizzes.forEach((quiz) => {
+      quiz.setRuns(runMap.get(quiz.id) || []);
+    });
+
+    await tx.done;
+
   }
 
   private async switchLanguage(language: string) {

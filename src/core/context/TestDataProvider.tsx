@@ -67,6 +67,11 @@ const TestDataProvider: FunctionComponent<TestDataProviderProps> = ({ children, 
     setQuizzes(manager.current.quizzes);
   };
 
+  const saveQuiz = async (quiz: Quiz) => {
+    await manager.current.saveQuiz(quiz);
+    setQuizzes(manager.current.quizzes);
+  };
+
   const resetStats = useCallback(async () => {
     await manager.current!.reset();
     setAsked(manager.current.asked);
@@ -90,6 +95,7 @@ const TestDataProvider: FunctionComponent<TestDataProviderProps> = ({ children, 
           checkAnswers,
           nextQuestion,
           addQuiz,
+          saveQuiz,
           question,
           asked,
           correct,

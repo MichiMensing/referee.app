@@ -86,7 +86,8 @@
         "min": "Min",
         "hour": "Hora",
         "past-runs": "Ejecuciones pasadas",
-        "unlimited": "Ilimitada"
+        "unlimited": "Ilimitada",
+        "no-runs": "No hay ejecuciones anteriores"
       }
     }
   }
