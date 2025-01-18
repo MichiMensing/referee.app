@@ -14,24 +14,9 @@ import Quiz from "../../model/Quiz";
 import IconToggleButton from "../IconToggleButton";
 import { IRunData } from "../../model";
 
-// const runs = [(
-//   <QuizRun
-//     timestamp="January 15, 2025 3:40 PM"
-//     correct={28}
-//     total={30}
-//   />
-// ),
-// (
-//   <QuizRun
-//     timestamp="December 16, 2024 3:40 PM"
-//     correct={11}
-//     total={30}
-//   />
-// )];
-
 const QuizSettings: FunctionComponent = () => {
   const { quizId } = useParams();
-  const { quizzes, saveQuiz } = useRulesTestData();
+  const { quizzes, saveQuiz, startQuiz } = useRulesTestData();
   const navigate = useNavigate();
 
   const currentQuiz = quizzes.find((q, _) => q.id === quizId);
@@ -101,14 +86,13 @@ const QuizSettings: FunctionComponent = () => {
   };
 
   const handleStartQuiz = async () => {
-    quiz.addRun({
-      quizId: currentQuiz.id,
-      correct: 5,
-      total: 30,
-      timestamp: new Date()
-    });
+    if (startQuiz) {
+      await startQuiz(quiz);
+    }
     setQuiz(quiz);
     setRuns(quiz.runs);
+
+    navigate(`/?${quiz.id}`);
   };
 
   return (
@@ -184,13 +168,14 @@ const QuizSettings: FunctionComponent = () => {
       </div>
       <div id="quiz-settings-runs">
         {runs.length > 0 && runs.map((run) => (
-          <QuizRun key={`quiz-run-${run.timestamp}`}
+          <QuizRun
+            key={`quiz-run-${run.timestamp}`}
             timestamp={`${run.timestamp.toLocaleDateString(undefined, {
               year: "numeric",
               month: "long",
-              day: "numeric"
+              day: "numeric",
             })} - ${run.timestamp.toLocaleTimeString(undefined, { hour12: false })}`}
-            correct={run.correct}
+            correct={run.correct.length}
             total={run.total}
           />
         ))}

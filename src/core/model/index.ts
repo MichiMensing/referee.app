@@ -35,7 +35,7 @@ export interface IQuizSettings {
 
 export interface IRunData {
   quizId: string;
-  correct: number;
+  correct: string[];
   total: number;
   timestamp: Date;
 }
@@ -45,6 +45,14 @@ export interface IQuizData {
   questions?: string[];
   runs?: IRunData[];
   settings?: IQuizSettings;
+}
+
+export interface IQuizStats {
+  amountOfQuestions: number;
+  correct: number;
+  total: number;
+  classification: string;
+  percentage: string;
 }
 
 export interface RefereeDB extends DBSchema {

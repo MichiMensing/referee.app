@@ -3,7 +3,7 @@ import { IDBPDatabase } from "idb";
 import { v4 as uuidv4 } from "uuid";
 import { t } from "i18next";
 import {
-  IQuizSettings, IRunData, RefereeDB,
+  IQuizSettings, IQuizStats, IRunData, RefereeDB,
 } from "./index";
 
 export default class Quiz {
@@ -84,10 +84,47 @@ export default class Quiz {
     this._runs.push(run);
   }
 
-  public getLatestRun(): IRunData {
-    return this._runs.reduce((max, current) => {
-      return current.timestamp > max.timestamp ? current : max
-    });
+  public getLatestRun(): IRunData | undefined {
+    if (this._runs.length === 0) return undefined;
+    return this._runs.reduce((max, current) => (current.timestamp > max.timestamp ? current : max));
+  }
+
+  public getQuizStatistics(): IQuizStats {
+    const amountQuestions = this.settings.maxQuestions > 0 && this.questions.length > 0
+      ? Math.min(this.settings.maxQuestions, this.questions.length)
+      : Math.max(this.settings.maxQuestions, this.questions.length);
+
+    let correct = 0;
+    let total = 0;
+    let successRate = "0.0";
+
+    let classification = "empty";
+    const latestRun = this.getLatestRun();
+
+    if (latestRun) {
+      correct = latestRun.correct.length;
+      total = latestRun.total;
+      const percentage = (correct / latestRun.total) * 100;
+      successRate = latestRun.total !== 0 ? (percentage).toFixed(1) : "0.0";
+
+      if (latestRun.total === 0) {
+        classification = "empty";
+      } else if (percentage >= 80) {
+        classification = "good";
+      } else if (percentage >= 50) {
+        classification = "ok";
+      } else {
+        classification = "bad";
+      }
+    }
+
+    return {
+      amountOfQuestions: amountQuestions,
+      correct,
+      total,
+      classification,
+      percentage: successRate,
+    };
   }
 
   public getQuestionSummary(): string {
@@ -108,19 +145,27 @@ export default class Quiz {
       settings: this._settings,
     }, this._id);
 
-    await Promise.all(this._runs.map((run) => {
-      return db.put("quizRuns", {
-        quizId: run.quizId,
-        correct: run.correct,
-        total: run.total,
-        timestamp: run.timestamp
-      }, this._id);
-    }));
+    await Promise.all(this._runs.map((run) => db.put("quizRuns", {
+      quizId: run.quizId,
+      correct: run.correct,
+      total: run.total,
+      timestamp: run.timestamp,
+    }, this._id)));
   }
 
   public async reset(db: IDBPDatabase<RefereeDB>) {
     this._runs = [];
     await this.persist(db);
+  }
+
+  public start() {
+    const stats = this.getQuizStatistics();
+    this._runs.push({
+      quizId: this._id,
+      correct: [],
+      total: stats.amountOfQuestions,
+      timestamp: new Date(),
+    });
   }
 
   private getDefaultSettings(): IQuizSettings {

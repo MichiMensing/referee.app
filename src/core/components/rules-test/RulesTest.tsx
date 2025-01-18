@@ -3,8 +3,9 @@ import React, { FunctionComponent, useState, MouseEvent } from "react";
 import classnames from "classnames";
 import "./RulesTest.css";
 import { useTranslation } from "react-i18next";
-import { faChartPie } from "@fortawesome/free-solid-svg-icons";
+import { faChartPie, faClipboardQuestion } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useNavigate } from "react-router-dom";
 import { useRulesTestData } from "../../context/TestDataContext";
 import CheckBox from "../CheckBox";
 import useAnalytics from "../../hooks/useAnalytics";
@@ -15,15 +16,19 @@ interface RulesTestProps {
 }
 
 const RulesTest: FunctionComponent<RulesTestProps> = ({ mapRuleToAnchor }) => {
+  const navigate = useNavigate();
   const {
     question,
     nextQuestion,
     checkAnswers,
+    stopQuiz,
     asked: numAsked,
     correct: numCorrect,
     checked: initialChecked,
     reveal,
+    quiz,
   } = useRulesTestData();
+
   const [checked, setChecked] = useState<string[]>(initialChecked);
 
   const { t, i18n: { language } } = useTranslation();
@@ -70,7 +75,11 @@ const RulesTest: FunctionComponent<RulesTestProps> = ({ mapRuleToAnchor }) => {
   };
 
   if (!question) {
-    return <div>No more question</div>;
+    if (quiz) {
+      if (stopQuiz) stopQuiz();
+      navigate(`quizzes/${quiz.id}`);
+    }
+    return <div className="no-questions">{t("rulestest.no-questions")}</div>;
   }
 
   const answers = question.answers[language] || [];
@@ -111,14 +120,32 @@ const RulesTest: FunctionComponent<RulesTestProps> = ({ mapRuleToAnchor }) => {
     );
   }
 
-  return (
-    <>
+  let testHeader;
+  if (quiz) {
+    const stats = quiz.getQuizStatistics();
+    testHeader = (
+      <div id="test-header">
+        <FontAwesomeIcon icon={faClipboardQuestion} />
+        <span>{`Quiz: ${quiz.name}`}</span>
+        <span> - </span>
+        <span>{`${t("rulestest.overall")} ${stats.correct}/${stats.total} (${stats.percentage}%)`}</span>
+      </div>
+
+    );
+  } else {
+    testHeader = (
       <div id="test-header">
         <FontAwesomeIcon icon={faChartPie} />
         <span>{`${t("rulestest.overall")} ${numCorrect}/${numAsked} (${percentOverall}%)`}</span>
         <span> - </span>
         <span>{`${t("rulestest.question")} ${question.numCorrect}/${question.numAsked} (${percentQuestion}%)`}</span>
       </div>
+    );
+  }
+
+  return (
+    <>
+      {testHeader}
       <form id="test-content">
         <div id="test-question" className="box-with-header">
           <h2>

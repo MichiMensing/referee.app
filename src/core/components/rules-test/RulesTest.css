@@ -30,7 +30,7 @@
 }
 
 .box-with-header {
-  & > h2 {
+  &>h2 {
     margin: 0;
     color: var(--header-color);
     font-size: 1rem;
@@ -80,9 +80,17 @@
 }
 
 
-.box-with-header > div, #test-options > div, #test-header {
+.box-with-header>div,
+#test-options>div,
+#test-header {
   background-color: var(--white);
   box-shadow: var(--shadow);
   padding: 1rem;
 }
 
+.no-questions {
+  background-color: var(--white);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  margin: 1rem;
+}

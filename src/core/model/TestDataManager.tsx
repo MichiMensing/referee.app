@@ -29,6 +29,8 @@ export default class TestDataManager {
 
   private _quizzes: Quiz[] = [];
 
+  private _quiz: Quiz | undefined;
+
   constructor(answerData: IAnswer[]) {
     this._answerData = answerData;
   }
@@ -120,6 +122,10 @@ export default class TestDataManager {
     return this._quizzes;
   }
 
+  get quiz(): Quiz | undefined {
+    return this._quiz;
+  }
+
   public async checkAnswer(answers: string[]) {
     if (!this.currentId) {
       return {
@@ -145,7 +151,18 @@ export default class TestDataManager {
       await question.persist(this.db);
     }
 
-    if (question.box > 1) {
+    if (this.quiz) {
+      const currentRun = this.quiz.getLatestRun();
+      if (result.answeredCorrect) {
+        currentRun?.correct.push(this.currentId);
+      }
+
+      if (this.db) {
+        await this.quiz.persist(this.db);
+      }
+    }
+
+    if (question.box > 1 || this.quiz) {
       const index = this.todo.findIndex((val) => val === question.id);
       this.todo.splice(index, 1);
     }
@@ -181,6 +198,25 @@ export default class TestDataManager {
     if (this.db) {
       await quiz.persist(this.db);
     }
+  }
+
+  public async startQuiz(quiz: Quiz) {
+    this._quiz = quiz;
+    let quizQuestions = [...quiz.questions];
+    if (quizQuestions.length === 0) {
+      quizQuestions = [...Object.keys(this._data)];
+    }
+    quiz.start();
+    if (this.db) {
+      await quiz.persist(this.db);
+    }
+
+    this.todo = quizQuestions;
+  }
+
+  public async stopQuiz() {
+    this._quiz = undefined;
+    this.todo = [...Object.keys(this._data)];
   }
 
   private async loadQuestionsFromDatabase(
@@ -279,7 +315,6 @@ export default class TestDataManager {
     });
 
     await tx.done;
-
   }
 
   private async switchLanguage(language: string) {

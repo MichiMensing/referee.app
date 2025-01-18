@@ -53,7 +53,8 @@
       "check": "Check",
       "next": "Next",
       "overall": "Overall",
-      "relevant-rules": "Relevant Rules"
+      "relevant-rules": "Relevant Rules",
+      "no-questions": "No more questions"
     },
     "stats": {
       "overall": "Overall",

@@ -26,6 +26,7 @@ const TestDataProvider: FunctionComponent<TestDataProviderProps> = ({ children, 
   const manager = useRef<TestDataManager>(new TestDataManager(answerData));
   const { i18n: { language } } = useTranslation();
   const [quizzes, setQuizzes] = useState<Quiz[]>([]);
+  const [quiz, setQuiz] = useState<Quiz | undefined>();
 
   // Load questions
   useEffect(() => {
@@ -62,14 +63,30 @@ const TestDataProvider: FunctionComponent<TestDataProviderProps> = ({ children, 
     return result;
   };
 
-  const addQuiz = async (quiz: Quiz) => {
-    await manager.current.addQuiz(quiz);
+  const addQuiz = async (quizParam: Quiz) => {
+    await manager.current.addQuiz(quizParam);
     setQuizzes(manager.current.quizzes);
   };
 
-  const saveQuiz = async (quiz: Quiz) => {
-    await manager.current.saveQuiz(quiz);
+  const saveQuiz = async (quizParam: Quiz) => {
+    await manager.current.saveQuiz(quizParam);
     setQuizzes(manager.current.quizzes);
+  };
+
+  const startQuiz = async (quizParam: Quiz) => {
+    await manager.current.startQuiz(quizParam);
+    setQuestion(manager.current.next());
+    setQuiz(manager.current.quiz);
+    setReveal(false);
+    setChecked([]);
+  };
+
+  const stopQuiz = async () => {
+    await manager.current.stopQuiz();
+    setQuestion(manager.current.next());
+    setQuiz(manager.current.quiz);
+    setReveal(false);
+    setChecked([]);
   };
 
   const resetStats = useCallback(async () => {
@@ -96,6 +113,8 @@ const TestDataProvider: FunctionComponent<TestDataProviderProps> = ({ children, 
           nextQuestion,
           addQuiz,
           saveQuiz,
+          startQuiz,
+          stopQuiz,
           question,
           asked,
           correct,
@@ -104,6 +123,7 @@ const TestDataProvider: FunctionComponent<TestDataProviderProps> = ({ children, 
           data: manager.current.data,
           resetStats,
           quizzes,
+          quiz,
         };
 
         let content;

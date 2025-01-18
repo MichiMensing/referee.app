@@ -53,7 +53,8 @@
       "check": "Überprüfen",
       "next": "Nächste Frage",
       "overall": "Insgesamt",
-      "relevant-rules": "Relevante Regeln"
+      "relevant-rules": "Relevante Regeln",
+      "no-questions": "Keine Fragen übrig"
     },
     "stats": {
       "overall": "Gesamt",

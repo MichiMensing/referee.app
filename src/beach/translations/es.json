@@ -53,7 +53,8 @@
       "check": "Examinar",
       "next": "Siguiente Pregunta",
       "overall": "En General",
-      "relevant-rules": "Reglas Relevantes"
+      "relevant-rules": "Reglas Relevantes",
+      "no-questions": "No más preguntas"
     },
     "stats": {
       "overall": "Total",

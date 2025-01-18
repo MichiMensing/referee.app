@@ -53,7 +53,8 @@
       "check": "Vérifier",
       "next": "Prochain",
       "overall": "Au total",
-      "relevant-rules": "Règles Pertinentes"
+      "relevant-rules": "Règles Pertinentes",
+      "no-questions": "Plus de questions"
     },
     "stats": {
       "overall": "au Total",

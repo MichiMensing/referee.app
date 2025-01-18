@@ -9,6 +9,8 @@ export interface TestDataContextValue {
   nextQuestion?: () => void;
   addQuiz?: (quiz: Quiz) => Promise<void>;
   saveQuiz?: (quiz: Quiz) => Promise<void>;
+  startQuiz?: (quiz: Quiz) => Promise<void>;
+  stopQuiz?: () => Promise<void>;
   question?: Question;
   asked: number;
   correct: number;
@@ -17,6 +19,7 @@ export interface TestDataContextValue {
   reveal: boolean;
   resetStats: () => Promise<void>;
   quizzes: Quiz[];
+  quiz?: Quiz;
 }
 
 let TestDataContext: React.Context<TestDataContextValue>;
