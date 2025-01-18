@@ -1,19 +1,18 @@
 import React, { FunctionComponent } from "react";
 import "./QuizRun.css";
+import QuizRunModel from "../../model/QuizRun";
 
 interface Props {
-  timestamp: string;
-  correct?: number;
-  total?: number;
+  run: QuizRunModel;
 }
 
 const QuizRun: FunctionComponent<Props> = ({
-  timestamp, correct = 0, total = 0,
+  run,
 }) => {
-  const percentage = (correct / total) * 100;
-  const successRate = total !== 0 ? (percentage).toFixed(1) : 0.0;
+  const percentage = (run.correct.length / run.total) * 100;
+  const successRate = run.total !== 0 ? (percentage).toFixed(1) : 0.0;
   let classification;
-  if (total === 0) {
+  if (run.total === 0) {
     classification = "empty";
   } else if (percentage >= 80) {
     classification = "good";
@@ -23,11 +22,17 @@ const QuizRun: FunctionComponent<Props> = ({
     classification = "bad";
   }
 
+  const timestamp = `${run.timestamp.toLocaleDateString(undefined, {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  })} - ${run.timestamp.toLocaleTimeString(undefined, { hour12: false })}`;
+
   return (
     <div className="quiz-settings-run">
       <div className="timestamp">{timestamp}</div>
       <div id="quiz-results" className={classification}>
-        <div className="quiz-result-absolute">{`${correct} / ${total}`}</div>
+        <div className="quiz-result-absolute">{`${run.correct.length} / ${run.total}`}</div>
         <div className="quiz-result-percentage">{`(${successRate}%)`}</div>
       </div>
     </div>

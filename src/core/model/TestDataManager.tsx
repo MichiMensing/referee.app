@@ -1,10 +1,11 @@
 /* eslint-disable no-underscore-dangle */
 import { IDBPDatabase, openDB } from "idb";
 import {
-  IAnswer, IQuestion, IRunData, ITestData, RefereeDB,
+  IAnswer, IQuestion, ITestData, RefereeDB,
 } from "./index";
 import Question from "./Question";
 import Quiz from "./Quiz";
+import QuizRun from "./QuizRun";
 
 export default class TestDataManager {
   private db: IDBPDatabase<RefereeDB> | null = null;
@@ -298,12 +299,21 @@ export default class TestDataManager {
 
     let cursor = await tx.store.openCursor();
 
-    const runMap: Map<string, IRunData[]> = new Map();
+    const runMap: Map<string, QuizRun[]> = new Map();
     while (cursor) {
       const quizRunData = cursor.value;
 
-      const runs : IRunData[] = runMap.get(cursor.key) || [];
-      runs.push(quizRunData);
+      const runs : QuizRun[] = runMap.get(cursor.key) || [];
+      runs.push(
+        new QuizRun(
+          quizRunData.quizId,
+          quizRunData.total,
+          quizRunData.timestamp,
+          quizRunData.correct,
+          quizRunData.answers,
+          cursor.key,
+        ),
+      );
       runMap.set(cursor.key, runs);
 
       // eslint-disable-next-line no-await-in-loop

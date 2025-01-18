@@ -3,8 +3,9 @@ import { IDBPDatabase } from "idb";
 import { v4 as uuidv4 } from "uuid";
 import { t } from "i18next";
 import {
-  IQuizSettings, IQuizStats, IRunData, RefereeDB,
+  IQuizSettings, IQuizStats, RefereeDB,
 } from "./index";
+import QuizRun from "./QuizRun";
 
 export default class Quiz {
   private _id: string;
@@ -13,7 +14,7 @@ export default class Quiz {
 
   private _questions: string[] = [];
 
-  private _runs: IRunData[] = [];
+  private _runs: QuizRun[] = [];
 
   private _settings: IQuizSettings;
 
@@ -52,7 +53,7 @@ export default class Quiz {
     return this._settings.timeLimit || 0;
   }
 
-  get runs(): IRunData[] {
+  get runs(): QuizRun[] {
     return this._runs;
   }
 
@@ -76,15 +77,15 @@ export default class Quiz {
     this._questions = questions;
   }
 
-  public setRuns(runs: IRunData[]) {
+  public setRuns(runs: QuizRun[]) {
     this._runs = runs;
   }
 
-  public addRun(run: IRunData) {
+  public addRun(run: QuizRun) {
     this._runs.push(run);
   }
 
-  public getLatestRun(): IRunData | undefined {
+  public getLatestRun(): QuizRun | undefined {
     if (this._runs.length === 0) return undefined;
     return this._runs.reduce((max, current) => (current.timestamp > max.timestamp ? current : max));
   }
@@ -145,12 +146,7 @@ export default class Quiz {
       settings: this._settings,
     }, this._id);
 
-    await Promise.all(this._runs.map((run) => db.put("quizRuns", {
-      quizId: run.quizId,
-      correct: run.correct,
-      total: run.total,
-      timestamp: run.timestamp,
-    }, this._id)));
+    await Promise.all(this._runs.map((run) => run.persist(db)));
   }
 
   public async reset(db: IDBPDatabase<RefereeDB>) {
@@ -160,12 +156,7 @@ export default class Quiz {
 
   public start() {
     const stats = this.getQuizStatistics();
-    this._runs.push({
-      quizId: this._id,
-      correct: [],
-      total: stats.amountOfQuestions,
-      timestamp: new Date(),
-    });
+    this._runs.push(new QuizRun(this._id, stats.amountOfQuestions));
   }
 
   private getDefaultSettings(): IQuizSettings {

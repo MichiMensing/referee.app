@@ -38,6 +38,7 @@ export interface IRunData {
   correct: string[];
   total: number;
   timestamp: Date;
+  answers?: { [questionId: string]: { [key: string]: string } };
 }
 
 export interface IQuizData {

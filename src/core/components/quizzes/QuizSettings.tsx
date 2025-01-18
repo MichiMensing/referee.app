@@ -12,7 +12,7 @@ import QuizRun from "./QuizRun";
 import { useRulesTestData } from "../../context/TestDataContext";
 import Quiz from "../../model/Quiz";
 import IconToggleButton from "../IconToggleButton";
-import { IRunData } from "../../model";
+import QuizRunModel from "../../model/QuizRun";
 
 const QuizSettings: FunctionComponent = () => {
   const { quizId } = useParams();
@@ -38,7 +38,7 @@ const QuizSettings: FunctionComponent = () => {
   const [maxQuestions, setMaxQuestions] = useState<number>(quiz.maxQuestions);
   const [name, setName] = useState<string>(quiz.name);
   const [_, setQuestions] = useState<string[]>(quiz.questions);
-  const [runs, setRuns] = useState<IRunData[]>(quiz.runs);
+  const [runs, setRuns] = useState<QuizRunModel[]>(quiz.runs);
 
   const toggleQuestionCatalog = () => {
     setShowQuizCatalog(!showQuizCatalog);
@@ -169,14 +169,8 @@ const QuizSettings: FunctionComponent = () => {
       <div id="quiz-settings-runs">
         {runs.length > 0 && runs.map((run) => (
           <QuizRun
-            key={`quiz-run-${run.timestamp}`}
-            timestamp={`${run.timestamp.toLocaleDateString(undefined, {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })} - ${run.timestamp.toLocaleTimeString(undefined, { hour12: false })}`}
-            correct={run.correct.length}
-            total={run.total}
+            key={run.id}
+            run={run}
           />
         ))}
         {runs.length === 0 && (
