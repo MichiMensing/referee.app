@@ -73,6 +73,7 @@
       "new": "Neues Quiz",
       "start": "Starte Quiz",
       "empty": "Klicke \"Neues Quiz\" um ein Quiz zum Katalog hinzuzufügen",
+      "out-of": "von",
       "settings": {
         "title": "Quizeinstellungen",
         "delete": "Löschen",
@@ -89,6 +90,9 @@
         "past-runs": "Vergangene Versuche",
         "unlimited": "Unbegrenzt",
         "no-runs": "Keine vorherigen Versuche"
+      },
+      "runs": {
+        "statistics": "Versuchsstatistik"
       }
     }
   }

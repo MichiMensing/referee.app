@@ -78,6 +78,7 @@ const AppShell: FunctionComponent = () => {
           <Route path="/" element={<BeachRulesTest />} />
           <Route path="/quizzes" element={<QuizCatalog />} />
           <Route path="/quizzes/:quizId" element={<QuizSettings />} />
+          <Route path="/quizzes/:quizId/runs/:runId" element={<Stats />} />
           <Route path="/rules" element={<HandballRules />} />
           <Route path="/stats" element={<Stats />} />
           <Route path="/about" element={<About />} />

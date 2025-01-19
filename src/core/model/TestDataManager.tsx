@@ -154,6 +154,7 @@ export default class TestDataManager {
 
     if (this.quiz) {
       const currentRun = this.quiz.getLatestRun();
+      currentRun?.recordAnswer(this.currentId, answers);
       if (result.answeredCorrect) {
         currentRun?.correct.push(this.currentId);
       }
@@ -171,7 +172,15 @@ export default class TestDataManager {
     return result;
   }
 
-  public next() {
+  public next(): Question | undefined {
+    if (this._quiz) {
+      const stats = this._quiz.getQuizStatistics();
+      const answeredQuestions = this._quiz.getLatestRun()?.answers;
+      if (answeredQuestions && Object.keys(answeredQuestions).length >= stats.amountOfQuestions) {
+        this.stopQuiz();
+        return undefined;
+      }
+    }
     this.currentId = this.todo[Math.floor(Math.random() * this.todo.length)];
     return this._data[this.currentId];
   }
@@ -303,7 +312,7 @@ export default class TestDataManager {
     while (cursor) {
       const quizRunData = cursor.value;
 
-      const runs : QuizRun[] = runMap.get(cursor.key) || [];
+      const runs: QuizRun[] = runMap.get(quizRunData.quizId) || [];
       runs.push(
         new QuizRun(
           quizRunData.quizId,
@@ -314,7 +323,7 @@ export default class TestDataManager {
           cursor.key,
         ),
       );
-      runMap.set(cursor.key, runs);
+      runMap.set(quizRunData.quizId, runs);
 
       // eslint-disable-next-line no-await-in-loop
       cursor = await cursor.continue();

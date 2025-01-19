@@ -48,7 +48,7 @@ const QuizSettings: FunctionComponent = () => {
   const handleBackButtonClick = () => {
     setQuiz(quiz);
     if (saveQuiz) saveQuiz(quiz);
-    navigate(-1);
+    navigate("/quizzes");
   };
 
   const handleNameChange = (event: React.FormEvent<HTMLInputElement>) => {
@@ -167,12 +167,14 @@ const QuizSettings: FunctionComponent = () => {
         <h2 className="quiz-settings-runs-title">{t("quizzes.settings.past-runs")}</h2>
       </div>
       <div id="quiz-settings-runs">
-        {runs.length > 0 && runs.map((run) => (
-          <QuizRun
-            key={run.id}
-            run={run}
-          />
-        ))}
+        {runs.length > 0 && runs
+          .sort((a, b) => (b.timestamp.getTime() - a.timestamp.getTime()))
+          .map((run) => (
+            <QuizRun
+              key={run.id}
+              run={run}
+            />
+          ))}
         {runs.length === 0 && (
           <div className="quiz-settings-run-empty">
             {t("quizzes.settings.no-runs")}

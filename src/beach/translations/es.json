@@ -73,6 +73,7 @@
       "new": "Nuevo Cuestionario",
       "start": "Iniciar Cuestionario",
       "empty": "Haga clic en \"Nuevo Cuestionario\" para agregar una prueba al catálogo",
+      "out-of": "de",
       "settings": {
         "title": "Configuración de cuestionario",
         "delete": "Eliminar",
@@ -89,6 +90,9 @@
         "past-runs": "Ejecuciones pasadas",
         "unlimited": "Ilimitada",
         "no-runs": "No hay ejecuciones anteriores"
+      },
+      "runs": {
+        "statistics": "Estadísticas de la ejecución"
       }
     }
   }

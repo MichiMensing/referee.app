@@ -4,16 +4,19 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { faChevronDown, faChevronRight, faFolderOpen } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import classnames from "classnames";
 import Question from "../../model/Question";
 import "./Question.css";
 import CheckBox from "../CheckBox";
 import mapRuleToAnchor from "../../../beach/utils/mapRuleToAnchor";
+import QuizRun from "../../model/QuizRun";
 
 interface Props {
   question: Question;
+  run?: QuizRun;
 }
 
-const QuestionComponent: FunctionComponent<Props> = ({ question }) => {
+const QuestionComponent: FunctionComponent<Props> = ({ question, run }) => {
   const [open, setOpen] = useState(false);
   const { t, i18n: { language } } = useTranslation();
 
@@ -31,8 +34,14 @@ const QuestionComponent: FunctionComponent<Props> = ({ question }) => {
     event.preventDefault();
   };
 
-  const percent = question.numAsked
-    ? Math.round(100 / question.numAsked * question.numCorrect)
+  const asked = run ? 1 : question.numAsked;
+  let correct = question.numCorrect;
+  if (run) {
+    correct = (run.correct.find((id) => id === question.id)) ? 1 : 0;
+  }
+
+  const percent = asked
+    ? Math.round(100 / asked * correct)
     : 0;
   let color = "bad";
   if (question.numAsked === 0) {
@@ -50,7 +59,17 @@ const QuestionComponent: FunctionComponent<Props> = ({ question }) => {
 
     const answers = question.answers[language] || [];
     const options = Object.keys(answers).map((key) => {
-      const isChecked = question.correct.includes(key);
+      const isCorrect = question.correct.includes(key);
+      let isChecked = question.correct.includes(key);
+      let className = "";
+      if (run && run.answers) {
+        isChecked = run.answers[question.id].includes(key);
+        className = classnames("text", {
+          correct: isCorrect && isChecked,
+          "correct-unchecked": isCorrect === true && isChecked === false,
+          wrong: !isCorrect && isChecked,
+        });
+      }
 
       return (
         <React.Fragment key={key}>
@@ -61,7 +80,7 @@ const QuestionComponent: FunctionComponent<Props> = ({ question }) => {
               readOnly
             />
           </div>
-          <div className="text">
+          <div className={className}>
             {question?.answers[language][key]}
           </div>
         </React.Fragment>
@@ -103,11 +122,15 @@ const QuestionComponent: FunctionComponent<Props> = ({ question }) => {
       <div className="number">
         {question.id}
       </div>
-      <div className="box">
-        <FontAwesomeIcon icon={faFolderOpen} size="lg" />
-        <span>{question.box}</span>
-      </div>
-      <div className={`result ${color}`}>{`${question.numCorrect} / ${question.numAsked} (${percent}%)`}</div>
+      {
+        !run && (
+          <div className="box">
+            <FontAwesomeIcon icon={faFolderOpen} size="lg" />
+            <span>{question.box}</span>
+          </div>
+        )
+      }
+      <div className={`result ${color}`}>{`${correct} / ${asked} (${percent}%)`}</div>
       {content}
     </div>
   );

@@ -75,6 +75,28 @@
       & > div {
         padding: 0.25rem 0.5rem;
       }
+
+      & .correct {
+        background-color: var(--green3);
+
+        & .checkbox {
+          border: 0.1rem solid var(--green1);
+          background-color: var(--green1);
+        }
+      }
+
+      & .correct-unchecked {
+        background-color: var(--green3);
+
+        & .checkbox {
+          border: 0.1rem solid var(--red3);
+          background-color: var(--red1);
+        }
+      }
+
+      & .wrong {
+        background-color: var(--red3);
+      }
     }
 
     & .related-rules {

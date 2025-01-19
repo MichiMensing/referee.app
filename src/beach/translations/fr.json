@@ -73,6 +73,7 @@
       "new": "Nouveau Quiz",
       "start": "Démarrer le Quiz",
       "empty": "Veuillez cliquer sur \"Nouveau Quiz\" pour ajouter un quiz au catalogue",
+      "out-of": "sur",
       "settings": {
         "title": "Paramètres du quiz",
         "delete": "Supprimer",
@@ -89,6 +90,9 @@
         "past-runs": "Exécutions passées",
         "unlimited": "Illimitée",
         "no-runs": "Aucune exécution précédente"
+      },
+      "runs": {
+        "statistics": "Statistiques de l'exécution"
       }
     }
   }

@@ -16,15 +16,34 @@
     margin: 0;
   }
 
+  & #stats-overall-header {
+    display: flex;
+    justify-content: space-between;
+
+
+    & .back-button {
+      color: var(--darkgrey);
+      background-color: transparent;
+      border-color: var(--shell-bg-color);
+      border-radius: 0.2rem;
+    }
+
+    & .back-button:hover {
+      background-color: var(--grey2);
+      border-color: var(--shell-bg-color);
+    }
+
+    & .back-button > svg {
+      margin-right: 0px;
+      width: inherit;
+    }
+
+  }
+
   & svg {
     display: inline-block;
     margin-right: 1rem;
     width: 1.25rem
-  }
-
-  & #stats-overall-header {
-    display: flex;
-    justify-content: space-between;
   }
 
   & button {

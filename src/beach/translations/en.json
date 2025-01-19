@@ -73,6 +73,7 @@
       "new": "New Quiz",
       "start": "Start Quiz",
       "empty": "Please click \"New Quiz\" to add a quiz to the catalog",
+      "out-of": "out of",
       "settings": {
         "title": "Quiz Settings",
         "delete": "Delete",
@@ -89,6 +90,9 @@
         "past-runs": "Past Runs",
         "unlimited": "Unlimited",
         "no-runs": "No previous runs"
+      },
+      "runs": {
+        "statistics": "Run Statistics"
       }
     }
   }

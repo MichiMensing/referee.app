@@ -14,14 +14,14 @@ export default class QuizRun {
 
   private _timestamp: Date;
 
-  private _answers: { [questionId: string]: { [key: string]: string } } | undefined;
+  private _answers: { [questionId: string]: string[] } | undefined;
 
   constructor(
     quizId: string,
     total: number,
     timestamp?: Date,
     correct?: string[],
-    answers?: { [questionId: string]: { [key: string]: string } },
+    answers?: { [questionId: string]: string[] },
     id?: string,
   ) {
     this._id = id || uuidv4();
@@ -44,7 +44,7 @@ export default class QuizRun {
     return this._correct;
   }
 
-  get answers(): { [questionId: string]: { [key: string]: string } } | undefined {
+  get answers(): { [questionId: string]: string[] } | undefined {
     return this._answers;
   }
 
@@ -56,11 +56,23 @@ export default class QuizRun {
     return this._timestamp;
   }
 
-  public recordAnswer(questionId: string, answers: { [key: string]: string }) {
+  get asked(): number {
+    return !this._answers ? 0 : Object.keys(this._answers).length;
+  }
+
+  public recordAnswer(questionId: string, answers: string[]) {
     if (!this._answers) {
       this._answers = {};
     }
     this._answers[questionId] = answers;
+  }
+
+  public getFormattedTimestamp(): string {
+    return `${this._timestamp.toLocaleDateString(undefined, {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })} - ${this._timestamp.toLocaleTimeString(undefined, { hour12: false })}`;
   }
 
   public async persist(db: IDBPDatabase<RefereeDB>) {

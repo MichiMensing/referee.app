@@ -58,6 +58,7 @@
     justify-content: center;
     background-color: var(--white);
     border: none;
+    cursor: pointer;
   }
 
   & .icon:hover {

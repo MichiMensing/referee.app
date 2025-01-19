@@ -16,6 +16,9 @@ const Quiz: FunctionComponent<Props> = ({
   const timeLimit = quiz.settings.timeLimit || 0;
   const quizStats = quiz.getQuizStatistics();
 
+  const { amountOfQuestions } = quizStats;
+  const possibleQuestions = quiz.questions.length;
+
   return (
     <Link id="quiz-box" to={`/quizzes/${quiz.id}`} key={`quiz-${quiz.id}`}>
       <div id="quiz-details">
@@ -26,7 +29,7 @@ const Quiz: FunctionComponent<Props> = ({
             <div className="title">{t("quizzes.questions")}</div>
             <div className="value">
               {quizStats.amountOfQuestions === 0 && t("quizzes.settings.unlimited")}
-              {quizStats.amountOfQuestions > 0 && quizStats.amountOfQuestions}
+              {quizStats.amountOfQuestions > 0 && (`${amountOfQuestions} ${t("quizzes.out-of")} ${possibleQuestions}`)}
             </div>
           </div>
           <div className="quiz-setting">

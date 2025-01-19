@@ -38,7 +38,7 @@ export interface IRunData {
   correct: string[];
   total: number;
   timestamp: Date;
-  answers?: { [questionId: string]: { [key: string]: string } };
+  answers?: { [questionId: string]: string[] };
 }
 
 export interface IQuizData {

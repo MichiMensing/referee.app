@@ -4,16 +4,18 @@ import "./Rule.css";
 import { useTranslation } from "react-i18next";
 import QuestionComponent from "./Question";
 import Question from "../../model/Question";
+import QuizRun from "../../model/QuizRun";
 
 interface Props {
   id: string;
   asked: number;
   correct: number;
   questions: Question[];
+  run?: QuizRun;
 }
 
 const Rule: FunctionComponent<Props> = ({
-  id, asked, correct, questions,
+  id, asked, correct, questions, run,
 }) => {
   const { t } = useTranslation();
 
@@ -35,7 +37,7 @@ const Rule: FunctionComponent<Props> = ({
   }
 
   const details = questions.map((question) => (
-    <QuestionComponent key={question.id} question={question} />
+    <QuestionComponent key={question.id} question={question} run={run} />
   ));
 
   return (

@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
 import "./QuizRun.css";
+import { useNavigate } from "react-router";
 import QuizRunModel from "../../model/QuizRun";
 
 interface Props {
@@ -9,6 +10,8 @@ interface Props {
 const QuizRun: FunctionComponent<Props> = ({
   run,
 }) => {
+  const navigate = useNavigate();
+
   const percentage = (run.correct.length / run.total) * 100;
   const successRate = run.total !== 0 ? (percentage).toFixed(1) : 0.0;
   let classification;
@@ -22,20 +25,18 @@ const QuizRun: FunctionComponent<Props> = ({
     classification = "bad";
   }
 
-  const timestamp = `${run.timestamp.toLocaleDateString(undefined, {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  })} - ${run.timestamp.toLocaleTimeString(undefined, { hour12: false })}`;
+  const handleClick = async () => {
+    navigate(`/quizzes/${run.quizId}/runs/${run.id}`);
+  };
 
   return (
-    <div className="quiz-settings-run">
-      <div className="timestamp">{timestamp}</div>
+    <button type="button" onClick={handleClick} className="quiz-settings-run">
+      <div className="timestamp">{run.getFormattedTimestamp()}</div>
       <div id="quiz-results" className={classification}>
         <div className="quiz-result-absolute">{`${run.correct.length} / ${run.total}`}</div>
         <div className="quiz-result-percentage">{`(${successRate}%)`}</div>
       </div>
-    </div>
+    </button>
   );
 };
 
