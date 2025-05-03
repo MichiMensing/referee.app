@@ -1,5 +1,5 @@
 /* eslint-disable no-mixed-operators */
-import React, { FunctionComponent, useState, MouseEvent } from "react";
+import React, { FunctionComponent, useState, MouseEvent, useEffect } from "react";
 import classnames from "classnames";
 import "./RulesTest.css";
 import { useTranslation } from "react-i18next";
@@ -10,10 +10,23 @@ import { useRulesTestData } from "../../context/TestDataContext";
 import CheckBox from "../CheckBox";
 import useAnalytics from "../../hooks/useAnalytics";
 import RelevantRules from "./RelevantRules";
+import { ITimeObject } from "../../model";
 
 interface RulesTestProps {
   mapRuleToAnchor: (rule: string, language: string) => string;
 }
+
+const formatTime = (timeObject?: ITimeObject) => {
+  if (!timeObject) return "00:00:00";
+  const hours = `${timeObject.h}`.padStart(2, "0");
+  const minutes = `${timeObject.m}`.padStart(2, "0");
+  const seconds = `${timeObject.s}`.padStart(2, "0");
+  return `${hours}:${minutes}:${seconds}`
+};
+
+let timer: NodeJS.Timeout;
+
+const ZERO_TIME: ITimeObject = { h: 0, m: 0, s: 0 };
 
 const RulesTest: FunctionComponent<RulesTestProps> = ({ mapRuleToAnchor }) => {
   const navigate = useNavigate();
@@ -30,6 +43,19 @@ const RulesTest: FunctionComponent<RulesTestProps> = ({ mapRuleToAnchor }) => {
   } = useRulesTestData();
 
   const [checked, setChecked] = useState<string[]>(initialChecked);
+  let timeRemaining;
+  if (quiz) timeRemaining = quiz.getTimeRemaining();
+  const [time, setTime] = useState<ITimeObject>(timeRemaining || ZERO_TIME);
+
+
+  useEffect(() => {
+    if (!quiz) return;
+    const interval = setInterval(() => {
+      const remaining = quiz?.getTimeRemaining();
+      remaining ? setTime(remaining) : setTime(ZERO_TIME);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   const { t, i18n: { language } } = useTranslation();
   const { trackEvent } = useAnalytics();
@@ -125,20 +151,27 @@ const RulesTest: FunctionComponent<RulesTestProps> = ({ mapRuleToAnchor }) => {
     const stats = quiz.getQuizStatistics();
     testHeader = (
       <div id="test-header">
-        <FontAwesomeIcon icon={faClipboardQuestion} />
-        <span>{`Quiz: ${quiz.name}`}</span>
-        <span> - </span>
-        <span>{`${t("rulestest.overall")} ${stats.correct}/${stats.total} (${stats.percentage}%)`}</span>
+        <div className="test-header-details">
+          <FontAwesomeIcon icon={faClipboardQuestion} />
+          <span>{`Quiz: ${quiz.name}`}</span>
+          <span> - </span>
+          <span>{`${t("rulestest.overall")} ${stats.correct}/${stats.total} (${stats.percentage}%)`}</span>
+        </div>
+        <div className="test-header-timer">
+          {formatTime(time)}
+        </div>
       </div>
-
     );
   } else {
     testHeader = (
       <div id="test-header">
-        <FontAwesomeIcon icon={faChartPie} />
-        <span>{`${t("rulestest.overall")} ${numCorrect}/${numAsked} (${percentOverall}%)`}</span>
-        <span> - </span>
-        <span>{`${t("rulestest.question")} ${question.numCorrect}/${question.numAsked} (${percentQuestion}%)`}</span>
+        <div className="test-header-details">
+          <FontAwesomeIcon icon={faChartPie} />
+          <span>{`${t("rulestest.overall")} ${numCorrect}/${numAsked} (${percentOverall}%)`}</span>
+          <span> - </span>
+          <span>{`${t("rulestest.question")} ${question.numCorrect}/${question.numAsked} (${percentQuestion}%)`}</span>
+        </div>
+        <div className="test-header-timer" />
       </div>
     );
   }

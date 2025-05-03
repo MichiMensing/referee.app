@@ -3,7 +3,7 @@ import { IDBPDatabase } from "idb";
 import { v4 as uuidv4 } from "uuid";
 import { t } from "i18next";
 import {
-  IQuizSettings, IQuizStats, RefereeDB,
+  IQuizSettings, IQuizStats, ITimeObject, RefereeDB,
 } from "./index";
 import QuizRun from "./QuizRun";
 
@@ -149,14 +149,40 @@ export default class Quiz {
     await Promise.all(this._runs.map((run) => run.persist(db)));
   }
 
-  public async reset(db: IDBPDatabase<RefereeDB>) {
-    this._runs = [];
-    await this.persist(db);
+  public getTimeRemaining() {
+    const run = this.getLatestRun();
+    if (!run) return undefined;
+
+    const endTime = new Date(run.timestamp.getTime() + (this._settings.timeLimit * 60000));
+    const diffSeconds = (endTime.getTime() - new Date().getTime()) / 1000;
+    return this.secondsToTime(diffSeconds);
+  }
+
+  public async delete(db: IDBPDatabase<RefereeDB>) {
+    await Promise.all(this._runs.map((run) => run.delete(db)));
+    await db.delete("quizzes", this._id);
   }
 
   public start() {
     const stats = this.getQuizStatistics();
     this._runs.push(new QuizRun(this._id, stats.amountOfQuestions));
+  }
+
+  private secondsToTime(secs: number): ITimeObject {
+    let hours = Math.floor(secs / (60 * 60));
+
+    let divisor_for_minutes = secs % (60 * 60);
+    let minutes = Math.floor(divisor_for_minutes / 60);
+
+    let divisor_for_seconds = divisor_for_minutes % 60;
+    let seconds = Math.ceil(divisor_for_seconds);
+
+    let obj = {
+      "h": hours,
+      "m": minutes,
+      "s": seconds
+    };
+    return obj;
   }
 
   private getDefaultSettings(): IQuizSettings {

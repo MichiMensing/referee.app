@@ -89,10 +89,24 @@ const TestDataProvider: FunctionComponent<TestDataProviderProps> = ({ children, 
     setChecked([]);
   };
 
+  const deleteQuiz = async (quizParam: Quiz) => {
+    if (quizParam.id === quiz?.id) {
+      await stopQuiz();
+    }
+    await manager.current.deleteQuiz(quizParam);
+    setQuizzes(manager.current.quizzes);
+  }
+
   const resetStats = useCallback(async () => {
-    await manager.current!.reset();
+    await manager.current!.resetStats();
     setAsked(manager.current.asked);
     setCorrect(manager.current.correct);
+  }, []);
+
+  const resetQuizzes = useCallback(async () => {
+    await manager.current!.resetQuizzes();
+    setQuiz(manager.current.quiz);
+    setQuizzes(manager.current.quizzes);
   }, []);
 
   const TestDataContext = getTestDataContext();
@@ -115,6 +129,8 @@ const TestDataProvider: FunctionComponent<TestDataProviderProps> = ({ children, 
           saveQuiz,
           startQuiz,
           stopQuiz,
+          deleteQuiz,
+          resetQuizzes,
           question,
           asked,
           correct,

@@ -10,7 +10,9 @@ export interface TestDataContextValue {
   addQuiz?: (quiz: Quiz) => Promise<void>;
   saveQuiz?: (quiz: Quiz) => Promise<void>;
   startQuiz?: (quiz: Quiz) => Promise<void>;
+  deleteQuiz?: (quiz: Quiz) => Promise<void>;
   stopQuiz?: () => Promise<void>;
+  resetQuizzes?: () => Promise<void>;
   question?: Question;
   asked: number;
   correct: number;

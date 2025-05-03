@@ -84,4 +84,8 @@ export default class QuizRun {
       answers: this._answers,
     }, this._id);
   }
+
+  public async delete(db: IDBPDatabase<RefereeDB>) {
+    await db.delete("quizRuns", this._id);
+  }
 }

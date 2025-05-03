@@ -185,7 +185,7 @@ export default class TestDataManager {
     return this._data[this.currentId];
   }
 
-  public async reset() {
+  public async resetStats() {
     this._asked = 0;
     this._correct = 0;
     this._wrong = 0;
@@ -193,6 +193,17 @@ export default class TestDataManager {
       await Promise.all(Object.keys(this._data).map(async (id) => {
         const question = this._data[id];
         await question.reset(this.db!);
+      }));
+    }
+  }
+
+  public async resetQuizzes() {
+    this._quiz = undefined;
+    const quizzesToDelete = this._quizzes;
+    this._quizzes = [];
+    if (this.db) {
+      await Promise.all(quizzesToDelete.map(async (quiz) => {
+        await quiz.delete(this.db!);
       }));
     }
   }
@@ -227,6 +238,18 @@ export default class TestDataManager {
   public async stopQuiz() {
     this._quiz = undefined;
     this.todo = [...Object.keys(this._data)];
+  }
+
+  public async deleteQuiz(quiz: Quiz) {
+    if (this._quiz?.id === quiz.id) {
+      await this.stopQuiz();
+    }
+
+    const index = this._quizzes.findIndex((q) => q.id === quiz.id);
+    this._quizzes.splice(index, 1);
+    if (this.db) {
+      await quiz.delete(this.db!);
+    }
   }
 
   private async loadQuestionsFromDatabase(
@@ -297,6 +320,16 @@ export default class TestDataManager {
 
     this._quizzes = quizzes;
     await tx.done;
+
+    let defaultQuiz = quizzes.find((q) => { q.id === "IHF_DEFAULT" });
+    if (!defaultQuiz) {
+      defaultQuiz = new Quiz(
+        "IHF Standard Quiz",
+        { timeLimit: 60, maxQuestions: 30, instantFeedback: false },
+        undefined, "IHF_DEFAULT");
+
+      defaultQuiz.persist(db);
+    }
 
     await this.loadQuizRunsFromDatabase(db);
   }

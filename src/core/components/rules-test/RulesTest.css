@@ -2,6 +2,8 @@
 
 #test-header {
   height: 1.5rem;
+  display: flex ;
+  justify-content: space-between;
 }
 
 #test-header svg {

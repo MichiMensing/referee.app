@@ -79,3 +79,9 @@ export interface RefereeDB extends DBSchema {
     }
   }
 }
+
+export interface ITimeObject {
+  h: number;
+  m: number;
+  s: number;
+}

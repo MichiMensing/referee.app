@@ -8,10 +8,17 @@ import QuizModel from "../../model/Quiz";
 import { useRulesTestData } from "../../context/TestDataContext";
 import IconToggleButton from "../IconToggleButton";
 
+const DEFAULT_QUIZ = new QuizModel(
+  "IHF Standard Quiz",
+  { timeLimit: 60, maxQuestions: 30, instantFeedback: false },
+  undefined, "IHF_DEFAULT");
+
 const QuizCatalog: FunctionComponent = () => {
-  const { quizzes, addQuiz } = useRulesTestData();
+  const { quizzes, addQuiz, resetQuizzes } = useRulesTestData();
   const [quizList, setQuizList] = useState<QuizModel[]>(quizzes);
   const navigate = useNavigate();
+
+  const defaultQuiz = quizzes.find((q) => { q.id === "IHF_DEFAULT" }) || DEFAULT_QUIZ;
 
   const handleCreateNew = async () => {
     const newQuiz = new QuizModel("New Quiz");
@@ -20,6 +27,13 @@ const QuizCatalog: FunctionComponent = () => {
     }
     setQuizList([...quizList]);
     navigate(`/quizzes/${newQuiz.id}`);
+  };
+
+  const handleReset = async () => {
+    if (resetQuizzes) {
+      await resetQuizzes();
+    }
+    setQuizList([]);
   };
 
   return (
@@ -36,18 +50,28 @@ const QuizCatalog: FunctionComponent = () => {
           <IconToggleButton
             label={t("quizzes.reset")}
             icon={faArrowRotateLeft}
+            onChange={handleReset}
           />
         </div>
       </div>
+      <div id="quizzes-standard-list">
+        <Quiz
+          key={defaultQuiz.id}
+          quiz={defaultQuiz}
+        />
+      </div>
       <div id="quizzes-list">
-        { quizList.length > 0
-          && quizList.map((quiz) => (
-            <Quiz
-              key={quiz.id}
-              quiz={quiz}
-            />
-          ))}
-        { quizList.length === 0
+        {quizList.length > 0
+          && quizList.filter((q) =>
+            q.id !== "IHF_DEFAULT"
+          )
+            .map((quiz) => (
+              <Quiz
+                key={quiz.id}
+                quiz={quiz}
+              />
+            ))}
+        {quizList.length === 0
           && (<div className="quizzes-list-empty">{t("quizzes.empty")}</div>
           )}
       </div>
