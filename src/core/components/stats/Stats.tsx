@@ -95,7 +95,11 @@ const Stats: FunctionComponent = () => {
   };
 
   const handleBackButtonClick = () => {
-    navigate(-1);
+    if (run) {
+      navigate(`/quizzes/${quiz?.id}`);
+    } else {
+      navigate(-1);
+    }
   };
 
   const rules = Object.keys(orderedData).map((id: string) => {

@@ -150,6 +150,12 @@ const QuizSettings: FunctionComponent = () => {
             :
             (<select name="time-limit" id="time-limit" value={timeLimit} onChange={handleTimeLimitChange}>
               <option value="0" label="none">{t("quizzes.settings.none")}</option>
+              <option value="1">
+                {`1 ${t("quizzes.settings.min")}`}
+              </option>
+              <option value="5">
+                {`5 ${t("quizzes.settings.min")}`}
+              </option>
               <option value="15">
                 {`15 ${t("quizzes.settings.min")}`}
               </option>

@@ -11,6 +11,7 @@ import CheckBox from "../CheckBox";
 import useAnalytics from "../../hooks/useAnalytics";
 import RelevantRules from "./RelevantRules";
 import { ITimeObject } from "../../model";
+import Quiz from "../../model/Quiz";
 
 interface RulesTestProps {
   mapRuleToAnchor: (rule: string, language: string) => string;
@@ -47,12 +48,23 @@ const RulesTest: FunctionComponent<RulesTestProps> = ({ mapRuleToAnchor }) => {
   if (quiz) timeRemaining = quiz.getTimeRemaining();
   const [time, setTime] = useState<ITimeObject>(timeRemaining || ZERO_TIME);
 
+  const showResult = async (quiz: Quiz) => {
+    if (stopQuiz) await stopQuiz();
+    navigate(`quizzes/${quiz.id}/runs/${quiz.getLatestRun()?.id}`);
+  };
 
   useEffect(() => {
     if (!quiz) return;
     const interval = setInterval(() => {
       const remaining = quiz?.getTimeRemaining();
-      remaining ? setTime(remaining) : setTime(ZERO_TIME);
+      if (remaining) {
+        setTime(remaining);
+        if (remaining.h <= 0 && remaining.m <= 0 && remaining.s <= 0) {
+          showResult(quiz);
+        }
+      } else {
+        setTime(ZERO_TIME);
+      }
     }, 1000);
     if (quiz.timeLimit === 0) {
       clearInterval(interval);
@@ -105,8 +117,7 @@ const RulesTest: FunctionComponent<RulesTestProps> = ({ mapRuleToAnchor }) => {
 
   if (!question) {
     if (quiz) {
-      if (stopQuiz) stopQuiz();
-      navigate(`quizzes/${quiz.id}`);
+      showResult(quiz);
     }
     return <div className="no-questions">{t("rulestest.no-questions")}</div>;
   }
