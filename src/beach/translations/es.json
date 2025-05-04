@@ -78,6 +78,7 @@
       "standard-quiz": "Cuestionario estándar de la IHF",
       "quiz": "Cuestionario",
       "rule-quiz": "Prueba de Regla",
+      "no-answers": "No se respondieron preguntas",
       "settings": {
         "title": "Configuración de cuestionario",
         "delete": "Eliminar",

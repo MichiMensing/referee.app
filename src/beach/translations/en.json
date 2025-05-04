@@ -78,6 +78,7 @@
       "standard-quiz": "IHF Standard Quiz",
       "quiz": "Quiz",
       "rule-quiz": "Test of Rule",
+      "no-answers": "No questions were answered",
       "settings": {
         "title": "Quiz Settings",
         "delete": "Delete",

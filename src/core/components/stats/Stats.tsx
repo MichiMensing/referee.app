@@ -40,7 +40,7 @@ const Stats: FunctionComponent = () => {
   const askedStat = !run ? asked : run.asked;
   const correctStat = !run ? correct : run.correct.length;
 
-  const percent = asked ? Math.round(100 / askedStat * correctStat) : 0;
+  const percent = askedStat ? Math.round(100 / askedStat * correctStat) : 0;
   const dbOrderedData = useMemo(() => Object.values(data).reduce<OrderedData>((prev, question) => {
     const { rule, numAsked, numCorrect } = question;
     if (!prev[question.rule]) {
@@ -157,7 +157,9 @@ const Stats: FunctionComponent = () => {
           {`${percent}%`}
         </div>
       </div>
-      {rules}
+      {!!run && !run.answers &&
+        ((<div className="rules-list-empty">{t("quizzes.no-answers")}</div>))}
+      {(!run || !!run.answers) && rules}
     </div>
   );
 };
