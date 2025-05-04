@@ -121,6 +121,8 @@ export default class Quiz {
       asked = latestRun.asked;
     }
 
+    let progress = amountQuestions !== 0 ? ((asked / amountQuestions) * 100).toFixed(1) : "0.0";
+
     return {
       amountOfQuestions: amountQuestions,
       asked,
@@ -128,6 +130,7 @@ export default class Quiz {
       total,
       classification,
       percentage: successRate,
+      progress,
     };
   }
 

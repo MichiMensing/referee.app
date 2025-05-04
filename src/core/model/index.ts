@@ -55,6 +55,7 @@ export interface IQuizStats {
   total: number;
   classification: string;
   percentage: string;
+  progress: string;
 }
 
 export interface RefereeDB extends DBSchema {

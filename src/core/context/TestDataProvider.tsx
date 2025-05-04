@@ -53,13 +53,13 @@ const TestDataProvider: FunctionComponent<TestDataProviderProps> = ({ children, 
     setChecked([]);
   };
 
-  const checkAnswers = async (options: string[]) => {
+  const checkAnswers = async (options: string[], bReveal:boolean = true) => {
     const result = manager.current.checkAnswer(options);
 
     setAsked(manager.current.asked);
     setCorrect(manager.current.correct);
     setChecked(options);
-    setReveal(true);
+    setReveal(bReveal);
 
     return result;
   };

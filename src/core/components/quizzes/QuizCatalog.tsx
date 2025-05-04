@@ -72,7 +72,7 @@ const QuizCatalog: FunctionComponent = () => {
                 quiz={quiz}
               />
             ))}
-        {quizList.length === 1
+        {quizList.length <= 1
           && (<div className="quizzes-list-empty">{t("quizzes.empty")}</div>
           )}
       </div>

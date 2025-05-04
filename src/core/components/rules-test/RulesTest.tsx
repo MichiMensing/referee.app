@@ -83,13 +83,15 @@ const RulesTest: FunctionComponent<RulesTestProps> = ({ mapRuleToAnchor }) => {
     }
 
     if (!reveal) {
-      const response = await checkAnswers(checked);
+      const response = await checkAnswers(checked, quiz?.instantFeedback);
       trackEvent("answer", {
         event_category: "test",
         event_label: question?.id,
         value: response.answeredCorrect ? 1 : 0,
       });
-    } else {
+    }
+
+    if (reveal || quiz && !quiz.instantFeedback) {
       nextQuestion();
       setChecked([]);
 
@@ -175,7 +177,12 @@ const RulesTest: FunctionComponent<RulesTestProps> = ({ mapRuleToAnchor }) => {
           <span> - </span>
           <span>{`${t("rulestest.question")} #${stats.asked + 1}`}</span>
           <span> - </span>
-          <span>{`${t("rulestest.overall")} ${stats.correct}/${quiz.isUnlimited() && stats.amountOfQuestions === 0? '∞' : stats.total} (${stats.percentage}%)`}</span>
+          {quiz.instantFeedback ? (
+            <span>{`${t("rulestest.overall")} ${stats.correct}/${quiz.isUnlimited() && stats.amountOfQuestions === 0? '∞' : stats.total}${quiz.isUnlimited()? ``: ` (${stats.percentage}%)`}`}</span>
+          ) : (
+            <span>{`${t("rulestest.overall")} ${stats.asked}/${quiz.isUnlimited() && stats.amountOfQuestions === 0? '∞' : stats.total}${quiz.isUnlimited()? ``: ` (${stats.progress}%)`}`}</span>
+          )}
+
         </div>
         <div className="test-header-timer">
           {timerWidget}

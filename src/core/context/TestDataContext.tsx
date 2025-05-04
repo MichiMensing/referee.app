@@ -5,7 +5,7 @@ import { ITestResponse } from "../model";
 import Quiz from "../model/Quiz";
 
 export interface TestDataContextValue {
-  checkAnswers?: (options: string[]) => Promise<ITestResponse>;
+  checkAnswers?: (options: string[], bReveal?:boolean) => Promise<ITestResponse>;
   nextQuestion?: () => void;
   addQuiz?: (quiz: Quiz) => Promise<void>;
   saveQuiz?: (quiz: Quiz) => Promise<void>;
