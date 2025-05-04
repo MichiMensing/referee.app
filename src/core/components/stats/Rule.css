@@ -7,6 +7,24 @@
 .rule-stat-header {
   display: flex;
   justify-content: space-between;
+
+  .rule-stat-header-front {
+    display: inline-flex;
+    align-items: center;
+
+    button {
+      font-size: 1rem;
+      color: var(--shell-color);
+      height: 35px;
+      background-color: var(--grey2);
+      border: 0px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: var(--btn-dark-bg-color);
+    }
+  }
 }
 
 .rule-stat-title, .rule-stat-stats {

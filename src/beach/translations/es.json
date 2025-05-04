@@ -77,6 +77,7 @@
       "my-quizzes": "Mis Cuestionarios",
       "standard-quiz": "Cuestionario estándar de la IHF",
       "quiz": "Cuestionario",
+      "rule-quiz": "Prueba de Regla",
       "settings": {
         "title": "Configuración de cuestionario",
         "delete": "Eliminar",

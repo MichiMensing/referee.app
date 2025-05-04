@@ -5,6 +5,11 @@ import { useTranslation } from "react-i18next";
 import QuestionComponent from "./Question";
 import Question from "../../model/Question";
 import QuizRun from "../../model/QuizRun";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight, faClipboardQuestion } from "@fortawesome/free-solid-svg-icons";
+import Quiz from "../../model/Quiz";
+import { useNavigate } from "react-router-dom";
+import { useRulesTestData } from "../../context/TestDataContext";
 
 interface Props {
   id: string;
@@ -18,6 +23,9 @@ const Rule: FunctionComponent<Props> = ({
   id, asked, correct, questions, run,
 }) => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const { addQuiz } = useRulesTestData();
+
 
   let key;
   if (id === "SAR") {
@@ -40,10 +48,21 @@ const Rule: FunctionComponent<Props> = ({
     <QuestionComponent key={question.id} question={question} run={run} />
   ));
 
+  const createQuiz = async () => {
+    let quiz = new Quiz(`${t("quizzes.rule-quiz")} ${t(key)}`, undefined, questions.map(q => q.id));
+    if (addQuiz) {
+      await addQuiz(quiz);
+    }
+    navigate(`/quizzes/${quiz.id}`);
+  }
+
   return (
     <div className="rule-stat-box">
       <div className="rule-stat-header">
-        <h2 className="rule-stat-title">{t(key)}</h2>
+        <div className="rule-stat-header-front">
+          <h2 className="rule-stat-title">{t(key)}</h2>
+          <button onClick={createQuiz}><FontAwesomeIcon icon={faArrowRight} size="lg" /> <span/><FontAwesomeIcon icon={faClipboardQuestion} size="lg" /></button>
+        </div>
         <div className={`rule-stat-stats ${color}`}>{`${correct} / ${asked} (${percent}%)`}</div>
       </div>
       <div className="rule-stat-content">
