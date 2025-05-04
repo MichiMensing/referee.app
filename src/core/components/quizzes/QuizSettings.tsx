@@ -16,7 +16,9 @@ import QuizRunModel from "../../model/QuizRun";
 
 const QuizSettings: FunctionComponent = () => {
   const { quizId } = useParams();
-  const { quizzes, saveQuiz, startQuiz, deleteQuiz } = useRulesTestData();
+  const {
+    quizzes, saveQuiz, startQuiz, deleteQuiz,
+  } = useRulesTestData();
   const navigate = useNavigate();
 
   const currentQuiz = quizzes.find((q, _) => q.id === quizId);
@@ -99,7 +101,7 @@ const QuizSettings: FunctionComponent = () => {
   const handleDelete = async () => {
     if (deleteQuiz) await deleteQuiz(quiz);
     navigate("/quizzes");
-  }
+  };
 
   return (
     <div id="quiz-settings">
@@ -129,47 +131,43 @@ const QuizSettings: FunctionComponent = () => {
       <div id="quiz-settings-list">
         <div className="setting">
           <div className="label">{t("quizzes.settings.name")}</div>
-          {readOnly ?
-            <div className="label">{quiz.isDefault() ? t("quizzes.standard-quiz") : name}</div>
-            :
-            <input value={name} onChange={handleNameChange} />
-          }
+          {readOnly
+            ? <div className="label">{quiz.isDefault() ? t("quizzes.standard-quiz") : name}</div>
+            : <input value={name} onChange={handleNameChange} />}
         </div>
         <div className="setting">
           <div className="label">{t("quizzes.settings.max-question")}</div>
-          {readOnly ?
-            <div className="label">{maxQuestions}</div>
-            :
-            <input className="number-input" type="number" value={maxQuestions} onChange={handleMaxQuestionChange} min={0} />
-          }
+          {readOnly
+            ? <div className="label">{maxQuestions}</div>
+            : <input className="number-input" type="number" value={maxQuestions} onChange={handleMaxQuestionChange} min={0} />}
         </div>
         <div className="setting">
           <div className="label">{t("quizzes.settings.time-limit")}</div>
-          {readOnly ?
-            <div className="label">{`1 ${t("quizzes.settings.hour")}`}</div>
-            :
-            (<select name="time-limit" id="time-limit" value={timeLimit} onChange={handleTimeLimitChange}>
-              <option value="0" label="none">{t("quizzes.settings.none")}</option>
-              <option value="1">
-                {`1 ${t("quizzes.settings.min")}`}
-              </option>
-              <option value="5">
-                {`5 ${t("quizzes.settings.min")}`}
-              </option>
-              <option value="15">
-                {`15 ${t("quizzes.settings.min")}`}
-              </option>
-              <option value="30">
-                {`30 ${t("quizzes.settings.min")}`}
-              </option>
-              <option value="45">
-                {`45 ${t("quizzes.settings.min")}`}
-              </option>
-              <option value="60">
-                {`1 ${t("quizzes.settings.hour")}`}
-              </option>
-            </select>)
-          }
+          {readOnly
+            ? <div className="label">{`1 ${t("quizzes.settings.hour")}`}</div>
+            : (
+              <select name="time-limit" id="time-limit" value={timeLimit} onChange={handleTimeLimitChange}>
+                <option value="0" label="none">{t("quizzes.settings.none")}</option>
+                <option value="1">
+                  {`1 ${t("quizzes.settings.min")}`}
+                </option>
+                <option value="5">
+                  {`5 ${t("quizzes.settings.min")}`}
+                </option>
+                <option value="15">
+                  {`15 ${t("quizzes.settings.min")}`}
+                </option>
+                <option value="30">
+                  {`30 ${t("quizzes.settings.min")}`}
+                </option>
+                <option value="45">
+                  {`45 ${t("quizzes.settings.min")}`}
+                </option>
+                <option value="60">
+                  {`1 ${t("quizzes.settings.hour")}`}
+                </option>
+              </select>
+            )}
         </div>
         <div className="setting setting-inline">
           <div className="label">{t("quizzes.settings.instant-feedback")}</div>
@@ -177,17 +175,22 @@ const QuizSettings: FunctionComponent = () => {
             <div>{quiz.instantFeedback ? t("yes") : t("no")}</div>
           )}
           {!readOnly && (
-            <CheckBox checked={quiz.instantFeedback} readOnly={readOnly} onChange={handleInstantFeedbackChange} />
+            <CheckBox
+              checked={quiz.instantFeedback}
+              readOnly={readOnly}
+              onChange={handleInstantFeedbackChange}
+            />
           )}
         </div>
         <div id="quiz-settings-questions" className="setting">
           <div className="label">{t("quizzes.settings.questions")}</div>
           <div className="label">{quiz.getQuestionSummary()}</div>
-          {!readOnly &&
-            <button type="button" className="icon" onClick={toggleQuestionCatalog}>
-              <FontAwesomeIcon icon={editIcon} size="sm" />
-            </button>
-          }
+          {!readOnly
+            && (
+              <button type="button" className="icon" onClick={toggleQuestionCatalog}>
+                <FontAwesomeIcon icon={editIcon} size="sm" />
+              </button>
+            )}
         </div>
         <QuestionCatalogTree
           showCatalog={showQuizCatalog}

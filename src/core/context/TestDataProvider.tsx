@@ -96,7 +96,7 @@ const TestDataProvider: FunctionComponent<TestDataProviderProps> = ({ children, 
     }
     await manager.current.deleteQuiz(quizParam);
     setQuizzes(manager.current.quizzes);
-  }
+  };
 
   const resetStats = useCallback(async () => {
     await manager.current!.resetStats();

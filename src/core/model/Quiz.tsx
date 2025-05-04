@@ -121,7 +121,7 @@ export default class Quiz {
       asked = latestRun.asked;
     }
 
-    let progress = amountQuestions !== 0 ? ((asked / amountQuestions) * 100).toFixed(1) : "0.0";
+    const progress = amountQuestions !== 0 ? ((asked / amountQuestions) * 100).toFixed(1) : "0.0";
 
     return {
       amountOfQuestions: amountQuestions,
@@ -183,18 +183,18 @@ export default class Quiz {
   }
 
   private secondsToTime(secs: number): ITimeObject {
-    let hours = Math.floor(secs / (60 * 60));
+    const hours = Math.floor(secs / (60 * 60));
 
-    let divisor_for_minutes = secs % (60 * 60);
-    let minutes = Math.floor(divisor_for_minutes / 60);
+    const divisor_for_minutes = secs % (60 * 60);
+    const minutes = Math.floor(divisor_for_minutes / 60);
 
-    let divisor_for_seconds = divisor_for_minutes % 60;
-    let seconds = Math.ceil(divisor_for_seconds);
+    const divisor_for_seconds = divisor_for_minutes % 60;
+    const seconds = Math.ceil(divisor_for_seconds);
 
-    let obj = {
-      "h": hours,
-      "m": minutes,
-      "s": seconds
+    const obj = {
+      h: hours,
+      m: minutes,
+      s: seconds,
     };
     return obj;
   }

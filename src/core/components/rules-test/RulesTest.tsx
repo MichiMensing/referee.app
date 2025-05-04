@@ -1,5 +1,7 @@
 /* eslint-disable no-mixed-operators */
-import React, { FunctionComponent, useState, MouseEvent, useEffect } from "react";
+import React, {
+  FunctionComponent, useState, MouseEvent, useEffect,
+} from "react";
 import classnames from "classnames";
 import "./RulesTest.css";
 import { useTranslation } from "react-i18next";
@@ -22,10 +24,8 @@ const formatTime = (timeObject?: ITimeObject) => {
   const hours = `${timeObject.h}`.padStart(2, "0");
   const minutes = `${timeObject.m}`.padStart(2, "0");
   const seconds = `${timeObject.s}`.padStart(2, "0");
-  return `${hours}:${minutes}:${seconds}`
+  return `${hours}:${minutes}:${seconds}`;
 };
-
-let timer: NodeJS.Timeout;
 
 const ZERO_TIME: ITimeObject = { h: 0, m: 0, s: 0 };
 
@@ -48,13 +48,13 @@ const RulesTest: FunctionComponent<RulesTestProps> = ({ mapRuleToAnchor }) => {
   if (quiz) timeRemaining = quiz.getTimeRemaining();
   const [time, setTime] = useState<ITimeObject>(timeRemaining || ZERO_TIME);
 
-  const showResult = async (quiz: Quiz) => {
+  const showResult = async (q: Quiz) => {
     if (stopQuiz) await stopQuiz();
-    navigate(`quizzes/${quiz.id}/runs/${quiz.getLatestRun()?.id}`);
+    navigate(`quizzes/${q.id}/runs/${q.getLatestRun()?.id}`);
   };
 
   useEffect(() => {
-    if (!quiz) return;
+    if (!quiz) return () => { };
     const interval = setInterval(() => {
       const remaining = quiz?.getTimeRemaining();
       if (remaining) {
@@ -167,7 +167,7 @@ const RulesTest: FunctionComponent<RulesTestProps> = ({ mapRuleToAnchor }) => {
     const stats = quiz.getQuizStatistics();
     let timerWidget;
     if (quiz.timeLimit > 0) {
-      timerWidget = formatTime(time)
+      timerWidget = formatTime(time);
     }
     testHeader = (
       <div id="test-header">
@@ -178,9 +178,9 @@ const RulesTest: FunctionComponent<RulesTestProps> = ({ mapRuleToAnchor }) => {
           <span>{`${t("rulestest.question")} #${stats.asked + 1}`}</span>
           <span> - </span>
           {quiz.instantFeedback ? (
-            <span>{`${t("rulestest.overall")} ${stats.correct}/${quiz.isUnlimited() && stats.amountOfQuestions === 0? '∞' : stats.total}${quiz.isUnlimited()? ``: ` (${stats.percentage}%)`}`}</span>
+            <span>{`${t("rulestest.overall")} ${stats.correct}/${quiz.isUnlimited() && stats.amountOfQuestions === 0 ? "∞" : stats.total}${quiz.isUnlimited() ? "" : ` (${stats.percentage}%)`}`}</span>
           ) : (
-            <span>{`${t("rulestest.overall")} ${stats.asked}/${quiz.isUnlimited() && stats.amountOfQuestions === 0? '∞' : stats.total}${quiz.isUnlimited()? ``: ` (${stats.progress}%)`}`}</span>
+            <span>{`${t("rulestest.overall")} ${stats.asked}/${quiz.isUnlimited() && stats.amountOfQuestions === 0 ? "∞" : stats.total}${quiz.isUnlimited() ? "" : ` (${stats.progress}%)`}`}</span>
           )}
 
         </div>

@@ -18,8 +18,6 @@ export default class TestDataManager {
 
   private initialized = false;
 
-  private initializing = false;
-
   private currentId = "";
 
   private _asked = 0;
@@ -39,14 +37,10 @@ export default class TestDataManager {
   }
 
   public async initialize(language: string) {
-    if (this.initializing) {
-      return;
-    }
     if (this.initialized) {
       await this.switchLanguage(language);
       return this._data[this.currentId];
     }
-    this.initializing = true;
 
     const mappedAnswers = this._answerData.reduce<{ [id: string]: IAnswer }>((prev, curr) => ({
       ...prev,
@@ -104,7 +98,6 @@ export default class TestDataManager {
       );
     }
 
-    this.initializing = false;
     this.initialized = true;
 
     return this.next();
@@ -183,8 +176,10 @@ export default class TestDataManager {
     if (this._quiz) {
       const stats = this._quiz.getQuizStatistics();
       const answeredQuestions = this._quiz.getLatestRun()?.answers;
-      let endlessQuestions = this._quiz.questions.length === 0;
-      let reachedMaxQuestions = answeredQuestions && stats.amountOfQuestions > 0 && Object.keys(answeredQuestions).length >= stats.amountOfQuestions;
+      const endlessQuestions = this._quiz.questions.length === 0;
+      const reachedMaxQuestions = answeredQuestions
+        && stats.amountOfQuestions > 0
+        && Object.keys(answeredQuestions).length >= stats.amountOfQuestions;
       if (reachedMaxQuestions || (endlessQuestions && this.todo.length === 0)) {
         this.stopQuiz();
         return undefined;
@@ -405,6 +400,8 @@ export default class TestDataManager {
     return new Quiz(
       "IHF Standard Quiz",
       { timeLimit: 60, maxQuestions: 30, instantFeedback: false },
-      undefined, "IHF_DEFAULT");
+      undefined,
+      "IHF_DEFAULT",
+    );
   }
 }

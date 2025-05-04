@@ -17,9 +17,9 @@ const Quiz: FunctionComponent<Props> = ({
   const quizStats = quiz.getQuizStatistics();
 
   const { amountOfQuestions } = quizStats;
-  const possibleQuestions: string = quiz.questions.length === 0 ?
-    `${amountOfQuestions}` :
-    `${amountOfQuestions} ${t("quizzes.out-of")} ${quiz.questions.length}`
+  const possibleQuestions: string = quiz.questions.length === 0
+    ? `${amountOfQuestions}`
+    : `${amountOfQuestions} ${t("quizzes.out-of")} ${quiz.questions.length}`;
 
   return (
     <Link id="quiz-box" to={`/quizzes/${quiz.id}`} key={`quiz-${quiz.id}`}>

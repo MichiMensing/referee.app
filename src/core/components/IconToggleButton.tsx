@@ -8,7 +8,7 @@ interface Props {
   onChange?: () => void;
   label?: string;
   icon?: IconDefinition;
-  content?: any;
+  content?: React.ReactNode;
 }
 
 const IconToggleButton: FunctionComponent<Props> = ({

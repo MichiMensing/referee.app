@@ -3,7 +3,7 @@ import React, { FunctionComponent, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
 import {
-  faArrowLeft, faArrowRotateLeft, faCheck, faClipboardQuestion, faFileCircleXmark, faPercent, faQuestion,
+  faArrowLeft, faArrowRotateLeft, faCheck, faClipboardQuestion, faPercent, faQuestion,
   faRepeat,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -25,7 +25,7 @@ type OrderedData = {
 const Stats: FunctionComponent = () => {
   const { quizId, runId } = useParams();
   const {
-    asked, correct, data, resetStats, quizzes, addQuiz
+    asked, correct, data, resetStats, quizzes, addQuiz,
   } = useRulesTestData();
 
   const { t } = useTranslation();
@@ -49,40 +49,42 @@ const Stats: FunctionComponent = () => {
       return true;
     }
     return false;
-  }
+  };
 
   const percent = askedStat ? Math.round(100 / askedStat * correctStat) : 0;
-  const [dbOrderedData, dbWrongAnswers] = useMemo(() => {
-    let wrongAnswers:string[] = [];
-    let tmpData = Object.values(data).reduce<OrderedData>((prev, question) => {
-      const { rule, numAsked, numCorrect } = question;
-      if (!prev[question.rule]) {
+  const [dbOrderedData, dbWrongAnswers] = useMemo(
+    () => {
+      const wrongAnswers:string[] = [];
+      const tmpData = Object.values(data).reduce<OrderedData>((prev, question) => {
+        const { rule, numAsked, numCorrect } = question;
+        if (!prev[question.rule]) {
+          prev[rule] = {
+            asked: 0,
+            correct: 0,
+            questions: [],
+          };
+        }
+
+        if (isNeededForRetry(question)) {
+          wrongAnswers.push(question.id);
+        }
+
         prev[rule] = {
-          asked: 0,
-          correct: 0,
-          questions: [],
+          asked: prev[rule].asked + numAsked,
+          correct: prev[rule].correct + numCorrect,
+          questions: [...prev[rule].questions, question],
         };
-      }
 
-      if (isNeededForRetry(question)) {
-        wrongAnswers.push(question.id);
-      }
+        return prev;
+      }, {});
 
-      prev[rule] = {
-        asked: prev[rule].asked + numAsked,
-        correct: prev[rule].correct + numCorrect,
-        questions: [...prev[rule].questions, question],
-      };
-
-      return prev;
-    }, {});
-
-    return [tmpData, wrongAnswers];
-  }
-  , [data, rerender]);
+      return [tmpData, wrongAnswers];
+    },
+    [data, rerender],
+  );
 
   let orderedData: OrderedData = dbOrderedData;
-  let runWrongAnswers:string[] =[];
+  let runWrongAnswers:string[] = [];
   if (run) {
     let answeredQuestions: string[] = [];
     runWrongAnswers = [];
@@ -110,7 +112,6 @@ const Stats: FunctionComponent = () => {
           correct: prev[rule].correct + (isCorrect ? 1 : 0),
           questions: [...prev[rule].questions, question],
         };
-
 
         return prev;
       }, {});
@@ -145,25 +146,28 @@ const Stats: FunctionComponent = () => {
   });
 
   const handleRetryFailed = async () => {
-    let questions = run ? runWrongAnswers : dbWrongAnswers;
-    let quiz = new Quiz(`Retry failed questions`, undefined, questions);
+    const questions = run ? runWrongAnswers : dbWrongAnswers;
+    const newQuiz = new Quiz("Retry failed questions", undefined, questions);
     if (addQuiz) {
-      await addQuiz(quiz);
+      await addQuiz(newQuiz);
     }
-    navigate(`/quizzes/${quiz.id}`);
-  }
+    navigate(`/quizzes/${newQuiz.id}`);
+  };
 
-  const retryBtn = (<IconToggleButton
-    label="Retry Failed Questions"
-    content={(
-      <div>
-        <FontAwesomeIcon icon={faRepeat} />
-        <span className="spacer" />
-        <FontAwesomeIcon icon={faClipboardQuestion} />
-      </div>)}
-    onChange={handleRetryFailed}
-    highlight
-  />);
+  const retryBtn = (
+    <IconToggleButton
+      label="Retry Failed Questions"
+      content={(
+        <div>
+          <FontAwesomeIcon icon={faRepeat} />
+          <span className="spacer" />
+          <FontAwesomeIcon icon={faClipboardQuestion} />
+        </div>
+      )}
+      onChange={handleRetryFailed}
+      highlight
+    />
+  );
 
   let statHeader;
   if (run) {
@@ -213,8 +217,8 @@ const Stats: FunctionComponent = () => {
           {`${percent}%`}
         </div>
       </div>
-      {!!run && !run.answers &&
-        ((<div className="rules-list-empty">{t("quizzes.no-answers")}</div>))}
+      {!!run && !run.answers
+        && ((<div className="rules-list-empty">{t("quizzes.no-answers")}</div>))}
       {(!run || !!run.answers) && rules}
     </div>
   );

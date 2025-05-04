@@ -11,14 +11,16 @@ import IconToggleButton from "../IconToggleButton";
 const DEFAULT_QUIZ = new QuizModel(
   t("quizzes.standard-quiz"),
   { timeLimit: 60, maxQuestions: 30, instantFeedback: false },
-  undefined, "IHF_DEFAULT");
+  undefined,
+  "IHF_DEFAULT",
+);
 
 const QuizCatalog: FunctionComponent = () => {
   const { quizzes, addQuiz, resetQuizzes } = useRulesTestData();
   const [quizList, setQuizList] = useState<QuizModel[]>(quizzes);
   const navigate = useNavigate();
 
-  const defaultQuiz = quizzes.find((q) => q.isDefault() ) || DEFAULT_QUIZ;
+  const defaultQuiz = quizzes.find((q) => q.isDefault()) || DEFAULT_QUIZ;
 
   const handleCreateNew = async () => {
     const newQuiz = new QuizModel("New Quiz");
@@ -63,9 +65,7 @@ const QuizCatalog: FunctionComponent = () => {
       <div id="quizzes-my-list-header"><h3>{t("quizzes.my-quizzes")}</h3></div>
       <div id="quizzes-list">
         {quizList.length > 0
-          && quizList.filter((q) =>
-            q.id !== "IHF_DEFAULT"
-          )
+          && quizList.filter((q) => q.id !== "IHF_DEFAULT")
             .map((quiz) => (
               <Quiz
                 key={quiz.id}
