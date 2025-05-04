@@ -8,6 +8,7 @@ interface Props {
   onChange?: () => void;
   label?: string;
   icon?: IconDefinition;
+  content?: any;
 }
 
 const IconToggleButton: FunctionComponent<Props> = ({
@@ -15,6 +16,7 @@ const IconToggleButton: FunctionComponent<Props> = ({
   onChange = () => null,
   label = "",
   icon = null,
+  content = null,
 }) => {
   const handleKeyDown = () => {
     if (onChange) {
@@ -29,6 +31,8 @@ const IconToggleButton: FunctionComponent<Props> = ({
 
   if (icon) {
     iconComponent = (<FontAwesomeIcon icon={icon} />);
+  } else if (content) {
+    iconComponent = content;
   }
 
   return (

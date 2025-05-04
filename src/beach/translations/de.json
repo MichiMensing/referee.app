@@ -8,6 +8,8 @@
     },
     "correct": "richtig",
     "Reset": "Zurücksetzen",
+    "yes": "Ja",
+    "no": "Nein",
     "menu": {
       "test": "Regelfragentest",
       "quizzes": "Quiz Katalog",

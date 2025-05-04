@@ -8,6 +8,8 @@
     },
     "correct": "correct",
     "Reset": "Remettre",
+    "yes": "Oui",
+    "no": "Non",
     "menu": {
       "test": "Test d'arbitre",
       "quizzes": "Catalogue de quiz",

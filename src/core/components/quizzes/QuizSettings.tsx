@@ -173,7 +173,12 @@ const QuizSettings: FunctionComponent = () => {
         </div>
         <div className="setting setting-inline">
           <div className="label">{t("quizzes.settings.instant-feedback")}</div>
-          <CheckBox checked={quiz.instantFeedback} readOnly={readOnly} onChange={handleInstantFeedbackChange} />
+          {readOnly && (
+            <div>{quiz.instantFeedback ? t("yes") : t("no")}</div>
+          )}
+          {!readOnly && (
+            <CheckBox checked={quiz.instantFeedback} readOnly={readOnly} onChange={handleInstantFeedbackChange} />
+          )}
         </div>
         <div id="quiz-settings-questions" className="setting">
           <div className="label">{t("quizzes.settings.questions")}</div>

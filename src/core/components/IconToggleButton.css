@@ -2,7 +2,7 @@
 
 .icon-toggle-btn {
 
-  & button.highlight {
+  &button.highlight {
     background-color: var(--btn-bg-color);
     border: 1px solid var(--border-dark-color);
     color: var(--white);
@@ -13,11 +13,11 @@
     }
   }
 
-  & .quizzes-button-group > button {
+  &.quizzes-button-group > button {
     margin-left: 1rem;
   }
 
-  & button {
+  &button {
     background-color: var(--white);
     border: 1px solid var(--border-dark-color);
     color: var(--black);

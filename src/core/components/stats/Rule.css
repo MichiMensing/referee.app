@@ -12,10 +12,15 @@
     display: inline-flex;
     align-items: center;
 
+    h2 {
+      line-height: 1.25rem;
+    }
+
     button {
       font-size: 1rem;
       color: var(--shell-color);
-      height: 35px;
+      line-height: 1.25rem;
+      padding: 7px;
       background-color: var(--grey2);
       border: 0px;
       cursor: pointer;

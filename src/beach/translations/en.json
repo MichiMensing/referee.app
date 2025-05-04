@@ -8,6 +8,8 @@
     },
     "correct": "correct",
     "Reset": "Reset",
+    "yes": "Yes",
+    "no": "No",
     "menu": {
       "test": "Referee Test",
       "quizzes": "Quiz Catalog",
