@@ -98,6 +98,7 @@ export default class Quiz {
     let correct = 0;
     let total = 0;
     let successRate = "0.0";
+    let asked = 0;
 
     let classification = "empty";
     const latestRun = this.getLatestRun();
@@ -117,10 +118,12 @@ export default class Quiz {
       } else {
         classification = "bad";
       }
+      asked = latestRun.asked;
     }
 
     return {
       amountOfQuestions: amountQuestions,
+      asked,
       correct,
       total,
       classification,
@@ -166,6 +169,14 @@ export default class Quiz {
   public start() {
     const stats = this.getQuizStatistics();
     this._runs.push(new QuizRun(this._id, stats.amountOfQuestions));
+  }
+
+  public isUnlimited() {
+    return this._questions.length === 0 && this._settings.maxQuestions === 0;
+  }
+
+  public isDefault() {
+    return this._id === "IHF_DEFAULT";
   }
 
   private secondsToTime(secs: number): ITimeObject {

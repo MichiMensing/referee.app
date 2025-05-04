@@ -33,7 +33,14 @@
 
 #quiz-details-header {
   font-size: 1.25rem;
+
+  > .default {
+    font-style: italic;
+    color: var(--grey2);
+    margin-left: 1rem;
+  }
 }
+
 
 #quiz-details-footer {
   font-size: 1rem;

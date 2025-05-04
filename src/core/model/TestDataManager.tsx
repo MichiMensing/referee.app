@@ -18,6 +18,8 @@ export default class TestDataManager {
 
   private initialized = false;
 
+  private initializing = false;
+
   private currentId = "";
 
   private _asked = 0;
@@ -37,10 +39,14 @@ export default class TestDataManager {
   }
 
   public async initialize(language: string) {
+    if (this.initializing) {
+      return;
+    }
     if (this.initialized) {
       await this.switchLanguage(language);
       return this._data[this.currentId];
     }
+    this.initializing = true;
 
     const mappedAnswers = this._answerData.reduce<{ [id: string]: IAnswer }>((prev, curr) => ({
       ...prev,
@@ -98,6 +104,7 @@ export default class TestDataManager {
       );
     }
 
+    this.initializing = false;
     this.initialized = true;
 
     return this.next();
@@ -154,9 +161,9 @@ export default class TestDataManager {
 
     if (this.quiz) {
       const currentRun = this.quiz.getLatestRun();
-      currentRun?.recordAnswer(this.currentId, answers);
-      if (result.answeredCorrect) {
-        currentRun?.correct.push(this.currentId);
+      currentRun?.recordAnswer(this.currentId, answers, result.answeredCorrect);
+      if (currentRun && this.quiz.isUnlimited()) {
+        currentRun.updateTotal(currentRun.total + 1);
       }
 
       if (this.db) {
@@ -176,7 +183,9 @@ export default class TestDataManager {
     if (this._quiz) {
       const stats = this._quiz.getQuizStatistics();
       const answeredQuestions = this._quiz.getLatestRun()?.answers;
-      if (answeredQuestions && Object.keys(answeredQuestions).length >= stats.amountOfQuestions) {
+      let endlessQuestions = this._quiz.questions.length === 0;
+      let reachedMaxQuestions = answeredQuestions && stats.amountOfQuestions > 0 && Object.keys(answeredQuestions).length >= stats.amountOfQuestions;
+      if (reachedMaxQuestions || (endlessQuestions && this.todo.length === 0)) {
         this.stopQuiz();
         return undefined;
       }
@@ -200,7 +209,7 @@ export default class TestDataManager {
   public async resetQuizzes() {
     this._quiz = undefined;
     const quizzesToDelete = this._quizzes;
-    this._quizzes = [];
+    this._quizzes = [this.getDefaultQuiz()];
     if (this.db) {
       await Promise.all(quizzesToDelete.map(async (quiz) => {
         await quiz.delete(this.db!);
@@ -321,12 +330,11 @@ export default class TestDataManager {
     this._quizzes = quizzes;
     await tx.done;
 
-    let defaultQuiz = quizzes.find((q) => { q.id === "IHF_DEFAULT" });
+    let defaultQuiz = quizzes.find((q) => q.isDefault());
     if (!defaultQuiz) {
-      defaultQuiz = new Quiz(
-        "IHF Standard Quiz",
-        { timeLimit: 60, maxQuestions: 30, instantFeedback: false },
-        undefined, "IHF_DEFAULT");
+      defaultQuiz = this.getDefaultQuiz();
+
+      this._quizzes.push(defaultQuiz);
 
       defaultQuiz.persist(db);
     }
@@ -391,5 +399,12 @@ export default class TestDataManager {
     }
 
     return json;
+  }
+
+  private getDefaultQuiz(): Quiz {
+    return new Quiz(
+      "IHF Standard Quiz",
+      { timeLimit: 60, maxQuestions: 30, instantFeedback: false },
+      undefined, "IHF_DEFAULT");
   }
 }

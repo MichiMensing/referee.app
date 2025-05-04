@@ -50,6 +50,7 @@ export interface IQuizData {
 
 export interface IQuizStats {
   amountOfQuestions: number;
+  asked: number;
   correct: number;
   total: number;
   classification: string;

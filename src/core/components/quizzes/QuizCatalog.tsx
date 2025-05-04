@@ -9,7 +9,7 @@ import { useRulesTestData } from "../../context/TestDataContext";
 import IconToggleButton from "../IconToggleButton";
 
 const DEFAULT_QUIZ = new QuizModel(
-  "IHF Standard Quiz",
+  t("quizzes.standard-quiz"),
   { timeLimit: 60, maxQuestions: 30, instantFeedback: false },
   undefined, "IHF_DEFAULT");
 
@@ -18,7 +18,7 @@ const QuizCatalog: FunctionComponent = () => {
   const [quizList, setQuizList] = useState<QuizModel[]>(quizzes);
   const navigate = useNavigate();
 
-  const defaultQuiz = quizzes.find((q) => { q.id === "IHF_DEFAULT" }) || DEFAULT_QUIZ;
+  const defaultQuiz = quizzes.find((q) => q.isDefault() ) || DEFAULT_QUIZ;
 
   const handleCreateNew = async () => {
     const newQuiz = new QuizModel("New Quiz");
@@ -60,6 +60,7 @@ const QuizCatalog: FunctionComponent = () => {
           quiz={defaultQuiz}
         />
       </div>
+      <div id="quizzes-my-list-header"><h3>{t("quizzes.my-quizzes")}</h3></div>
       <div id="quizzes-list">
         {quizList.length > 0
           && quizList.filter((q) =>

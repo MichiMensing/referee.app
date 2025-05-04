@@ -24,7 +24,7 @@ const Quiz: FunctionComponent<Props> = ({
   return (
     <Link id="quiz-box" to={`/quizzes/${quiz.id}`} key={`quiz-${quiz.id}`}>
       <div id="quiz-details">
-        <div id="quiz-details-header">{quiz.name}</div>
+        <div id="quiz-details-header">{quiz.isDefault() ? t("quizzes.standard-quiz") : quiz.name}</div>
         <div id="quiz-details-footer">
           <div className="quiz-setting">
             <div className="icon"><FontAwesomeIcon icon={faHashtag} size="lg" /></div>

@@ -42,8 +42,9 @@ const TestDataProvider: FunctionComponent<TestDataProviderProps> = ({ children, 
         setLoading(false);
       }
     };
-
-    loadData();
+    if (!loading) {
+      loadData();
+    }
   }, [language]);
 
   const nextQuestion = () => {

@@ -20,7 +20,7 @@ const QuizSettings: FunctionComponent = () => {
   const navigate = useNavigate();
 
   const currentQuiz = quizzes.find((q, _) => q.id === quizId);
-  const readOnly = currentQuiz ? currentQuiz.id === "IHF_DEFAULT" : false;
+  const readOnly = currentQuiz ? currentQuiz.isDefault() : false;
 
   if (!currentQuiz) {
     navigate(-1);
@@ -130,7 +130,7 @@ const QuizSettings: FunctionComponent = () => {
         <div className="setting">
           <div className="label">{t("quizzes.settings.name")}</div>
           {readOnly ?
-            <div className="label">{name}</div>
+            <div className="label">{quiz.isDefault() ? t("quizzes.standard-quiz") : name}</div>
             :
             <input value={name} onChange={handleNameChange} />
           }

@@ -12,6 +12,7 @@
   box-shadow: var(--shadow);
   margin-bottom: 1rem;
   padding: 1rem;
+  align-items: center;
 
   & h2 {
     font-size: 1.25rem;
@@ -53,4 +54,15 @@
   background-color: var(--white);
   box-shadow: var(--shadow);
   padding: 1rem;
+}
+
+#quizzes-my-list-header {
+  font-size: 1rem;
+  color: var(--black);
+  margin-bottom: 0.5rem;
+
+  > h3 {
+    background-color: var(--grey1);
+    padding: 0.2rem 1rem;
+  }
 }

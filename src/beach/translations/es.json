@@ -74,6 +74,9 @@
       "start": "Iniciar Cuestionario",
       "empty": "Haga clic en \"Nuevo Cuestionario\" para agregar una prueba al catálogo",
       "out-of": "de",
+      "my-quizzes": "Mis Cuestionarios",
+      "standard-quiz": "Cuestionario estándar de la IHF",
+      "quiz": "Cuestionario",
       "settings": {
         "title": "Configuración de cuestionario",
         "delete": "Eliminar",

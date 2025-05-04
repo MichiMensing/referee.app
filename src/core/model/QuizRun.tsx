@@ -60,11 +60,18 @@ export default class QuizRun {
     return !this._answers ? 0 : Object.keys(this._answers).length;
   }
 
-  public recordAnswer(questionId: string, answers: string[]) {
+  public recordAnswer(questionId: string, answers: string[], answeredCorrect: boolean) {
     if (!this._answers) {
       this._answers = {};
     }
+    if (answeredCorrect) {
+      this._correct.push(questionId);
+    }
     this._answers[questionId] = answers;
+  }
+
+  public updateTotal(total: number) {
+    this._total = total;
   }
 
   public getFormattedTimestamp(): string {

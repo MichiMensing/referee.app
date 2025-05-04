@@ -54,6 +54,9 @@ const RulesTest: FunctionComponent<RulesTestProps> = ({ mapRuleToAnchor }) => {
       const remaining = quiz?.getTimeRemaining();
       remaining ? setTime(remaining) : setTime(ZERO_TIME);
     }, 1000);
+    if (quiz.timeLimit === 0) {
+      clearInterval(interval);
+    }
     return () => clearInterval(interval);
   }, []);
 
@@ -149,16 +152,22 @@ const RulesTest: FunctionComponent<RulesTestProps> = ({ mapRuleToAnchor }) => {
   let testHeader;
   if (quiz) {
     const stats = quiz.getQuizStatistics();
+    let timerWidget;
+    if (quiz.timeLimit > 0) {
+      timerWidget = formatTime(time)
+    }
     testHeader = (
       <div id="test-header">
         <div className="test-header-details">
           <FontAwesomeIcon icon={faClipboardQuestion} />
-          <span>{`Quiz: ${quiz.name}`}</span>
+          <span>{`${t("quizzes.quiz")}: ${quiz.isDefault() ? t("quizzes.standard-quiz") : quiz.name}`}</span>
           <span> - </span>
-          <span>{`${t("rulestest.overall")} ${stats.correct}/${stats.total} (${stats.percentage}%)`}</span>
+          <span>{`${t("rulestest.question")} #${stats.asked + 1}`}</span>
+          <span> - </span>
+          <span>{`${t("rulestest.overall")} ${stats.correct}/${quiz.isUnlimited() && stats.amountOfQuestions === 0? '∞' : stats.total} (${stats.percentage}%)`}</span>
         </div>
         <div className="test-header-timer">
-          {formatTime(time)}
+          {timerWidget}
         </div>
       </div>
     );

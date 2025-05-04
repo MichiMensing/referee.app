@@ -74,6 +74,9 @@
       "start": "Starte Quiz",
       "empty": "Klicke \"Neues Quiz\" um ein Quiz zum Katalog hinzuzufügen",
       "out-of": "von",
+      "my-quizzes": "Meine Quizzes",
+      "standard-quiz": "IHF Standard Quiz",
+      "quiz": "Quiz",
       "settings": {
         "title": "Quizeinstellungen",
         "delete": "Löschen",
