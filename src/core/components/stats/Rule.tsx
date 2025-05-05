@@ -33,7 +33,7 @@ const Rule: FunctionComponent<Props> = ({
     key = `rules.rule.rule${id}`;
   }
 
-  let [color, percent, _] = Question.getClassificationAndRate(correct, asked);
+  let [color, _, successRate] = Question.getClassificationAndRate(correct, asked);
 
   const details = questions.map((question) => (
     <QuestionComponent key={question.id} question={question} run={run} />
@@ -59,7 +59,7 @@ const Rule: FunctionComponent<Props> = ({
             <FontAwesomeIcon icon={faClipboardQuestion} size="lg" />
           </button>
         </div>
-        <div className={`rule-stat-stats ${color}`}>{`${correct} / ${asked} (${percent}%)`}</div>
+        <div className={`rule-stat-stats ${color}`}>{`${correct} / ${asked} (${successRate}%)`}</div>
       </div>
       <div className="rule-stat-content">
         {details}

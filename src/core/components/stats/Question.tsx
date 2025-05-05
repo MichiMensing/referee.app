@@ -40,7 +40,7 @@ const QuestionComponent: FunctionComponent<Props> = ({ question, run }) => {
     correct = (run.correct.find((id) => id === question.id)) ? 1 : 0;
   }
 
-  let [color, percent, _] = Question.getClassificationAndRate(correct, asked);
+  let [color, _, successRate] = Question.getClassificationAndRate(correct, asked);
   let icon;
   let content;
   if (open) {
@@ -119,7 +119,7 @@ const QuestionComponent: FunctionComponent<Props> = ({ question, run }) => {
           </div>
         )
       }
-      <div className={`result ${color}`}>{`${correct} / ${asked} (${percent}%)`}</div>
+      <div className={`result ${color}`}>{`${correct} / ${asked} (${successRate}%)`}</div>
       {content}
     </div>
   );
