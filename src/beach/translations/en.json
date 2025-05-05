@@ -8,8 +8,11 @@
     },
     "correct": "correct",
     "Reset": "Reset",
+    "yes": "Yes",
+    "no": "No",
     "menu": {
       "test": "Referee Test",
+      "quizzes": "Quiz Catalog",
       "rules": "Rules of the Game",
       "stats": "Statistics",
       "about": "About"
@@ -52,7 +55,8 @@
       "check": "Check",
       "next": "Next",
       "overall": "Overall",
-      "relevant-rules": "Relevant Rules"
+      "relevant-rules": "Relevant Rules",
+      "no-questions": "No more questions"
     },
     "stats": {
       "overall": "Overall",
@@ -63,6 +67,40 @@
     "privacy": {
       "accept": "Accept",
       "decline": "Decline"
+    },
+    "quizzes": {
+      "questions": "Questions",
+      "rules": "Rules",
+      "reset": "Reset",
+      "new": "New Quiz",
+      "start": "Start Quiz",
+      "empty": "Please click \"New Quiz\" to add a quiz to the catalog",
+      "out-of": "out of",
+      "my-quizzes": "My Quizzes",
+      "standard-quiz": "IHF Standard Quiz",
+      "quiz": "Quiz",
+      "rule-quiz": "Test of Rule",
+      "no-answers": "No questions were answered",
+      "settings": {
+        "title": "Quiz Settings",
+        "delete": "Delete",
+        "name": "Name",
+        "max-question": "Max # Questions",
+        "time-limit": "Time Limit",
+        "instant-feedback": "Instant Feedback",
+        "questions": "Questions",
+        "all": "All",
+        "all-questions": "All Questions",
+        "none": "No Limit",
+        "min": "Min",
+        "hour": "Hour",
+        "past-runs": "Past Runs",
+        "unlimited": "Unlimited",
+        "no-runs": "No previous runs"
+      },
+      "runs": {
+        "statistics": "Run Statistics"
+      }
     }
   }
 }

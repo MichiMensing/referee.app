@@ -10,7 +10,7 @@ interface RuleItemProps {
   className?: string;
 }
 
-const RulesItem: FunctionComponent<RuleItemProps> = ({ textKey, className = ""}) => {
+const RulesItem: FunctionComponent<RuleItemProps> = ({ textKey, className = "" }) => {
   const { t } = useTranslation();
   const name = t(textKey);
   const href = name.toLowerCase().replace(/\s/g, "-").replace(/,/g, "");

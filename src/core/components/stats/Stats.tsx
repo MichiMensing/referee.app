@@ -1,12 +1,18 @@
 /* eslint-disable no-param-reassign, no-mixed-operators */
 import React, { FunctionComponent, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { faCheck, faPercent, faQuestion } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate, useParams } from "react-router-dom";
+import {
+  faArrowLeft, faArrowRotateLeft, faCheck, faClipboardQuestion, faPercent, faQuestion,
+  faRepeat,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRulesTestData } from "../../context/TestDataContext";
 import Question from "../../model/Question";
-import "./Stats.css";
 import Rule from "./Rule";
+import IconToggleButton from "../IconToggleButton";
+import "./Stats.css";
+import Quiz from "../../model/Quiz";
 
 type OrderedData = {
   [rule: string]: {
@@ -17,34 +23,113 @@ type OrderedData = {
 };
 
 const Stats: FunctionComponent = () => {
-  const { asked, correct, data, resetStats } = useRulesTestData();
+  const { quizId, runId } = useParams();
+  const {
+    asked, correct, data, resetStats, quizzes, addQuiz,
+  } = useRulesTestData();
+
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [rerender, setRerender] = useState(0);
 
-  const percent = asked ? Math.round(100 / asked * correct) : 0;
-  const orderedData = useMemo(() => Object.values(data).reduce<OrderedData>((prev, question) => {
-    const { rule, numAsked, numCorrect } = question;
-    if (!prev[question.rule]) {
-      prev[rule] = {
-        asked: 0,
-        correct: 0,
-        questions: [],
-      };
+  const quiz = quizzes.find((q) => q.id === quizId);
+  const run = quiz?.runs.find((r) => r.id === runId);
+
+  if ((quizId || runId) && !quiz && !run) {
+    navigate("/stats");
+    return undefined;
+  }
+
+  const askedStat = !run ? asked : run.asked;
+  const correctStat = !run ? correct : run.correct.length;
+
+  const isNeededForRetry = (q: Question) => {
+    // all red marked questions
+    if (q.numAsked > 0 && q.numCorrect / q.numAsked * 100 < 50) {
+      return true;
     }
+    return false;
+  };
 
-    prev[rule] = {
-      asked: prev[rule].asked + numAsked,
-      correct: prev[rule].correct + numCorrect,
-      questions: [...prev[rule].questions, question],
-    };
+  const percent = askedStat ? Math.round(100 / askedStat * correctStat) : 0;
+  const [dbOrderedData, dbWrongAnswers] = useMemo(
+    () => {
+      const wrongAnswers:string[] = [];
+      const tmpData = Object.values(data).reduce<OrderedData>((prev, question) => {
+        const { rule, numAsked, numCorrect } = question;
+        if (!prev[question.rule]) {
+          prev[rule] = {
+            asked: 0,
+            correct: 0,
+            questions: [],
+          };
+        }
 
-    return prev;
-  }, {}), [data, rerender]);
+        if (isNeededForRetry(question)) {
+          wrongAnswers.push(question.id);
+        }
+
+        prev[rule] = {
+          asked: prev[rule].asked + numAsked,
+          correct: prev[rule].correct + numCorrect,
+          questions: [...prev[rule].questions, question],
+        };
+
+        return prev;
+      }, {});
+
+      return [tmpData, wrongAnswers];
+    },
+    [data, rerender],
+  );
+
+  let orderedData: OrderedData = dbOrderedData;
+  let runWrongAnswers:string[] = [];
+  if (run) {
+    let answeredQuestions: string[] = [];
+    runWrongAnswers = [];
+    if (run.answers) {
+      answeredQuestions = Object.keys(run.answers);
+      orderedData = answeredQuestions.reduce<OrderedData>((prev, questionId) => {
+        const question = data[questionId];
+        const { rule } = question;
+        if (!prev[question.rule]) {
+          prev[rule] = {
+            asked: 0,
+            correct: 0,
+            questions: [],
+          };
+        }
+
+        const isCorrect = run.correct.find((id) => id === questionId);
+
+        if (!isCorrect) {
+          runWrongAnswers.push(questionId);
+        }
+
+        prev[rule] = {
+          asked: prev[rule].asked + 1,
+          correct: prev[rule].correct + (isCorrect ? 1 : 0),
+          questions: [...prev[rule].questions, question],
+        };
+
+        return prev;
+      }, {});
+    }
+  }
 
   const handleReset = async () => {
     await resetStats();
     setRerender(rerender + 1);
-  }
+  };
+
+  const handleBackButtonClick = () => {
+    if (run) {
+      navigate(`/quizzes/${quiz?.id}`);
+    } else {
+      navigate(-1);
+    }
+  };
 
   const rules = Object.keys(orderedData).map((id: string) => {
     const ruleData = orderedData[id];
@@ -55,31 +140,86 @@ const Stats: FunctionComponent = () => {
         asked={ruleData.asked}
         correct={ruleData.correct}
         questions={ruleData.questions}
+        run={run}
       />
     );
   });
 
+  const handleRetryFailed = async () => {
+    const questions = run ? runWrongAnswers : dbWrongAnswers;
+    const newQuiz = new Quiz("Retry failed questions", undefined, questions);
+    if (addQuiz) {
+      await addQuiz(newQuiz);
+    }
+    navigate(`/quizzes/${newQuiz.id}`);
+  };
+
+  const retryBtn = (
+    <IconToggleButton
+      label="Retry Failed Questions"
+      content={(
+        <div>
+          <FontAwesomeIcon icon={faRepeat} />
+          <span className="spacer" />
+          <FontAwesomeIcon icon={faClipboardQuestion} />
+        </div>
+      )}
+      onChange={handleRetryFailed}
+      highlight
+    />
+  );
+
+  let statHeader;
+  if (run) {
+    statHeader = (
+      <div id="stats-overall-header">
+        <button
+          type="button"
+          className="back-button"
+          onClick={handleBackButtonClick}
+        >
+          <FontAwesomeIcon icon={faArrowLeft} size="lg" />
+        </button>
+        <h2>{`${t("quizzes.runs.statistics")} - ${run.getFormattedTimestamp()}`}</h2>
+        {(!run || !!run.answers) && retryBtn}
+      </div>
+    );
+  } else {
+    statHeader = (
+      <div id="stats-overall-header">
+        <h2>{t("stats.overall")}</h2>
+        <div className="stats-button-group">
+          {retryBtn}
+          <IconToggleButton
+            label={t("stats.reset")}
+            icon={faArrowRotateLeft}
+            onChange={handleReset}
+          />
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div id="stats">
       <div id="stats-overall">
-        <div id="stats-overall-header">
-          <h2>{t("stats.overall")}</h2>
-          <button onClick={handleReset}>{t("stats.reset")}</button>
-        </div>
-        <div id="stats-asked">
+        {statHeader}
+        <div id="stats-asked" className="equal-width-icon">
           <FontAwesomeIcon icon={faQuestion} size="lg" />
-          {`${asked} ${t("stats.asked")}`}
+          {`${askedStat} ${t("stats.asked")}`}
         </div>
-        <div id="stats-correct">
+        <div id="stats-correct" className="equal-width-icon">
           <FontAwesomeIcon icon={faCheck} size="lg" />
-          {`${correct} ${t("stats.correct")}`}
+          {`${correctStat} ${t("stats.correct")}`}
         </div>
-        <div id="stats-percent">
+        <div id="stats-percent" className="equal-width-icon">
           <FontAwesomeIcon icon={faPercent} size="lg" />
           {`${percent}%`}
         </div>
       </div>
-      {rules}
+      {!!run && !run.answers
+        && ((<div className="rules-list-empty">{t("quizzes.no-answers")}</div>))}
+      {(!run || !!run.answers) && rules}
     </div>
   );
 };

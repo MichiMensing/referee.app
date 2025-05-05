@@ -13,7 +13,7 @@ interface Props {
 const CheckBox: FunctionComponent<Props> = ({
   checked,
   onChange = () => null,
-  labelledBy ="",
+  labelledBy = "",
   readOnly = false,
 }) => {
   const handleKeyDown = (event: KeyboardEvent) => {

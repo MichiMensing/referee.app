@@ -11,34 +11,50 @@
   padding: 1rem;
   font-size: 1.25rem;
 
-  & h2 {
+  h2 {
     font-size: 1.25rem;
     margin: 0;
   }
 
-  & svg {
+  #stats-overall-header {
+    display: flex;
+    justify-content: space-between;
+
+
+    & .back-button {
+      color: var(--darkgrey);
+      background-color: transparent;
+      border-radius: 0.2rem;
+      border: 1px solid var(--shell-bg-color);
+      font-size: 1rem;
+      padding: 0.25rem 0.5rem;
+      cursor: pointer;
+    }
+
+    & .back-button:hover {
+      background-color: var(--grey2);
+      border-color: var(--shell-bg-color);
+    }
+
+    & .back-button > svg {
+      margin-right: 0px;
+      width: inherit;
+    }
+
+    .stats-button-group > button {
+      margin-left: 1rem;
+    }
+
+    .spacer {
+      margin-left: 3px;
+    }
+
+  }
+
+  .equal-width-icon>svg {
     display: inline-block;
     margin-right: 1rem;
     width: 1.25rem
-  }
-
-  & #stats-overall-header {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  & button {
-    background-color: var(--btn-bg-color);
-    border: 1px solid var(--border-dark-color);
-    color: var(--white);
-    font-size: 1rem;
-    padding: 0.25rem 0.5rem;
-    cursor: pointer;
-
-    &:hover {
-      background-color: var(--btn-dark-bg-color);
-      border: 1px solid var(--border-dark-bg-color);
-    }
   }
 }
 
@@ -55,4 +71,13 @@
 #stats-percent {
   margin-top: 0.5rem;
   color: var(--orange1);
+}
+
+.rules-list-empty {
+  display: flex;
+  justify-content: center;
+  background-color: var(--white);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  margin-top: 1rem;
 }

@@ -8,8 +8,11 @@
     },
     "correct": "correct",
     "Reset": "Remettre",
+    "yes": "Oui",
+    "no": "Non",
     "menu": {
       "test": "Test d'arbitre",
+      "quizzes": "Catalogue de quiz",
       "rules": "Règles du jeu",
       "stats": "Statistiques",
       "about": "Information"
@@ -52,7 +55,8 @@
       "check": "Vérifier",
       "next": "Prochain",
       "overall": "Au total",
-      "relevant-rules": "Règles Pertinentes"
+      "relevant-rules": "Règles Pertinentes",
+      "no-questions": "Plus de questions"
     },
     "stats": {
       "overall": "au Total",
@@ -63,6 +67,40 @@
     "privacy": {
       "accept": "J'accepte",
       "decline": "Je décline"
+    },
+    "quizzes": {
+      "questions": "Questions",
+      "rules": "Règles",
+      "reset": "Remettre",
+      "new": "Nouveau Quiz",
+      "start": "Démarrer le Quiz",
+      "empty": "Veuillez cliquer sur \"Nouveau Quiz\" pour ajouter un quiz au catalogue",
+      "out-of": "sur",
+      "my-quizzes": "Mes Quiz",
+      "standard-quiz": "Quiz standard de l'IHF",
+      "quiz": "Quiz",
+      "rule-quiz": "Test de Règle",
+      "no-answers": "Aucune question n'a reçu de réponse",
+      "settings": {
+        "title": "Paramètres du quiz",
+        "delete": "Supprimer",
+        "name": "Nom",
+        "max-question": "Nombre maximum de questions",
+        "time-limit": "Délai",
+        "instant-feedback": "Commentaire instantané",
+        "questions": "Questions",
+        "all": "Tous",
+        "all-questions": "Toutes les questions",
+        "none": "Aucune limite",
+        "min": "Min",
+        "hour": "Heure",
+        "past-runs": "Exécutions passées",
+        "unlimited": "Illimitée",
+        "no-runs": "Aucune exécution précédente"
+      },
+      "runs": {
+        "statistics": "Statistiques de l'exécution"
+      }
     }
   }
 }

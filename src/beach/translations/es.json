@@ -8,8 +8,11 @@
     },
     "correct": "correcto",
     "Reset": "Reiniciar",
+    "yes": "Sí",
+    "no": "No",
     "menu": {
       "test": "Prueba de Reglas",
+      "quizzes": "Catálogo de cuestionarios",
       "rules": "Reglas de Juego",
       "stats": "Estadística",
       "about": "información"
@@ -52,7 +55,8 @@
       "check": "Examinar",
       "next": "Siguiente Pregunta",
       "overall": "En General",
-      "relevant-rules": "Reglas Relevantes"
+      "relevant-rules": "Reglas Relevantes",
+      "no-questions": "No más preguntas"
     },
     "stats": {
       "overall": "Total",
@@ -63,6 +67,40 @@
     "privacy": {
       "accept": "Aceptar",
       "decline": "Declinar"
+    },
+    "quizzes": {
+      "questions": "Preguntas",
+      "rules": "Reglas",
+      "reset": "Reiniciar",
+      "new": "Nuevo Cuestionario",
+      "start": "Iniciar Cuestionario",
+      "empty": "Haga clic en \"Nuevo Cuestionario\" para agregar una prueba al catálogo",
+      "out-of": "de",
+      "my-quizzes": "Mis Cuestionarios",
+      "standard-quiz": "Cuestionario estándar de la IHF",
+      "quiz": "Cuestionario",
+      "rule-quiz": "Prueba de Regla",
+      "no-answers": "No se respondieron preguntas",
+      "settings": {
+        "title": "Configuración de cuestionario",
+        "delete": "Eliminar",
+        "name": "Nombre",
+        "max-question": "N.° máximo de preguntas",
+        "time-limit": "Límite de tiempo",
+        "instant-feedback": "Comentarios instantáneos",
+        "questions": "Preguntas",
+        "all": "Todos",
+        "all-questions": "Todas las preguntas",
+        "none": "Sin límite",
+        "min": "Min",
+        "hour": "Hora",
+        "past-runs": "Ejecuciones pasadas",
+        "unlimited": "Ilimitada",
+        "no-runs": "No hay ejecuciones anteriores"
+      },
+      "runs": {
+        "statistics": "Estadísticas de la ejecución"
+      }
     }
   }
 }

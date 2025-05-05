@@ -4,10 +4,10 @@
   display: flex;
   position: relative;
   margin: 0.75rem;
-  color: var(--menu-color);
+  color: var(--darkgrey);
   width: 10rem;
   height: 2rem;
-  background-color: var(--btn-bg-color);
+  background-color: var(--shell-bg-color);
   border-radius: 0.5rem;
   border: 1px solid var(--border-dark-color);
   box-sizing: border-box;
@@ -34,7 +34,7 @@
 
 #picker-content {
   flex-grow: 1;
-  color: var(--menu-color-active);
+  color: var(--darkgrey);
 
   @media (max-width: 48rem) {
     & img {
@@ -52,7 +52,7 @@
   font-size: 1.5rem;
   width: 1rem;
   margin: 0.25rem 0.5rem;
-  color: var(--menu-color-active);
+  color: var(--darkgrey);
 
   & svg {
     display: block;

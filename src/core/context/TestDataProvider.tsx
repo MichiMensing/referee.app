@@ -9,6 +9,7 @@ import Loading from "../components/Loading";
 import TestDataManager from "../model/TestDataManager";
 import Question from "../model/Question";
 import { IAnswer } from "../model";
+import Quiz from "../model/Quiz";
 
 interface TestDataProviderProps {
   children: ReactNode;
@@ -24,6 +25,8 @@ const TestDataProvider: FunctionComponent<TestDataProviderProps> = ({ children, 
   const [reveal, setReveal] = useState(false);
   const manager = useRef<TestDataManager>(new TestDataManager(answerData));
   const { i18n: { language } } = useTranslation();
+  const [quizzes, setQuizzes] = useState<Quiz[]>([]);
+  const [quiz, setQuiz] = useState<Quiz | undefined>();
 
   // Load questions
   useEffect(() => {
@@ -34,12 +37,14 @@ const TestDataProvider: FunctionComponent<TestDataProviderProps> = ({ children, 
         setQuestion(await manager.current.initialize(language));
         setAsked(manager.current.asked);
         setCorrect(manager.current.correct);
+        setQuizzes(manager.current.quizzes);
       } finally {
         setLoading(false);
       }
     };
-
-    loadData();
+    if (!loading) {
+      loadData();
+    }
   }, [language]);
 
   const nextQuestion = () => {
@@ -48,21 +53,61 @@ const TestDataProvider: FunctionComponent<TestDataProviderProps> = ({ children, 
     setChecked([]);
   };
 
-  const checkAnswers = async (options: string[]) => {
+  const checkAnswers = async (options: string[], bReveal:boolean = true) => {
     const result = manager.current.checkAnswer(options);
 
     setAsked(manager.current.asked);
     setCorrect(manager.current.correct);
     setChecked(options);
-    setReveal(true);
+    setReveal(bReveal);
 
     return result;
   };
 
+  const addQuiz = async (quizParam: Quiz) => {
+    await manager.current.addQuiz(quizParam);
+    setQuizzes(manager.current.quizzes);
+  };
+
+  const saveQuiz = async (quizParam: Quiz) => {
+    await manager.current.saveQuiz(quizParam);
+    setQuizzes(manager.current.quizzes);
+  };
+
+  const startQuiz = async (quizParam: Quiz) => {
+    await manager.current.startQuiz(quizParam);
+    setQuestion(manager.current.next());
+    setQuiz(manager.current.quiz);
+    setReveal(false);
+    setChecked([]);
+  };
+
+  const stopQuiz = async () => {
+    await manager.current.stopQuiz();
+    setQuestion(manager.current.next());
+    setQuiz(manager.current.quiz);
+    setReveal(false);
+    setChecked([]);
+  };
+
+  const deleteQuiz = async (quizParam: Quiz) => {
+    if (quizParam.id === quiz?.id) {
+      await stopQuiz();
+    }
+    await manager.current.deleteQuiz(quizParam);
+    setQuizzes(manager.current.quizzes);
+  };
+
   const resetStats = useCallback(async () => {
-    await manager.current!.reset();
+    await manager.current!.resetStats();
     setAsked(manager.current.asked);
     setCorrect(manager.current.correct);
+  }, []);
+
+  const resetQuizzes = useCallback(async () => {
+    await manager.current!.resetQuizzes();
+    setQuiz(manager.current.quiz);
+    setQuizzes(manager.current.quizzes);
   }, []);
 
   const TestDataContext = getTestDataContext();
@@ -75,11 +120,18 @@ const TestDataProvider: FunctionComponent<TestDataProviderProps> = ({ children, 
         checked: [],
         reveal: false,
         resetStats,
+        quizzes: [],
       }) => {
         context = {
           ...context,
           checkAnswers,
           nextQuestion,
+          addQuiz,
+          saveQuiz,
+          startQuiz,
+          stopQuiz,
+          deleteQuiz,
+          resetQuizzes,
           question,
           asked,
           correct,
@@ -87,6 +139,8 @@ const TestDataProvider: FunctionComponent<TestDataProviderProps> = ({ children, 
           reveal,
           data: manager.current.data,
           resetStats,
+          quizzes,
+          quiz,
         };
 
         let content;

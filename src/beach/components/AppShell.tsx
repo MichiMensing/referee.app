@@ -2,6 +2,7 @@ import React, { FunctionComponent, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Route } from "react-router";
 import loadable from "@loadable/component";
+import { Helmet } from "react-helmet-async";
 import Menu from "../../core/components/Menu";
 import Loading from "../../core/components/Loading";
 import "./AppShell.css";
@@ -18,7 +19,8 @@ import us from "../../img/us.svg";
 import es from "../../img/es.svg";
 import de from "../../img/de.svg";
 import fr from "../../img/fr.svg";
-import { Helmet } from "react-helmet-async";
+import QuizCatalog from "../../core/components/quizzes/QuizCatalog";
+import QuizSettings from "../../core/components/quizzes/QuizSettings";
 
 const HandballRules = loadable(() => import("./HandballRules"), {
   fallback: <Loading />,
@@ -47,7 +49,7 @@ const AppShell: FunctionComponent = () => {
 
   return (
     <div id="page-wrapper">
-      <Helmet htmlAttributes={{lang: i18n.language}} />
+      <Helmet htmlAttributes={{ lang: i18n.language }} />
       <Menu logo={Logo} link="https://usabeachtour.online/" />
       <div id="page-body">
         <Tracking />
@@ -74,9 +76,13 @@ const AppShell: FunctionComponent = () => {
         </header>
         <TestDataProvider answerData={answerData}>
           <Route path="/" element={<BeachRulesTest />} />
+          <Route path="/quizzes" element={<QuizCatalog />} />
+          <Route path="/quizzes/:quizId" element={<QuizSettings />} />
+          <Route path="/quizzes/:quizId/runs/:runId" element={<Stats />} />
           <Route path="/rules" element={<HandballRules />} />
           <Route path="/stats" element={<Stats />} />
           <Route path="/about" element={<About />} />
+          <Route path="/*" element={<BeachRulesTest />} />
         </TestDataProvider>
       </div>
     </div>

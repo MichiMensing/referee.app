@@ -8,8 +8,11 @@
     },
     "correct": "richtig",
     "Reset": "Zurücksetzen",
+    "yes": "Ja",
+    "no": "Nein",
     "menu": {
       "test": "Regelfragentest",
+      "quizzes": "Quiz Katalog",
       "rules": "Spielregeln",
       "stats": "Statistik",
       "about": "Informationen"
@@ -52,7 +55,8 @@
       "check": "Überprüfen",
       "next": "Nächste Frage",
       "overall": "Insgesamt",
-      "relevant-rules": "Relevante Regeln"
+      "relevant-rules": "Relevante Regeln",
+      "no-questions": "Keine Fragen übrig"
     },
     "stats": {
       "overall": "Gesamt",
@@ -63,6 +67,40 @@
     "privacy": {
       "accept": "Akzeptieren",
       "decline": "Ablehnen"
+    },
+    "quizzes": {
+      "questions": "Fragen",
+      "rules": "Regeln",
+      "reset": "Zurücksetzen",
+      "new": "Neues Quiz",
+      "start": "Starte Quiz",
+      "empty": "Klicke \"Neues Quiz\" um ein Quiz zum Katalog hinzuzufügen",
+      "out-of": "von",
+      "my-quizzes": "Meine Quizzes",
+      "standard-quiz": "IHF Standard Quiz",
+      "quiz": "Quiz",
+      "rule-quiz": "Test für Regel",
+      "no-answers": "Es wurden keine Fragen beantwortet",
+      "settings": {
+        "title": "Quizeinstellungen",
+        "delete": "Löschen",
+        "name": "Name",
+        "max-question": "Maximale Anzahl Fragen",
+        "time-limit": "Zeitlimit",
+        "instant-feedback": "Sofortiges Feedback",
+        "questions": "Fragen",
+        "all": "Alle",
+        "all-questions": "Alle Fragen",
+        "none": "Kein Limit",
+        "min": "Min",
+        "hour": "Std",
+        "past-runs": "Vergangene Versuche",
+        "unlimited": "Unbegrenzt",
+        "no-runs": "Keine vorherigen Versuche"
+      },
+      "runs": {
+        "statistics": "Versuchsstatistik"
+      }
     }
   }
 }

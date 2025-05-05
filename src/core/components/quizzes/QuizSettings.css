@@ -1,0 +1,76 @@
+@import "../shared.css";
+
+
+#quiz-settings {
+  padding: 1rem;
+  overflow: auto;
+
+  & .back-button {
+    color: var(--darkgrey);
+    background-color: transparent;
+    border-color: var(--shell-bg-color);
+    border-radius: 0.2rem;
+  }
+
+  & .back-button:hover {
+    background-color: var(--grey2);
+    border-color: var(--shell-bg-color);
+  }
+}
+
+#quiz-settings-list {
+  background-color: var(--white);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  margin-bottom: 1rem;
+
+  & .setting {
+    margin-bottom: 0.25rem;
+  }
+
+  & .label:first-child::after {
+    content: ":";
+  }
+
+  & .label {
+    margin-right: 1rem;
+    display: inline;
+  }
+
+  & .number-input {
+    width: 3rem;
+  }
+
+  & select {
+    height: 1.3rem;
+  }
+
+  & .setting-inline {
+    display: inline-flex;
+  }
+
+  & .icon {
+    display: inline-flex;
+    box-sizing: border-box;
+    width: 1.4rem;
+    height: 1.4rem;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--white);
+    border: none;
+    cursor: pointer;
+  }
+
+  & .icon:hover {
+    border: 1px solid var(--grey3);
+    border-radius: 0.2rem;
+  }
+}
+
+.quiz-settings-run-empty {
+  display: flex;
+  justify-content: center;
+  background-color: var(--white);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+}
