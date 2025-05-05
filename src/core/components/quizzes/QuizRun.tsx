@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react";
 import "./QuizRun.css";
 import { useNavigate } from "react-router";
 import QuizRunModel from "../../model/QuizRun";
+import Question from "../../model/Question";
 
 interface Props {
   run: QuizRunModel;
@@ -12,18 +13,7 @@ const QuizRun: FunctionComponent<Props> = ({
 }) => {
   const navigate = useNavigate();
 
-  const percentage = (run.correct.length / run.total) * 100;
-  const successRate = run.total !== 0 ? (percentage).toFixed(1) : 0.0;
-  let classification;
-  if (run.total === 0) {
-    classification = "empty";
-  } else if (percentage >= 80) {
-    classification = "good";
-  } else if (percentage >= 50) {
-    classification = "ok";
-  } else {
-    classification = "bad";
-  }
+  let [classification, _, successRate] = Question.getClassificationAndRate(run.correct.length, run.total);
 
   const handleClick = async () => {
     navigate(`/quizzes/${run.quizId}/runs/${run.id}`);

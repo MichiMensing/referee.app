@@ -4,7 +4,7 @@ import React, {
 import "./QuestionCatalogTree.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faChevronDown, faChevronRight, faMinusSquare, faPlusSquare, faQuestion, faSection,
+  faChevronDown, faChevronRight, faCircle, faMinusSquare, faPlusSquare, faQuestion, faSection,
 } from "@fortawesome/free-solid-svg-icons";
 import { faCheckSquare, faSquare } from "@fortawesome/free-regular-svg-icons";
 import CheckboxTree from "react-checkbox-tree";
@@ -16,6 +16,8 @@ import Quiz from "../../model/Quiz";
 
 type OrderedData = {
   [rule: string]: {
+    asked: number;
+    correct: number;
     questions: Question[];
   };
 };
@@ -38,14 +40,18 @@ const QuestionCatalogTree: FunctionComponent<Props> = ({ showCatalog = true, qui
   const [rerender, _] = useState(0);
 
   const orderedData = useMemo(() => Object.values(data).reduce<OrderedData>((prev, question) => {
-    const { rule } = question;
+    const { rule, numAsked, numCorrect } = question;
     if (!prev[question.rule]) {
       prev[rule] = {
+        asked: 0,
+        correct: 0,
         questions: [],
       };
     }
 
     prev[rule] = {
+      asked: prev[rule].asked + numAsked,
+      correct: prev[rule].correct + numCorrect,
       questions: [...prev[rule].questions, question],
     };
 
@@ -58,9 +64,11 @@ const QuestionCatalogTree: FunctionComponent<Props> = ({ showCatalog = true, qui
     children: Object.keys(orderedData).map((key) => ({
       value: key,
       label: `Rule ${key}: ${t(`rules.rule.rule${key}`)}`,
+      className: Question.getClassificationAndRate(orderedData[key].correct, orderedData[key].asked)[0],
       children: orderedData[key].questions.map((question) => ({
         value: question.id,
         label: `${question.id}: ${question.question[language]}`,
+        className: Question.getClassificationAndRate(question.numCorrect, question.numAsked)[0]
       })),
     })),
   }];
@@ -119,9 +127,18 @@ const QuestionCatalogTree: FunctionComponent<Props> = ({ showCatalog = true, qui
           expandOpen: <FontAwesomeIcon className="rct-icon rct-icon-expand-open" icon={faChevronDown} />,
           expandAll: <FontAwesomeIcon className="rct-icon rct-icon-expand-all" icon={faPlusSquare} />,
           collapseAll: <FontAwesomeIcon className="rct-icon rct-icon-collapse-all" icon={faMinusSquare} />,
-          parentClose: <FontAwesomeIcon className="rct-icon rct-icon-parent-close" icon={faSection} />,
-          parentOpen: <FontAwesomeIcon className="rct-icon rct-icon-parent-open" icon={faSection} />,
-          leaf: <FontAwesomeIcon className="rct-icon rct-icon-leaf-close" icon={faQuestion} />,
+          parentClose: (<div className="catalog-tree-parent-icon-status">
+            <FontAwesomeIcon className="rct-icon rct-icon-leaf-close" icon={faSection} />
+            <FontAwesomeIcon className="rct-icon rct-icon-leaf-close" icon={faCircle} />
+            </div>),
+          parentOpen: (<div className="catalog-tree-parent-icon-status">
+            <FontAwesomeIcon className="rct-icon rct-icon-leaf-close" icon={faSection} />
+            <FontAwesomeIcon className="rct-icon rct-icon-leaf-close" icon={faCircle} />
+            </div>),
+          leaf: (<div className="catalog-tree-icon-status">
+            <FontAwesomeIcon className="rct-icon rct-icon-leaf-close" icon={faQuestion} />
+            <FontAwesomeIcon className="rct-icon rct-icon-leaf-close" icon={faCircle} />
+            </div>),
         }}
       />
     </div>

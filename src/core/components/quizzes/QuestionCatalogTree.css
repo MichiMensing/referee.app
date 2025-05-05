@@ -8,6 +8,71 @@
   border: 1px solid var(--grey3);
   max-height: 25rem;
   overflow-y: scroll;
+
+  .rct-text {
+    border-bottom: 1px solid lightgray;
+    padding: 1px 0 1px 0;
+  }
+
+  .catalog-tree-icon-status, .catalog-tree-parent-icon-status {
+    display: inline;
+  }
+
+  @media (max-width: 48rem) {
+
+    .react-checkbox-tree {
+      flex-direction:  column;
+    }
+  }
+
+  .react-checkbox-tree>ol>li>span .rct-node-icon .fa-circle {
+    display: none;
+  }
+
+  .rct-node-leaf {
+    &.empty .fa-circle {
+      color: var(--grey3);
+    }
+
+    &.bad .fa-circle{
+      color: var(--red3);
+    }
+
+    &.ok .fa-circle{
+      color: var(--orange3);
+    }
+
+    &.good .fa-circle{
+      color: var(--green2);
+    }
+
+    .fa-circle {
+      margin-left: 1px;
+    }
+  }
+
+  .rct-node-parent {
+    &.empty>span .fa-circle {
+      color: var(--grey3);
+    }
+
+    &.bad>span .fa-circle{
+      color: var(--red3);
+    }
+
+    &.ok>span .fa-circle{
+      color: var(--orange3);
+    }
+
+    &.good>span .fa-circle{
+      color: var(--green2);
+    }
+
+    .fa-circle {
+      margin-left: 1px;
+    }
+  }
+
 }
 
 #question-catalog-tree.hidden {

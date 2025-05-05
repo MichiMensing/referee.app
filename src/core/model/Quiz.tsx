@@ -6,6 +6,7 @@ import {
   IQuizSettings, IQuizStats, ITimeObject, RefereeDB,
 } from "./index";
 import QuizRun from "./QuizRun";
+import Question from "./Question";
 
 export default class Quiz {
   private _id: string;
@@ -106,18 +107,8 @@ export default class Quiz {
     if (latestRun) {
       correct = latestRun.correct.length;
       total = latestRun.total;
-      const percentage = (correct / latestRun.total) * 100;
-      successRate = latestRun.total !== 0 ? (percentage).toFixed(1) : "0.0";
+      [classification, , successRate] = Question.getClassificationAndRate(correct, latestRun.total);
 
-      if (latestRun.total === 0) {
-        classification = "empty";
-      } else if (percentage >= 80) {
-        classification = "good";
-      } else if (percentage >= 50) {
-        classification = "ok";
-      } else {
-        classification = "bad";
-      }
       asked = latestRun.asked;
     }
 

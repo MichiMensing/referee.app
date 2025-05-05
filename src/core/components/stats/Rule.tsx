@@ -33,15 +33,7 @@ const Rule: FunctionComponent<Props> = ({
     key = `rules.rule.rule${id}`;
   }
 
-  const percent = asked ? Math.round(100 / asked * correct) : 0;
-  let color = "bad";
-  if (!asked) {
-    color = "empty";
-  } else if (percent >= 80) {
-    color = "good";
-  } else if (percent >= 50) {
-    color = "ok";
-  }
+  let [color, percent, _] = Question.getClassificationAndRate(correct, asked);
 
   const details = questions.map((question) => (
     <QuestionComponent key={question.id} question={question} run={run} />

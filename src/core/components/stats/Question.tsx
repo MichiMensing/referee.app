@@ -40,18 +40,7 @@ const QuestionComponent: FunctionComponent<Props> = ({ question, run }) => {
     correct = (run.correct.find((id) => id === question.id)) ? 1 : 0;
   }
 
-  const percent = asked
-    ? Math.round(100 / asked * correct)
-    : 0;
-  let color = "bad";
-  if (question.numAsked === 0) {
-    color = "empty";
-  } else if (percent >= 80) {
-    color = "good";
-  } else if (percent >= 50) {
-    color = "ok";
-  }
-
+  let [color, percent, _] = Question.getClassificationAndRate(correct, asked);
   let icon;
   let content;
   if (open) {
