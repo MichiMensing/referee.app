@@ -4,18 +4,18 @@
     "question": "A2 tente de marquer en vol et atterrit dans la surface de but adverse après le tir. Il court et quitte le terrain au-delà de la ligne latérale de la surface de but. Lorsqu'il est sorti, A4 entre sur le terrain pour le remplacer",
     "answers": {
       "a": "Normal. Rien d'illégal",
-      "b": "Temps mort. Suspension pour A2. Lancer franc pour l'équipe B à partir du moment où A4 entre sur le terrain",
+      "b": "Temps mort. Suspension pour A2. Jet franc pour l'équipe B à partir du moment où A4 entre sur le terrain",
       "c": "Temps mort. Suspension pour A2. Jet franc pour l'équipe B à 1m de sa surface de but.",
-      "d": "Temps mort. Suspension pour A4. Lancer franc pour l'équipe B à partir de son entrée sur le terrain."
+      "d": "Temps mort. Suspension pour A4. Jet franc pour l'équipe B à partir de son entrée sur le terrain."
     }
   },
   {
     "id": "1.2",
     "question": "G/K B1 joue en tant que joueur de champ et tente de tirer au but. Il atterrit dans la surface de but de l'adversaire et quitte le terrain par la ligne de touche à l'intérieur de la surface de but. Dès qu'il est sorti, G/K B3 entre sur le terrain et arrête le tir direct au but de G/K A1",
     "answers": {
-      "a": "Temps mort. Suspension pour B1. Lancer de 6m pour l'équipe A.",
-      "b": "Temps mort. Suspension pour B3. Lancer de 6m pour l'équipe A.",
-      "c": "Temps mort. Suspension pour B1. Lancer franc pour l'équipe A.",
+      "a": "Temps mort. Suspension pour B1. Jet de 6m pour l'équipe A.",
+      "b": "Temps mort. Suspension pour B3. Jet de 6m pour l'équipe A.",
+      "c": "Temps mort. Suspension pour B1. Jet franc pour l'équipe A.",
       "d": "Poursuite du jeu. Lancer G/K pour l'équipe B."
     }
   },
@@ -23,9 +23,9 @@
     "id": "1.3",
     "question": "G/K A1 joue en tant que joueur de champ et tente de tirer au but. Il atterrit dans la surface de but adverse et quitte le terrain par la ligne de touche à l'intérieur de la surface de but. Lorsqu'il est sorti, G/K A3, qui n'était pas dans la zone de changement de son équipe mais qui est assis en dehors de la ligne latérale de sa surface de but, entre sur le terrain et arrête le tir direct au but de G/K B1",
     "answers": {
-      "a": "Temps mort. Suspension pour A1. Lancer de 6m pour l'équipe B.",
-      "b": "Temps mort. Suspension pour A3. Lancer de 6m pour l'équipe B.",
-      "c": "Temps mort. Suspension pour A1. Lancer franc pour l'équipe B.",
+      "a": "Temps mort. Suspension pour A1. Jet de 6m pour l'équipe B.",
+      "b": "Temps mort. Suspension pour A3. Jet de 6m pour l'équipe B.",
+      "c": "Temps mort. Suspension pour A1. Jet franc pour l'équipe B.",
       "d": "Poursuite du jeu. Lancer G/K pour l'équipe A."
     }
   },
@@ -51,7 +51,7 @@
   },
   {
     "id": "1.6",
-    "question": "Quelles sont les dimensions correctes des objectifs ?",
+    "question": "Quelles sont les dimensions correctes des buts ?",
     "answers": {
       "a": "3m de largeur intérieure X 2m de hauteur intérieure",
       "b": "3m de largeur jusqu'au côté extérieur des poteaux de but X 2m de hauteur intérieure",
@@ -76,7 +76,7 @@
       "a": "But de deux points pour l'équipe B.",
       "b": "Le jeu est terminé au signal final. Pas de but",
       "c": "Le lancer doit être recommencé",
-      "d": "6m -lancer pour l'équipe B car il y avait une chance évidente de marquer"
+      "d": "Jet de 6m pour l'équipe B car il y avait une chance évidente de marquer"
     }
   },
   {
@@ -86,7 +86,7 @@
       "a": "Disqualification",
       "b": "Suspension d'un joueur",
       "c": "Suspension d'un officiel",
-      "d": "Lancer de 6m"
+      "d": "Jet de 6m"
     }
   },
   {
@@ -95,7 +95,7 @@
     "answers": {
       "a": "Avertissement verbal pour Α5",
       "b": "Suspension pour Α5. L'équipe A recommencera avec un joueur en moins",
-      "c": "Disqualification à Α5. L'équipe A continuera avec 4 joueurs. Rapport",
+      "c": "Disqualification pour Α5. L'équipe A continuera avec 4 joueurs. Rapport",
       "d": "Disqualification pour Α5. L'équipe A reprendra avec un joueur en moins. Rapport."
     }
   },
@@ -105,8 +105,8 @@
     "answers": {
       "a": "Les arbitres doivent corriger l'endroit et siffler le jet franc",
       "b": "Les arbitres considèrent que le jet franc a été exécuté",
-      "c": "Suspension à A5 pour comportement antisportif",
-      "d": "Suspension à A5 pour comportement antisportif. Recommencer le jet franc après le coup de sifflet."
+      "c": "Suspension de A5 pour comportement antisportif",
+      "d": "Suspension de A5 pour comportement antisportif. Recommencer le jet franc après le coup de sifflet."
     }
   },
   {
@@ -114,7 +114,7 @@
     "question": "A7 purge une suspension alors que l'équipe B est en possession du ballon. Le ballon sort et l'arbitre siffle une remise en jeu pour l'équipe A. Avant la reprise du jeu, A7 entre sur le terrain",
     "answers": {
       "a": "Temps mort. Nouvelle suspension pour A7 qui entraîne une disqualification pour A7. Remise en jeu pour l'équipe A.",
-      "b": "Temps mort. Nouvelle exclusion pour A7 qui entraîne une disqualification pour A7. Lancer franc pour l'équipe B.",
+      "b": "Temps mort. Nouvelle exclusion pour A7 qui entraîne une disqualification pour A7. Jet franc pour l'équipe B.",
       "c": "Normal. Rien d'illégal",
       "d": "Temps mort. Disqualification pour A7. Remise en jeu pour l'équipe B."
     }
@@ -123,8 +123,8 @@
     "id": "2.7",
     "question": "Pendant le temps mort de l'équipe B, A2 proteste contre les arbitres en dehors du terrain et se rend coupable d'un comportement antisportif grave. Lorsque le jeu a été arrêté, il y a eu remise en jeu pour l'équipe B.",
     "answers": {
-      "a": "Suspension pour A2. Le match reprend avec une remise en jeu pour l'équipe B. L'équipe A réduit le nombre de ses joueurs d'une unité",
-      "b": "Disqualification pour A2. Rapport. Le match reprend par une remise en jeu pour l'équipe B. L'équipe A réduit le nombre de ses joueurs d'un joueur",
+      "a": "Suspension pour A2. Le match reprend avec une remise en jeu pour l'équipe B. L'équipe A jouera avec un joueur en moins.",
+      "b": "Disqualification pour A2. Rapport. Le match reprend par une remise en jeu pour l'équipe B. L'équipe A jouera avec un joueur en moins.",
       "c": "Rapport uniquement. L'action s'est déroulée pendant le temps mort de l'équipe et en dehors du terrain",
       "d": "Disqualification pour A2. Rapport. L'équipe A reprend le jeu avec 4 joueurs. Le jeu reprend avec une remise en jeu pour l'équipe B."
     }
@@ -134,19 +134,19 @@
     "question": "Temps mort pour l'équipe B. A3 et A5 entrent sur le terrain en tant que 5ème et 6ème joueurs pour donner de l'eau à leurs coéquipiers",
     "answers": {
       "a": "Normal. Rien d'illégal",
-      "b": "Suspension à A3. L'équipe A réduit d'une unité le nombre de ses joueurs. Lancer libre pour l'équipe B.",
-      "c": "Suspension pour A3 et A5. L'équipe A réduit le nombre de joueurs de deux. Lancer franc pour l'équipe B.",
-      "d": "Suspension pour le 'responsable de l'équipe' de l'équipe A. L'équipe A réduit le nombre de ses joueurs d'une unité. Jet franc pour l'équipe B."
+      "b": "Suspension pour A3. L'équipe A jouera avec un joueur en moins. Lancer libre pour l'équipe B.",
+      "c": "Suspension pour A3 et A5. L'équipe A jouera avec deux joueurs en moins. Jet franc pour l'équipe B.",
+      "d": "Suspension pour le 'responsable de l'équipe' de l'équipe A. L'équipe A jouera avec un joueur en moins. Jet franc pour l'équipe B."
     }
   },
   {
     "id": "2.9",
-    "question": "Alors que l'équipe B est en possession du ballon, l'officiel A de l'équipe B demande un temps mort d'équipe et le chronométreur siffle. Avant le coup de sifflet de l'arbitre, B3 tire au but et marque. C'est à ce moment que l'arbitre siffle le temps mort d'équipe",
+    "question": "Alors que l'équipe B est en possession du ballon, l'officiel A de l'équipe B demande un temps mort et le chronométreur siffle. Avant le coup de sifflet de l'arbitre, B3 tire au but et marque. C'est à ce moment que l'arbitre siffle le temps mort d'équipe",
     "answers": {
-      "a": "But pour l'équipe B. Temps mort d'équipe pour l'équipe B. Reprise avec G/K-lancer pour l'équipe A.",
+      "a": "But pour l'équipe B. Temps mort d'équipe pour l'équipe B. Reprise avec jet du G/K pour l'équipe A.",
       "b": "Pas de but. Temps mort pour l'équipe B. Reprise par un jet franc pour l'équipe B.",
-      "c": "But pour l'équipe B. Pas de temps mort pour l'équipe. Reprise par un jet G/K pour l'équipe A.",
-      "d": "Pas de but. Pas de temps mort d'équipe. Lancer de 6m pour l'équipe B."
+      "c": "But pour l'équipe B. Pas de temps mort pour l'équipe. Reprise par un jet du  G/K pour l'équipe A.",
+      "d": "Pas de but. Pas de temps mort d'équipe. Jet de 6m pour l'équipe B."
     }
   },
   {
@@ -171,11 +171,11 @@
   },
   {
     "id": "2.12",
-    "question": "Juste avant le signal final de fin de match, l'arbitre siffle un jet franc pour l'équipe A. Après le signal final, alors qu'il se prépare à exécuter le jet, l'officiel B de l'équipe A proteste et se rend coupable d'une agression contre le chronométreur",
+    "question": "Juste avant le signal de fin de match, l'arbitre siffle un jet franc pour l'équipe A. Après le signal final, alors qu'il se prépare à exécuter le jet, l'officiel B de l'équipe A proteste et se rend coupable d'une agression contre le chronométreur",
     "answers": {
       "a": "Disqualification de l'officiel B. Rapport. Exécution du jet franc pour l'équipe A.",
       "b": "Disqualification de l'officiel B. Rapport. Fin du match",
-      "c": "Pas de sanction, seulement un rapport pour l'officiel B. Lancer franc pour l'équipe B.",
+      "c": "Pas de sanction, seulement un rapport pour l'officiel B. Jet franc pour l'équipe B.",
       "d": "Suspension pour l'officiel B. Exécution du jet franc pour l'équipe A."
     }
   },
@@ -220,11 +220,11 @@
   },
   {
     "id": "4.3",
-    "question": "A7 est suspendu. L'équipe B est en possession du ballon et avant un turnover, A7 entre sur le terrain. L'arbitre siffle et arrête le match",
+    "question": "A7 est suspendu. L'équipe B est en possession du ballon et avant une rotation, A7 entre sur le terrain. L'arbitre siffle et arrête le match",
     "answers": {
-      "a": "Temps mort. Deuxième exclusion pour A7. Lancer franc pour l'équipe B.",
-      "b": "Disqualification pour A7.  Lancer franc pour l'équipe B. L'équipe A doit être encore réduite sur le terrain",
-      "c": "Temps mort. Suspension supplémentaire entraînant la disqualification de A7.  L'équipe A doit être encore réduite sur le terrain. Lancer franc pour l'équipe B.",
+      "a": "Temps mort. Deuxième exclusion pour A7. Jet franc pour l'équipe B.",
+      "b": "Disqualification pour A7.  Jet franc pour l'équipe B. L'équipe A jouera avec un joueur en moins.",
+      "c": "Temps mort. Suspension supplémentaire entraînant la disqualification de A7. L'équipe A jouera avec un joueur en moins. Jet franc pour l'équipe B.",
       "d": "Plus de sanction en raison du 'Fair play'."
     }
   },
@@ -232,10 +232,10 @@
     "id": "4.4",
     "question": "Comportement antisportif grave de l'officiel A de l'équipe A. L'arbitre siffle et arrête le match",
     "answers": {
-      "a": "Temps mort. Suspension de l'officiel A. L'équipe A doit être réduite sur le terrain. Lancer franc pour l'équipe B.",
+      "a": "Temps mort. Suspension de l'officiel A. L'équipe A jouera avec un joueur en moins. Jet franc pour l'équipe B.",
       "b": "Temps mort. Suspension de l'officiel A. Jet franc pour l'équipe B.",
       "c": "Disqualification de l'officiel A. L'officiel doit quitter le terrain. Pas d'autre rapport",
-      "d": "Temps mort. Disqualification de l'officiel A. L'équipe A doit être réduite sur le terrain. L'officiel doit quitter le terrain. Lancer franc pour l'équipe B. Rapport aux autorités du tournoi."
+      "d": "Temps mort. Disqualification de l'officiel A. L'équipe A jouera avec un joueur en moins. L'officiel doit quitter le terrain. Jet franc pour l'équipe B. Rapport aux autorités du tournoi."
     }
   },
   {
@@ -262,7 +262,7 @@
     "id": "4.7",
     "question": "A5 marque un but après avantage et B5 est exclu. G/K B1 exécute le renvoi et passe le ballon à B2 à 3m de la ligne de sa surface de but. A ce moment, B3 entre sur le terrain près de la surface de but adverse en tant que quatrième joueur et la table siffle une entrée illégale sur le terrain",
     "answers": {
-      "a": "Temps mort. Suspension pour B3. Lancer franc pour l'équipe A à l'endroit où B3 est entré sur le terrain. L'équipe B redémarre avec deux joueurs en moins",
+      "a": "Temps mort. Suspension pour B3. Jet franc pour l'équipe A à l'endroit où B3 est entré sur le terrain. L'équipe B redémarre avec deux joueurs en moins",
       "b": "Temps mort. Suspension pour B3. Jet franc pour l'équipe A à l'endroit où se trouvait le ballon au moment de l'interruption. L'équipe B recommencera avec un joueur en moins",
       "c": "Temps mort. Suspension pour B3. Jet franc pour l'équipe A à côté de la table. L'équipe B reprendra le match avec un joueur en moins",
       "d": "Temps mort. Suspension pour B3. Jet franc pour l'équipe A à l'endroit où se trouvait le ballon au moment de l'interruption. L'équipe B reprendra le match avec deux joueurs en moins."
@@ -273,14 +273,14 @@
     "question": "L'arbitre arrête le match alors que l'équipe A est en possession du ballon et siffle un temps mort car B3 est blessé. A4 entre sur le terrain en tant que cinquième joueur pour donner de l'eau à A5",
     "answers": {
       "a": "Normal. Rien d'illégal",
-      "b": "Suspension à A4. L'équipe A réduit d'une unité le nombre de ses joueurs. Le match reprend avec un jet franc pour l'équipe B.",
+      "b": "Suspension pour A4. L'équipe A jouera avec un joueur en moins. Le match reprend avec un jet franc pour l'équipe B.",
       "c": "Avertissement verbal",
-      "d": "Suspension à A4. L'équipe A réduit d'une unité le nombre de ses joueurs. Le match reprend par un jet franc pour l'équipe A."
+      "d": "Suspension à A4. L'équipe A jouera avec un joueur en moins. Le match reprend par un jet franc pour l'équipe A."
     }
   },
   {
     "id": "4.9",
-    "question": "Lancer de 6m pour l'équipe A et suspension à B3. A2 exécute le lancer, G/K B1 sauve et le ballon franchit la ligne de touche. A ce moment, B5 premier et B3 deuxième entrent sur le terrain en même temps",
+    "question": "Jet de 6m pour l'équipe A et suspension de B3. A2 exécute le lancer, G/K B1 sauve et le ballon franchit la ligne de touche. A ce moment, B5 premier et B3 deuxième entrent sur le terrain en même temps",
     "answers": {
       "a": "Suspension pour B5. Remise en jeu pour l'équipe A. L'équipe B jouera avec deux joueurs en moins",
       "b": "Suspension pour B5 et deuxième suspension pour B3. Disqualification pour B3. Remise en jeu pour l'équipe A. L'équipe B jouera avec deux joueurs en moins",
@@ -290,11 +290,11 @@
   },
   {
     "id": "4.10",
-    "question": "Les arbitres ont arrêté le match parce que A4 saignait. A4 a quitté le terrain pour arrêter le saignement. Après un certain temps, il est prêt à entrer sur le terrain, mais avant qu'il n'entre, l'arbitre qui était à côté de lui lui dit qu'il doit couvrir la blessure. Après quelques secondes, A4 entre sur le terrain avec un remplacement correct mais les arbitres voient qu'il continue à saigner et que la blessure est découverte",
+    "question": "Les arbitres ont arrêté le match parce que A4 saignait. A4 a quitté le terrain pour arrêter le saignement. Après un certain temps, il est prêt à entrer sur le terrain, mais avant qu'il n'entre, l'arbitre qui était à côté de lui lui dit qu'il doit couvrir la blessure. Après quelques secondes, A4 entre sur le terrain avec un remplacement correct mais les arbitres voient qu'il continue à saigner et que la blessure est apparente",
     "answers": {
-      "a": "Temps mort des arbitres. A4 quitte à nouveau le terrain. Pas de sanction. Lancer franc pour l'équipe B.",
-      "b": "Temps mort. Suspension pour A4. Lancer franc pour l'équipe B. L'équipe A réduit d'une unité le nombre de ses joueurs",
-      "c": "Temps mort. Suspension pour le 'responsable de l'équipe' de l'équipe A. Jet franc pour l'équipe B. L'équipe A réduit d'une unité le nombre de ses joueurs."
+      "a": "Temps mort des arbitres. A4 quitte à nouveau le terrain. Pas de sanction. Jet franc pour l'équipe B.",
+      "b": "Temps mort. Suspension pour A4. Jet franc pour l'équipe B. L'équipe A jouera avec un joueur en moins.",
+      "c": "Temps mort. Suspension pour le 'responsable de l'équipe' de l'équipe A. Jet franc pour l'équipe B.L'équipe A jouera avec un joueur en moins."
     }
   },
   {
@@ -313,9 +313,9 @@
     "question": "Lors d'une remise en jeu pour l'équipe A, les arbitres arrêtent le jeu car A9 est blessé et autorisent les personnes de l'équipe A à entrer sur le terrain. Les officiels A et B courent sur le terrain pour aider le joueur blessé et après quelques secondes, l'officiel C, le médecin de l'équipe, entre sur le terrain pour aider le joueur également",
     "answers": {
       "a": "Normal. Rien d'illégal car l'officiel C est le médecin",
-      "b": "Suspension pour l'officiel C. L'équipe A réduit le nombre de ses joueurs. Lancer franc pour l'équipe B.",
-      "c": "Suspension pour l'officiel C. L'équipe A réduit d'une unité le nombre de ses joueurs. Remise en jeu pour l'équipe A.",
-      "d": "Suspension pour le 'responsable de l'équipe' de l'équipe A. L'équipe A réduit d'une unité le nombre de ses joueurs. Remise en jeu pour l'équipe A."
+      "b": "Suspension pour l'officiel C. L'équipe A jouera avec un joueur en moins. Jet franc pour l'équipe B.",
+      "c": "Suspension pour l'officiel C. L'équipe A jouera avec un joueur en moins. Remise en jeu pour l'équipe A.",
+      "d": "Suspension pour le 'responsable de l'équipe' de l'équipe A. L'équipe A jouera avec un joueur en moins. Remise en jeu pour l'équipe A."
     }
   },
   {
@@ -324,7 +324,7 @@
     "answers": {
       "a": "Normal. Rien d'illégal",
       "b": "Suspension pour l'officiel A. Le match reprend avec le jet de 6m pour l'équipe B.",
-      "c": "Suspension pour l'officiel A. Le match reprend par un lancer franc pour l'équipe A.",
+      "c": "Suspension pour l'officiel A. Le match reprend par un jet franc pour l'équipe A.",
       "d": "Suspension pour les officiels A, B2 et B5. Le match reprend par le jet de 6m pour l'équipe B."
     }
   },
@@ -332,19 +332,19 @@
     "id": "4.14",
     "question": "Après le temps mort, l'arbitre autorise les officiels de l'équipe B à entrer sur le terrain car B2 est blessé. Les officiels A et D entrent sur le terrain et pendant que l'officiel A assiste le joueur blessé, l'officiel D s'approche des joueurs adverses et des arbitres et proteste pour faute grave",
     "answers": {
-      "a": "Suspension pour l'officiel D. L'équipe B réduit le nombre de ses joueurs d'une unité. Reprise par la remise en jeu pour l'équipe A.",
-      "b": "Suspension pour l'officiel D. L'équipe B réduit le nombre de joueurs d'une unité. Reprise par un jet franc pour l'équipe A.",
+      "a": "Suspension pour l'officiel D. L'équipe B jouera avec un joueur en moins.. Reprise par la remise en jeu pour l'équipe A.",
+      "b": "Suspension pour l'officiel D. L'équipe  jouera avec un joueur en moins. Reprise par un jet franc pour l'équipe A.",
       "c": "Suspension pour l'officiel D. L'équipe B reprend le jeu avec 4 joueurs. Le jeu reprend par une remise en jeu pour l'équipe A.",
       "d": "Normal. Rien d'illégal."
     }
   },
   {
     "id": "4.15",
-    "question": "A7 est suspendu. L'équipe A est en possession du ballon et avant un turnover, A7 entre sur le terrain. L'arbitre siffle et arrête le match",
+    "question": "A7 est suspendu. L'équipe A est en possession du ballon et avant une rotation, A7 entre sur le terrain. L'arbitre siffle et arrête le match",
     "answers": {
-      "a": "Temps mort. Deuxième exclusion pour A7 qui entraîne la disqualification de A7. Lancer franc pour l'équipe B. L'équipe A reprend le jeu avec 3 joueurs sur le terrain",
-      "b": "Disqualification de A7. Lancer franc pour l'équipe B. L'équipe A doit être encore réduite sur le terrain.",
-      "c": "Temps mort. Suspension supplémentaire entraînant la disqualification de A7.  L'équipe A doit être encore réduite sur le terrain. Lancer franc pour l'équipe B",
+      "a": "Temps mort. Deuxième exclusion pour A7 qui entraîne la disqualification de A7. Jet franc pour l'équipe B. L'équipe A reprend le jeu avec 3 joueurs sur le terrain",
+      "b": "Disqualification de A7. Jet franc pour l'équipe B. L'équipe A jouera avec encore un joueur en moins..",
+      "c": "Temps mort. Suspension supplémentaire entraînant la disqualification de A7.  L'équipe A jouera avec encore un joueur en moins. Jet franc pour l'équipe B",
       "d": "Plus de sanction en raison du 'Fair play'"
     }
   },
@@ -352,10 +352,10 @@
     "id": "4.16",
     "question": "L'équipe A n'a que 6 joueurs sur la feuille de match au début de la partie. A8 qui arrive en retard et n'est pas inscrit sur la feuille de match, entre sur le terrain après un remplacement correct et le chronométreur siffle et interrompt le match",
     "answers": {
-      "a": "Temps mort. Suspension pour A8. A8 est autorisé à être inscrit sur la feuille de match. Lancer franc pour l'équipe B. L'équipe A réduit le nombre de ses joueurs d'une unité",
-      "b": "Temps mort. Suspension pour le 'responsable d'équipe' de l'équipe A. A8 peut être inscrit sur la feuille de match. Lancer franc pour l'équipe B. L'équipe A réduit le nombre de joueurs d'une unité",
-      "c": "Temps mort. Disqualification de A8. Lancer franc pour l'équipe B. L'équipe A réduit le nombre de ses joueurs d'une unité",
-      "d": "Temps mort. Suspension pour le 'responsable de l'équipe' de l'équipe A. A8 n'a pas le droit de s'inscrire sur la feuille de match car il n'était pas présent au début du match. Lancer franc pour l'équipe B. L'équipe A réduit le nombre de joueurs d'une unité."
+      "a": "Temps mort. Suspension pour A8. A8 est autorisé à être inscrit sur la feuille de match. Jet franc pour l'équipe B. L'équipe A joue avec un joueur de moins.",
+      "b": "Temps mort. Suspension pour le 'responsable d'équipe' de l'équipe A. A8 peut être inscrit sur la feuille de match. Jet franc pour l'équipe B. L'équipe A joue avec un joueur de moins.",
+      "c": "Temps mort. Disqualification de A8. Jet franc pour l'équipe B. L'équipe A joue avec un joueur de moins.",
+      "d": "Temps mort. Suspension pour le 'responsable de l'équipe' de l'équipe A. A8 n'a pas le droit de s'inscrire sur la feuille de match car il n'était pas présent au début du match. Jet franc pour l'équipe B. L'équipe A joue avec un joueur de moins."
     }
   },
   {
@@ -392,9 +392,9 @@
     "id": "5.2",
     "question": "A2 tire au but et G/K B1 sauve, le ballon retourne dans l'aire de jeu. Ensuite, le G/K B1 court et touche à nouveau le ballon lorsque A3 est prêt à l'attraper et que le but est vide",
     "answers": {
-      "a": "Lancer franc pour l'équipe A.",
-      "b": "Lancer franc pour l'équipe A et suspension pour B1",
-      "c": "Lancer de 6m pour l'équipe A.",
+      "a": "Jet franc pour l'équipe A.",
+      "b": "Jet franc pour l'équipe A et suspension pour B1",
+      "c": "Jet de 6m pour l'équipe A.",
       "d": "Normal. Rien d'illégal."
     }
   },
@@ -403,29 +403,29 @@
     "question": "G/K A1 arrête un tir au but et le ballon roule dans la surface de but. B3 est prêt à plonger pour attraper le ballon, mais G/K A1 court et attrape le ballon dans sa surface de but. G/K A1 commence une attaque rapide, mais grâce à sa vitesse, il franchit la ligne de la surface de but d'un pied et passe le ballon à A3 qui marque un but",
     "answers": {
       "a": "But pour l'équipe A.",
-      "b": "G/K- lancer pour l'équipe A",
-      "c": "Lancer franc pour l'équipe B en dehors de la ligne de surface de but de l'équipe A.",
-      "d": "Lancer de 6m pour l'équipe B"
+      "b": "jet du G/K pour l'équipe A",
+      "c": "Jet franc pour l'équipe B en dehors de la ligne de surface de but de l'équipe A.",
+      "d": "Jet de 6m pour l'équipe B"
     }
   },
   {
     "id": "5.4",
-    "question": "G/K B4 contrôle le ballon dans sa surface de but.  Les arbitres sifflent l'exécution. Ensuite, G/K B4 court avec le ballon en dehors de la surface et passe le ballon à B2 qui marque un but",
+    "question": "G/K B4 contrôle le ballon dans sa surface de but.  Les arbitres sifflent la remise en jeu. Ensuite, G/K B4 court avec le ballon en dehors de la surface et passe le ballon à B2 qui marque un but",
     "answers": {
-      "a": "Répétition du lancer G/K après un coup de sifflet",
+      "a": "Répétition du jet du G/K après un coup de sifflet",
       "b": "But pour l'équipe B.",
-      "c": "Jet franc pour l'équipe A. Suspension à B4",
-      "d": "Lancer franc pour l'équipe A."
+      "c": "Jet franc pour l'équipe A. Suspension de B4",
+      "d": "Jet franc pour l'équipe A."
     }
   },
   {
     "id": "5.5",
-    "question": "G/K A1, qui se trouve dans sa surface de but, ramasse un ballon immobile juste à l'extérieur de sa surface de but, c'est-à-dire à l'intérieur du terrain de jeu, et joue le ballon à A7 qui marque un but avec un tir en rotation",
+    "question": "G/K A1, qui se trouve dans sa surface de but, ramasse un ballon immobile juste à l'extérieur de sa surface de but, c'est-à-dire à l'intérieur du terrain de jeu, et joue le ballon à A7 qui marque un but avec un tir en 360",
     "answers": {
-      "a": "Lancer franc pour l'équipe B.",
+      "a": "Jet franc pour l'équipe B.",
       "b": "But de 2p pour l'équipe A.",
-      "c": "Lancer G/K pour l'équipe A après le coup de sifflet",
-      "d": "Lancer de 6m pour l'équipe B."
+      "c": "Jet du G/K pour l'équipe A après le coup de sifflet",
+      "d": "Jet de 6m pour l'équipe B."
     }
   },
   {
@@ -433,9 +433,9 @@
     "question": "G/K B1 se tient dans sa surface de but et lorsque le ballon roule dans l'aire de jeu, il prend le ballon, le passe à B5 qui marque en vol",
     "answers": {
       "a": "But de 2 points pour l'équipe B.",
-      "b": "Lancer franc pour l'équipe A.",
-      "c": "Lancer G/K pour l'équipe B après le coup de sifflet",
-      "d": "Lancer de 6m pour l'équipe A"
+      "b": "Jet franc pour l'équipe A.",
+      "c": "Jet du G/K pour l'équipe B après le coup de sifflet",
+      "d": "Jet de 6m pour l'équipe A"
     }
   },
   {
@@ -443,19 +443,19 @@
     "question": "A2 passe le ballon à G/K A7 dans l'aire de jeu, juste à l'extérieur de sa ligne de surface de but. Le G/K A7 contrôle le ballon tandis que B3 défend correctement. Le G/K A7 pénètre dans sa surface de but pour éviter B3",
     "answers": {
       "a": "Normal. Rien d'illégal. Lancer de G/K pour l'équipe A.",
-      "b": "Lancer de 6m pour l'équipe B.",
-      "c": "Lancer franc pour l'équipe B.",
-      "d": "Lancer libre pour l'équipe B. Suspension à A7."
+      "b": "Jet de 6m pour l'équipe B.",
+      "c": "Jet franc pour l'équipe B.",
+      "d": "Jet libre pour l'équipe B. Suspension de A7."
     }
   },
   {
     "id": "5.8",
     "question": "G/K A1 sauve le ballon après un tir et le ballon se dirige vers l'aire de jeu. Il court et joue le ballon du pied, à l'intérieur de la surface de but, et le ballon traverse la ligne latérale de la surface de jeu",
     "answers": {
-      "a": "Rentrée de touche pour l'équipe B.",
-      "b": "Lancer franc pour l'équipe B.",
+      "a": "Touche pour l'équipe B.",
+      "b": "Jet franc pour l'équipe B.",
       "c": "Jet franc pour l'équipe B. Suspension pour A1.",
-      "d": "Jet G/K pour l'équipe A après le coup de sifflet."
+      "d": "Jet du G/K pour l'équipe A après le coup de sifflet."
     }
   },
   {
@@ -464,16 +464,16 @@
     "answers": {
       "a": "But",
       "b": "Répéter le lancer de 6m",
-      "c": "Lancer de gardien pour l'équipe B.",
-      "d": "Lancer franc pour l'équipe B."
+      "c": "Jet de gardien pour l'équipe B.",
+      "d": "Jet franc pour l'équipe B."
     }
   },
   {
     "id": "6.2",
     "question": "A5 est en possession du ballon en dehors de sa surface de but. Il essaie de faire une longue passe à A3 mais le ballon lui échappe, revient en arrière, frappe le poteau de but de son équipe et retourne dans l'aire de jeu à A7",
     "answers": {
-      "a": "Lancer franc pour l'équipe B.",
-      "b": "Lancer de gardien pour l'équipe A.",
+      "a": "Jet franc pour l'équipe B.",
+      "b": "Jet de gardien pour l'équipe A.",
       "c": "Continuer à jouer"
     }
   },
@@ -481,10 +481,10 @@
     "id": "6.3",
     "question": "B2 tire au but et A4, agissant en défense, touche le ballon, puis G/K A1 attrape le ballon dans sa surface de but. A1 lance le ballon directement sur le but de l'équipe B et marque",
     "answers": {
-      "a": "Pas de but. Lancer franc pour l'équipe B à 1m de la ligne de surface de but de l'équipe A.",
-      "b": "Pas de but. Lancer de gardien pour l'équipe A après le coup de sifflet",
+      "a": "Pas de but. Jet franc pour l'équipe B à 1m de la ligne de surface de but de l'équipe A.",
+      "b": "Pas de but. Jet de gardien pour l'équipe A après le coup de sifflet",
       "c": "But à 2 points pour l'équipe A.",
-      "d": "Pas de but. Temps mort. Suspension pour A4. Lancer franc pour l'équipe B à 1m de la ligne de surface de but."
+      "d": "Pas de but. Temps mort. Suspension pour A4. Jet franc pour l'équipe B à 1m de la ligne de surface de but."
     }
   },
   {
@@ -492,8 +492,8 @@
     "question": "A3 passe le ballon à A4 qui prend le ballon et le pose au sol pendant 5 secondes. Puis il le ramasse et marque un but",
     "answers": {
       "a": "But",
-      "b": "Lancer franc pour l'équipe B.",
-      "c": "Lancer de gardien pour l'équipe B.",
+      "b": "Jet franc pour l'équipe B.",
+      "c": "Jet de gardien pour l'équipe B.",
       "d": "Jet franc pour l'équipe A."
     }
   },
@@ -502,9 +502,9 @@
     "question": "Le ballon est sur le sable et A2 se tient à côté. B3 plonge pour l'attraper à une distance de 2-3m, le joue et marque",
     "answers": {
       "a": "Suspension pour B3 (pour mise en danger de l'adversaire) et jet franc pour l'équipe A.",
-      "b": "Lancer franc pour l'équipe A.",
+      "b": "Jet franc pour l'équipe A.",
       "c": "But",
-      "d": "Pas de but. Lancer de gardien pour l'équipe A."
+      "d": "Pas de but. Jet de gardien pour l'équipe A."
     }
   },
   {
@@ -512,19 +512,19 @@
     "question": "A3 est en possession du ballon dans l'aire de jeu. Il lance le ballon haut en l'air en direction de la surface de but adverse, court 5-6 mètres, saute, attrape le ballon et marque en vol",
     "answers": {
       "a": "But de 2 points pour l'équipe A.",
-      "b": "Lancer franc pour l'équipe B.",
+      "b": "Jet franc pour l'équipe B.",
       "c": "But à 1 point pour l'équipe A.",
-      "d": "Lancer G/K pour l'équipe B."
+      "d": "Jet du G/K pour l'équipe B."
     }
   },
   {
     "id": "7.4",
     "question": "G/K A5 est en possession du ballon et tente d'attaquer. Il tire au but et le ballon touche le dos de l'arbitre qui court devant lui. Alors que le ballon est en l'air, il court sur 3m, rattrape le ballon et marque en vol",
     "answers": {
-      "a": "Lancer franc pour l'équipe B.",
+      "a": "Jet franc pour l'équipe B.",
       "b": "But de 2 points pour l'équipe A.",
-      "c": "Lancer franc pour l'équipe B, suspension à A5",
-      "d": "Lancer G/K pour l'équipe B, suspension à A5."
+      "c": "Jet franc pour l'équipe B, suspension de A5",
+      "d": "Jet du G/K pour l'équipe B, suspension de A5."
     }
   },
   {
@@ -581,8 +581,8 @@
     "id": "7.10",
     "question": "L'équipe A est en possession du ballon et les arbitres montrent le signal d'avertissement pour le jeu passif. A3 tire au but, les défenseurs bloquent et le ballon franchit la ligne de touche",
     "answers": {
-      "a": "Rentrée de touche pour l'équipe A. Le signal d'avertissement est toujours valable et doit être montré à nouveau à titre de rappel",
-      "b": "Rentrée de touche pour l'équipe A. Le signal d'avertissement doit être montré à nouveau. L'équipe A a au moins 10 passes pour construire une nouvelle phase",
+      "a": "Touche pour l'équipe A. Le signal d'avertissement est toujours valable et doit être montré à nouveau à titre de rappel",
+      "b": "Touche pour l'équipe A. Le signal d'avertissement doit être montré à nouveau. L'équipe A a au moins 10 passes pour construire une nouvelle phase",
       "c": "Remise en jeu pour l'équipe A. Le signal d'avertissement doit être arrêté. L'équipe A est autorisée à construire une nouvelle phase depuis le début",
       "d": "Remise en jeu pour l'équipe A. Le signal d'avertissement est toujours valable et doit être montré à nouveau. L'équipe A a au moins 10 secondes pour construire une nouvelle phase."
     }
@@ -601,29 +601,29 @@
     "id": "8.1",
     "question": "A5 est prêt à exécuter un jet franc. Il passe le ballon à A3 qui se tient près de la ligne de touche, mais le ballon touche le visage de B2 qui se tenait à 2m et ne bougeait pas",
     "answers": {
-      "a": "Suspension pour A5. Lancer franc pour l'équipe B.",
-      "b": "Disqualification pour A5. Lancer franc pour l'équipe B. Rapport",
+      "a": "Suspension pour A5. Jet franc pour l'équipe B.",
+      "b": "Disqualification pour A5. Jet franc pour l'équipe B. Rapport",
       "c": "Continuer le jeu.",
-      "d": "Disqualification pour A5. Lancer franc pour l'équipe B."
+      "d": "Disqualification pour A5. Jet franc pour l'équipe B."
     }
   },
   {
     "id": "8.2",
     "question": "5 secondes après la fin de la première période, A2, qui se trouve sur l'aire de jeu, crache au visage de B3",
     "answers": {
-      "a": "Suspension à A2",
+      "a": "Suspension de A2",
       "b": "A2 ne sera pas sanctionné car cela s'est passé pendant l'entracte",
       "c": "Disqualification de A2. L'équipe A commencera la seconde mi-temps avec un joueur en moins. Rapport",
-      "d": "Disqualification pour A2. L'équipe A commencera la seconde mi-temps avec 4 joueurs. Rapport."
+      "d": "Disqualification de A2. L'équipe A commencera la seconde mi-temps avec 4 joueurs. Rapport."
     }
   },
   {
     "id": "8.3",
     "question": "A6 est prêt à exécuter un jet franc. Après le coup de sifflet, il tire directement au but et le ballon touche la tête de B3 qui se tenait correctement et ne bougeait pas",
     "answers": {
-      "a": "Disqualification pour A6. Lancer franc pour l'équipe B. Rapport",
-      "b": "Suspension pour A6. Lancer franc pour l'équipe B. Rapport",
-      "c": "Disqualification pour A6. Lancer franc pour l'équipe B."
+      "a": "Disqualification pour A6. Jet franc pour l'équipe B. Rapport",
+      "b": "Suspension pour A6. Jet franc pour l'équipe B. Rapport",
+      "c": "Disqualification pour A6. Jet franc pour l'équipe B."
     }
   },
   {
@@ -631,9 +631,9 @@
     "question": "B5 a le ballon dans les mains. Le G/K A6 est à côté de lui et retire clairement le ballon des mains de B5 ; il tire au but et marque",
     "answers": {
       "a": "But de 2 points pour l'équipe A.",
-      "b": "Lancer franc pour l'équipe B. Suspension à A6.",
-      "c": "Lancer franc pour l'équipe B. Disqualification pour A6.",
-      "d": "Lancer franc pour l'équipe B."
+      "b": "Jet franc pour l'équipe B. Suspension pour A6.",
+      "c": "Jet franc pour l'équipe B. Disqualification pour A6.",
+      "d": "Jet franc pour l'équipe B."
     }
   },
   {
@@ -641,7 +641,7 @@
     "question": "A5 est prêt à exécuter un lancer de 6m, avec le ballon en main dans la position correcte. G/K B1 se tient à côté du poteau de but pour montrer qu'il proteste contre la décision de l'arbitre",
     "answers": {
       "a": "Disqualification de B1. Rapport",
-      "b": "Suspension à B1.",
+      "b": "Suspension de B1.",
       "c": "Les arbitres doivent corriger sa position avant de siffler l'exécution du jet de 6 mètres",
       "d": "Rien d'illégal puisqu'il se tient entre les poteaux de but"
     }
@@ -650,8 +650,8 @@
     "id": "8.6",
     "question": "Remise en jeu pour l'équipe B et lorsque B5 sort de 2m du terrain pour ramasser le ballon, A6 qui se trouvait dans la zone de remplacement de son équipe crache sur B5",
     "answers": {
-      "a": "Temps mort. Disqualification de A6. L'équipe A réduit le nombre de ses joueurs d'une unité. Rapport. Reprise avec remise en jeu pour l'équipe B.",
-      "b": "Temps mort. Disqualification pour A6. L'équipe A réduit le nombre de ses joueurs d'une unité. Rapport. Reprise par un jet franc pour l'équipe B.",
+      "a": "Temps mort. Disqualification de A6. L'équipe A jouera avec un joueur de moins. Rapport. Reprise avec remise en jeu pour l'équipe B.",
+      "b": "Temps mort. Disqualification pour A6. L'équipe A jouera avec un joueur de moins. Rapport. Reprise par un jet franc pour l'équipe B.",
       "c": "Temps mort. Suspension pour A6. Reprise avec remise en jeu pour l'équipe B."
     }
   },
@@ -659,37 +659,37 @@
     "id": "8.7",
     "question": "B9 tire au but et le ballon sort. A ce moment, l'officiel B de l'équipe B court dans l'aire de jeu et proteste contre l'arbitre de champ, il lui jette le carton vert à la tête et lui donne un coup de pied dans les jambes",
     "answers": {
-      "a": "Temps mort. Disqualification de l'officiel B. L'équipe B réduit le nombre de ses joueurs d'une unité. Reprise avec un lancer de gardien pour l'équipe A.",
-      "b": "Temps mort. Disqualification de l'officiel B. L'équipe B réduit son nombre de joueurs d'une unité. Reprise par un lancer de gardien pour l'équipe A. Rapport",
+      "a": "Temps mort. Disqualification de l'officiel B. L'équipe B jouera avec un joueur de moins. Reprise avec un lancer de gardien pour l'équipe A.",
+      "b": "Temps mort. Disqualification de l'officiel B. L'équipe B jouera avec un joueur de moins. Reprise par un lancer de gardien pour l'équipe A. Rapport",
       "c": "Temps mort. Disqualification de l'officiel B. Reprise par un jet franc pour l'équipe A. Rapport",
-      "d": "Temps mort. Disqualification de l'officiel B. L'équipe B réduit le nombre de ses joueurs d'une unité. Reprise par un jet franc pour l'équipe A. Rapport."
+      "d": "Temps mort. Disqualification de l'officiel B. L'équipe B jouera avec un joueur de moins. Reprise par un jet franc pour l'équipe A. Rapport."
     }
   },
   {
     "id": "8.8",
     "question": "A2 tire au but et le ballon sort. Avant que G/K B1 n'exécute le lancer, A2 court jusqu'à la tribune et attaque un spectateur qui se moquait de lui",
     "answers": {
-      "a": "Temps mort. Disqualification de A2. L'équipe A réduit le nombre de ses joueurs d'une unité. Reprise avec un lancer de gardien pour l'équipe B.",
-      "b": "Temps mort. Disqualification pour A2. L'équipe A réduit son nombre de joueurs d'une unité. Reprise par un lancer de gardien pour l'équipe B. Rapport",
+      "a": "Temps mort. Disqualification de A2. L'équipe A jouera avec un joueur de moins. Reprise avec un jet de gardien pour l'équipe B.",
+      "b": "Temps mort. Disqualification pour A2. L'équipe A jouera avec un joueur de moins. Reprise par un jet de gardien pour l'équipe B. Rapport",
       "c": "Rapport uniquement. L'action s'est déroulée sur la tribune avec un spectateur",
-      "d": "Temps mort. Disqualification pour A2. L'équipe A réduit le nombre de ses joueurs d'une unité. Reprise par un jet franc pour l'équipe B à l'endroit où il a quitté le terrain. Rapport."
+      "d": "Temps mort. Disqualification pour A2. L'équipe A jouera avec un joueur de moins. Reprise par un jet franc pour l'équipe B à l'endroit où il a quitté le terrain. Rapport."
     }
   },
   {
     "id": "8.9",
-    "question": "B3 essaie de marquer avec un tir en rotation, il rate et le ballon sort. Avant que A1 n'exécute le lancer, B5 se précipite sur son coéquipier B3 parce qu'il ne lui a pas passé le ballon, il le pousse vers le bas et lui donne des coups de pied dans les jambes",
+    "question": "B3 essaie de marquer avec un tir en 360, il rate et le ballon sort. Avant que A1 exécute le lancer, B5 se précipite sur son coéquipier B3 parce qu'il ne lui a pas passé le ballon, il le pousse vers le bas et lui donne des coups de pied dans les jambes",
     "answers": {
-      "a": "Temps mort. Disqualification de B5. L'équipe B réduit le nombre de ses joueurs d'une unité. Reprise par un lancer de gardien pour l'équipe A.",
-      "b": "Temps mort. Disqualification pour B5. L'équipe B réduit son nombre de joueurs d'une unité. Reprise par un lancer de gardien pour l'équipe A. Rapport",
+      "a": "Temps mort. Disqualification de B5. L'équipe B jouera avec un joueur de moins. Reprise par un jet de gardien pour l'équipe A.",
+      "b": "Temps mort. Disqualification pour B5. L'équipe B jouera avec un joueur de moins. Reprise par un lancer de gardien pour l'équipe A. Rapport",
       "c": "Rapport uniquement. L'action était contre un coéquipier",
-      "d": "Temps mort. Disqualification pour B5. L'équipe B réduit le nombre de ses joueurs d'une unité. Reprise par un jet franc pour l'équipe A depuis l'endroit de l'action. Rapport."
+      "d": "Temps mort. Disqualification pour B5. L'équipe B jouera avec un joueur de moins. Reprise par un jet franc pour l'équipe A depuis l'endroit de l'action. Rapport."
     }
   },
   {
     "id": "8.10",
     "question": "Parmi les situations suivantes, lesquelles peuvent être considérées comme des comportements antisportifs ?",
     "answers": {
-      "a": "Crier sur le joueur qui prend un 6m-thow",
+      "a": "Crier sur le joueur qui prend un jet de 6m",
       "b": "Botter le ballon au loin pour retarder un jet franc pour les adversaires",
       "c": "S'accrocher à un adversaire en le saisissant par l'uniforme",
       "d": "Si un joueur de champ bloque des tirs de manière répétée avec un pied ou le bas de la jambe",
@@ -711,40 +711,40 @@
   },
   {
     "id": "8.12",
-    "question": "Lancer franc pour l'équipe A. A3 est prêt et l'arbitre siffle l'exécution. A ce moment et avant que le ballon ne quitte la main de A3, A5 frappe B2 au visage",
+    "question": "Lancer franc pour l'équipe A. A3 est prêt et l'arbitre siffle l'engagement. A ce moment et avant que le ballon ne quitte la main de A3, A5 frappe B2 au visage",
     "answers": {
-      "a": "Temps mort. Disqualification de A5. L'équipe A réduira le nombre de ses joueurs d'une unité. Reprise par un jet franc pour l'équipe A.",
-      "b": "Temps mort. Disqualification pour A5. L'équipe A réduit son nombre de joueurs d'une unité. Reprise par un jet franc pour l'équipe B.",
-      "c": "Temps mort. Disqualification pour A5. L'équipe A réduira son nombre de joueurs d'une unité. Reprise par un jet franc pour l'équipe A. Rapport",
-      "d": "Temps mort. Disqualification pour A5. L'équipe A réduira le nombre de ses joueurs d'une unité. Reprise par un jet franc pour l'équipe B. Rapport."
+      "a": "Temps mort. Disqualification de A5. L'équipe A jouera avec un joueur de moins. Reprise par un jet franc pour l'équipe A.",
+      "b": "Temps mort. Disqualification pour A5. L'équipe A jouera avec un joueur de moins. Reprise par un jet franc pour l'équipe B.",
+      "c": "Temps mort. Disqualification pour A5. L'équipe A jouera avec un joueur de moins. Reprise par un jet franc pour l'équipe A. Rapport",
+      "d": "Temps mort. Disqualification pour A5. L'équipe A jouera avec un joueur de moins. Reprise par un jet franc pour l'équipe B. Rapport."
     }
   },
   {
     "id": "9.1",
-    "question": "Dans une situation de 'Shootout', après que le gardien de but A1 ait lancé le ballon à A5, le gardien de but défendant B12 sort de sa propre surface de but et se dirige directement vers le corps de A5 en le poussant, ce qui fait que A5 manque le ballon",
+    "question": "Dans une situation de 'Tirs aux buts', après que le gardien de but A1 ait lancé le ballon à A5, le gardien de but défendant B12 sort de sa propre surface de but et se dirige directement vers le corps de A5 en le poussant, ce qui fait que A5 manque le ballon",
     "answers": {
       "a": "Répétez le lancer pour l'équipe A.",
-      "b": "Disqualification de B12. Lancer de 6m pour l'équipe A. Seul A5 est autorisé à exécuter le lancer",
-      "c": "Disqualification de B12. Lancer de 6m pour l'équipe A. Tout joueur éligible est autorisé à exécuter le lancer",
-      "d": "6m- jet pour l'équipe B. Suspension de B12."
+      "b": "Disqualification de B12. Jet de 6m pour l'équipe A. Seul A5 est autorisé à exécuter le lancer",
+      "c": "Disqualification de B12. Jet de 6m pour l'équipe A. Tout joueur éligible est autorisé à exécuter le lancer",
+      "d": "Jet de 6m pour l'équipe B. Suspension de B12."
     }
   },
   {
     "id": "9.2",
-    "question": "Dans une situation de 'Shootout', après que le gardien de but A12 ait lancé le ballon à A2, le gardien de but défendant B5 sort de sa propre surface de but, intercepte et attrape clairement le ballon",
+    "question": "Dans une situation de 'Tirs aux buts', après que le gardien de but A12 ait lancé le ballon à A2, le gardien de but défendant B5 sort de sa propre surface de but, intercepte et attrape clairement le ballon",
     "answers": {
       "a": "Le lancer est terminé. Le G/K défendant peut quitter sa surface de but",
-      "b": "Disqualification de B5. Lancer de 6m pour l'équipe A.",
-      "c": "Lancer de 6m pour l'équipe A.",
-      "d": "Répétition du lancer pour l'équipe A."
+      "b": "Disqualification de B5. Jet de 6m pour l'équipe A.",
+      "c": "Jet de 6m pour l'équipe A.",
+      "d": "Répétition du jet pour l'équipe A."
     }
   },
   {
     "id": "9.3",
     "question": "G/K A4 se trouve en dehors de la surface de but de l'équipe B et tire le ballon dans le but vide. Juste avant que le ballon ne franchisse la ligne de but, un spectateur frappe le ballon vers la ligne de touche",
     "answers": {
-      "a": "Lancer de 6m pour l'équipe A.",
-      "b": "Lancer franc pour l'équipe A où A4 tire le ballon",
+      "a": "Jet de 6m pour l'équipe A.",
+      "b": "Jet franc pour l'équipe A où A4 tire le ballon",
       "c": "But à 2 points pour l'équipe A.",
       "d": "Remise en jeu pour l'équipe B."
     }
@@ -755,16 +755,16 @@
     "answers": {
       "a": "But de 2p pour l'équipe B. Suspension pour l'officiel A.",
       "b": "But de 2p pour l'équipe B. Disqualification de l'officiel A.",
-      "c": "Lancer de 6m pour l'équipe B. Disqualification pour l'officiel A. Rapport",
-      "d": "Lancer de 6m pour l'équipe B. Suspension pour l'officiel A. Rapport."
+      "c": "Jet de 6m pour l'équipe B. Disqualification pour l'officiel A. Rapport",
+      "d": "Jet de 6m pour l'équipe B. Suspension pour l'officiel A. Rapport."
     }
   },
   {
     "id": "9.5",
-    "question": "A7 marque un but, l'arbitre A l'accorde et G/K B1 exécute le lancer de G/K. Le ballon va à B3 et l'arbitre B siffle. Le ballon va à B3 et l'arbitre B siffle. Il explique à l'arbitre A que le but n'est pas valable car A7 marque après les marches",
+    "question": "A7 marque un but, l'arbitre A l'accorde et G/K B1 exécute le lancer de G/K. Le ballon va à B3 et l'arbitre B siffle. Il explique à l'arbitre A que le but n'est pas valable car A7 marque après avoir marché",
     "answers": {
-      "a": "Le but est refusé. Lancer franc pour l'équipe B à cause des pas",
-      "b": "Le but est valable. Lancer franc pour l'équipe B à l'endroit où le jeu a été interrompu",
+      "a": "Le but est refusé. Jet franc pour l'équipe B à cause du marcher",
+      "b": "Le but est valable. Jet franc pour l'équipe B à l'endroit où le jeu a été interrompu",
       "c": "Le but est valable. Répétition du jet G/K après le coup de sifflet",
       "d": "Le but est refusé. Lancer G/K pour l'équipe B."
     }
@@ -773,8 +773,8 @@
     "id": "9.6",
     "question": "A3 tire le ballon dans le but vide et juste avant que le ballon ne franchisse la ligne de but, le chronométreur siffle et interrompt le match pour un remplacement fautif de B6",
     "answers": {
-      "a": "Temps mort. Suspension pour B6. Lancer de 6m pour l'équipe A.",
-      "b": "Temps mort. Suspension pour B6. Lancer franc pour l'équipe A à partir du point où A3 a tiré au but",
+      "a": "Temps mort. Suspension pour B6. Jet de 6m pour l'équipe A.",
+      "b": "Temps mort. Suspension pour B6. Jet franc pour l'équipe A à partir du point où A3 a tiré au but",
       "c": "Temps mort. But de 1p pour l'équipe A. Suspension pour B6. Lancer G/K pour l'équipe B.",
       "d": "Temps mort. Suspension pour B6. Lancer franc pour l'équipe B à partir du point de remplacement fautif."
     }
@@ -802,7 +802,7 @@
     "question": "Lancer d'arbitre pour commencer la seconde mi-temps. Les deux joueurs qui sautent pour attraper le ballon doivent rester debout :",
     "answers": {
       "a": "Au moins à un mètre de l'arbitre, chacun du côté le plus proche de son propre but",
-      "b": "Au moins trois mètres de l'arbitre, chacun du côté le plus proche de son propre but",
+      "b": "Au moins à trois mètres de l'arbitre, chacun du côté le plus proche de son propre but",
       "c": "A un mètre au moins de l'arbitre et de n'importe quel côté de l'aire de jeu",
       "d": "À côté de l'arbitre, chacun du côté le plus proche de son propre but."
     }
@@ -812,7 +812,7 @@
     "question": "L'arbitre lance le ballon pour commencer le match. L'arbitre lance le ballon après un coup de sifflet. A3 saute et joue le ballon immédiatement après que le ballon a quitté la main de l'arbitre (le ballon n'atteint pas l'apex) et marque un but",
     "answers": {
       "a": "But de 2 points pour l'équipe A.",
-      "b": "Lancer franc pour l'équipe B.",
+      "b": "Jet franc pour l'équipe B.",
       "c": "Répétition du jet d'arbitre",
       "d": "Pas de but. Lancer de gardien pour l'équipe B."
     }
@@ -823,7 +823,7 @@
     "answers": {
       "a": "But de 2p pour l'équipe A.",
       "b": "But de 1p pour l'équipe A.",
-      "c": "Lancer franc pour l'équipe B.",
+      "c": "Jet franc pour l'équipe B.",
       "d": "Répétition du jet d'arbitre"
     }
   },
@@ -834,7 +834,7 @@
       "a": "But pour l'équipe B. Un point est accordé",
       "b": "But pour l'équipe B. Deux points sont attribués",
       "c": "Répéter le lancer du gardien",
-      "d": "Lancer franc pour l'équipe B."
+      "d": "Jet franc pour l'équipe B."
     }
   },
   {
@@ -842,7 +842,7 @@
     "question": "Le gardien A1 contrôle le ballon dans sa propre surface de but. Il lance ensuite le ballon vers l'aire de jeu, court après lui, le ramasse et marque un but",
     "answers": {
       "a": "But. Deux points sont attribués à l'équipe A.",
-      "b": "Lancer franc pour l'équipe B.",
+      "b": "Jet franc pour l'équipe B.",
       "c": "Jet franc pour l'équipe B. Suspension de A1",
       "d": "Répétition du jet de gardien pour l'équipe A."
     }
@@ -854,35 +854,35 @@
       "a": "1 point",
       "b": "2 points",
       "c": "Répétition du lancer G/K.",
-      "d": "Lancer franc pour l'équipe B."
+      "d": "Jet franc pour l'équipe B."
     }
   },
   {
     "id": "12.4",
     "question": "G/K B1 attrape le ballon dans sa surface de but après un tir de A7. A ce moment, B5 crache sur A2 juste à l'extérieur de la ligne de surface de but",
     "answers": {
-      "a": "Temps mort. Disqualification de B5. Lancer franc pour l'équipe A. Rapport",
+      "a": "Temps mort. Disqualification de B5. Jet franc pour l'équipe A. Rapport",
       "b": "Temps mort. Disqualification pour B5. Rapport. Reprise avec lancer G/K pour l'équipe B.",
-      "c": "Temps mort. Disqualification pour B5.  Lancer de 6m pour l'équipe A.",
-      "d": "Temps mort. Disqualification pour B5. Rapport. Lancer de 6m pour l'équipe A."
+      "c": "Temps mort. Disqualification pour B5.  Jet de 6m pour l'équipe A.",
+      "d": "Temps mort. Disqualification pour B5. Rapport. Jet de 6m pour l'équipe A."
     }
   },
   {
     "id": "12.5",
     "question": "A3 tire au but et G/K B1 sauve et contrôle le ballon. Avant l'exécution du jet du G/Keeper, B2, qui se trouve dans l'aire de jeu, se rend coupable d'une agression contre A7",
     "answers": {
-      "a": "Temps mort. Disqualification de B2. L'équipe B réduira le nombre de ses joueurs d'une unité. Reprise avec un lancer de gardien pour l'équipe B. Rapport",
+      "a": "Temps mort. Disqualification de B2. L'équipe B jouera avec un joueur en moins. Reprise avec un lancer de gardien pour l'équipe B. Rapport",
       "b": "Temps mort. Disqualification de B2. Reprise par un jet franc pour l'équipe A.",
-      "c": "Temps mort. Disqualification de B2. L'équipe B réduira le nombre de ses joueurs d'une unité. Reprise par un jet franc pour l'équipe A. Rapport."
+      "c": "Temps mort. Disqualification de B2. L'équipe B jouera avec un joueur en moins. Reprise par un jet franc pour l'équipe A. Rapport."
     }
   },
   {
     "id": "12.6",
     "question": "B2 tire au but et G/K A1 sauve le ballon qui franchit la ligne de but extérieure. A ce moment, l'officiel A de l'équipe A proteste contre les arbitres et se rend coupable d'une voie de fait",
     "answers": {
-      "a": "Temps mort. Disqualification de l'officiel A. L'équipe A réduit le nombre de ses joueurs d'une unité. Reprise par un jet franc pour l'équipe B. Rapport",
-      "b": "Temps mort. Disqualification de l'officiel A. L'équipe A réduit son nombre de joueurs d'une unité. Reprise par un jet de gardien pour l'équipe A. Rapport",
-      "c": "Temps mort. Disqualification de l'officiel A. L'équipe A réduit le nombre de ses joueurs d'une unité. Reprise par une remise en jeu pour l'équipe B. Rapport."
+      "a": "Temps mort. Disqualification de l'officiel A. L'équipe A jouera avec un joueur en moins. Reprise par un jet franc pour l'équipe B. Rapport",
+      "b": "Temps mort. Disqualification de l'officiel A. L'équipe A jouera avec un joueur en moins. Reprise par un jet de gardien pour l'équipe A. Rapport",
+      "c": "Temps mort. Disqualification de l'officiel A. L'équipe A jouera avec un joueur en moins. Reprise par une remise en jeu pour l'équipe B. Rapport."
     }
   },
   {
@@ -900,19 +900,19 @@
     "question": "Jet franc pour l'équipe B. B2, qui se trouve juste à l'extérieur de la ligne de surface de but de l'équipe A, reçoit le ballon de B4 qui exécute le jet franc.  Il marque un but",
     "answers": {
       "a": "But",
-      "b": "Lancer franc pour l'équipe A.",
+      "b": "Jet franc pour l'équipe A.",
       "c": "Répétition du lancer pour l'équipe B. Correction de la position de B2",
       "d": "Jet franc pour l'équipe A. Suspension de B2."
     }
   },
   {
     "id": "13.2",
-    "question": "L'officiel A de l'équipe A proteste et reçoit un avertissement oral. L'avertissement oral a été donné après que l'arbitre ait demandé un jet franc pour A. Quelle est la décision correcte ?",
+    "question": "L'officiel A de l'équipe A proteste et reçoit un avertissement oral. L'avertissement oral a été donné après que l'arbitre ait demandé un jet franc pour l'équipe A. Quelle est la décision correcte ?",
     "answers": {
-      "a": "Le match commence avec la situation précédente et l'équipe A a ses joueurs sur le terrain réduits d'un",
-      "b": "Le match commence par la situation précédente et l'équipe A joue à pleine puissance sur le terrain",
-      "c": "Le match commence avec le ballon en possession de l'équipe B au milieu de l'aire de jeu près de la zone de changement de l'équipe A qui joue à pleine puissance sur l'aire de jeu",
-      "d": "Le match commence avec le ballon en possession de l'équipe B au milieu de l'aire de jeu, près de la zone de remplacement de l'équipe A dont les joueurs sur le terrain sont réduits d'une unité"
+      "a": "Le match commence avec la situation précédente et l'équipe A jouera avec un joueur en moins",
+      "b": "Le match commence par la situation précédente et l'équipe A joue avec tous ses joueurs",
+      "c": "Le match commence avec le ballon en possession de l'équipe B au milieu de l'aire de jeu près de la zone de changement de l'équipe A qui joue avec tous ses joueurs sur l'aire de jeu",
+      "d": "Le match commence avec le ballon en possession de l'équipe B au milieu de l'aire de jeu, près de la zone de remplacement de l'équipe A qui joue avec un joueur de moins."
     }
   },
   {
@@ -930,7 +930,7 @@
     "question": "Après un jet de 6m de A4, G/K B1 sauve le ballon, court au-delà de la ligne de surface de but et s'arrête au milieu de l'aire de jeu. A ce moment, les arbitres sifflent un temps mort car B1 semble blessé. Comment le jeu va-t-il reprendre ?",
     "answers": {
       "a": "L'arbitre lance le ballon à l'endroit où il s'est arrêté",
-      "b": "Lancer franc pour l'équipe A.",
+      "b": "Jet franc pour l'équipe A.",
       "c": "Jet franc pour l'équipe B.",
       "d": "Lancer G/K pour l'équipe B."
     }
@@ -939,9 +939,9 @@
     "id": "13.5",
     "question": "A3 a le ballon en main dans la position correcte et il est prêt à exécuter un jet franc. Avant que les arbitres ne sifflent le lancer, il pose le ballon sur le sable et le ramasse après 3 secondes",
     "answers": {
-      "a": "Lancer franc pour l'équipe B.",
+      "a": "Jet franc pour l'équipe B.",
       "b": "Normal. Rien d'illégal",
-      "c": "Suspension à A3. Lancer franc pour l'équipe B.",
+      "c": "Suspension de A3. Jet franc pour l'équipe B.",
       "d": "Seulement un avertissement verbal à A3. Reprise par le jet franc pour l'équipe A."
     }
   },
@@ -949,7 +949,7 @@
     "id": "13.6",
     "question": "L'équipe A est en attaque et A2 contrôle le ballon sur le côté gauche de l'aire de jeu. Il saute et lance le ballon en l'air vers l'autre côté, à l'intérieur de la surface de but adverse. A5 court, saute et marque en vol mais son pied touche juste la ligne de la surface de but",
     "answers": {
-      "a": "Pas de but. Lancer franc pour l'équipe B.",
+      "a": "Pas de but. Jet franc pour l'équipe B.",
       "b": "Pas de but. Lancer de gardien pour l'équipe B.",
       "c": "But de 2p pour l'équipe A. Lancer de gardien pour l'équipe B.",
       "d": "But de 1p pour l'équipe A. Lancer de gardien pour l'équipe B."
@@ -959,19 +959,19 @@
     "id": "13.7",
     "question": "Lors des lancers suivants, les adversaires doivent rester à au moins 1m du lanceur",
     "answers": {
-      "a": "Lancer franc",
+      "a": "Jet franc",
       "b": "Lancer de balle",
-      "c": "Lancer de 6m",
+      "c": "Jet de 6m",
       "d": "G/Keeper-lancer"
     }
   },
   {
     "id": "14.1",
-    "question": "A4 est prêt à exécuter un lancer de 6m. Après le coup de sifflet de l'arbitre, le ballon quitte ses mains et lorsqu'il est en l'air entre A4 et G/K B1, A3 qui se tenait correctement, saute et marque en vol",
+    "question": "A4 est prêt à exécuter un jet de 6m. Après le coup de sifflet de l'arbitre, le ballon quitte ses mains et lorsqu'il est en l'air entre A4 et G/K B1, A3 qui se tenait correctement, saute et marque en vol",
     "answers": {
       "a": "But de 2 points pour l'équipe A.",
-      "b": "Lancer franc pour l'équipe B.",
-      "c": "Répétition du lancer de 6m",
+      "b": "Jet franc pour l'équipe B.",
+      "c": "Répétition du jet de 6m",
       "d": "Lancer de gardien pour l'équipe B."
     }
   },
@@ -979,7 +979,7 @@
     "id": "14.2",
     "question": "A7 se tient juste à l'extérieur de la ligne de la surface de but, prêt à effectuer un jet de 6m. Le gardien B1 se place à 4,5 m de la ligne de but",
     "answers": {
-      "a": "Play on.",
+      "a": "Continuer à jouer.",
       "b": "Correction de la position de B1",
       "c": "Exécution du jet juste après un coup de sifflet de l'un des arbitres. Si B1 sauve, A7 recommencera le lancer."
     }
@@ -988,10 +988,10 @@
     "id": "14.3",
     "question": "Après un arrêt du G/K B1, le ballon revient dans l'aire de jeu vers B6 qui se tient à 2m de sa ligne de surface de but, il saute pour lancer le ballon dans le but vide de l'équipe A. A7 le pousse violemment dans le dos et B6 perd le ballon",
     "answers": {
-      "a": "Lancer de 6m pour l'équipe B. Temps mort. Suspension pour A7",
-      "b": "Lancer de 6m pour l'équipe B. Temps mort. Disqualification pour A7. Rapport",
-      "c": "Lancer franc pour l'équipe B. Temps mort. Suspension pour A7",
-      "d": "Lancer franc pour l'équipe B. Temps mort. Disqualification pour A7. Rapport."
+      "a": "Jet de 6m pour l'équipe B. Temps mort. Suspension pour A7",
+      "b": "Jet de 6m pour l'équipe B. Temps mort. Disqualification pour A7. Rapport",
+      "c": "Jet franc pour l'équipe B. Temps mort. Suspension pour A7",
+      "d": "Jet franc pour l'équipe B. Temps mort. Disqualification pour A7. Rapport."
     }
   },
   {
@@ -999,8 +999,8 @@
     "question": "A2 est juste à l'extérieur de la ligne de l'aire de jeu adverse, seul, prêt à tirer au but, et à ce moment, un coup de sifflet injustifié arrive et A2 arrête l'action",
     "answers": {
       "a": "Jet franc pour l'équipe B.",
-      "b": "Lancer franc pour l'équipe A.",
-      "c": "Lancer de 6m pour l'équipe A.",
+      "b": "Jet franc pour l'équipe A.",
+      "c": "Jet de 6m pour l'équipe A.",
       "d": "Lancer G/K pour l'équipe B."
     }
   },
@@ -1009,8 +1009,8 @@
     "question": "Le match se déroule pendant la nuit. A7 est seul à l'extérieur de la ligne de surface de but de l'adversaire, prêt à tirer au but. A ce moment-là, il y a un black out, mais A7 tire et marque un but",
     "answers": {
       "a": "But pour l'équipe A. Lorsque le problème est résolu, le jeu reprend avec G/K-lancer pour l'équipe B.",
-      "b": "Pas de but. Lorsque le problème est résolu, le jeu reprend avec un lancer de 6m pour l'équipe A.",
-      "c": "Pas de but. Lorsque le problème est résolu, le jeu reprend par un lancer franc pour l'équipe A.",
+      "b": "Pas de but. Lorsque le problème est résolu, le jeu reprend avec un jet de 6m pour l'équipe A.",
+      "c": "Pas de but. Lorsque le problème est résolu, le jeu reprend par un jet franc pour l'équipe A.",
       "d": "Pas de but. Lorsque le problème est résolu, le jeu reprend par un jet d'arbitre à 1m de la ligne de surface de but de l'équipe B."
     }
   },
@@ -1018,47 +1018,47 @@
     "id": "14.6",
     "question": "B2 est seul sur une action rapide. Lorsqu'il est prêt à tirer au but, un spectateur court sur le terrain et le pousse vers le bas. B2 perd le ballon qui va à G/K A1.",
     "answers": {
-      "a": "Lancer de 6m pour l'équipe B.",
-      "b": "Lancer franc pour l'équipe B.",
+      "a": "Jet de 6m pour l'équipe B.",
+      "b": "Jet franc pour l'équipe B.",
       "c": "Lancer d'arbitre au point d'action",
       "d": "G/Keeper - jet pour l'équipe A"
     }
   },
   {
     "id": "14.7",
-    "question": "A2 est prêt à exécuter un lancer de 6m, avec le ballon en main dans la position correcte. G/K B6 quitte sa surface de but pour se faire remplacer, les arbitres le sifflent et lui demandent de revenir, mais il continue et quitte l'aire de jeu",
+    "question": "A2 est prêt à exécuter un jet de 6m, avec le ballon en main dans la position correcte. G/K B6 quitte sa surface de but pour se faire remplacer, les arbitres le sifflent et lui demandent de revenir, mais il continue et quitte l'aire de jeu",
     "answers": {
       "a": "Normal. Rien d'illégal puisque c'est un temps mort",
-      "b": "Suspension à B6.",
+      "b": "Suspension pour B6.",
       "c": "Disqualification pour B6.",
       "d": "Suspension pour l'officiel A de l'équipe B."
     }
   },
   {
     "id": "14.8",
-    "question": "A2 exécute un lancer de 6m. Le ballon touche le but et lui revient. Il rattrape le ballon et marque avec un tir en rotation",
+    "question": "A2 exécute un jet de 6m. Le ballon touche le but et lui revient. Il rattrape le ballon et marque avec un tir en rotation",
     "answers": {
-      "a": "Lancer franc pour l'équipe B.",
+      "a": "Jet franc pour l'équipe B.",
       "b": "But de 2p pour l'équipe A. Lancer de gardien pour l'équipe B.",
-      "c": "Lancer franc pour l'équipe B. Suspension pour A2.",
+      "c": "Jet franc pour l'équipe B. Suspension pour A2.",
       "d": "Pas de but. Lancer de gardien pour l'équipe B."
     }
   },
   {
     "id": "14.9",
-    "question": "B5 exécute un lancer de 6m. Il essaie de lancer le ballon, le ballon lui échappe des mains, touche B3 qui se tenait correctement et entre dans le but de l'équipe A.",
+    "question": "B5 exécute un jet de 6m. Il essaie de lancer le ballon, le ballon lui échappe des mains, touche B3 qui se tenait correctement et entre dans le but de l'équipe A.",
     "answers": {
       "a": "But de 1p pour l'équipe B.",
-      "b": "Répétition du lancer de 6m",
-      "c": "Lancer franc pour l'équipe A.",
+      "b": "Répétition du jet de 6m",
+      "c": "Jet franc pour l'équipe A.",
       "d": "Pas de but. Lancer de gardien pour l'équipe A."
     }
   },
   {
     "id": "14.10",
-    "question": "B3 exécute un lancer à 6m. Il essaie de lancer le ballon, le ballon lui échappe des mains et passe en l'air entre lui et G/K A1. B3 saute et envoie le ballon dans le but",
+    "question": "B3 exécute un jet de 6m. Il essaie de lancer le ballon, le ballon lui échappe des mains et passe en l'air entre lui et G/K A1. B3 saute et envoie le ballon dans le but",
     "answers": {
-      "a": "Pas de but. Lancer franc pour l'équipe A.",
+      "a": "Pas de but. Jet franc pour l'équipe A.",
       "b": "Pas de but. Lancer du gardien pour l'équipe A.",
       "c": "But 2p pour l'équipe B.",
       "d": "But de 1p pour l'équipe B."
@@ -1066,11 +1066,11 @@
   },
   {
     "id": "14.11",
-    "question": "B5 est prêt à exécuter un lancer de 6m. L'arbitre siffle et avant que le ballon ne quitte sa main, son pied glisse sous la ligne de la surface de but, et il lance le ballon et marque",
+    "question": "B5 est prêt à exécuter un jet de 6m. L'arbitre siffle et avant que le ballon ne quitte sa main, son pied glisse sous la ligne de la surface de but, et il lance le ballon et marque",
     "answers": {
       "a": "But de 2p pour l'équipe B.",
-      "b": "Répétition du lancer de 6m",
-      "c": "Pas de but. Lancer franc pour l'équipe A.",
+      "b": "Répétition du jt de 6m",
+      "c": "Pas de but. Jet franc pour l'équipe A.",
       "d": "Pas de but. Lancer de gardien pour l'équipe A."
     }
   },
@@ -1080,7 +1080,7 @@
     "answers": {
       "a": "Répéter le lancer",
       "b": "But. Deux points sont attribués",
-      "c": "Lancer franc pour l'équipe A.",
+      "c": "Jet franc pour l'équipe A.",
       "d": "But. Trois points sont accordés. (Parce que le gardien a marqué un but 'en vol')."
     }
   },
@@ -1107,7 +1107,7 @@
     "id": "15.4",
     "question": "A4 est prêt à exécuter un jet franc. Il tire au but ; le ballon touche le but et revient sur l'aire de jeu. A4 rattrape le ballon et marque en vol",
     "answers": {
-      "a": "Lancer franc pour l'équipe B.",
+      "a": "Jet franc pour l'équipe B.",
       "b": "But de 2p pour l'équipe A.",
       "c": "Répétition du jet franc",
       "d": "But de 1p pour l'équipe A."
@@ -1117,10 +1117,10 @@
     "id": "15.5",
     "question": "B6 est prêt à exécuter une remise en jeu. Il veut passer le ballon à B2 mais le ballon lui échappe et tombe dans le sable à 3m. B6 reprend le ballon dans les 2 secondes ; il tire au but et marque",
     "answers": {
-      "a": "But. G/K-lancer pour l'équipe A.",
-      "b": "Lancer franc pour l'équipe A.",
+      "a": "But. Lancer du G/K pour l'équipe A.",
+      "b": "Jet franc pour l'équipe A.",
       "c": "Répétition de la remise en jeu",
-      "d": "Pas de but. Lancer G/K pour l'équipe A."
+      "d": "Pas de but. Lancer du G/K pour l'équipe A."
     }
   },
   {
@@ -1129,8 +1129,8 @@
     "answers": {
       "a": "But de 2p pour l'équipe A.",
       "b": "Pas de but. Répétition de la remise en jeu",
-      "c": "Lancer franc pour l'équipe B.",
-      "d": "Pas de but. Lancer G/K pour l'équipe B."
+      "c": "Jet franc pour l'équipe B.",
+      "d": "Pas de but. Lancer du G/K pour l'équipe B."
     }
   },
   {
@@ -1139,8 +1139,8 @@
     "answers": {
       "a": "But de 2p pour l'équipe A.",
       "b": "But de 1p pour l'équipe A.",
-      "c": "Répétition du lancer G/K.",
-      "d": "Lancer franc pour l'équipe A"
+      "c": "Répétition du lanceru d G/K.",
+      "d": "Jet franc pour l'équipe A"
     }
   },
   {
@@ -1158,14 +1158,14 @@
     "question": "Jet franc pour l'équipe A. A2 tire directement au but, le ballon touche le but et lui revient. A2 se trouve maintenant à 2m de l'aire de jeu et marque d'un tir en pivot",
     "answers": {
       "a": "2p goal pour l'équipe A. Goalkeeper-throw pour l'équipe B.",
-      "b": "Lancer franc pour l'équipe B à l'endroit où A2 touche le ballon",
+      "b": "Jet franc pour l'équipe B à l'endroit où A2 touche le ballon",
       "c": "Pas de but. Lancer de gardien pour l'équipe B.",
       "d": "But de 1p pour l'équipe A. Lancer de gardien pour l'équipe B."
     }
   },
   {
     "id": "15.10",
-    "question": "Jet franc pour l'équipe B juste à l'extérieur de sa surface de but. Le G/gardien B1 tente d'exécuter le jet et le ballon lui échappe des mains et entre dans son propre but",
+    "question": "Jet franc pour l'équipe B juste à l'extérieur de sa surface de but. Le gardien B1 tente d'exécuter le jet et le ballon lui échappe des mains et entre dans son propre but",
     "answers": {
       "a": "Pas de but. Répétition du jet franc après le coup de sifflet",
       "b": "But de 2 points pour l'équipe A.",
@@ -1237,7 +1237,7 @@
   },
   {
     "id": "16.7",
-    "question": "Le résultat de la première période est 16:16 mais dans la dernière situation de jeu - juste avant l'appel final - A9 est suspendu pour avoir commis une faute sur B4 alors qu'il était en possession du ballon. Le match commence avec le jet de l'arbitre pour la procédure de 'but en or'. Combien de joueurs de l'équipe A peuvent participer ?",
+    "question": "Le résultat de la première période est 16:16 mais dans la dernière situation de jeu - juste avant le coup de sifflet final - A9 est suspendu pour avoir commis une faute sur B4 alors qu'il était en possession du ballon. Le match commence avec le jet de l'arbitre pour la procédure de 'but en or'. Combien de joueurs de l'équipe A peuvent participer ?",
     "answers": {
       "a": "L'équipe A est réduite d'un joueur. A9 peut revenir sur le terrain lorsque son équipe est en possession du ballon",
       "b": "L'équipe A joue en effectif complet. A9 peut participer immédiatement",
@@ -1248,7 +1248,7 @@
     "id": "16.8",
     "question": "Les deux équipes et les arbitres sont sur le terrain, prêts à effectuer le lancer d'arbitre pour commencer le match. Avant le lancer, B7 crache sur le visage de A2",
     "answers": {
-      "a": "Suspension pour B7. Lancer franc pour l'équipe A. L'équipe B commencera le match avec un joueur en moins",
+      "a": "Suspension pour B7. Jet franc pour l'équipe A. L'équipe B commencera le match avec un joueur en moins",
       "b": "Disqualification pour B7. Rapport. L'équipe B est autorisée à remplacer B7 dans le rapport de match et commence le match avec 4 joueurs sur le terrain.  Le match commencera par un jet d'arbitre.",
       "c": "Disqualification de B7. Rapport. L'équipe B commencera le match avec un joueur en moins et n'est pas autorisée à remplacer B7 dans le rapport de match. Le match débutera par un jet d'arbitre."
     }
@@ -1269,7 +1269,7 @@
     "answers": {
       "a": "Suspension pour l'officiel B.",
       "b": "Disqualification de l'officiel B. Aucune autre action.",
-      "c": "Disqualification pour le fonctionnaire B. Rapport. L'équipe B commencera la deuxième période avec 4 joueurs",
+      "c": "Disqualification pour l'officiel B. Rapport. L'équipe B commencera la deuxième période avec 4 joueurs",
       "d": "Disqualification de l'officiel B. L'équipe B commencera la deuxième période avec un joueur en moins."
     }
   },
@@ -1278,7 +1278,7 @@
     "question": "5 minutes après la fin du match, A3 proteste contre l'un des arbitres, l'insulte et tente de le faire tomber",
     "answers": {
       "a": "Disqualification de A3",
-      "b": "Disqualification à A3. Rapport",
+      "b": "Disqualification de A3. Rapport",
       "c": "Pas d'action",
       "d": "Rapport"
     }
@@ -1287,40 +1287,40 @@
     "id": "16.12",
     "question": "Lors d'une pause rapide, G/K A1 court en dehors de sa surface de but pour arrêter B5 qui a le ballon et tente de tirer au but. G/K A1 frappe le bras du lanceur et perd le ballon",
     "answers": {
-      "a": "Lancer franc pour l'équipe B. Suspension pour A1",
-      "b": "Lancer franc pour l'équipe B. Disqualification pour A1",
-      "c": "Lancer de 6m pour l'équipe B. Suspension pour A1",
-      "d": "Lancer de 6m pour l'équipe B. Disqualification pour A1."
+      "a": "Jet franc pour l'équipe B. Suspension pour A1",
+      "b": "Jet franc pour l'équipe B. Disqualification pour A1",
+      "c": "Jet de 6m pour l'équipe B. Suspension pour A1",
+      "d": "Jet de 6m pour l'équipe B. Disqualification pour A1."
     }
   },
   {
     "id": "16.13",
     "question": "A4 saute pour marquer en vol juste à l'extérieur de la ligne de surface de but et le G/K B12 essaie de sauver le ballon en sautant vers l'adversaire (pas verticalement) juste pour l'effrayer",
     "answers": {
-      "a": "Lancer franc pour l'équipe A. Suspension pour B12",
-      "b": "Lancer de 6m pour l'équipe A. Disqualification pour B12",
-      "c": "Lancer franc pour l'équipe A. Disqualification pour B12.",
-      "d": "Lancer de 6m pour l'équipe A. Suspension à B12."
+      "a": "Jet franc pour l'équipe A. Suspension pour B12",
+      "b": "Jet de 6m pour l'équipe A. Disqualification pour B12",
+      "c": "Jet franc pour l'équipe A. Disqualification pour B12.",
+      "d": "Jet de 6m pour l'équipe A. Suspension pour B12."
     }
   },
   {
     "id": "16.14",
     "question": "B3 se trouve juste à l'extérieur de la surface de but adverse et saute pour tirer au but. Le G/K A1 saute pour sauver le ballon et crée un contact physique dans les airs avec B3 à 2m à l'intérieur de sa surface de but. B3 ne marque pas",
     "answers": {
-      "a": "Lancer de 6m pour l'équipe B. Suspension pour A1",
-      "b": "Lancer franc pour l'équipe B. Suspension pour A1",
-      "c": "Lancer de 6m pour l'équipe B. Disqualification pour A1",
-      "d": "Lancer franc pour l'équipe B. Disqualification pour A1."
+      "a": "Jet de 6m pour l'équipe B. Suspension pour A1",
+      "b": "Jet franc pour l'équipe B. Suspension pour A1",
+      "c": "Jet de 6m pour l'équipe B. Disqualification pour A1",
+      "d": "Jet franc pour l'équipe B. Disqualification pour A1."
     }
   },
   {
     "id": "16.15",
     "question": "Pendant la séance de tirs au but, le G/K B1 court en dehors de sa surface de but et essaie d'attraper le ballon en l'air, alors que A4 fait de même. B1 heurte le bras de A4 et perd le ballon",
     "answers": {
-      "a": "Lancer de 6m pour l'équipe A. Disqualification de B1. Tout joueur éligible pour jouer est autorisé à exécuter ce lancer de 6m",
-      "b": "Lancer de 6m pour l'équipe A. Suspension pour B1. Chaque joueur éligible pour jouer est autorisé à exécuter ce lancer de 6m.",
-      "c": "Lancer de 6m pour l'équipe A. Suspension pour B1. Seul A4 est autorisé à exécuter ce lancer de 6 m.",
-      "d": "Lancer de 6m pour l'équipe A. Disqualification pour B1. Tous les joueurs figurant sur le rapport de match sont autorisés à exécuter ce lancer de 6m."
+      "a": "Jet de 6m pour l'équipe A. Disqualification de B1. Tout joueur éligible pour jouer est autorisé à exécuter ce jet de 6m",
+      "b": "Jet de 6m pour l'équipe A. Suspension pour B1. Chaque joueur éligible pour jouer est autorisé à exécuter ce jet de 6m.",
+      "c": "Jet de 6m pour l'équipe A. Suspension pour B1. Seul A4 est autorisé à exécuter ce jet de 6 m.",
+      "d": "Jet de 6m pour l'équipe A. Disqualification pour B1. Tous les joueurs figurant sur le rapport de match sont autorisés à exécuter ce jet de 6m."
     }
   },
   {
@@ -1345,7 +1345,7 @@
   },
   {
     "id": "16.18",
-    "question": "5 minutes après le début du match et alors que l'équipe B est en possession de la balle, les arbitres se rendent compte que dans la zone de remplacement de l'équipe B il y a un joueur plus qu'inscrit et sifflent un temps mort. Le 'responsable de l'équipe' explique que le joueur est blessé et qu'il est simplement assis avec ses coéquipiers",
+    "question": "5 minutes après le début du match et alors que l'équipe B est en possession de la balle, les arbitres se rendent compte que dans la zone de remplacement de l'équipe B il y a un joueur de plus inscrit et sifflent un temps mort. Le 'responsable de l'équipe' explique que le joueur est blessé et qu'il est simplement assis avec ses coéquipiers",
     "answers": {
       "a": "Normal. Rien d'illégal si les arbitres sont sûrs que le joueur est blessé",
       "b": "Suspension pour le 'responsable de l'équipe' de l'équipe B. Le joueur doit quitter la zone de changement",
@@ -1355,7 +1355,7 @@
   },
   {
     "id": "16.19",
-    "question": "Parmi les sanctions suivantes, lesquelles doivent être expliquées par les arbitres dans la feuille de match ?",
+    "question": "Parmi les sanctions suivantes, lesquelles doivent être expliquées par les arbitres sur la feuille de match ?",
     "answers": {
       "a": "Suspension d'un officiel",
       "b": "Disqualification d'un joueur",
@@ -1367,17 +1367,17 @@
     "id": "16.20",
     "question": "A2 marque un but en vol à la première minute du match, et lorsque le ballon est dans le but, G/K B1 attaque A2 qui est à terre sur le sable et lui donne plusieurs coups de pied à la tête et au corps",
     "answers": {
-      "a": "Temps mort. Disqualification de B1. L'équipe B réduit le nombre de ses joueurs d'une unité. Rapport. Reprise avec G/lancer du gardien pour l'équipe B.",
-      "b": "Temps mort. Disqualification de B1. L'équipe B réduit le nombre de ses joueurs d'une unité. Reprise par un jet franc pour l'équipe A. Rapport",
-      "c": "Temps mort. Disqualification de B1. L'équipe B réduit le nombre de joueurs d'une unité. Reprise par un G/lancer franc pour l'équipe B."
+      "a": "Temps mort. Disqualification de B1. L'équipe B joue avec un joueur de moins. Rapport. Reprise avec G/lancer du gardien pour l'équipe B.",
+      "b": "Temps mort. Disqualification de B1. L'équipe B joue avec un joueur de moins. Reprise par un jet franc pour l'équipe A. Rapport",
+      "c": "Temps mort. Disqualification de B1. L'équipe B joue avec un joueur de moins. Reprise par un G/lancer franc pour l'équipe B."
     }
   },
   {
     "id": "17.1",
     "question": "Les deux arbitres sifflent la même infraction commise par A7. L'arbitre de champ demande un jet franc pour l'équipe B et la suspension de A7 et de son partenaire pour un jet de 6m pour l'équipe B.",
     "answers": {
-      "a": "Lancer de 6m",
-      "b": "Lancer de 6m pour l'équipe B et suspension de A7",
+      "a": "Jet de 6m",
+      "b": "Jet de 6m pour l'équipe B et suspension de A7",
       "c": "Lancer libre pour l'équipe B et suspension de A7",
       "d": "Décision commune. Un temps mort est obligatoire."
     }
@@ -1427,7 +1427,7 @@
     "question": "A4 marque un but avec un tir en pivot et l'arbitre de ligne accorde 2p de but et l'arbitre de champ 1p de but",
     "answers": {
       "a": "Temps mort. But de 1p sans aucune consultation car c'est la décision de l'arbitre de champ",
-      "b": "Temps mort. But 2p sans consultation car décision de l'arbitre de la ligne de but",
+      "b": "Temps mort. But 2p sans consultation car c'est la décision de l'arbitre de la ligne de but",
       "c": "Temps mort. Consultation entre eux pour parvenir à une décision commune",
       "d": "Temps mort. Consultation entre eux pour parvenir à une décision commune. S'ils ne parviennent pas à prendre une décision commune, l'avis de l'arbitre du tribunal prévaudra",
       "e": "Temps mort. Consultation entre les deux parties pour parvenir à une décision commune. S'ils ne parviennent pas à prendre une décision commune, l'avis de l'arbitre de la ligne de but prévaudra."
