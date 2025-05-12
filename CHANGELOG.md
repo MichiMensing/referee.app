@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.2](https://github.com/MichiMensing/referee.app/compare/v1.5.1...v1.5.2) (2025-05-12)
+
+
+### Bug Fixes
+
+* french translation ([3e392db](https://github.com/MichiMensing/referee.app/commit/3e392db5581f83611b263fc1cbaf2653af97fee5))
+
 ### [1.5.1](https://github.com/MichiMensing/referee.app/compare/v1.5.0...v1.5.1) (2025-05-05)
 
 
