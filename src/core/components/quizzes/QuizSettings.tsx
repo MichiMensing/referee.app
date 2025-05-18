@@ -2,7 +2,7 @@ import React, { FunctionComponent, useState } from "react";
 import "./QuizSettings.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faArrowLeft, faFloppyDisk, faPen, faPlay, faTrash, IconDefinition,
+  faArrowLeft, faFilePdf, faFloppyDisk, faPen, faPlay, faTrash, IconDefinition,
 } from "@fortawesome/free-solid-svg-icons";
 import { t } from "i18next";
 import { useNavigate, useParams } from "react-router";
@@ -103,6 +103,10 @@ const QuizSettings: FunctionComponent = () => {
     navigate("/quizzes");
   };
 
+  const handlePDF = async () => {
+    navigate("./pdf");
+  }
+
   return (
     <div id="quiz-settings">
       <div id="quizzes-catalog-header">
@@ -125,6 +129,11 @@ const QuizSettings: FunctionComponent = () => {
             label={t("quizzes.settings.delete")}
             icon={faTrash}
             onChange={handleDelete}
+          />
+          <IconToggleButton
+            label={t("PDF")}
+            icon={faFilePdf}
+            onChange={handlePDF}
           />
         </div>
       </div>
