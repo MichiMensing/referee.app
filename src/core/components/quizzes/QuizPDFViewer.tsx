@@ -12,11 +12,11 @@ const QuizPDFViewer: FunctionComponent = () => {
   const {
     quizzes, data
   } = useRulesTestData();
-  const { i18n: { language } } = useTranslation();
+  const {t,  i18n: { language } } = useTranslation();
   const [iframeSrc, setIframeSrc] = useState('https://example.com');
 
   const currentQuiz = quizzes.find((q, _) => q.id === quizId);
-  const pdfGenerator = new PDFGenerator(language);
+  const pdfGenerator = new PDFGenerator(language, t);
 
   const iFrame: React.JSX.Element = (<iframe id="pdf" src={iframeSrc}></iframe>);
 

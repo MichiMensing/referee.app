@@ -2,6 +2,7 @@ import { breakTextIntoLines, PDFDocument, PDFFont, PDFPage, StandardFonts } from
 import fontkit from '@pdf-lib/fontkit';
 import Question from "./Question";
 import Quiz from "./Quiz";
+import { TFunctionNonStrict } from 'i18next';
 
 const marginLR = 60;
 const marginTB = 50;
@@ -36,11 +37,14 @@ export default class PDFGenerator {
 
   private _language: string = "en";
 
-  constructor(lang:string) {
+  private _fnTrans: TFunctionNonStrict<"translation", undefined>;
+
+  constructor(lang: string, translation: TFunctionNonStrict<"translation", undefined>) {
     this._language = lang || "en";
+    this._fnTrans = translation;
   }
 
-  public async createQuizPDF(quiz?: Quiz, data?: {[id:string]: Question}) {
+  public async createQuizPDF(quiz?: Quiz, data?: { [id: string]: Question }) {
     if (!quiz || !data) return "";
     this._doc = await PDFDocument.create();
     this._currentPage = this._doc.addPage();
@@ -49,7 +53,7 @@ export default class PDFGenerator {
 
     this._doc.registerFontkit(fontkit);
 
-    const fontRegular = await this._doc.embedFont(fontBytes, {subset: true});
+    const fontRegular = await this._doc.embedFont(fontBytes, { subset: true });
     const fontBold = await this._doc.embedFont(StandardFonts.HelveticaBold);
 
     const { width, height } = this._currentPage.getSize();
@@ -73,15 +77,15 @@ export default class PDFGenerator {
     return pdfDataUri;
   }
 
-  private createHeader(name:string) {
+  private createHeader(name: string) {
     if (!this._currentPage) return;
     const { width, height } = this._textOptions;
-    this._currentPage.drawText('Beach Handball Rules Test', { x: marginLR, y: height - marginTB - 20, size: 20, maxWidth: width - marginLR });
-    this._currentPage.drawText(`Quiz Name: ${name}`, {
+    this._currentPage.drawText(this._fnTrans('quizzes.pdf.title'), { x: marginLR, y: height - marginTB - 20, size: 20, maxWidth: width - marginLR });
+    this._currentPage.drawText(`${this._fnTrans('quizzes.pdf.quiz-name')}: ${name}`, {
       x: marginLR, y: height - marginTB - 20 - lineSpacing - fontSize, size: fontSize, maxWidth: width - 2 * marginLR - 150,
       lineHeight: lineHeight
     });
-    this._currentPage.drawText('Name:', { x: width - marginLR - 140, y: height - marginTB - 20 - lineSpacing - fontSize, size: fontSize, maxWidth: width - marginLR });
+    this._currentPage.drawText(`${this._fnTrans('quizzes.settings.name')}:`, { x: width - marginLR - 140, y: height - marginTB - 20 - lineSpacing - fontSize, size: fontSize, maxWidth: width - marginLR });
     this._currentPage.drawLine({
       start: { x: width - marginLR - 100, y: height - marginTB - 20 - lineSpacing - fontSize },
       end: { x: width - marginLR, y: height - marginTB - 20 - lineSpacing - fontSize },
@@ -89,9 +93,25 @@ export default class PDFGenerator {
     });
   }
 
+  private createFooter() {
+    const numberPages = this._doc?.getPages().length;
+    const { fontRegular, width } = this._textOptions;
+    this._doc?.getPages().forEach((page, i) => {
+      const pageNumberText = `${i + 1}/${numberPages}`;
+      const textWidth = fontRegular?.widthOfTextAtSize(pageNumberText, fontSize) || 0;
+      page.drawText(pageNumberText, {
+        x: (width / 2) - (textWidth / 2),
+        y: marginTB - 12,
+        font: fontRegular,
+        size: fontSize - 4,
+        lineHeight: lineHeight - 4,
+      });
+    })
+  }
+
   private setMetadata() {
     if (!this._doc) return;
-    this._doc.setTitle('Beach Handball Rules Test');
+    this._doc.setTitle(this._fnTrans('quizzes.pdf.title'));
     this._doc.setAuthor('US Beach Handball Tour');
     this._doc.setProducer('US Beach Handball Tour Referee Quiz');
     this._doc.setCreator('pdf-lib (https://github.com/Hopding/pdf-lib)');
@@ -99,14 +119,14 @@ export default class PDFGenerator {
     this._doc.setModificationDate(new Date());
   }
 
-  private generateAllQuestions(quiz: Quiz, data: TTestData ) {
+  private generateAllQuestions(quiz: Quiz, data: TTestData) {
     let questions: Question[] = [];
     if (quiz.questions.length > 0) {
       quiz.questions.forEach((qId) => questions.push(data[qId]));
     } else {
       questions = Object.values(data);
     }
-    const maxQuestions = quiz.maxQuestions === 0 ? questions.length : Math.min(quiz.maxQuestions,questions.length);
+    const maxQuestions = quiz.maxQuestions === 0 ? questions.length : Math.min(quiz.maxQuestions, questions.length);
 
     let selectedQuestions = [];
     let selectedNumbers: number[] = [];
@@ -120,14 +140,19 @@ export default class PDFGenerator {
 
     this._cursor = this._textOptions.height - marginTB - headerSize;
     selectedQuestions.forEach((q, i) => {
-      this.generateQuestion(i,q);
-      this._cursor = this._cursor - 30;
+      this.generateQuestion(i, q);
+      this._cursor = this._cursor - 20;
     });
+
+
+    this.createFooter();
+
+    this.generateAnswerSheet(selectedQuestions);
   }
 
   private generateQuestion(index: number, question: Question) {
     const headerText = [
-      `Question ${index + 1})`,
+      `${this._fnTrans('rulestest.question')} ${index + 1})`,
       question.question[this._language]
     ].join("\n");
     const options = question.answers[this._language];
@@ -139,7 +164,7 @@ export default class PDFGenerator {
 
     this.movePageIfNecessary(questionHeight);
 
-    this.addText(`Question ${index + 1})`, undefined, true);
+    this.addText(`${this._fnTrans('rulestest.question')} ${index + 1})`, undefined, true);
     this.addText(question.question[this._language]);
     Object.values(options).forEach((optionsText, i) => {
       this._cursor = this._cursor - lineSpacing;
@@ -160,6 +185,81 @@ export default class PDFGenerator {
     });
     this.addText(`${String.fromCharCode(97 + oIndex)})`, 15, false, true);
     this.addText(text, 30);
+  }
+
+  private generateAnswerSheet(questions: Question[]) {
+    if (!this._doc) return;
+    this._currentPage = this._doc.addPage();
+    const { height, width } = this._textOptions;
+    this._currentPage.drawText(
+      this._fnTrans('quizzes.pdf.answer_title'), {
+      x: marginLR,
+      y: height - marginTB - 20,
+      size: 20,
+      maxWidth: width - marginLR
+    });
+    this._cursor = height - marginTB - headerSize;
+
+    let tableTop = height - marginTB - headerSize + 15;
+    this._currentPage.drawLine({
+      start: { x: marginLR, y: tableTop },
+      end: { x: width - marginLR, y: tableTop },
+      thickness: 1
+    });
+    this.addText(`${this._fnTrans('rulestest.question')}`, 5, true, true);
+    this.addText(`${this._fnTrans('quizzes.pdf.answers')}`, 90, true, true);
+    this.addText(`${this._fnTrans('quizzes.rules')}`, 170, true);
+    questions.forEach((question, i) => {
+      this.movePageIfNecessary(15, () => {
+        this.drawTable(tableTop, this._cursor + 7);
+      }, () => {
+        tableTop = this._cursor + 10;
+      });
+      this._cursor = this._cursor -3
+      this._currentPage?.drawLine({
+        start: { x: marginLR, y: this._cursor + 13 },
+        end: { x: width -marginLR, y: this._cursor + 13 },
+        thickness: 1
+      });
+      const correctOptions = question.correct.join(", ");
+      this.addText(`${this._fnTrans('rulestest.question')} ${i + 1})`, 5, false, true);
+      this.addText(`${correctOptions}`, 90, false, true);
+      this.addText(`${question.rules.join(", ")}`, 170);
+    });
+    this.drawTable(tableTop, this._cursor + 7);
+  }
+
+  private drawTable(top: number, bottom:number) {
+    if (!this._currentPage) return;
+    const { width } = this._textOptions;
+    this._currentPage.drawLine({
+      start: { x: marginLR, y: bottom},
+      end: { x: width - marginLR, y: bottom},
+      thickness: 1
+    });
+
+    // vertical lines
+    this._currentPage.drawLine({
+      start: { x: marginLR, y: top },
+      end: { x: marginLR, y: bottom},
+      thickness: 1
+    });
+    this._currentPage.drawLine({
+      start: { x: marginLR + 85, y: top },
+      end: { x: marginLR + 85, y: bottom},
+      thickness: 1
+    });
+    this._currentPage.drawLine({
+      start: { x: marginLR + 165, y: top },
+      end: { x: marginLR + 165, y: bottom},
+      thickness: 1
+    });
+    this._currentPage.drawLine({
+      start: { x: width - marginLR, y: top },
+      end: { x: width - marginLR, y: bottom},
+      thickness: 1
+    });
+
   }
 
   private addText(text: string, offsetX: number = 0, isBold: boolean = false, skipCursorUpdate: boolean = false) {
@@ -189,13 +289,14 @@ export default class PDFGenerator {
     return lines.length * lineHeight;
   }
 
-  private movePageIfNecessary(spaceNeeded: number) {
+  private movePageIfNecessary(spaceNeeded: number, fnPreMove?: () => void, fnPostMove?: () => void) {
     if (!this._doc || this._cursor - spaceNeeded >= marginTB) {
       return;
     }
-
+    if (fnPreMove) fnPreMove();
     this._currentPage = this._doc.addPage();
     this._cursor = this._currentPage.getHeight() - marginTB;
+    if (fnPostMove) fnPostMove();
   }
 
 }
