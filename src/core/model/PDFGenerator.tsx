@@ -45,7 +45,44 @@ export default class PDFGenerator {
   }
 
   public async createQuizPDF(quiz?: Quiz, data?: { [id: string]: Question }) {
-    if (!quiz || !data) return "";
+    if (!quiz || !data) return {"quiz": "", "answers": ""};
+    await this.setupNewDocument();
+    if (!this._doc) return {"quiz": "", "answers": ""};
+    this.setMetadata();
+    this.createHeader(quiz.name);
+
+        let questions: Question[] = [];
+    if (quiz.questions.length > 0) {
+      quiz.questions.forEach((qId) => questions.push(data[qId]));
+    } else {
+      questions = Object.values(data);
+    }
+    const maxQuestions = quiz.maxQuestions === 0 ? questions.length : Math.min(quiz.maxQuestions, questions.length);
+
+    let selectedQuestions = [];
+    let selectedNumbers: number[] = [];
+    while (selectedQuestions.length < maxQuestions) {
+      const randomNumber = Math.floor(Math.random() * questions.length);
+      if (!selectedNumbers.includes(randomNumber)) {
+        selectedNumbers.push(randomNumber);
+        selectedQuestions.push(questions[randomNumber]);
+      }
+    }
+
+    this.generateAllQuestions(quiz, selectedQuestions);
+
+    this.createFooter();
+    this._doc.getForm().flatten();
+    const pdfQuizUri = await this._doc.saveAsBase64({ dataUri: true });
+
+    await this.setupNewDocument();
+    this.generateAnswerSheet(selectedQuestions);
+    const pdfAnswersUri = await this._doc.saveAsBase64({ dataUri: true });
+
+    return {"quiz": pdfQuizUri, "answers": pdfAnswersUri};
+  }
+
+  private async setupNewDocument() {
     this._doc = await PDFDocument.create();
     this._currentPage = this._doc.addPage();
     const url = 'https://pdf-lib.js.org/assets/ubuntu/Ubuntu-R.ttf'
@@ -65,16 +102,6 @@ export default class PDFGenerator {
       fontBold,
       maxWidth: width - 2 * marginLR
     }
-    this.setMetadata();
-    this.createHeader(quiz.name);
-
-
-    this.generateAllQuestions(quiz, data);
-
-    this._doc.getForm().flatten();
-
-    const pdfDataUri = await this._doc.saveAsBase64({ dataUri: true });
-    return pdfDataUri;
   }
 
   private createHeader(name: string) {
@@ -119,35 +146,13 @@ export default class PDFGenerator {
     this._doc.setModificationDate(new Date());
   }
 
-  private generateAllQuestions(quiz: Quiz, data: TTestData) {
-    let questions: Question[] = [];
-    if (quiz.questions.length > 0) {
-      quiz.questions.forEach((qId) => questions.push(data[qId]));
-    } else {
-      questions = Object.values(data);
-    }
-    const maxQuestions = quiz.maxQuestions === 0 ? questions.length : Math.min(quiz.maxQuestions, questions.length);
-
-    let selectedQuestions = [];
-    let selectedNumbers: number[] = [];
-    while (selectedQuestions.length < maxQuestions) {
-      const randomNumber = Math.floor(Math.random() * questions.length);
-      if (!selectedNumbers.includes(randomNumber)) {
-        selectedNumbers.push(randomNumber);
-        selectedQuestions.push(questions[randomNumber]);
-      }
-    }
+  private generateAllQuestions(quiz: Quiz, questions: Question[]) {
 
     this._cursor = this._textOptions.height - marginTB - headerSize;
-    selectedQuestions.forEach((q, i) => {
+    questions.forEach((q, i) => {
       this.generateQuestion(i, q);
       this._cursor = this._cursor - 20;
     });
-
-
-    this.createFooter();
-
-    this.generateAnswerSheet(selectedQuestions);
   }
 
   private generateQuestion(index: number, question: Question) {
@@ -188,11 +193,10 @@ export default class PDFGenerator {
   }
 
   private generateAnswerSheet(questions: Question[]) {
-    if (!this._doc) return;
-    this._currentPage = this._doc.addPage();
+    if (!this._doc || !this._currentPage) return;
     const { height, width } = this._textOptions;
     this._currentPage.drawText(
-      this._fnTrans('quizzes.pdf.answer_title'), {
+      this._fnTrans('quizzes.pdf.answer-title'), {
       x: marginLR,
       y: height - marginTB - 20,
       size: 20,

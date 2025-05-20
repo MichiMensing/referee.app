@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowLeft, faFilePdf, faFloppyDisk, faPen, faPlay, faTrash, IconDefinition,
 } from "@fortawesome/free-solid-svg-icons";
-import { t } from "i18next";
 import { useNavigate, useParams } from "react-router";
 import QuestionCatalogTree from "./QuestionCatalogTree";
 import CheckBox from "../CheckBox";
@@ -13,13 +12,16 @@ import { useRulesTestData } from "../../context/TestDataContext";
 import Quiz from "../../model/Quiz";
 import IconToggleButton from "../IconToggleButton";
 import QuizRunModel from "../../model/QuizRun";
+import PDFGenerator from "../../model/PDFGenerator";
+import { useTranslation } from "react-i18next";
 
 const QuizSettings: FunctionComponent = () => {
   const { quizId } = useParams();
   const {
-    quizzes, saveQuiz, startQuiz, deleteQuiz,
+    quizzes, saveQuiz, startQuiz, deleteQuiz, data
   } = useRulesTestData();
   const navigate = useNavigate();
+  const { t, i18n: { language } } = useTranslation();
 
   const currentQuiz = quizzes.find((q, _) => q.id === quizId);
   const readOnly = currentQuiz ? currentQuiz.isDefault() : false;
@@ -28,6 +30,7 @@ const QuizSettings: FunctionComponent = () => {
     navigate(-1);
     return null;
   }
+  const pdfGenerator = new PDFGenerator(language, t);
 
   const [quiz, setQuiz] = useState<Quiz>(currentQuiz);
 
@@ -42,6 +45,10 @@ const QuizSettings: FunctionComponent = () => {
   const [name, setName] = useState<string>(quiz.name);
   const [_, setQuestions] = useState<string[]>(quiz.questions);
   const [runs, setRuns] = useState<QuizRunModel[]>(quiz.runs);
+  const [pdfGenerated, setPDFGenerated] = useState<boolean>(false);
+  const [pdfGenerating, setPDFGenerating] = useState<boolean>(false);
+  const [quizPDFLink, setQuizPDFLink] = useState<string>("");
+  const [answersPDFLink, setAnswersPDFLink] = useState<string>("");
 
   const toggleQuestionCatalog = () => {
     setShowQuizCatalog(!showQuizCatalog);
@@ -107,6 +114,18 @@ const QuizSettings: FunctionComponent = () => {
     navigate("./pdf");
   }
 
+  const handleGeneratePDF = async () => {
+    setPDFGenerating(true);
+    setPDFGenerated(false);
+    setQuizPDFLink("");
+    pdfGenerator.createQuizPDF(currentQuiz, data).then(({ quiz, answers }) => {
+      setQuizPDFLink(quiz);
+      setAnswersPDFLink(answers);
+      setPDFGenerated(true);
+      setPDFGenerating(false);
+    });
+  }
+
   return (
     <div id="quiz-settings">
       <div id="quizzes-catalog-header">
@@ -130,67 +149,99 @@ const QuizSettings: FunctionComponent = () => {
             icon={faTrash}
             onChange={handleDelete}
           />
-          <IconToggleButton
+          {/* <IconToggleButton
             label={t("PDF")}
             icon={faFilePdf}
             onChange={handlePDF}
-          />
+          /> */}
         </div>
       </div>
-      <div id="quiz-settings-list">
-        <div className="setting">
-          <div className="label">{t("quizzes.settings.name")}</div>
-          {readOnly
-            ? <div className="label">{quiz.isDefault() ? t("quizzes.standard-quiz") : name}</div>
-            : <input value={name} onChange={handleNameChange} />}
-        </div>
-        <div className="setting">
-          <div className="label">{t("quizzes.settings.max-question")}</div>
-          {readOnly
-            ? <div className="label">{maxQuestions}</div>
-            : <input className="number-input" type="number" value={maxQuestions} onChange={handleMaxQuestionChange} min={0} />}
-        </div>
-        <div className="setting">
-          <div className="label">{t("quizzes.settings.time-limit")}</div>
-          {readOnly
-            ? <div className="label">{`1 ${t("quizzes.settings.hour")}`}</div>
-            : (
-              <select name="time-limit" id="time-limit" value={timeLimit} onChange={handleTimeLimitChange}>
-                <option value="0" label="none">{t("quizzes.settings.none")}</option>
-                <option value="1">
-                  {`1 ${t("quizzes.settings.min")}`}
-                </option>
-                <option value="5">
-                  {`5 ${t("quizzes.settings.min")}`}
-                </option>
-                <option value="15">
-                  {`15 ${t("quizzes.settings.min")}`}
-                </option>
-                <option value="30">
-                  {`30 ${t("quizzes.settings.min")}`}
-                </option>
-                <option value="45">
-                  {`45 ${t("quizzes.settings.min")}`}
-                </option>
-                <option value="60">
-                  {`1 ${t("quizzes.settings.hour")}`}
-                </option>
-              </select>
+      <div className="settings-box" id="quiz-settings-box">
+        <div id="quiz-settings-list">
+          <div className="setting">
+            <div className="label">{t("quizzes.settings.name")}</div>
+            {readOnly
+              ? <div className="label">{quiz.isDefault() ? t("quizzes.standard-quiz") : name}</div>
+              : <input value={name} onChange={handleNameChange} />}
+          </div>
+          <div className="setting">
+            <div className="label">{t("quizzes.settings.max-question")}</div>
+            {readOnly
+              ? <div className="label">{maxQuestions}</div>
+              : <input className="number-input" type="number" value={maxQuestions} onChange={handleMaxQuestionChange} min={0} />}
+          </div>
+          <div className="setting">
+            <div className="label">{t("quizzes.settings.time-limit")}</div>
+            {readOnly
+              ? <div className="label">{`1 ${t("quizzes.settings.hour")}`}</div>
+              : (
+                <select name="time-limit" id="time-limit" value={timeLimit} onChange={handleTimeLimitChange}>
+                  <option value="0" label={t("quizzes.settings.none")}>{t("quizzes.settings.none")}</option>
+                  <option value="1">
+                    {`1 ${t("quizzes.settings.min")}`}
+                  </option>
+                  <option value="5">
+                    {`5 ${t("quizzes.settings.min")}`}
+                  </option>
+                  <option value="15">
+                    {`15 ${t("quizzes.settings.min")}`}
+                  </option>
+                  <option value="30">
+                    {`30 ${t("quizzes.settings.min")}`}
+                  </option>
+                  <option value="45">
+                    {`45 ${t("quizzes.settings.min")}`}
+                  </option>
+                  <option value="60">
+                    {`1 ${t("quizzes.settings.hour")}`}
+                  </option>
+                </select>
+              )}
+          </div>
+          <div className="setting setting-inline">
+            <div className="label">{t("quizzes.settings.instant-feedback")}</div>
+            {readOnly && (
+              <div>{quiz.instantFeedback ? t("yes") : t("no")}</div>
             )}
+            {!readOnly && (
+              <CheckBox
+                checked={quiz.instantFeedback}
+                readOnly={readOnly}
+                onChange={handleInstantFeedbackChange}
+              />
+            )}
+          </div>
         </div>
-        <div className="setting setting-inline">
-          <div className="label">{t("quizzes.settings.instant-feedback")}</div>
-          {readOnly && (
-            <div>{quiz.instantFeedback ? t("yes") : t("no")}</div>
+        <div id="quiz-settings-pdf">
+          <button
+            type="button"
+            onClick={handleGeneratePDF}
+          >
+            {pdfGenerating? t("quizzes.pdf.generating"): t("quizzes.pdf.generate") }
+          </button>
+          {pdfGenerated && (
+            <a href={quizPDFLink} download="Beach Handball Rules Quiz" target="_blank">
+              <button>{t("quizzes.pdf.download-quiz")}</button>
+            </a>
           )}
-          {!readOnly && (
-            <CheckBox
-              checked={quiz.instantFeedback}
-              readOnly={readOnly}
-              onChange={handleInstantFeedbackChange}
-            />
+          {!pdfGenerated && (
+            <button
+              type="button"
+              className="disabled">{t("quizzes.pdf.download-quiz")}</button>
+          )}
+          {pdfGenerated && (
+            <a href={answersPDFLink} download="Beach Handball Rules Quiz - Answer sheet" target="_blank">
+              <button>{t("quizzes.pdf.download-answers")}</button>
+            </a>
+          )}
+          {!pdfGenerated && (
+            <button
+              type="button"
+              className="disabled">{t("quizzes.pdf.download-answers")}</button>
           )}
         </div>
+      </div>
+      <div className="settings-box">
         <div id="quiz-settings-questions" className="setting">
           <div className="label">{t("quizzes.settings.questions")}</div>
           <div className="label">{quiz.getQuestionSummary()}</div>

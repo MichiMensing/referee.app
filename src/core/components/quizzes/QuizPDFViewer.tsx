@@ -13,7 +13,7 @@ const QuizPDFViewer: FunctionComponent = () => {
     quizzes, data
   } = useRulesTestData();
   const {t,  i18n: { language } } = useTranslation();
-  const [iframeSrc, setIframeSrc] = useState('https://example.com');
+  const [iframeSrc, setIframeSrc] = useState('');
 
   const currentQuiz = quizzes.find((q, _) => q.id === quizId);
   const pdfGenerator = new PDFGenerator(language, t);
@@ -21,8 +21,8 @@ const QuizPDFViewer: FunctionComponent = () => {
   const iFrame: React.JSX.Element = (<iframe id="pdf" src={iframeSrc}></iframe>);
 
   if (!pdfGenerated) {
-    pdfGenerator.createQuizPDF(currentQuiz, data).then((uri) => {
-      setIframeSrc(uri);
+    pdfGenerator.createQuizPDF(currentQuiz, data).then(({quiz,answers}) => {
+      setIframeSrc(quiz);
       pdfGenerated = true;
     });
   }
@@ -35,7 +35,10 @@ const QuizPDFViewer: FunctionComponent = () => {
 
   return (
     <div id="pdf-viewer">
-      {iFrame}
+      <a href={iframeSrc} download="Beach Handball Rules Quiz" target="_blank">
+        <button>Download</button>
+      </a>
+      {/* {iFrame} */}
     </div>
   )
 };

@@ -104,8 +104,12 @@
       "pdf": {
         "title": "Beach Handball Regel Test",
         "quiz-name": "Quiz Name",
-        "answer_title": "Antworten Übersicht",
-        "answers": "Antworten"
+        "answer-title": "Antworten Übersicht",
+        "answers": "Antworten",
+        "generate": "Erzeuge PDF",
+        "generating": "Gestartet...",
+        "download-quiz": "Download Quiz",
+        "download-answers": "Download Antworten"
       }
     }
   }

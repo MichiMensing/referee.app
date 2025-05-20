@@ -104,8 +104,12 @@
       "pdf": {
         "title": "Test des règles du beach handball",
         "quiz-name": "Nom du quiz",
-        "answer_title": "Feuille de réponses",
-        "answers": "Réponses"
+        "answer-title": "Feuille de réponses",
+        "answers": "Réponses",
+        "generate": "Générer le PDF",
+        "generating": "Génération...",
+        "download-quiz": "Télécharger le quiz",
+        "download-answers": "Télécharger les réponses"
       }
     }
   }
