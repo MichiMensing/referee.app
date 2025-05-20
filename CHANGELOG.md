@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/MichiMensing/referee.app/compare/v1.5.2...v1.6.0) (2025-05-20)
+
+
+### Features
+
+* PDF Generation ([#9](https://github.com/MichiMensing/referee.app/issues/9)) ([14b591c](https://github.com/MichiMensing/referee.app/commit/14b591cc2de51aec706f73ee82f16d717a428eb7))
+
 ### [1.5.2](https://github.com/MichiMensing/referee.app/compare/v1.5.1...v1.5.2) (2025-05-12)
 
 
