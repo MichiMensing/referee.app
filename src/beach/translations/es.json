@@ -100,6 +100,16 @@
       },
       "runs": {
         "statistics": "Estadísticas de la ejecución"
+      },
+      "pdf": {
+        "title": "Prueba de reglas de balonmano playa",
+        "quiz-name": "Nombre del cuestionario",
+        "answer-title": "Hoja de respuestas",
+        "answers": "Respuestas",
+        "generate": "Generar PDF",
+        "generating": "Generando...",
+        "download-quiz": "Descargar cuestionario",
+        "download-answers": "Descargar respuestas"
       }
     }
   }

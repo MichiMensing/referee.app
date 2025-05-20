@@ -100,6 +100,16 @@
       },
       "runs": {
         "statistics": "Statistiques de l'exécution"
+      },
+      "pdf": {
+        "title": "Test des règles du beach handball",
+        "quiz-name": "Nom du quiz",
+        "answer-title": "Feuille de réponses",
+        "answers": "Réponses",
+        "generate": "Générer le PDF",
+        "generating": "Génération...",
+        "download-quiz": "Télécharger le quiz",
+        "download-answers": "Télécharger les réponses"
       }
     }
   }

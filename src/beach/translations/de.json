@@ -100,6 +100,16 @@
       },
       "runs": {
         "statistics": "Versuchsstatistik"
+      },
+      "pdf": {
+        "title": "Beach Handball Regel Test",
+        "quiz-name": "Quiz Name",
+        "answer-title": "Antworten Übersicht",
+        "answers": "Antworten",
+        "generate": "Erzeuge PDF",
+        "generating": "Gestartet...",
+        "download-quiz": "Download Quiz",
+        "download-answers": "Download Antworten"
       }
     }
   }
