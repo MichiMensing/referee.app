@@ -1,4 +1,4 @@
-import React, { FunctionComponent, JSXElementConstructor, useEffect, useState } from "react";
+import React, { FunctionComponent, useEffect, useState } from "react";
 import "./QuizPDFViewer.css";
 import { useParams } from "react-router";
 import { useRulesTestData } from "../../context/TestDataContext";
@@ -21,7 +21,7 @@ const QuizPDFViewer: FunctionComponent = () => {
   const iFrame: React.JSX.Element = (<iframe id="pdf" src={iframeSrc}></iframe>);
 
   if (!pdfGenerated) {
-    pdfGenerator.createQuizPDF(currentQuiz, data).then(({quiz,answers}) => {
+    pdfGenerator.createQuizPDF(currentQuiz, data).then(({quiz}) => {
       setIframeSrc(quiz);
       pdfGenerated = true;
     });
@@ -35,10 +35,7 @@ const QuizPDFViewer: FunctionComponent = () => {
 
   return (
     <div id="pdf-viewer">
-      <a href={iframeSrc} download="Beach Handball Rules Quiz" target="_blank">
-        <button>Download</button>
-      </a>
-      {/* {iFrame} */}
+      {iFrame}
     </div>
   )
 };
