@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.1](https://github.com/MichiMensing/referee.app/compare/v1.6.0...v1.6.1) (2025-05-21)
+
+
+### Bug Fixes
+
+* service worker uri ([37701d5](https://github.com/MichiMensing/referee.app/commit/37701d5105ce8770c26a648c32b7d2152b39a285))
+
 ## [1.6.0](https://github.com/MichiMensing/referee.app/compare/v1.5.2...v1.6.0) (2025-05-20)
 
 
