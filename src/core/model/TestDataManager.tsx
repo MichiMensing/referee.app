@@ -387,7 +387,7 @@ export default class TestDataManager {
   }
 
   private static async loadQuestions(language: string): Promise<IQuestion[]> {
-    const response = await fetch(`./data/questions/${language}.json`);
+    const response = await fetch(`/referee-quiz/data/questions/${language}.json`);
     const json = await response.json();
     if (!response.ok) {
       throw new Error(json);
