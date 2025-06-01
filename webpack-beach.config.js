@@ -12,8 +12,7 @@ const appPath = path.resolve(__dirname, "src");
 const buildPath = path.resolve(__dirname, "dist-beach");
 const markdownRenderer = new marked.Renderer();
 
-markdownRenderer.heading = function (text, level, raw, slugger)
-{
+markdownRenderer.heading = function (text, level, raw, slugger) {
   const escapedText = text
     .toLowerCase()
     .replace(/,|\s*\(.*\)|[“„]/g, '')
@@ -148,6 +147,10 @@ const config = {
         runtimeErrors: true,
       }
     }
+  },
+  watchOptions: {
+    aggregateTimeout: 10000,
+    poll: 5000
   },
   devtool: 'source-map'
 };
