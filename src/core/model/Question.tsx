@@ -96,7 +96,7 @@ export default class Question {
     return this._numAsked;
   }
 
-  public static getClassificationAndRate(correct: number, total: number ): [string,number,string] {
+  public static getClassificationAndRate(correct: number, total: number): [string, number, string] {
     const percentage = total !== 0 ? (correct / total) * 100 : 0;
     const successRate = total !== 0 ? (percentage).toFixed(1) : "0.0";
     let classification;

@@ -40,7 +40,7 @@ const QuestionComponent: FunctionComponent<Props> = ({ question, run }) => {
     correct = (run.correct.find((id) => id === question.id)) ? 1 : 0;
   }
 
-  let [color, _, successRate] = Question.getClassificationAndRate(correct, asked);
+  const [color, _, successRate] = Question.getClassificationAndRate(correct, asked);
   let icon;
   let content;
   if (open) {

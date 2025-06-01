@@ -2,9 +2,10 @@ import React, { FunctionComponent, useState } from "react";
 import "./QuizSettings.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faArrowLeft, faFilePdf, faFloppyDisk, faPen, faPlay, faTrash, IconDefinition,
+  faArrowLeft, faFloppyDisk, faPen, faPlay, faTrash, IconDefinition,
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate, useParams } from "react-router";
+import { useTranslation } from "react-i18next";
 import QuestionCatalogTree from "./QuestionCatalogTree";
 import CheckBox from "../CheckBox";
 import QuizRun from "./QuizRun";
@@ -13,12 +14,11 @@ import Quiz from "../../model/Quiz";
 import IconToggleButton from "../IconToggleButton";
 import QuizRunModel from "../../model/QuizRun";
 import PDFGenerator from "../../model/PDFGenerator";
-import { useTranslation } from "react-i18next";
 
 const QuizSettings: FunctionComponent = () => {
   const { quizId } = useParams();
   const {
-    quizzes, saveQuiz, startQuiz, deleteQuiz, data
+    quizzes, saveQuiz, startQuiz, deleteQuiz, data,
   } = useRulesTestData();
   const navigate = useNavigate();
   const { t, i18n: { language } } = useTranslation();
@@ -110,21 +110,17 @@ const QuizSettings: FunctionComponent = () => {
     navigate("/quizzes");
   };
 
-  const handlePDF = async () => {
-    navigate("./pdf");
-  }
-
   const handleGeneratePDF = async () => {
     setPDFGenerating(true);
     setPDFGenerated(false);
     setQuizPDFLink("");
-    pdfGenerator.createQuizPDF(currentQuiz, data).then(({ quiz, answers }) => {
-      setQuizPDFLink(quiz);
+    pdfGenerator.createQuizPDF(currentQuiz, data).then(({ quiz: quizLink, answers }) => {
+      setQuizPDFLink(quizLink);
       setAnswersPDFLink(answers);
       setPDFGenerated(true);
       setPDFGenerating(false);
     });
-  }
+  };
 
   return (
     <div id="quiz-settings">
@@ -217,27 +213,33 @@ const QuizSettings: FunctionComponent = () => {
             type="button"
             onClick={handleGeneratePDF}
           >
-            {pdfGenerating? t("quizzes.pdf.generating"): t("quizzes.pdf.generate") }
+            {pdfGenerating ? t("quizzes.pdf.generating") : t("quizzes.pdf.generate") }
           </button>
           {pdfGenerated && (
-            <a href={quizPDFLink} download="Beach Handball Rules Quiz" target="_blank">
-              <button>{t("quizzes.pdf.download-quiz")}</button>
+            <a href={quizPDFLink} download="Beach Handball Rules Quiz" target="_blank" rel="noreferrer">
+              <button type="button">{t("quizzes.pdf.download-quiz")}</button>
             </a>
           )}
           {!pdfGenerated && (
             <button
               type="button"
-              className="disabled">{t("quizzes.pdf.download-quiz")}</button>
+              className="disabled"
+            >
+              {t("quizzes.pdf.download-quiz")}
+            </button>
           )}
           {pdfGenerated && (
-            <a href={answersPDFLink} download="Beach Handball Rules Quiz - Answer sheet" target="_blank">
-              <button>{t("quizzes.pdf.download-answers")}</button>
+            <a href={answersPDFLink} download="Beach Handball Rules Quiz - Answer sheet" target="_blank" rel="noreferrer">
+              <button type="button">{t("quizzes.pdf.download-answers")}</button>
             </a>
           )}
           {!pdfGenerated && (
             <button
               type="button"
-              className="disabled">{t("quizzes.pdf.download-answers")}</button>
+              className="disabled"
+            >
+              {t("quizzes.pdf.download-answers")}
+            </button>
           )}
         </div>
       </div>

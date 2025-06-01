@@ -64,11 +64,12 @@ const QuestionCatalogTree: FunctionComponent<Props> = ({ showCatalog = true, qui
     children: Object.keys(orderedData).map((key) => ({
       value: key,
       label: `Rule ${key}: ${t(`rules.rule.rule${key}`)}`,
-      className: Question.getClassificationAndRate(orderedData[key].correct, orderedData[key].asked)[0],
+      className: Question
+        .getClassificationAndRate(orderedData[key].correct, orderedData[key].asked)[0],
       children: orderedData[key].questions.map((question) => ({
         value: question.id,
         label: `${question.id}: ${question.question[language]}`,
-        className: Question.getClassificationAndRate(question.numCorrect, question.numAsked)[0]
+        className: Question.getClassificationAndRate(question.numCorrect, question.numAsked)[0],
       })),
     })),
   }];
@@ -127,18 +128,24 @@ const QuestionCatalogTree: FunctionComponent<Props> = ({ showCatalog = true, qui
           expandOpen: <FontAwesomeIcon className="rct-icon rct-icon-expand-open" icon={faChevronDown} />,
           expandAll: <FontAwesomeIcon className="rct-icon rct-icon-expand-all" icon={faPlusSquare} />,
           collapseAll: <FontAwesomeIcon className="rct-icon rct-icon-collapse-all" icon={faMinusSquare} />,
-          parentClose: (<div className="catalog-tree-parent-icon-status">
-            <FontAwesomeIcon className="rct-icon rct-icon-leaf-close" icon={faSection} />
-            <FontAwesomeIcon className="rct-icon rct-icon-leaf-close" icon={faCircle} />
-            </div>),
-          parentOpen: (<div className="catalog-tree-parent-icon-status">
-            <FontAwesomeIcon className="rct-icon rct-icon-leaf-close" icon={faSection} />
-            <FontAwesomeIcon className="rct-icon rct-icon-leaf-close" icon={faCircle} />
-            </div>),
-          leaf: (<div className="catalog-tree-icon-status">
-            <FontAwesomeIcon className="rct-icon rct-icon-leaf-close" icon={faQuestion} />
-            <FontAwesomeIcon className="rct-icon rct-icon-leaf-close" icon={faCircle} />
-            </div>),
+          parentClose: (
+            <div className="catalog-tree-parent-icon-status">
+              <FontAwesomeIcon className="rct-icon rct-icon-leaf-close" icon={faSection} />
+              <FontAwesomeIcon className="rct-icon rct-icon-leaf-close" icon={faCircle} />
+            </div>
+          ),
+          parentOpen: (
+            <div className="catalog-tree-parent-icon-status">
+              <FontAwesomeIcon className="rct-icon rct-icon-leaf-close" icon={faSection} />
+              <FontAwesomeIcon className="rct-icon rct-icon-leaf-close" icon={faCircle} />
+            </div>
+          ),
+          leaf: (
+            <div className="catalog-tree-icon-status">
+              <FontAwesomeIcon className="rct-icon rct-icon-leaf-close" icon={faQuestion} />
+              <FontAwesomeIcon className="rct-icon rct-icon-leaf-close" icon={faCircle} />
+            </div>
+          ),
         }}
       />
     </div>

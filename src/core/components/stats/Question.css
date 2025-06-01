@@ -6,7 +6,7 @@
 
   display: grid;
 
-  grid-template-columns: 2rem auto 4rem 7rem;
+  grid-template-columns: 2rem auto 4rem 8rem;
   grid-template-rows: auto;
 
   grid-template-areas:

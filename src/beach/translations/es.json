@@ -102,14 +102,18 @@
         "statistics": "Estadísticas de la ejecución"
       },
       "pdf": {
-        "title": "Prueba de reglas de balonmano playa",
+        "test-title": "Prueba de reglas de balonmano playa",
+        "result-title": "Resultados de la prueba de reglas de balonmano playa",
+        "score": "Puntaje",
+        "date": "Fecha",
         "quiz-name": "Nombre del cuestionario",
         "answer-title": "Hoja de respuestas",
         "answers": "Respuestas",
         "generate": "Generar PDF",
         "generating": "Generando...",
         "download-quiz": "Descargar cuestionario",
-        "download-answers": "Descargar respuestas"
+        "download-answers": "Descargar respuestas",
+        "quiz-incomplete": "El usuario no pudo completar la prueba debido a falta de tiempo o porque canceló la prueba."
       }
     }
   }

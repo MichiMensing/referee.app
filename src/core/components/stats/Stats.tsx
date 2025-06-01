@@ -1,9 +1,11 @@
 /* eslint-disable no-param-reassign, no-mixed-operators */
-import React, { FunctionComponent, useMemo, useState } from "react";
+import React, {
+  FunctionComponent, useMemo, useState,
+} from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
 import {
-  faArrowLeft, faArrowRotateLeft, faCheck, faClipboardQuestion, faPercent, faQuestion,
+  faArrowLeft, faArrowRotateLeft, faCheck, faClipboardQuestion, faFile, faPercent, faQuestion,
   faRepeat,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,6 +15,7 @@ import Rule from "./Rule";
 import IconToggleButton from "../IconToggleButton";
 import "./Stats.css";
 import Quiz from "../../model/Quiz";
+import PDFGenerator from "../../model/PDFGenerator";
 
 type OrderedData = {
   [rule: string]: {
@@ -28,9 +31,10 @@ const Stats: FunctionComponent = () => {
     asked, correct, data, resetStats, quizzes, addQuiz,
   } = useRulesTestData();
 
-  const { t } = useTranslation();
+  const { t, i18n: { language } } = useTranslation();
   const navigate = useNavigate();
   const [rerender, setRerender] = useState(0);
+  const [resultPDFLink, setResultPDFLink] = useState<string>("");
 
   const quiz = quizzes.find((q) => q.id === quizId);
   const run = quiz?.runs.find((r) => r.id === runId);
@@ -54,7 +58,7 @@ const Stats: FunctionComponent = () => {
   const percent = askedStat ? Math.round(100 / askedStat * correctStat) : 0;
   const [dbOrderedData, dbWrongAnswers] = useMemo(
     () => {
-      const wrongAnswers:string[] = [];
+      const wrongAnswers: string[] = [];
       const tmpData = Object.values(data).reduce<OrderedData>((prev, question) => {
         const { rule, numAsked, numCorrect } = question;
         if (!prev[question.rule]) {
@@ -84,7 +88,7 @@ const Stats: FunctionComponent = () => {
   );
 
   let orderedData: OrderedData = dbOrderedData;
-  let runWrongAnswers:string[] = [];
+  let runWrongAnswers: string[] = [];
   if (run) {
     let answeredQuestions: string[] = [];
     runWrongAnswers = [];
@@ -170,6 +174,15 @@ const Stats: FunctionComponent = () => {
   );
 
   let statHeader;
+
+  if (resultPDFLink === "") {
+    const pdfGenerator = new PDFGenerator(language, t);
+    setResultPDFLink("Loading");
+    pdfGenerator.createResultPDF(quiz, run, data).then((resultPDF) => {
+      setResultPDFLink(resultPDF);
+    });
+  }
+
   if (run) {
     statHeader = (
       <div id="stats-overall-header">
@@ -181,7 +194,17 @@ const Stats: FunctionComponent = () => {
           <FontAwesomeIcon icon={faArrowLeft} size="lg" />
         </button>
         <h2>{`${t("quizzes.runs.statistics")} - ${run.getFormattedTimestamp()}`}</h2>
-        {(!run || !!run.answers) && retryBtn}
+        {(!run || !!run.answers) && (
+          <div className="stats-button-group">
+            {retryBtn}
+            <a href={resultPDFLink} download="Beach Handball Rules Quiz Result" target="_blank" rel="noreferrer">
+              <IconToggleButton
+                label="PDF"
+                icon={faFile}
+              />
+            </a>
+          </div>
+        )}
       </div>
     );
   } else {

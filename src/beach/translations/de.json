@@ -102,14 +102,18 @@
         "statistics": "Versuchsstatistik"
       },
       "pdf": {
-        "title": "Beach Handball Regel Test",
+        "test-title": "Beach Handball Regel Test",
+        "result-title": "Beach Handball Rules Test Resultat",
+        "score": "Punktzahl",
+        "date": "Datum",
         "quiz-name": "Quiz Name",
         "answer-title": "Antworten Übersicht",
         "answers": "Antworten",
         "generate": "Erzeuge PDF",
         "generating": "Gestartet...",
         "download-quiz": "Download Quiz",
-        "download-answers": "Download Antworten"
+        "download-answers": "Download Antworten",
+        "quiz-incomplete": "Der Anwender hat das Quiz nicht beendet, da entweder die Zeit abgelaufen ist oder das Quiz abgebrochen wurde."
       }
     }
   }

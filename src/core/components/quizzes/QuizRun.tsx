@@ -13,7 +13,8 @@ const QuizRun: FunctionComponent<Props> = ({
 }) => {
   const navigate = useNavigate();
 
-  let [classification, _, successRate] = Question.getClassificationAndRate(run.correct.length, run.total);
+  const [classification, _, successRate] = Question
+    .getClassificationAndRate(run.correct.length, run.total);
 
   const handleClick = async () => {
     navigate(`/quizzes/${run.quizId}/runs/${run.id}`);

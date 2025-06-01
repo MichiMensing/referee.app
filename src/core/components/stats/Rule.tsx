@@ -33,7 +33,7 @@ const Rule: FunctionComponent<Props> = ({
     key = `rules.rule.rule${id}`;
   }
 
-  let [color, _, successRate] = Question.getClassificationAndRate(correct, asked);
+  const [color, _, successRate] = Question.getClassificationAndRate(correct, asked);
 
   const details = questions.map((question) => (
     <QuestionComponent key={question.id} question={question} run={run} />

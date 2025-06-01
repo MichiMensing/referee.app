@@ -102,14 +102,18 @@
         "statistics": "Statistiques de l'exécution"
       },
       "pdf": {
-        "title": "Test des règles du beach handball",
+        "test-title": "Test des règles du beach handball",
+        "result-title": "Résultats des tests de règles de beach handball",
+        "score": "Marquer des points",
+        "date": "Date",
         "quiz-name": "Nom du quiz",
         "answer-title": "Feuille de réponses",
         "answers": "Réponses",
         "generate": "Générer le PDF",
         "generating": "Génération...",
         "download-quiz": "Télécharger le quiz",
-        "download-answers": "Télécharger les réponses"
+        "download-answers": "Télécharger les réponses",
+        "quiz-incomplete": "L'utilisateur n'a pas pu terminer le quiz soit parce qu'il manquait de temps, soit parce qu'il a abandonné le quiz."
       }
     }
   }

@@ -102,14 +102,18 @@
         "statistics": "Run Statistics"
       },
       "pdf": {
-        "title": "Beach Handball Rules Test",
+        "test-title": "Beach Handball Rules Test",
+        "result-title": "Beach Handball Rules Test Results",
+        "score": "Score",
+        "date": "Date",
         "quiz-name": "Quiz Name",
         "answer-title": "Answer Sheet",
         "answers": "Answers",
         "generate": "Generate PDF",
         "generating": "Generating...",
         "download-quiz": "Download Quiz",
-        "download-answers": "Download Answers"
+        "download-answers": "Download Answers",
+        "quiz-incomplete": "User was not able to complete the quiz either due to running out of time or aborting the quiz."
       }
     }
   }
