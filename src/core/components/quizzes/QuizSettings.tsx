@@ -122,6 +122,13 @@ const QuizSettings: FunctionComponent = () => {
     });
   };
 
+  const handleGetCode = () => {
+    const questionArray = Object.keys(data);
+    const code = quiz.encode(questionArray);
+    const testQuiz = new Quiz("test");
+    testQuiz.loadSettingsFromCode(code,questionArray);
+  }
+
   return (
     <div id="quiz-settings">
       <div id="quizzes-catalog-header">
@@ -145,11 +152,6 @@ const QuizSettings: FunctionComponent = () => {
             icon={faTrash}
             onChange={handleDelete}
           />
-          {/* <IconToggleButton
-            label={t("PDF")}
-            icon={faFilePdf}
-            onChange={handlePDF}
-          /> */}
         </div>
       </div>
       <div className="settings-box" id="quiz-settings-box">
@@ -209,6 +211,10 @@ const QuizSettings: FunctionComponent = () => {
           </div>
         </div>
         <div id="quiz-settings-pdf">
+          <button
+            type="button"
+            onClick={handleGetCode}
+          >Get Code</button>
           <button
             type="button"
             onClick={handleGeneratePDF}
