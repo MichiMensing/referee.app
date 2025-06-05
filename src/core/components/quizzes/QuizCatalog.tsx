@@ -7,6 +7,7 @@ import Quiz from "./Quiz";
 import QuizModel from "../../model/Quiz";
 import { useRulesTestData } from "../../context/TestDataContext";
 import IconToggleButton from "../IconToggleButton";
+import { useSearchParams } from "react-router-dom";
 
 const DEFAULT_QUIZ = new QuizModel(
   t("quizzes.standard-quiz"),
@@ -16,11 +17,31 @@ const DEFAULT_QUIZ = new QuizModel(
 );
 
 const QuizCatalog: FunctionComponent = () => {
-  const { quizzes, addQuiz, resetQuizzes } = useRulesTestData();
+  const { quizzes, addQuiz, resetQuizzes, data } = useRulesTestData();
   const [quizList, setQuizList] = useState<QuizModel[]>(quizzes);
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const importCode = searchParams.get("import");
+  const [importing, setImporting] = useState<boolean>(false);
 
   const defaultQuiz = quizzes.find((q) => q.isDefault()) || DEFAULT_QUIZ;
+
+  const handleImport = async (code: string, questionArray: string[]) => {
+    const newQuiz = new QuizModel("Imported Quiz");
+    newQuiz.loadSettingsFromCode(code, questionArray);
+
+    if (addQuiz) {
+      await addQuiz(newQuiz);
+    }
+    setQuizList([...quizList]);
+    navigate(`/quizzes/${newQuiz.id}`);
+
+  };
+
+  if (importCode && importCode !== "" && !importing) {
+    setImporting(true);
+    handleImport(importCode, Object.keys(data));
+  }
 
   const handleCreateNew = async () => {
     const newQuiz = new QuizModel("New Quiz");
@@ -28,6 +49,8 @@ const QuizCatalog: FunctionComponent = () => {
       await addQuiz(newQuiz);
     }
     setQuizList([...quizList]);
+
+    setImporting(false);
     navigate(`/quizzes/${newQuiz.id}`);
   };
 

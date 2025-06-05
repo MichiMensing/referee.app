@@ -148,10 +148,6 @@ const config = {
       }
     }
   },
-  watchOptions: {
-    aggregateTimeout: 10000,
-    poll: 5000
-  },
   devtool: 'source-map'
 };
 

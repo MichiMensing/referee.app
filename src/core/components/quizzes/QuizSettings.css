@@ -26,11 +26,9 @@
 #quiz-settings-pdf {
   flex-grow: 1;
   display: flex;
-  flex-direction: column;
   align-items: end;
 
   button {
-    width: 10rem;
     background-color: var(--white);
     border: 1px solid var(--border-dark-color);
     color: var(--black);
@@ -45,19 +43,14 @@
     }
   }
 
-  button + button, button + a, a + a {
-    margin-top: 0.5rem;
+  button+button,
+  button+a,
+  a+a {
+    margin-left: 0.5rem;
   }
 }
 
-@media (width <=541px) {
-  #quiz-settings-pdf {
-    margin-top: 1rem;
-  }
-  #quiz-settings-pdf button {
-    width: 100%;
-  }
-}
+@media (width <=541px) {}
 
 #quiz-settings-list {
   min-width: 320px;
@@ -151,4 +144,56 @@
   background-color: var(--white);
   box-shadow: var(--shadow);
   padding: 1rem;
+}
+
+.toolbar-btn-group+.toolbar-btn-group {
+  padding-left: 10px;
+  margin-left: 10px;
+  border-left: 2px var(--grey1) solid;
+}
+
+#quizzes-catalog-toolbar {
+  display: flex;
+
+  button+button,
+  button+a,
+  a+a {
+    margin-left: 0.5rem;
+  }
+
+  .toolbar-btn-group {
+    display: flex;
+
+    .toggle-btn+.toggle-btn {
+      margin-left: 5px;
+    }
+
+    .btn-label {
+      margin-left: 5px;
+    }
+
+    .rotate>.icon-toggle-btn-icon{
+      animation-name: rotate;
+      animation-duration: 3s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+
+  }
+}
+
+.quiz-import-code {
+    font-size: smaller;
+    margin-top: 10px;
+    color: var(--grey3);
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }

@@ -41,7 +41,7 @@
   @media (max-width: 48rem) {
 
     .icon-toggle-btn-icon {
-      display: block;
+      display: inline-block;
     }
 
     .icon-toggle-btn-label {

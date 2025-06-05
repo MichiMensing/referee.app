@@ -9,6 +9,9 @@ interface Props {
   label?: string;
   icon?: IconDefinition;
   content?: React.ReactNode;
+  downloadLink?: string;
+  downloadLabel?: string;
+  className?: string;
 }
 
 const IconToggleButton: FunctionComponent<Props> = ({
@@ -17,6 +20,9 @@ const IconToggleButton: FunctionComponent<Props> = ({
   label = "",
   icon = null,
   content = null,
+  downloadLink = "",
+  downloadLabel = "",
+  className = "",
 }) => {
   const handleKeyDown = () => {
     if (onChange) {
@@ -25,7 +31,7 @@ const IconToggleButton: FunctionComponent<Props> = ({
   };
 
   const highlightClass = highlight ? "highlight" : "";
-  const className = `icon-toggle-btn ${highlightClass}`;
+  const clsName = `icon-toggle-btn ${highlightClass} ${className}`;
 
   let iconComponent;
 
@@ -36,14 +42,32 @@ const IconToggleButton: FunctionComponent<Props> = ({
   }
 
   return (
-    <button
-      className={className}
-      type="button"
-      onClick={handleKeyDown}
-    >
-      <div className="icon-toggle-btn-icon">{iconComponent}</div>
-      <div className="icon-toggle-btn-label">{label}</div>
-    </button>
+    <div className="toggle-btn">
+      {downloadLink === "" && (
+        <button
+          className={clsName}
+          type="button"
+          onClick={handleKeyDown}
+        >
+          <div className="icon-toggle-btn-icon">{iconComponent}</div>
+          <div className="icon-toggle-btn-label">{label}</div>
+        </button>
+
+      )}
+      {downloadLink !== "" && (
+
+        <a href={downloadLink} download={downloadLabel} target="_blank" rel="noreferrer">
+          <button
+            className={clsName}
+            type="button"
+            onClick={handleKeyDown}
+          >
+            <div className="icon-toggle-btn-icon">{iconComponent}</div>
+            <div className="icon-toggle-btn-label">{label}</div>
+          </button>
+        </a>
+      )}
+    </div>
   );
 };
 

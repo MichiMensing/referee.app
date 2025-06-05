@@ -2,7 +2,8 @@ import React, { FunctionComponent, useState } from "react";
 import "./QuizSettings.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faArrowLeft, faFloppyDisk, faPen, faPlay, faTrash, IconDefinition,
+  faArrowLeft, faFileDownload, faFilePdf, faFloppyDisk,
+  faGear, faPen, faPlay, faShare, faTrash, IconDefinition,
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate, useParams } from "react-router";
 import { useTranslation } from "react-i18next";
@@ -49,6 +50,8 @@ const QuizSettings: FunctionComponent = () => {
   const [pdfGenerating, setPDFGenerating] = useState<boolean>(false);
   const [quizPDFLink, setQuizPDFLink] = useState<string>("");
   const [answersPDFLink, setAnswersPDFLink] = useState<string>("");
+  const [quizCode, setQuizCode] = useState<string>("");
+
 
   const toggleQuestionCatalog = () => {
     setShowQuizCatalog(!showQuizCatalog);
@@ -71,12 +74,14 @@ const QuizSettings: FunctionComponent = () => {
     quiz.setMaxQuestions(+event.currentTarget.value);
     setQuiz(quiz);
     setMaxQuestions(quiz.maxQuestions);
+    setQuizCode("");
   };
 
   const handleInstantFeedbackChange = () => {
     quiz.setInstantFeedback(!quiz.instantFeedback);
     setQuiz(quiz);
     setInstantFeedbackChecked(!instantFeedbackChecked);
+    setQuizCode("");
   };
 
   const handleTimeLimitChange = (event: {
@@ -87,12 +92,14 @@ const QuizSettings: FunctionComponent = () => {
     quiz.setTimeLimit(+event.target.value);
     setQuiz(quiz);
     setTimeLimit(quiz.timeLimit);
+    setQuizCode("");
   };
 
   const handleQuestionChange = (questions: string[]) => {
     quiz.setQuestions(questions);
     setQuiz(quiz);
     setQuestions(quiz.questions);
+    setQuizCode("");
   };
 
   const handleStartQuiz = async () => {
@@ -125,8 +132,7 @@ const QuizSettings: FunctionComponent = () => {
   const handleGetCode = () => {
     const questionArray = Object.keys(data);
     const code = quiz.encode(questionArray);
-    const testQuiz = new Quiz("test");
-    testQuiz.loadSettingsFromCode(code,questionArray);
+    setQuizCode(`www.usabeachtour.online/referee-quiz/quizzes?import=${code}`);
   }
 
   return (
@@ -141,17 +147,94 @@ const QuizSettings: FunctionComponent = () => {
         </button>
         <h2>{t("quizzes.settings.title")}</h2>
         <div className="quizzes-button-group">
-          <IconToggleButton
-            label={t("quizzes.start")}
-            onChange={handleStartQuiz}
-            highlight
-            icon={faPlay}
-          />
-          <IconToggleButton
-            label={t("quizzes.settings.delete")}
-            icon={faTrash}
-            onChange={handleDelete}
-          />
+        </div>
+      </div>
+      <div className="settings-box">
+        <div id="quizzes-catalog-toolbar" >
+          <div className="toolbar-btn-group">
+            <IconToggleButton
+              label={t("quizzes.start")}
+              onChange={handleStartQuiz}
+              highlight
+              icon={faPlay}
+            />
+          </div>
+          <div id="quiz-settings-pdf" className="toolbar-btn-group">
+            <IconToggleButton
+              label={pdfGenerating ? t("quizzes.pdf.generating") : t("quizzes.pdf.generate")}
+              icon={pdfGenerating ? faGear : faFilePdf}
+              onChange={handleGeneratePDF}
+              className={pdfGenerating ? "rotate" : ""}
+            />
+            {pdfGenerated && (
+              <IconToggleButton
+                label={t("quizzes.pdf.download-quiz")}
+                downloadLink={quizPDFLink}
+                downloadLabel="Beach Handball Rules Quiz"
+                content={(
+                  <div>
+                    <FontAwesomeIcon icon={faFileDownload} />
+                    <span className="btn-label">{t("quizzes.quiz")}</span>
+                  </div>
+                )}
+              />
+            )}
+            {!pdfGenerated && (
+              <IconToggleButton
+                label={t("quizzes.pdf.download-quiz")}
+                className="disabled"
+                content={(
+                  <div>
+                    <FontAwesomeIcon icon={faFileDownload} />
+                    <span className="btn-label">{t("quizzes.quiz")}</span>
+                  </div>
+                )}
+              >
+              </IconToggleButton>
+            )}
+            {pdfGenerated && (
+              <IconToggleButton
+                label={t("quizzes.pdf.download-answers")}
+                downloadLink={answersPDFLink}
+                downloadLabel="Beach Handball Rules Quiz - Answer sheet"
+                content={(
+                  <div>
+                    <FontAwesomeIcon icon={faFileDownload} />
+                    <span className="btn-label">{t("quizzes.pdf.answers")}</span>
+                  </div>
+                )}
+              />
+            )}
+            {!pdfGenerated && (
+              <IconToggleButton
+                label={t("quizzes.pdf.download-answers")}
+                className="disabled"
+                content={(
+                  <div>
+                    <FontAwesomeIcon icon={faFileDownload} />
+                    <span className="btn-label">{t("quizzes.pdf.answers")}</span>
+                  </div>
+                )}
+              />
+            )}
+          </div>
+          <div className="toolbar-btn-group">
+            <IconToggleButton
+              label="Share"
+              icon={faShare}
+              onChange={handleGetCode}
+            />
+          </div>
+          <div className="toolbar-btn-group">
+            <IconToggleButton
+              label={t("quizzes.settings.delete")}
+              icon={faTrash}
+              onChange={handleDelete}
+            />
+          </div>
+        </div>
+        <div className="quiz-import-code">
+          {quizCode}
         </div>
       </div>
       <div className="settings-box" id="quiz-settings-box">
@@ -209,44 +292,6 @@ const QuizSettings: FunctionComponent = () => {
               />
             )}
           </div>
-        </div>
-        <div id="quiz-settings-pdf">
-          <button
-            type="button"
-            onClick={handleGetCode}
-          >Get Code</button>
-          <button
-            type="button"
-            onClick={handleGeneratePDF}
-          >
-            {pdfGenerating ? t("quizzes.pdf.generating") : t("quizzes.pdf.generate") }
-          </button>
-          {pdfGenerated && (
-            <a href={quizPDFLink} download="Beach Handball Rules Quiz" target="_blank" rel="noreferrer">
-              <button type="button">{t("quizzes.pdf.download-quiz")}</button>
-            </a>
-          )}
-          {!pdfGenerated && (
-            <button
-              type="button"
-              className="disabled"
-            >
-              {t("quizzes.pdf.download-quiz")}
-            </button>
-          )}
-          {pdfGenerated && (
-            <a href={answersPDFLink} download="Beach Handball Rules Quiz - Answer sheet" target="_blank" rel="noreferrer">
-              <button type="button">{t("quizzes.pdf.download-answers")}</button>
-            </a>
-          )}
-          {!pdfGenerated && (
-            <button
-              type="button"
-              className="disabled"
-            >
-              {t("quizzes.pdf.download-answers")}
-            </button>
-          )}
         </div>
       </div>
       <div className="settings-box">
