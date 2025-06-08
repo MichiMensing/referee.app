@@ -13,10 +13,6 @@
     }
   }
 
-  &.quizzes-button-group > button {
-    margin-left: 1rem;
-  }
-
   &button {
     background-color: var(--white);
     border: 1px solid var(--border-dark-color);
@@ -24,28 +20,64 @@
     font-size: 1rem;
     padding: 0.25rem 0.5rem;
     cursor: pointer;
+    display: flex;
 
     &:hover {
       background-color: var(--grey2);
     }
   }
 
+
   .icon-toggle-btn-icon {
-    display: none;
+    display: inline-flex;
+    align-items: center;
   }
 
-  .icon-toggle-btn-label {
-    display: block;
+  @media (width > 48rem) {
+    &.lg-icon-hide .icon-toggle-btn-icon {
+      display: none;
+    }
+
+    &.lg-label-hide .icon-toggle-btn-label {
+      display: none;
+    }
+
+    &.lg-custom-hide .icon-toggle-btn-custom {
+      display: none;
+    }
+
+    &.lg-icon-hide {
+      .icon-toggle-btn-icon+.icon-toggle-btn-label {
+        margin-left: 0rem;
+      }
+
+    }
+    .icon-toggle-btn-icon+.icon-toggle-btn-label {
+      margin-left: 0.5rem;
+    }
   }
 
   @media (max-width: 48rem) {
-
-    .icon-toggle-btn-icon {
-      display: inline-block;
+    &.sm-icon-hide .icon-toggle-btn-icon {
+      display: none;
     }
 
-    .icon-toggle-btn-label {
+    &.sm-label-hide .icon-toggle-btn-label {
       display: none;
+    }
+
+    &.sm-custom-hide .icon-toggle-btn-custom {
+      display: none;
+    }
+
+    &.sm-icon-hide {
+      .icon-toggle-btn-icon+.icon-toggle-btn-label {
+        margin-left: 0rem;
+      }
+    }
+
+    .icon-toggle-btn-icon+.icon-toggle-btn-label {
+      margin-left: 0.5rem;
     }
   }
 

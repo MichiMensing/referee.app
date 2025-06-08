@@ -36,12 +36,17 @@
       border-color: var(--shell-bg-color);
     }
 
-    & .back-button > svg {
+    & .back-button>svg {
       margin-right: 0px;
       width: inherit;
     }
 
-    .stats-button-group > button {
+    .stats-button-group,
+    .toggle-btn {
+      display: flex;
+    }
+
+    .toggle-btn+.toggle-btn {
       margin-left: 1rem;
     }
 

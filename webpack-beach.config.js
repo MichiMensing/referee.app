@@ -135,7 +135,7 @@ const config = {
     historyApiFallback: {
       index: '/referee-quiz/index.html',
       rewrites: [
-        { from: /./, to: './beach/app.tsx' }
+        { from: '/./', to: './beach/app.tsx' }
       ]
     },
     host: '0.0.0.0',

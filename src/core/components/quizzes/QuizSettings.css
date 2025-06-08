@@ -182,12 +182,6 @@
   }
 }
 
-.quiz-import-code {
-    font-size: smaller;
-    margin-top: 10px;
-    color: var(--grey3);
-}
-
 @keyframes rotate {
   0% {
     transform: rotate(0);

@@ -12,7 +12,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRulesTestData } from "../../context/TestDataContext";
 import Question from "../../model/Question";
 import Rule from "./Rule";
-import IconToggleButton from "../IconToggleButton";
+import IconToggleButton, { IconToggleButtonMode } from "../IconToggleButton";
 import "./Stats.css";
 import Quiz from "../../model/Quiz";
 import PDFGenerator from "../../model/PDFGenerator";
@@ -161,6 +161,7 @@ const Stats: FunctionComponent = () => {
   const retryBtn = (
     <IconToggleButton
       label="Retry Failed Questions"
+      smallScreenMode={IconToggleButtonMode.CUSTOM}
       content={(
         <div>
           <FontAwesomeIcon icon={faRepeat} />

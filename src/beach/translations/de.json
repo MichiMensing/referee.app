@@ -114,6 +114,11 @@
         "download-quiz": "Download Quiz",
         "download-answers": "Download Antworten",
         "quiz-incomplete": "Der Anwender hat das Quiz nicht beendet, da entweder die Zeit abgelaufen ist oder das Quiz abgebrochen wurde."
+      },
+      "share": {
+        "description": "Teile diese url mit deinen Freunden",
+        "copy": "Kopiere ins Clipboard",
+        "title": "Teile dein Quiz"
       }
     }
   }

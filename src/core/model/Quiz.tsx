@@ -9,15 +9,15 @@ import QuizRun from "./QuizRun";
 import Question from "./Question";
 
 const TIME_LIMIT_MAP: { [key: string]: { [key: string]: number } } = {
-  "1": {
-    "0": 0,
-    "1": 1,
-    "2": 5,
-    "3": 15,
-    "4": 30,
-    "5": 45,
-    "6": 60
-  }
+  1: {
+    0: 0,
+    1: 1,
+    2: 5,
+    3: 15,
+    4: 30,
+    5: 45,
+    6: 60,
+  },
 };
 
 const CODE_GEN_VERSION = 1;
@@ -81,6 +81,10 @@ export default class Quiz {
 
   public setTimeLimit(timeLimit: number) {
     this._settings.timeLimit = timeLimit;
+  }
+
+  public setObfuscate(hide: boolean) {
+    this._settings.obfuscate = hide;
   }
 
   public setName(name: string) {
@@ -188,32 +192,31 @@ export default class Quiz {
 
   // see Quiz Code Generation Guide in docs for detailed description
   public encode(questionArray: string[]): string {
-
     questionArray.sort();
 
     let code = "";
 
     // set version
-    code = code + this.numToChar(CODE_GEN_VERSION);
+    code += this.numToChar(CODE_GEN_VERSION);
 
     // set settings
 
     let sCode = "";
-    sCode = sCode + (this.instantFeedback ? "1" : "0");
-    sCode = sCode + this.maxQuestions.toString().padStart(3, "0");
+    sCode += (this.instantFeedback ? "1" : "0");
+    sCode += this.maxQuestions.toString().padStart(3, "0");
 
     const map = TIME_LIMIT_MAP[CODE_GEN_VERSION];
-    Object.values(map).find((t, i) => {
-      if (t === this.timeLimit) {
-        sCode = sCode + i;
+    Object.values(map).find((limit, i) => {
+      if (limit === this.timeLimit) {
+        sCode += i;
         return true;
       }
       return false;
     });
-    code = code + "$" + sCode;
+    code = `${code}$${sCode}`;
 
     // set questions
-    const b = (s: string, i: number) => i< s.length? parseInt(s[i]) : 0;
+    const b = (s: string, i: number) => (i < s.length ? parseInt(s[i], 10) : 0);
 
     const s = questionArray.map((qId) => {
       if (this._questions.length === 0) {
@@ -224,18 +227,23 @@ export default class Quiz {
     }).join("");
 
     let qCode = "";
-    for (let i = 0; i < s.length; i = i + 6) {
-      let sum = b(s, i) + 2 * b(s, i + 1) + 4 * b(s, i + 2) + 8 * b(s, i + 3) + 16 * b(s, i + 4) + 32 * b(s, i + 5);
-      qCode = qCode + this.numToChar(sum);
+    for (let i = 0; i < s.length; i += 6) {
+      const sum = b(s, i)
+        + 2 * b(s, i + 1)
+        + 4 * b(s, i + 2)
+        + 8 * b(s, i + 3)
+        + 16 * b(s, i + 4)
+        + 32 * b(s, i + 5);
+      qCode += this.numToChar(sum);
     }
-    code = code + "$" + qCode;
+    code = `${code}$${qCode}`;
     return code;
   }
 
   // see Quiz Code Generation Guide in docs for detailed description
   public loadSettingsFromCode(code: string, questionArray: string[]) {
     questionArray.sort();
-    let [vCode, sCode, qCode] = code.split("$");
+    const [vCode, sCode, qCode] = code.split("$");
     const version = this.charToNum(vCode);
 
     // set settings
@@ -243,21 +251,23 @@ export default class Quiz {
       this._settings.instantFeedback = true;
     }
 
-    this._settings.maxQuestions = parseInt(sCode.slice(1, 3));
+    this._settings.maxQuestions = parseInt(sCode.slice(1, 3), 10);
+    this._settings.obfuscate = true;
 
     const currentMap = TIME_LIMIT_MAP[version];
     this._settings.maxQuestions = currentMap[sCode[4]];
 
     // set questions
     let binCode = "";
-    for (let i = 0; i < qCode.length; i++) {
-      let sum = this.charToNum(qCode[i]);
-      binCode = binCode + sum.toString(2).padStart(6, "0").split("").reverse().join("");
+    for (let i = 0; i < qCode.length; i += 1) {
+      const sum = this.charToNum(qCode[i]);
+      binCode += sum.toString(2).padStart(6, "0").split("").reverse()
+        .join("");
     }
 
     const questions = [];
 
-    for (let i = 0; i < binCode.length; i++) {
+    for (let i = 0; i < binCode.length; i += 1) {
       if (binCode[i] === "1") {
         questions.push(questionArray[i]);
       }
@@ -288,6 +298,7 @@ export default class Quiz {
       maxQuestions: 0,
       instantFeedback: true,
       timeLimit: 0,
+      obfuscate: false,
     };
   }
 
@@ -308,7 +319,7 @@ export default class Quiz {
   }
 
   private charToNum(s: string) {
-    let charCode = s.charCodeAt(0);
+    const charCode = s.charCodeAt(0);
     let sum = 0;
     if (charCode === 95) {
       sum = 63;
@@ -323,5 +334,4 @@ export default class Quiz {
     }
     return sum;
   }
-
 }

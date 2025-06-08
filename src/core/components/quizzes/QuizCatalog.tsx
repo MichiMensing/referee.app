@@ -1,13 +1,13 @@
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent, useEffect, useState } from "react";
 import "./QuizCatalog.css";
 import { t } from "i18next";
 import { useNavigate } from "react-router";
 import { faArrowRotateLeft, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { useSearchParams } from "react-router-dom";
 import Quiz from "./Quiz";
 import QuizModel from "../../model/Quiz";
 import { useRulesTestData } from "../../context/TestDataContext";
 import IconToggleButton from "../IconToggleButton";
-import { useSearchParams } from "react-router-dom";
 
 const DEFAULT_QUIZ = new QuizModel(
   t("quizzes.standard-quiz"),
@@ -17,7 +17,9 @@ const DEFAULT_QUIZ = new QuizModel(
 );
 
 const QuizCatalog: FunctionComponent = () => {
-  const { quizzes, addQuiz, resetQuizzes, data } = useRulesTestData();
+  const {
+    quizzes, addQuiz, resetQuizzes, data,
+  } = useRulesTestData();
   const [quizList, setQuizList] = useState<QuizModel[]>(quizzes);
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -35,13 +37,7 @@ const QuizCatalog: FunctionComponent = () => {
     }
     setQuizList([...quizList]);
     navigate(`/quizzes/${newQuiz.id}`);
-
   };
-
-  if (importCode && importCode !== "" && !importing) {
-    setImporting(true);
-    handleImport(importCode, Object.keys(data));
-  }
 
   const handleCreateNew = async () => {
     const newQuiz = new QuizModel("New Quiz");
@@ -60,6 +56,13 @@ const QuizCatalog: FunctionComponent = () => {
     }
     setQuizList([]);
   };
+
+  useEffect(() => {
+    if (importCode && importCode !== "" && !importing) {
+      setImporting(true);
+      handleImport(importCode, Object.keys(data));
+    }
+  }, []);
 
   return (
     <div id="quizzes">

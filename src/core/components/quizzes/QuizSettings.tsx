@@ -3,7 +3,7 @@ import "./QuizSettings.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowLeft, faFileDownload, faFilePdf, faFloppyDisk,
-  faGear, faPen, faPlay, faShare, faTrash, IconDefinition,
+  faGear, faPen, faPlay, faTrash, IconDefinition,
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate, useParams } from "react-router";
 import { useTranslation } from "react-i18next";
@@ -12,9 +12,10 @@ import CheckBox from "../CheckBox";
 import QuizRun from "./QuizRun";
 import { useRulesTestData } from "../../context/TestDataContext";
 import Quiz from "../../model/Quiz";
-import IconToggleButton from "../IconToggleButton";
+import IconToggleButton, { IconToggleButtonMode } from "../IconToggleButton";
 import QuizRunModel from "../../model/QuizRun";
 import PDFGenerator from "../../model/PDFGenerator";
+import QuizCodePopup from "./QuizCodePopup";
 
 const QuizSettings: FunctionComponent = () => {
   const { quizId } = useParams();
@@ -25,7 +26,10 @@ const QuizSettings: FunctionComponent = () => {
   const { t, i18n: { language } } = useTranslation();
 
   const currentQuiz = quizzes.find((q, _) => q.id === quizId);
-  const readOnly = currentQuiz ? currentQuiz.isDefault() : false;
+  let readOnly = false;
+  if (currentQuiz && (currentQuiz.isDefault() || currentQuiz.settings.obfuscate)) {
+    readOnly = true;
+  }
 
   if (!currentQuiz) {
     navigate(-1);
@@ -51,7 +55,6 @@ const QuizSettings: FunctionComponent = () => {
   const [quizPDFLink, setQuizPDFLink] = useState<string>("");
   const [answersPDFLink, setAnswersPDFLink] = useState<string>("");
   const [quizCode, setQuizCode] = useState<string>("");
-
 
   const toggleQuestionCatalog = () => {
     setShowQuizCatalog(!showQuizCatalog);
@@ -129,12 +132,6 @@ const QuizSettings: FunctionComponent = () => {
     });
   };
 
-  const handleGetCode = () => {
-    const questionArray = Object.keys(data);
-    const code = quiz.encode(questionArray);
-    setQuizCode(`www.usabeachtour.online/referee-quiz/quizzes?import=${code}`);
-  }
-
   return (
     <div id="quiz-settings">
       <div id="quizzes-catalog-header">
@@ -146,11 +143,10 @@ const QuizSettings: FunctionComponent = () => {
           <FontAwesomeIcon icon={faArrowLeft} size="lg" />
         </button>
         <h2>{t("quizzes.settings.title")}</h2>
-        <div className="quizzes-button-group">
-        </div>
+        <div className="quizzes-button-group" />
       </div>
       <div className="settings-box">
-        <div id="quizzes-catalog-toolbar" >
+        <div id="quizzes-catalog-toolbar">
           <div className="toolbar-btn-group">
             <IconToggleButton
               label={t("quizzes.start")}
@@ -171,6 +167,7 @@ const QuizSettings: FunctionComponent = () => {
                 label={t("quizzes.pdf.download-quiz")}
                 downloadLink={quizPDFLink}
                 downloadLabel="Beach Handball Rules Quiz"
+                smallScreenMode={IconToggleButtonMode.CUSTOM}
                 content={(
                   <div>
                     <FontAwesomeIcon icon={faFileDownload} />
@@ -183,18 +180,19 @@ const QuizSettings: FunctionComponent = () => {
               <IconToggleButton
                 label={t("quizzes.pdf.download-quiz")}
                 className="disabled"
+                smallScreenMode={IconToggleButtonMode.CUSTOM}
                 content={(
                   <div>
                     <FontAwesomeIcon icon={faFileDownload} />
                     <span className="btn-label">{t("quizzes.quiz")}</span>
                   </div>
                 )}
-              >
-              </IconToggleButton>
+              />
             )}
             {pdfGenerated && (
               <IconToggleButton
                 label={t("quizzes.pdf.download-answers")}
+                smallScreenMode={IconToggleButtonMode.CUSTOM}
                 downloadLink={answersPDFLink}
                 downloadLabel="Beach Handball Rules Quiz - Answer sheet"
                 content={(
@@ -208,6 +206,7 @@ const QuizSettings: FunctionComponent = () => {
             {!pdfGenerated && (
               <IconToggleButton
                 label={t("quizzes.pdf.download-answers")}
+                smallScreenMode={IconToggleButtonMode.CUSTOM}
                 className="disabled"
                 content={(
                   <div>
@@ -219,11 +218,7 @@ const QuizSettings: FunctionComponent = () => {
             )}
           </div>
           <div className="toolbar-btn-group">
-            <IconToggleButton
-              label="Share"
-              icon={faShare}
-              onChange={handleGetCode}
-            />
+            <QuizCodePopup quiz={quiz} />
           </div>
           <div className="toolbar-btn-group">
             <IconToggleButton
@@ -233,15 +228,12 @@ const QuizSettings: FunctionComponent = () => {
             />
           </div>
         </div>
-        <div className="quiz-import-code">
-          {quizCode}
-        </div>
       </div>
       <div className="settings-box" id="quiz-settings-box">
         <div id="quiz-settings-list">
           <div className="setting">
             <div className="label">{t("quizzes.settings.name")}</div>
-            {readOnly
+            {(!quiz.settings.obfuscate && readOnly)
               ? <div className="label">{quiz.isDefault() ? t("quizzes.standard-quiz") : name}</div>
               : <input value={name} onChange={handleNameChange} />}
           </div>
