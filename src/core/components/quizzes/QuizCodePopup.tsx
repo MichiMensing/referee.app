@@ -22,7 +22,7 @@ const QuizCodePopup: FunctionComponent<Props> = ({
 
   const questionArray = Object.keys(data);
   const code = quiz.encode(questionArray);
-  const codeString = `www.usabeachtour.online/referee-quiz/quizzes?import=${code}`;
+  const codeString = `https://usabeachtour.online/referee-quiz/quizzes?import=${code}`;
 
   const handleCopy = async () => {
     try {
