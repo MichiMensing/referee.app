@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.8.2](https://github.com/MichiMensing/referee.app/compare/v1.8.1...v1.8.2) (2025-06-16)
+
+
+### Bug Fixes
+
+* remove delete on default quiz ([fe7619e](https://github.com/MichiMensing/referee.app/commit/fe7619e759ad96a553fec74bfa68a9e7e29f4f72))
+
 ### [1.8.1](https://github.com/MichiMensing/referee.app/compare/v1.8.0...v1.8.1) (2025-06-16)
 
 
