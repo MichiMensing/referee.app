@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.8.3](https://github.com/MichiMensing/referee.app/compare/v1.8.2...v1.8.3) (2025-06-16)
+
+
+### Bug Fixes
+
+* quiz url ([3aa8d77](https://github.com/MichiMensing/referee.app/commit/3aa8d77bdcd56fa980212d0b8d5809170726a40e))
+
 ### [1.8.2](https://github.com/MichiMensing/referee.app/compare/v1.8.1...v1.8.2) (2025-06-16)
 
 
