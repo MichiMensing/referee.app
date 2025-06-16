@@ -8,6 +8,7 @@ import Quiz from "./Quiz";
 import QuizModel from "../../model/Quiz";
 import { useRulesTestData } from "../../context/TestDataContext";
 import IconToggleButton from "../IconToggleButton";
+import Loading from "../Loading";
 
 const DEFAULT_QUIZ = (name:string) => new QuizModel(
   name,
@@ -64,6 +65,10 @@ const QuizCatalog: FunctionComponent = () => {
       handleImport(importCode, Object.keys(data));
     }
   }, []);
+
+  if (importCode && importCode !== "" && !importing) {
+    return <Loading/>
+  }
 
   return (
     <div id="quizzes">
