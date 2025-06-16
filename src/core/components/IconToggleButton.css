@@ -1,84 +1,91 @@
 @import "shared.css";
 
-.icon-toggle-btn {
-
-  &button.highlight {
-    background-color: var(--btn-bg-color);
-    border: 1px solid var(--border-dark-color);
-    color: var(--white);
-
-    &:hover {
-      background-color: var(--btn-dark-bg-color);
-      border: 1px solid var(--border-dark-bg-color);
-    }
+.toggle-btn {
+  * {
+    text-decoration: none;
   }
 
-  &button {
-    background-color: var(--white);
-    border: 1px solid var(--border-dark-color);
-    color: var(--black);
-    font-size: 1rem;
-    padding: 0.25rem 0.5rem;
-    cursor: pointer;
-    display: flex;
+  .icon-toggle-btn {
 
-    &:hover {
-      background-color: var(--grey2);
-    }
-  }
+    &button.highlight {
+      background-color: var(--btn-bg-color);
+      border: 1px solid var(--border-dark-color);
+      color: var(--white);
 
-
-  .icon-toggle-btn-icon {
-    display: inline-flex;
-    align-items: center;
-  }
-
-  @media (width > 48rem) {
-    &.lg-icon-hide .icon-toggle-btn-icon {
-      display: none;
-    }
-
-    &.lg-label-hide .icon-toggle-btn-label {
-      display: none;
-    }
-
-    &.lg-custom-hide .icon-toggle-btn-custom {
-      display: none;
-    }
-
-    &.lg-icon-hide {
-      .icon-toggle-btn-icon+.icon-toggle-btn-label {
-        margin-left: 0rem;
-      }
-
-    }
-    .icon-toggle-btn-icon+.icon-toggle-btn-label {
-      margin-left: 0.5rem;
-    }
-  }
-
-  @media (max-width: 48rem) {
-    &.sm-icon-hide .icon-toggle-btn-icon {
-      display: none;
-    }
-
-    &.sm-label-hide .icon-toggle-btn-label {
-      display: none;
-    }
-
-    &.sm-custom-hide .icon-toggle-btn-custom {
-      display: none;
-    }
-
-    &.sm-icon-hide {
-      .icon-toggle-btn-icon+.icon-toggle-btn-label {
-        margin-left: 0rem;
+      &:hover {
+        background-color: var(--btn-dark-bg-color);
+        border: 1px solid var(--border-dark-bg-color);
       }
     }
 
-    .icon-toggle-btn-icon+.icon-toggle-btn-label {
-      margin-left: 0.5rem;
-    }
-  }
+    &button {
+      background-color: var(--white);
+      border: 1px solid var(--border-dark-color);
+      color: var(--black);
+      font-size: 1rem;
+      padding: 0.25rem 0.5rem;
+      cursor: pointer;
+      display: flex;
 
+      &:hover {
+        background-color: var(--grey2);
+      }
+    }
+
+
+    .icon-toggle-btn-icon {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    @media (width > 48rem) {
+      &.lg-icon-hide .icon-toggle-btn-icon {
+        display: none;
+      }
+
+      &.lg-label-hide .icon-toggle-btn-label {
+        display: none;
+      }
+
+      &.lg-custom-hide .icon-toggle-btn-custom {
+        display: none;
+      }
+
+      &.lg-icon-hide {
+        .icon-toggle-btn-icon+.icon-toggle-btn-label {
+          margin-left: 0rem;
+        }
+
+      }
+
+      .icon-toggle-btn-icon+.icon-toggle-btn-label {
+        margin-left: 0.5rem;
+      }
+    }
+
+    @media (max-width: 48rem) {
+      &.sm-icon-hide .icon-toggle-btn-icon {
+        display: none;
+      }
+
+      &.sm-label-hide .icon-toggle-btn-label {
+        display: none;
+      }
+
+      &.sm-custom-hide .icon-toggle-btn-custom {
+        display: none;
+      }
+
+      &.sm-icon-hide {
+        .icon-toggle-btn-icon+.icon-toggle-btn-label {
+          margin-left: 0rem;
+        }
+      }
+
+      .icon-toggle-btn-icon+.icon-toggle-btn-label {
+        margin-left: 0.5rem;
+      }
+    }
+
+  }
 }

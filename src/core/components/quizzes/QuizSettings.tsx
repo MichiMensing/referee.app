@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent, useEffect, useState } from "react";
 import "./QuizSettings.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -16,6 +16,7 @@ import IconToggleButton, { IconToggleButtonMode } from "../IconToggleButton";
 import QuizRunModel from "../../model/QuizRun";
 import PDFGenerator from "../../model/PDFGenerator";
 import QuizCodePopup from "./QuizCodePopup";
+import Loading from "../Loading";
 
 const QuizSettings: FunctionComponent = () => {
   const { quizId } = useParams();
@@ -24,37 +25,50 @@ const QuizSettings: FunctionComponent = () => {
   } = useRulesTestData();
   const navigate = useNavigate();
   const { t, i18n: { language } } = useTranslation();
-
-  const currentQuiz = quizzes.find((q, _) => q.id === quizId);
-  let readOnly = false;
-  if (currentQuiz && (currentQuiz.isDefault() || currentQuiz.settings.obfuscate)) {
-    readOnly = true;
-  }
-
-  if (!currentQuiz) {
-    navigate(-1);
-    return null;
-  }
   const pdfGenerator = new PDFGenerator(language, t);
 
-  const [quiz, setQuiz] = useState<Quiz>(currentQuiz);
-
+  const [quiz, setQuiz] = useState<Quiz>();
   const [
     instantFeedbackChecked,
     setInstantFeedbackChecked,
-  ] = useState<boolean>(quiz.instantFeedback);
+  ] = useState<boolean>(true);
   const [showQuizCatalog, setShowQuizCatalog] = useState<boolean>(false);
   const [editIcon, setEditIcon] = useState<IconDefinition>(faPen);
-  const [timeLimit, setTimeLimit] = useState<number>(quiz.timeLimit);
-  const [maxQuestions, setMaxQuestions] = useState<number>(quiz.maxQuestions);
-  const [name, setName] = useState<string>(quiz.name);
-  const [_, setQuestions] = useState<string[]>(quiz.questions);
-  const [runs, setRuns] = useState<QuizRunModel[]>(quiz.runs);
+  const [timeLimit, setTimeLimit] = useState<number>(0);
+  const [maxQuestions, setMaxQuestions] = useState<number>(0);
+  const [name, setName] = useState<string>("");
+  const [_, setQuestions] = useState<string[]>([]);
+  const [runs, setRuns] = useState<QuizRunModel[]>([]);
   const [pdfGenerated, setPDFGenerated] = useState<boolean>(false);
   const [pdfGenerating, setPDFGenerating] = useState<boolean>(false);
   const [quizPDFLink, setQuizPDFLink] = useState<string>("");
   const [answersPDFLink, setAnswersPDFLink] = useState<string>("");
-  const [quizCode, setQuizCode] = useState<string>("");
+
+  useEffect(() => {
+    const currentQuiz = quizzes.find((q, _) => q.id === quizId);
+
+    if (!currentQuiz) {
+      navigate(-1);
+      return;
+    }
+
+    setQuiz(currentQuiz);
+    setInstantFeedbackChecked(currentQuiz.instantFeedback);
+    setTimeLimit(currentQuiz.timeLimit);
+    setMaxQuestions(currentQuiz.maxQuestions);
+    setName(currentQuiz.name);
+    setQuestions(currentQuiz.questions);
+    setRuns(currentQuiz.runs);
+  }, [quiz]);
+
+  if (!quiz) {
+    return;
+  }
+
+  let readOnly = false;
+  if (quiz && (quiz.isDefault() || quiz.settings.obfuscate)) {
+    readOnly = true;
+  }
 
   const toggleQuestionCatalog = () => {
     setShowQuizCatalog(!showQuizCatalog);
@@ -77,14 +91,12 @@ const QuizSettings: FunctionComponent = () => {
     quiz.setMaxQuestions(+event.currentTarget.value);
     setQuiz(quiz);
     setMaxQuestions(quiz.maxQuestions);
-    setQuizCode("");
   };
 
   const handleInstantFeedbackChange = () => {
     quiz.setInstantFeedback(!quiz.instantFeedback);
     setQuiz(quiz);
     setInstantFeedbackChecked(!instantFeedbackChecked);
-    setQuizCode("");
   };
 
   const handleTimeLimitChange = (event: {
@@ -95,14 +107,12 @@ const QuizSettings: FunctionComponent = () => {
     quiz.setTimeLimit(+event.target.value);
     setQuiz(quiz);
     setTimeLimit(quiz.timeLimit);
-    setQuizCode("");
   };
 
   const handleQuestionChange = (questions: string[]) => {
     quiz.setQuestions(questions);
     setQuiz(quiz);
     setQuestions(quiz.questions);
-    setQuizCode("");
   };
 
   const handleStartQuiz = async () => {
@@ -124,7 +134,7 @@ const QuizSettings: FunctionComponent = () => {
     setPDFGenerating(true);
     setPDFGenerated(false);
     setQuizPDFLink("");
-    pdfGenerator.createQuizPDF(currentQuiz, data).then(({ quiz: quizLink, answers }) => {
+    pdfGenerator.createQuizPDF(quiz, data).then(({ quiz: quizLink, answers }) => {
       setQuizPDFLink(quizLink);
       setAnswersPDFLink(answers);
       setPDFGenerated(true);
@@ -132,7 +142,7 @@ const QuizSettings: FunctionComponent = () => {
     });
   };
 
-  return (
+  return !quiz? <Loading /> : (
     <div id="quiz-settings">
       <div id="quizzes-catalog-header">
         <button
@@ -218,7 +228,7 @@ const QuizSettings: FunctionComponent = () => {
             )}
           </div>
           <div className="toolbar-btn-group">
-            <QuizCodePopup quiz={quiz} />
+            {quiz && <QuizCodePopup quiz={quiz} />}
           </div>
           <div className="toolbar-btn-group">
             <IconToggleButton
@@ -229,80 +239,82 @@ const QuizSettings: FunctionComponent = () => {
           </div>
         </div>
       </div>
-      <div className="settings-box" id="quiz-settings-box">
-        <div id="quiz-settings-list">
-          <div className="setting">
-            <div className="label">{t("quizzes.settings.name")}</div>
-            {(!quiz.settings.obfuscate && readOnly)
-              ? <div className="label">{quiz.isDefault() ? t("quizzes.standard-quiz") : name}</div>
-              : <input value={name} onChange={handleNameChange} />}
+      {quiz && (
+        <div className="settings-box" id="quiz-settings-box">
+          <div id="quiz-settings-list">
+            <div className="setting">
+              <div className="label">{t("quizzes.settings.name")}</div>
+              {((quiz && !quiz.settings.obfuscate) && readOnly)
+                ? <div className="label">{quiz.isDefault() ? t("quizzes.standard-quiz") : name}</div>
+                : <input value={name} onChange={handleNameChange} />}
+            </div>
+            <div className="setting">
+              <div className="label">{t("quizzes.settings.max-question")}</div>
+              {readOnly
+                ? <div className="label">{maxQuestions}</div>
+                : <input className="number-input" type="number" value={maxQuestions} onChange={handleMaxQuestionChange} min={0} />}
+            </div>
+            <div className="setting">
+              <div className="label">{t("quizzes.settings.time-limit")}</div>
+              {readOnly
+                ? <div className="label">{`1 ${t("quizzes.settings.hour")}`}</div>
+                : (
+                  <select name="time-limit" id="time-limit" value={timeLimit} onChange={handleTimeLimitChange}>
+                    <option value="0" label={t("quizzes.settings.none")}>{t("quizzes.settings.none")}</option>
+                    <option value="1">
+                      {`1 ${t("quizzes.settings.min")}`}
+                    </option>
+                    <option value="5">
+                      {`5 ${t("quizzes.settings.min")}`}
+                    </option>
+                    <option value="15">
+                      {`15 ${t("quizzes.settings.min")}`}
+                    </option>
+                    <option value="30">
+                      {`30 ${t("quizzes.settings.min")}`}
+                    </option>
+                    <option value="45">
+                      {`45 ${t("quizzes.settings.min")}`}
+                    </option>
+                    <option value="60">
+                      {`1 ${t("quizzes.settings.hour")}`}
+                    </option>
+                  </select>
+                )}
+            </div>
+            <div className="setting setting-inline">
+              <div className="label">{t("quizzes.settings.instant-feedback")}</div>
+              {readOnly && (
+                <div>{quiz.instantFeedback ? t("yes") : t("no")}</div>
+              )}
+              {!readOnly && (
+                <CheckBox
+                  checked={quiz.instantFeedback}
+                  readOnly={readOnly}
+                  onChange={handleInstantFeedbackChange}
+                />
+              )}
+            </div>
           </div>
-          <div className="setting">
-            <div className="label">{t("quizzes.settings.max-question")}</div>
-            {readOnly
-              ? <div className="label">{maxQuestions}</div>
-              : <input className="number-input" type="number" value={maxQuestions} onChange={handleMaxQuestionChange} min={0} />}
-          </div>
-          <div className="setting">
-            <div className="label">{t("quizzes.settings.time-limit")}</div>
-            {readOnly
-              ? <div className="label">{`1 ${t("quizzes.settings.hour")}`}</div>
-              : (
-                <select name="time-limit" id="time-limit" value={timeLimit} onChange={handleTimeLimitChange}>
-                  <option value="0" label={t("quizzes.settings.none")}>{t("quizzes.settings.none")}</option>
-                  <option value="1">
-                    {`1 ${t("quizzes.settings.min")}`}
-                  </option>
-                  <option value="5">
-                    {`5 ${t("quizzes.settings.min")}`}
-                  </option>
-                  <option value="15">
-                    {`15 ${t("quizzes.settings.min")}`}
-                  </option>
-                  <option value="30">
-                    {`30 ${t("quizzes.settings.min")}`}
-                  </option>
-                  <option value="45">
-                    {`45 ${t("quizzes.settings.min")}`}
-                  </option>
-                  <option value="60">
-                    {`1 ${t("quizzes.settings.hour")}`}
-                  </option>
-                </select>
+        </div>)}
+      {quiz && (
+        <div className="settings-box">
+          <div id="quiz-settings-questions" className="setting">
+            <div className="label">{t("quizzes.settings.questions")}</div>
+            <div className="label">{quiz.getQuestionSummary()}</div>
+            {!readOnly
+              && (
+                <button type="button" className="icon" onClick={toggleQuestionCatalog}>
+                  <FontAwesomeIcon icon={editIcon} size="sm" />
+                </button>
               )}
           </div>
-          <div className="setting setting-inline">
-            <div className="label">{t("quizzes.settings.instant-feedback")}</div>
-            {readOnly && (
-              <div>{quiz.instantFeedback ? t("yes") : t("no")}</div>
-            )}
-            {!readOnly && (
-              <CheckBox
-                checked={quiz.instantFeedback}
-                readOnly={readOnly}
-                onChange={handleInstantFeedbackChange}
-              />
-            )}
-          </div>
-        </div>
-      </div>
-      <div className="settings-box">
-        <div id="quiz-settings-questions" className="setting">
-          <div className="label">{t("quizzes.settings.questions")}</div>
-          <div className="label">{quiz.getQuestionSummary()}</div>
-          {!readOnly
-            && (
-              <button type="button" className="icon" onClick={toggleQuestionCatalog}>
-                <FontAwesomeIcon icon={editIcon} size="sm" />
-              </button>
-            )}
-        </div>
-        <QuestionCatalogTree
-          showCatalog={showQuizCatalog}
-          quiz={quiz}
-          onChange={handleQuestionChange}
-        />
-      </div>
+          <QuestionCatalogTree
+            showCatalog={showQuizCatalog}
+            quiz={quiz}
+            onChange={handleQuestionChange}
+          />
+        </div>)}
       <div className="quiz-settings-runs-header">
         <h2 className="quiz-settings-runs-title">{t("quizzes.settings.past-runs")}</h2>
       </div>

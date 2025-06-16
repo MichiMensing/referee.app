@@ -42,6 +42,8 @@ const RulesTest: FunctionComponent<RulesTestProps> = ({ mapRuleToAnchor }) => {
     reveal,
     quiz,
   } = useRulesTestData();
+  const { t, i18n: { language } } = useTranslation();
+  const { trackEvent } = useAnalytics();
 
   const [checked, setChecked] = useState<string[]>(initialChecked);
   let timeRemaining;
@@ -72,8 +74,6 @@ const RulesTest: FunctionComponent<RulesTestProps> = ({ mapRuleToAnchor }) => {
     return () => clearInterval(interval);
   }, []);
 
-  const { t, i18n: { language } } = useTranslation();
-  const { trackEvent } = useAnalytics();
 
   const handleButtonClick = async (event: MouseEvent) => {
     event.preventDefault();
@@ -117,10 +117,13 @@ const RulesTest: FunctionComponent<RulesTestProps> = ({ mapRuleToAnchor }) => {
     setChecked(currentChecked);
   };
 
-  if (!question) {
-    if (quiz) {
+  useEffect(() => {
+    if (!question && quiz) {
       showResult(quiz);
     }
+  }, [question]);
+
+  if (!question) {
     return <div className="no-questions">{t("rulestest.no-questions")}</div>;
   }
 

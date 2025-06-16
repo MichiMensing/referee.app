@@ -2,9 +2,9 @@ import React, { FunctionComponent } from "react";
 import "./Quiz.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHashtag, faSection, faStopwatch } from "@fortawesome/free-solid-svg-icons";
-import { t } from "i18next";
 import { Link } from "react-router-dom";
 import QuizModel from "../../model/Quiz";
+import { useTranslation } from "react-i18next";
 
 interface Props {
   quiz: QuizModel;
@@ -13,6 +13,7 @@ interface Props {
 const Quiz: FunctionComponent<Props> = ({
   quiz,
 }) => {
+  const { t } = useTranslation();
   const timeLimit = quiz.settings.timeLimit || 0;
   const quizStats = quiz.getQuizStatistics();
 

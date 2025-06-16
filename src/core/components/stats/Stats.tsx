@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign, no-mixed-operators */
 import React, {
-  FunctionComponent, useMemo, useState,
+  FunctionComponent, useEffect, useMemo, useState,
 } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
@@ -30,19 +30,28 @@ const Stats: FunctionComponent = () => {
   const {
     asked, correct, data, resetStats, quizzes, addQuiz,
   } = useRulesTestData();
-
   const { t, i18n: { language } } = useTranslation();
   const navigate = useNavigate();
   const [rerender, setRerender] = useState(0);
-  const [resultPDFLink, setResultPDFLink] = useState<string>("");
+  const [resultPDFLink, setResultPDFLink] = useState("");
 
   const quiz = quizzes.find((q) => q.id === quizId);
   const run = quiz?.runs.find((r) => r.id === runId);
 
-  if ((quizId || runId) && !quiz && !run) {
-    navigate("/stats");
-    return undefined;
-  }
+  useEffect(() => {
+    if ((quizId || runId) && !quiz && !run) {
+      navigate("/stats");
+      return undefined;
+    }
+
+    if (resultPDFLink === "") {
+      const pdfGenerator = new PDFGenerator(language, t);
+      setResultPDFLink("Loading");
+      pdfGenerator.createResultPDF(quiz, run, data).then((resultPDF) => {
+        setResultPDFLink(resultPDF);
+      });
+    }
+  }, []);
 
   const askedStat = !run ? asked : run.asked;
   const correctStat = !run ? correct : run.correct.length;
@@ -175,15 +184,6 @@ const Stats: FunctionComponent = () => {
   );
 
   let statHeader;
-
-  if (resultPDFLink === "") {
-    const pdfGenerator = new PDFGenerator(language, t);
-    setResultPDFLink("Loading");
-    pdfGenerator.createResultPDF(quiz, run, data).then((resultPDF) => {
-      setResultPDFLink(resultPDF);
-    });
-  }
-
   if (run) {
     statHeader = (
       <div id="stats-overall-header">
@@ -198,12 +198,12 @@ const Stats: FunctionComponent = () => {
         {(!run || !!run.answers) && (
           <div className="stats-button-group">
             {retryBtn}
-            <a href={resultPDFLink} download="Beach Handball Rules Quiz Result" target="_blank" rel="noreferrer">
               <IconToggleButton
                 label="PDF"
                 icon={faFile}
+                downloadLabel="Beach Handball Rules Quiz Result"
+                downloadLink={resultPDFLink}
               />
-            </a>
           </div>
         )}
       </div>
