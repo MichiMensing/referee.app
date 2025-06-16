@@ -37,7 +37,6 @@ const QuizSettings: FunctionComponent = () => {
   const [timeLimit, setTimeLimit] = useState<number>(0);
   const [maxQuestions, setMaxQuestions] = useState<number>(0);
   const [name, setName] = useState<string>("");
-  const [_, setQuestions] = useState<string[]>([]);
   const [runs, setRuns] = useState<QuizRunModel[]>([]);
   const [pdfGenerated, setPDFGenerated] = useState<boolean>(false);
   const [pdfGenerating, setPDFGenerating] = useState<boolean>(false);
@@ -57,12 +56,11 @@ const QuizSettings: FunctionComponent = () => {
     setTimeLimit(currentQuiz.timeLimit);
     setMaxQuestions(currentQuiz.maxQuestions);
     setName(currentQuiz.name);
-    setQuestions(currentQuiz.questions);
     setRuns(currentQuiz.runs);
   }, [quiz]);
 
   if (!quiz) {
-    return;
+    return <Loading />;
   }
 
   let readOnly = false;
@@ -112,7 +110,6 @@ const QuizSettings: FunctionComponent = () => {
   const handleQuestionChange = (questions: string[]) => {
     quiz.setQuestions(questions);
     setQuiz(quiz);
-    setQuestions(quiz.questions);
   };
 
   const handleStartQuiz = async () => {
@@ -142,7 +139,7 @@ const QuizSettings: FunctionComponent = () => {
     });
   };
 
-  return !quiz? <Loading /> : (
+  return (
     <div id="quiz-settings">
       <div id="quizzes-catalog-header">
         <button
@@ -296,7 +293,8 @@ const QuizSettings: FunctionComponent = () => {
               )}
             </div>
           </div>
-        </div>)}
+        </div>
+      )}
       {quiz && (
         <div className="settings-box">
           <div id="quiz-settings-questions" className="setting">
@@ -314,7 +312,8 @@ const QuizSettings: FunctionComponent = () => {
             quiz={quiz}
             onChange={handleQuestionChange}
           />
-        </div>)}
+        </div>
+      )}
       <div className="quiz-settings-runs-header">
         <h2 className="quiz-settings-runs-title">{t("quizzes.settings.past-runs")}</h2>
       </div>

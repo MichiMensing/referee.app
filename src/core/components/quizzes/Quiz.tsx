@@ -3,8 +3,8 @@ import "./Quiz.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHashtag, faSection, faStopwatch } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import QuizModel from "../../model/Quiz";
 import { useTranslation } from "react-i18next";
+import QuizModel from "../../model/Quiz";
 
 interface Props {
   quiz: QuizModel;

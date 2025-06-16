@@ -74,7 +74,6 @@ const RulesTest: FunctionComponent<RulesTestProps> = ({ mapRuleToAnchor }) => {
     return () => clearInterval(interval);
   }, []);
 
-
   const handleButtonClick = async (event: MouseEvent) => {
     event.preventDefault();
 

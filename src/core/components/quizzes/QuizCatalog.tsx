@@ -3,11 +3,11 @@ import "./QuizCatalog.css";
 import { useNavigate } from "react-router";
 import { faArrowRotateLeft, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { useSearchParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import Quiz from "./Quiz";
 import QuizModel from "../../model/Quiz";
 import { useRulesTestData } from "../../context/TestDataContext";
 import IconToggleButton from "../IconToggleButton";
-import { useTranslation } from "react-i18next";
 
 const DEFAULT_QUIZ = (name:string) => new QuizModel(
   name,

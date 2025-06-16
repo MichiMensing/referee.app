@@ -41,7 +41,7 @@ const Stats: FunctionComponent = () => {
   useEffect(() => {
     if ((quizId || runId) && !quiz && !run) {
       navigate("/stats");
-      return undefined;
+      return;
     }
 
     if (resultPDFLink === "") {
@@ -198,12 +198,12 @@ const Stats: FunctionComponent = () => {
         {(!run || !!run.answers) && (
           <div className="stats-button-group">
             {retryBtn}
-              <IconToggleButton
-                label="PDF"
-                icon={faFile}
-                downloadLabel="Beach Handball Rules Quiz Result"
-                downloadLink={resultPDFLink}
-              />
+            <IconToggleButton
+              label="PDF"
+              icon={faFile}
+              downloadLabel="Beach Handball Rules Quiz Result"
+              downloadLink={resultPDFLink}
+            />
           </div>
         )}
       </div>
