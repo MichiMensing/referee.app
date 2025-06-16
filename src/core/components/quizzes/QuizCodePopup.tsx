@@ -33,7 +33,7 @@ const QuizCodePopup: FunctionComponent<Props> = ({
   };
 
   return (
-    <div>
+    <>
       <IconToggleButton
         label="Share"
         icon={faShare}
@@ -66,7 +66,7 @@ const QuizCodePopup: FunctionComponent<Props> = ({
           </div>
         </div>
       </Popup>
-    </div>
+    </>
   );
 };
 

@@ -154,14 +154,6 @@ const QuizSettings: FunctionComponent = () => {
       </div>
       <div className="settings-box">
         <div id="quizzes-catalog-toolbar">
-          <div className="toolbar-btn-group">
-            <IconToggleButton
-              label={t("quizzes.start")}
-              onChange={handleStartQuiz}
-              highlight
-              icon={faPlay}
-            />
-          </div>
           <div id="quiz-settings-pdf" className="toolbar-btn-group">
             <IconToggleButton
               label={pdfGenerating ? t("quizzes.pdf.generating") : t("quizzes.pdf.generate")}
@@ -225,15 +217,23 @@ const QuizSettings: FunctionComponent = () => {
             )}
           </div>
           <div className="toolbar-btn-group">
+            <IconToggleButton
+              label={t("quizzes.start")}
+              onChange={handleStartQuiz}
+              highlight
+              icon={faPlay}
+            />
             {quiz && <QuizCodePopup quiz={quiz} />}
           </div>
-          <div className="toolbar-btn-group">
-            <IconToggleButton
-              label={t("quizzes.settings.delete")}
-              icon={faTrash}
-              onChange={handleDelete}
-            />
-          </div>
+          {quiz && !quiz.isDefault() && (
+            <div className="toolbar-btn-group">
+              <IconToggleButton
+                label={t("quizzes.settings.delete")}
+                icon={faTrash}
+                onChange={handleDelete}
+              />
+            </div>
+          )}
         </div>
       </div>
       {quiz && (
