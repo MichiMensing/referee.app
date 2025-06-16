@@ -135,7 +135,7 @@ const config = {
     historyApiFallback: {
       index: '/referee-quiz/index.html',
       rewrites: [
-        { from: /./, to: './beach/app.tsx' }
+        { from: '/./', to: './beach/app.tsx' }
       ]
     },
     host: '0.0.0.0',
@@ -147,10 +147,6 @@ const config = {
         runtimeErrors: true,
       }
     }
-  },
-  watchOptions: {
-    aggregateTimeout: 10000,
-    poll: 5000
   },
   devtool: 'source-map'
 };

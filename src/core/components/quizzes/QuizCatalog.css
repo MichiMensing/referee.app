@@ -30,9 +30,14 @@
     }
   }
 
-  & .quizzes-button-group > button {
-    margin-left: 1rem;
-  }
+  & .quizzes-button-group,
+    .toggle-btn {
+      display: flex;
+    }
+
+    .toggle-btn+.toggle-btn {
+      margin-left: 1rem;
+    }
 
   & button {
     background-color: var(--white);

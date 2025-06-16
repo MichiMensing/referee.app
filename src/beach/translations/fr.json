@@ -114,6 +114,11 @@
         "download-quiz": "Télécharger le quiz",
         "download-answers": "Télécharger les réponses",
         "quiz-incomplete": "L'utilisateur n'a pas pu terminer le quiz soit parce qu'il manquait de temps, soit parce qu'il a abandonné le quiz."
+      },
+      "share": {
+        "description": "Partagez cette URL avec vos amis",
+        "copy": "Copier dans le presse-papiers",
+        "title": "Partagez votre quiz"
       }
     }
   }

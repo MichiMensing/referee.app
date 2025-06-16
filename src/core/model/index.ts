@@ -31,6 +31,7 @@ export interface IQuizSettings {
   maxQuestions: number;
   timeLimit: number;
   instantFeedback: boolean;
+  obfuscate?: boolean;
 }
 
 export interface IRunData {

@@ -1,26 +1,44 @@
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent, useEffect, useState } from "react";
 import "./QuizCatalog.css";
-import { t } from "i18next";
 import { useNavigate } from "react-router";
 import { faArrowRotateLeft, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { useSearchParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import Quiz from "./Quiz";
 import QuizModel from "../../model/Quiz";
 import { useRulesTestData } from "../../context/TestDataContext";
 import IconToggleButton from "../IconToggleButton";
 
-const DEFAULT_QUIZ = new QuizModel(
-  t("quizzes.standard-quiz"),
+const DEFAULT_QUIZ = (name:string) => new QuizModel(
+  name,
   { timeLimit: 60, maxQuestions: 30, instantFeedback: false },
   undefined,
   "IHF_DEFAULT",
 );
 
 const QuizCatalog: FunctionComponent = () => {
-  const { quizzes, addQuiz, resetQuizzes } = useRulesTestData();
+  const {
+    quizzes, addQuiz, resetQuizzes, data,
+  } = useRulesTestData();
   const [quizList, setQuizList] = useState<QuizModel[]>(quizzes);
+  const [importing, setImporting] = useState<boolean>(false);
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const { t } = useTranslation();
 
-  const defaultQuiz = quizzes.find((q) => q.isDefault()) || DEFAULT_QUIZ;
+  const importCode = searchParams.get("import");
+  const defaultQuiz = quizzes.find((q) => q.isDefault()) || DEFAULT_QUIZ(t("quizzes.standard-quiz"));
+
+  const handleImport = async (code: string, questionArray: string[]) => {
+    const newQuiz = new QuizModel("Imported Quiz");
+    newQuiz.loadSettingsFromCode(code, questionArray);
+
+    if (addQuiz) {
+      await addQuiz(newQuiz);
+    }
+    setQuizList([...quizList]);
+    navigate(`/quizzes/${newQuiz.id}`);
+  };
 
   const handleCreateNew = async () => {
     const newQuiz = new QuizModel("New Quiz");
@@ -28,6 +46,8 @@ const QuizCatalog: FunctionComponent = () => {
       await addQuiz(newQuiz);
     }
     setQuizList([...quizList]);
+
+    setImporting(false);
     navigate(`/quizzes/${newQuiz.id}`);
   };
 
@@ -37,6 +57,13 @@ const QuizCatalog: FunctionComponent = () => {
     }
     setQuizList([]);
   };
+
+  useEffect(() => {
+    if (importCode && importCode !== "" && !importing) {
+      setImporting(true);
+      handleImport(importCode, Object.keys(data));
+    }
+  }, []);
 
   return (
     <div id="quizzes">

@@ -38,6 +38,8 @@ const QuestionCatalogTree: FunctionComponent<Props> = ({ showCatalog = true, qui
   const { data } = useRulesTestData();
   const { t, i18n: { language } } = useTranslation();
   const [rerender, _] = useState(0);
+  const [checked, setChecked] = useState(quiz.questions);
+  const [expanded, setExpanded] = useState<string[]>([]);
 
   const orderedData = useMemo(() => Object.values(data).reduce<OrderedData>((prev, question) => {
     const { rule, numAsked, numCorrect } = question;
@@ -73,9 +75,6 @@ const QuestionCatalogTree: FunctionComponent<Props> = ({ showCatalog = true, qui
       })),
     })),
   }];
-
-  const [checked, setChecked] = useState<string[]>(quiz.questions);
-  const [expanded, setExpanded] = useState<string[]>([]);
 
   const updateCheckedState = (node: NodeElement) => {
     function getValues(nodeElement: NodeElement): string[] {

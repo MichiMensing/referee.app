@@ -8,6 +8,19 @@ import {
 import QuizRun from "./QuizRun";
 import Question from "./Question";
 
+const TIME_LIMIT_MAP: { [key: string]: { [key: string]: number } } = {
+  1: {
+    0: 0,
+    1: 1,
+    2: 5,
+    3: 15,
+    4: 30,
+    5: 45,
+    6: 60,
+  },
+};
+
+const CODE_GEN_VERSION = 1;
 export default class Quiz {
   private _id: string;
 
@@ -68,6 +81,10 @@ export default class Quiz {
 
   public setTimeLimit(timeLimit: number) {
     this._settings.timeLimit = timeLimit;
+  }
+
+  public setObfuscate(hide: boolean) {
+    this._settings.obfuscate = hide;
   }
 
   public setName(name: string) {
@@ -173,6 +190,92 @@ export default class Quiz {
     return this._id === "IHF_DEFAULT";
   }
 
+  // see Quiz Code Generation Guide in docs for detailed description
+  public encode(questionArray: string[]): string {
+    questionArray.sort();
+
+    let code = "";
+
+    // set version
+    code += this.numToChar(CODE_GEN_VERSION);
+
+    // set settings
+
+    let sCode = "";
+    sCode += (this.instantFeedback ? "1" : "0");
+    sCode += this.maxQuestions.toString().padStart(3, "0");
+
+    const map = TIME_LIMIT_MAP[CODE_GEN_VERSION];
+    Object.values(map).find((limit, i) => {
+      if (limit === this.timeLimit) {
+        sCode += i;
+        return true;
+      }
+      return false;
+    });
+    code = `${code}$${sCode}`;
+
+    // set questions
+    const b = (s: string, i: number) => (i < s.length ? parseInt(s[i], 10) : 0);
+
+    const s = questionArray.map((qId) => {
+      if (this._questions.length === 0) {
+        return "1";
+      }
+      const found = this._questions.find((q) => q === qId);
+      return found ? "1" : "0";
+    }).join("");
+
+    let qCode = "";
+    for (let i = 0; i < s.length; i += 6) {
+      const sum = b(s, i)
+        + 2 * b(s, i + 1)
+        + 4 * b(s, i + 2)
+        + 8 * b(s, i + 3)
+        + 16 * b(s, i + 4)
+        + 32 * b(s, i + 5);
+      qCode += this.numToChar(sum);
+    }
+    code = `${code}$${qCode}`;
+    return code;
+  }
+
+  // see Quiz Code Generation Guide in docs for detailed description
+  public loadSettingsFromCode(code: string, questionArray: string[]) {
+    questionArray.sort();
+    const [vCode, sCode, qCode] = code.split("$");
+    const version = this.charToNum(vCode);
+
+    // set settings
+    if (sCode[0] === "1") {
+      this._settings.instantFeedback = true;
+    }
+
+    this._settings.maxQuestions = parseInt(sCode.slice(1, 3), 10);
+    this._settings.obfuscate = true;
+
+    const currentMap = TIME_LIMIT_MAP[version];
+    this._settings.maxQuestions = currentMap[sCode[4]];
+
+    // set questions
+    let binCode = "";
+    for (let i = 0; i < qCode.length; i += 1) {
+      const sum = this.charToNum(qCode[i]);
+      binCode += sum.toString(2).padStart(6, "0").split("").reverse()
+        .join("");
+    }
+
+    const questions = [];
+
+    for (let i = 0; i < binCode.length; i += 1) {
+      if (binCode[i] === "1") {
+        questions.push(questionArray[i]);
+      }
+    }
+
+    this._questions = questions;
+  }
+
   private secondsToTime(secs: number): ITimeObject {
     const hours = Math.floor(secs / (60 * 60));
 
@@ -195,6 +298,40 @@ export default class Quiz {
       maxQuestions: 0,
       instantFeedback: true,
       timeLimit: 0,
+      obfuscate: false,
     };
+  }
+
+  private numToChar(n: number) {
+    let char = "";
+    if (n <= 9) {
+      char = n.toString();
+    } else if (n <= 35) {
+      char = String.fromCharCode(n + 87);
+    } else if (n <= 61) {
+      char = String.fromCharCode(n + 29);
+    } else if (n === 62) {
+      char = "-";
+    } else if (n === 63) {
+      char = "_";
+    }
+    return char;
+  }
+
+  private charToNum(s: string) {
+    const charCode = s.charCodeAt(0);
+    let sum = 0;
+    if (charCode === 95) {
+      sum = 63;
+    } else if (charCode === 45) {
+      sum = 62;
+    } else if (charCode >= 48 && charCode <= 57) {
+      sum = charCode - 48;
+    } else if (charCode >= 65 && charCode <= 90) {
+      sum = charCode - 29;
+    } else if (charCode >= 97 && charCode <= 122) {
+      sum = charCode - 87;
+    }
+    return sum;
   }
 }

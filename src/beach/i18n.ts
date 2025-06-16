@@ -5,19 +5,19 @@ import fr from "./translations/fr.json";
 
 const i18n = {
   fallbackLng: {
-    'de-CH': ['de'],
-    'de-DE': ['de'],
-    'en-AU': ['en'],
-    'en-BE': ['en'],
-    'en-GB': ['en'],
-    'en-JP': ['en'],
-    'en-US': ['en'],
-    'fr-BE': ['fr'],
-    'fr-CA': ['fr'],
-    'fr-CH': ['fr'],
-    'fr-FR': ['fr'],
-    'es-ES': ['es'],
-    'default': ['en']
+    "de-CH": ["de"],
+    "de-DE": ["de"],
+    "en-AU": ["en"],
+    "en-BE": ["en"],
+    "en-GB": ["en"],
+    "en-JP": ["en"],
+    "en-US": ["en"],
+    "fr-BE": ["fr"],
+    "fr-CA": ["fr"],
+    "fr-CH": ["fr"],
+    "fr-FR": ["fr"],
+    "es-ES": ["es"],
+    default: ["en"],
   },
   debug: process.env.NODE_ENV !== "production",
   interpolation: {
@@ -29,7 +29,7 @@ const i18n = {
     de,
     fr,
   },
-  supportedLngs: ["en", "es", "de", "fr"]
+  supportedLngs: ["en", "es", "de", "fr"],
 };
 
 export default i18n;

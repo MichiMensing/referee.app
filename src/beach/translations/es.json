@@ -114,6 +114,11 @@
         "download-quiz": "Descargar cuestionario",
         "download-answers": "Descargar respuestas",
         "quiz-incomplete": "El usuario no pudo completar la prueba debido a falta de tiempo o porque canceló la prueba."
+      },
+      "share": {
+        "description": "Comparte esta URL con tus amigos",
+        "copy": "Copiar al portapapeles",
+        "title": "Comparte tu cuestionario"
       }
     }
   }
